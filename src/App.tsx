@@ -56,7 +56,7 @@ const App = () => {
         <DebugModeToggle />
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/practicehub/">
           <ScrollToTop />
           <PageViewTracker />
           <AdBlockDetector />
