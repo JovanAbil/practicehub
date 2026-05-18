@@ -133,7 +133,7 @@ export const socialSchoolCourses: Record<string, CourseEntry[]> = {
         { id: 'eastasia', name: 'East Asia' },
         { id: 'japan', name: 'Japan' },
         { id: 'india', name: 'India' },
-        { id: 'unit8', name: 'Unit 8 (Not Updated)' },
+        { id: 'africa', name: 'Africa' },
         { id: 'unit9', name: 'Unit 9 (Not Updated)' },
         { id: 'unit10', name: 'Unit 10 (Not Updated)' },
         { id: 'unit11', name: 'Unit 11 (Not Updated)' },
