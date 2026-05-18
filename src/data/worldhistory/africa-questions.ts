@@ -794,4 +794,433 @@ export const africaQuestions: Question[] = [
     correctAnswer: 'If a king is believed to be sacred or chosen by the gods, challenging or overthrowing him becomes not just a political act but a religious transgression. This creates powerful social pressure to obey the ruler and accept their decisions without question.',
     explanation: 'Divine kingship is a political technology: it adds a layer of supernatural authority to political power, making rebellion psychologically and socially much more costly for potential challengers.',
   },
+  {
+    id: 'africa-60',
+    type: 'multiple-choice',
+    question: 'How did the Swahili language develop?',
+    options: [
+      { label: 'A', value: 'A', text: 'As a combination of Arabic and Bantu' },
+      { label: 'B', value: 'B', text: 'As a combination of Portuguese and Bantu' },
+      { label: 'C', value: 'C', text: 'As a combination of Persian and Arabic' },
+      { label: 'D', value: 'D', text: 'As a purely indigenous African dialect' },
+    ],
+    correctAnswer: 'A',
+    explanation: 'Swahili developed as a blend of Arabic and Bantu, reflecting centuries of trade contact between Arab merchants and East African coastal communities.',
+  },
+ 
+  {
+    id: 'africa-61',
+    type: 'multiple-choice',
+    question: 'How was Islam introduced to East Africa?',
+    options: [
+      { label: 'A', value: 'A', text: 'Through Portuguese missionaries' },
+      { label: 'B', value: 'B', text: 'Through Muslim traders' },
+      { label: 'C', value: 'C', text: 'Through conquering Arab armies' },
+      { label: 'D', value: 'D', text: 'Through Indian pilgrims' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Muslim traders who frequented East African ports gradually introduced Islam to the region through commerce and cultural exchange rather than conquest.',
+  },
+ 
+  {
+    id: 'africa-62',
+    type: 'free-response',
+    question: 'How did the people of Great Zimbabwe positively interact with their environment?',
+    correctAnswer: 'They used the fertile land to farm and raise cattle, and leveraged nearby trade routes to grow in power.',
+    explanation: 'The Shona people of Great Zimbabwe took advantage of fertile agricultural land and strategic trade routes, particularly linking goldfields to coastal cities, to build a prosperous civilization.',
+  },
+ 
+  {
+    id: 'africa-63',
+    type: 'multiple-choice',
+    question: 'What key similarity existed between the Portuguese who arrived in East Africa and the rulers of the Mutapa Empire?',
+    options: [
+      { label: 'A', value: 'A', text: 'Both were primarily interested in spreading Christianity' },
+      { label: 'B', value: 'B', text: 'Both were conquerors seeking to expand their power' },
+      { label: 'C', value: 'C', text: 'Both relied on monsoon winds for travel' },
+      { label: 'D', value: 'D', text: 'Both spoke the Swahili language' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Although the Portuguese came from Europe, they shared a fundamental trait with the Mutapa rulers: both were conquerors trying to extend control over territories and resources.',
+  },
+ 
+  {
+    id: 'africa-64',
+    type: 'select-all',
+    question: 'What were effects of East African trade on different cultural groups? Select all that apply.',
+    options: [
+      { label: 'A', value: 'A', text: 'Culture spread between groups' },
+      { label: 'B', value: 'B', text: 'More religious mosques were built' },
+      { label: 'C', value: 'C', text: 'The Swahili language disappeared' },
+      { label: 'D', value: 'D', text: 'New languages developed to aid communication' },
+    ],
+    correctAnswers: ['A', 'B', 'D'],
+    explanation: 'East African trade enabled cultural diffusion, the growth of Islam (reflected in new mosques), and the emergence of languages like Swahili to bridge communication gaps.',
+  },
+ 
+  {
+    id: 'africa-65',
+    type: 'free-response',
+    question: 'How does the Swahili language serve as an example of cultural interaction?',
+    correctAnswer: 'Because Arabian traders were common visitors to East Africa, a new language blending Arabic and Bantu developed so traders could communicate more easily with local populations.',
+    explanation: 'Language evolution is a direct marker of sustained cultural contact. Swahili\'s Arabic-Bantu roots reflect the long-term presence of Arab traders on the East African coast.',
+  },
+ 
+  {
+    id: 'africa-66',
+    type: 'multiple-choice',
+    question: 'What two languages is the Swahili language composed of?',
+    options: [
+      { label: 'A', value: 'A', text: 'Persian and Bantu' },
+      { label: 'B', value: 'B', text: 'Arabic and Bantu' },
+      { label: 'C', value: 'C', text: 'Arabic and Portuguese' },
+      { label: 'D', value: 'D', text: 'Hindi and Bantu' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Swahili is a Bantu language with significant Arabic vocabulary and influence, born from centuries of Arab-African trading interactions along the coast.',
+  },
+ 
+  {
+    id: 'africa-67',
+    type: 'select-all',
+    question: 'Which groups of traders moved in and out of East African ports? Select all that apply.',
+    options: [
+      { label: 'A', value: 'A', text: 'Indian traders' },
+      { label: 'B', value: 'B', text: 'Persian traders' },
+      { label: 'C', value: 'C', text: 'Arabic traders' },
+      { label: 'D', value: 'D', text: 'African traders' },
+    ],
+    correctAnswers: ['A', 'B', 'C', 'D'],
+    explanation: 'East African port cities were truly cosmopolitan hubs. Indian, Persian, Arabic, and African traders all participated in the vibrant coastal trade network.',
+  },
+ 
+  {
+    id: 'africa-68',
+    type: 'multiple-choice',
+    question: 'How many trading cities existed along the East African coast from Mogadishu to Kilwa and Sofala?',
+    options: [
+      { label: 'A', value: 'A', text: '10' },
+      { label: 'B', value: 'B', text: '20' },
+      { label: 'C', value: 'C', text: '35' },
+      { label: 'D', value: 'D', text: '50' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'Around 35 trading cities dotted the East African coast from Mogadishu in the north down to Kilwa and Sofala in the south, demonstrating the coast\'s economic vitality.',
+  },
+ 
+  {
+    id: 'africa-69',
+    type: 'multiple-choice',
+    question: 'Which best describes Kilwa as a trading city?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was a small, isolated fishing village' },
+      { label: 'B', value: 'B', text: 'It was a wealthy and powerful commercial city' },
+      { label: 'C', value: 'C', text: 'It was a city primarily known for agriculture' },
+      { label: 'D', value: 'D', text: 'It was a city that never engaged in foreign trade' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Kilwa was indeed a rich and influential coastal city, deriving its wealth from controlling key trade routes, especially gold from the interior.',
+  },
+ 
+  {
+    id: 'africa-70',
+    type: 'multiple-choice',
+    question: 'How did Indian traders travel to East Africa and back?',
+    options: [
+      { label: 'A', value: 'A', text: 'Using ocean currents and rowing' },
+      { label: 'B', value: 'B', text: 'Using monsoon winds and sails' },
+      { label: 'C', value: 'C', text: 'Using overland camel caravans' },
+      { label: 'D', value: 'D', text: 'Using steam-powered ships' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Indian traders harnessed the predictable seasonal monsoon winds — blowing toward Africa in winter and back toward India in summer — to sail reliably across the Indian Ocean.',
+  },
+ 
+  {
+    id: 'africa-72',
+    type: 'multiple-choice',
+    question: 'Why did Kilwa grow so wealthy?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was the largest city in Africa' },
+      { label: 'B', value: 'B', text: 'It was the furthest south a ship from India could sail in a single monsoon season' },
+      { label: 'C', value: 'C', text: 'It had the largest army on the coast' },
+      { label: 'D', value: 'D', text: 'It was located at the mouth of a major river' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Kilwa\'s geographic position made it the natural terminus for Indian trade ships; they could reach it and return home within one monsoon cycle, making it a critical exchange hub.',
+  },
+ 
+  {
+    id: 'africa-72',
+    type: 'parts',
+    question: 'Consider Kilwa\'s relationship with Sofala and its trade ambitions.',
+    parts: [
+      {
+        label: 'a',
+        type: 'free-response',
+        question: 'What action did Kilwa take regarding the port of Sofala?',
+        correctAnswer: 'Kilwa seized the port of Sofala.',
+        explanation: 'Kilwa used military and economic power to take control of Sofala.',
+      },
+      {
+        label: 'b',
+        type: 'free-response',
+        question: 'Why did Kilwa seize Sofala?',
+        correctAnswer: 'To control the gold trade flowing through the region.',
+        explanation: 'Sofala was the coastal outlet closest to the goldfields of the interior, so controlling it meant controlling the gold trade.',
+      },
+    ],
+  },
+ 
+  {
+    id: 'africa-73',
+    type: 'parts',
+    question: 'Consider the Portuguese arrival on the East African coast.',
+    parts: [
+      {
+        label: 'a',
+        type: 'select-all',
+        question: 'Which cities did the Portuguese take over? Select all that apply.',
+        options: [
+          { label: 'A', value: 'A', text: 'Sofala' },
+          { label: 'B', value: 'B', text: 'Kilwa' },
+          { label: 'C', value: 'C', text: 'Mombasa' },
+          { label: 'D', value: 'D', text: 'Mogadishu' },
+        ],
+        correctAnswers: ['A', 'B', 'C'],
+        explanation: 'The Portuguese targeted Sofala, Kilwa, and Mombasa — all wealthy coastal cities that could yield significant trade revenue.',
+      },
+      {
+        label: 'b',
+        type: 'free-response',
+        question: 'Why did the Portuguese specifically target those cities?',
+        correctAnswer: 'Because they were rich trading cities.',
+        explanation: 'The Portuguese were motivated by wealth; they seized prosperous cities to extract resources and dominate Indian Ocean trade routes.',
+      },
+    ],
+  },
+ 
+  {
+    id: 'africa-74',
+    type: 'parts',
+    question: 'Consider the East African slave trade before the 1700s.',
+    parts: [
+      {
+        label: 'a',
+        type: 'multiple-choice',
+        question: 'Approximately how many Africans were enslaved and sent abroad before the 1700s?',
+        options: [
+          { label: 'A', value: 'A', text: 'Around 100' },
+          { label: 'B', value: 'B', text: 'Around 1,000' },
+          { label: 'C', value: 'C', text: 'Around 10,000' },
+          { label: 'D', value: 'D', text: 'Around 100,000' },
+        ],
+        correctAnswer: 'B',
+        explanation: 'Historical records indicate around 1,000 enslaved Africans were sent abroad before the 1700s from East Africa.',
+      },
+      {
+        label: 'b',
+        type: 'select-all',
+        question: 'To which regions were enslaved Africans sent? Select all that apply.',
+        options: [
+          { label: 'A', value: 'A', text: 'China' },
+          { label: 'B', value: 'B', text: 'Arabia' },
+          { label: 'C', value: 'C', text: 'Persia' },
+          { label: 'D', value: 'D', text: 'India' },
+        ],
+        correctAnswers: ['A', 'B', 'C', 'D'],
+        explanation: 'Enslaved Africans were sent to China, Arabia, Persia, Iraq, and India, reflecting the wide reach of East African trade networks.',
+      },
+    ],
+  },
+ 
+  {
+    id: 'africa-75',
+    type: 'multiple-choice',
+    question: 'What was Great Zimbabwe?',
+    options: [
+      { label: 'A', value: 'A', text: 'A Portuguese fortress on the East African coast' },
+      { label: 'B', value: 'B', text: 'A city established by the Shona people' },
+      { label: 'C', value: 'C', text: 'An Arab trading post near the goldfields' },
+      { label: 'D', value: 'D', text: 'A religious temple built by the Mutapa Empire' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Great Zimbabwe was a major city founded and built by the Shona people of southern Africa, now located in modern-day Zimbabwe.',
+  },
+ 
+  {
+    id: 'africa-76',
+    type: 'select-all',
+    question: 'What economic advantages did Great Zimbabwe hold? Select all that apply.',
+    options: [
+      { label: 'A', value: 'A', text: 'Located near an important trade route linking goldfields to Sofala' },
+      { label: 'B', value: 'B', text: 'Controlled a major sea port directly' },
+      { label: 'C', value: 'C', text: 'Took over smaller cities and demanded tribute payments' },
+      { label: 'D', value: 'D', text: 'Had access to fertile farmland for agriculture' },
+    ],
+    correctAnswers: ['A', 'C', 'D'],
+    explanation: 'Great Zimbabwe\'s wealth came from its proximity to key trade routes connecting goldfields to the coast, its political dominance over smaller cities, and productive agricultural land. It did not control a seaport directly.',
+  },
+ 
+  {
+    id: 'africa-77',
+    type: 'multiple-choice',
+    question: 'How did historians and archaeologists prove that Great Zimbabwe was a real, significant civilization?',
+    options: [
+      { label: 'A', value: 'A', text: 'Through written Portuguese records' },
+      { label: 'B', value: 'B', text: 'Through ancient ruins discovered at the site' },
+      { label: 'C', value: 'C', text: 'Through Arab merchant diaries' },
+      { label: 'D', value: 'D', text: 'Through oral traditions passed down by the Swahili' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The discovery of ancient stone ruins at Great Zimbabwe provided physical archaeological evidence confirming the existence of a sophisticated Shona civilization.',
+  },
+ 
+  {
+    id: 'africa-78',
+    type: 'free-response',
+    question: 'Who was Mutota and what motivated his expansion?',
+    correctAnswer: 'Mutota was a leader who wanted to find a new source of salt and settled in a fertile valley, eventually building the Mutapa Empire.',
+    explanation: 'The search for salt, a vital resource, drove Mutota\'s movement into new territory, and his settlement in a fertile valley provided the foundation for the Mutapa Empire.',
+  },
+ 
+  {
+    id: 'africa-79',
+    type: 'multiple-choice',
+    question: 'What does the title "mwene mutapa" mean?',
+    options: [
+      { label: 'A', value: 'A', text: 'Peaceful farmer' },
+      { label: 'B', value: 'B', text: 'Master pillager/conqueror' },
+      { label: 'C', value: 'C', text: 'Lord of the coast' },
+      { label: 'D', value: 'D', text: 'Keeper of gold' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mwene mutapa translates to "master pillager" or "conqueror," reflecting the militaristic and expansionist nature of Mutota\'s leadership.',
+  },
+ 
+  {
+    id: 'africa-80',
+    type: 'multiple-choice',
+    question: 'Who was Mutota\'s son and successor?',
+    options: [
+      { label: 'A', value: 'A', text: 'Shona' },
+      { label: 'B', value: 'B', text: 'Matope' },
+      { label: 'C', value: 'C', text: 'Kilwa' },
+      { label: 'D', value: 'D', text: 'Sofala' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Matope was Mutota\'s son and continued his father\'s legacy of building and expanding the Mutapa Empire.',
+  },
+ 
+  {
+    id: 'africa-81',
+    type: 'free-response',
+    question: 'How did Europeans ultimately gain control over the Mutapa Empire?',
+    correctAnswer: 'They overthrew an existing ruler and replaced him with a ruler they could control.',
+    explanation: 'Rather than direct military conquest alone, the Europeans used political manipulation — installing a puppet ruler — to exercise indirect but effective control over the Mutapa Empire.',
+  },
+ 
+  {
+    id: 'africa-82',
+    type: 'multiple-choice',
+    question: 'Which port did Kilwa seize in order to dominate the gold trade?',
+    options: [
+      { label: 'A', value: 'A', text: 'Mombasa' },
+      { label: 'B', value: 'B', text: 'Mogadishu' },
+      { label: 'C', value: 'C', text: 'Sofala' },
+      { label: 'D', value: 'D', text: 'Zanzibar' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'Sofala was the key port closest to the interior goldfields. By seizing it, Kilwa positioned itself as the dominant broker of gold moving from the interior to Indian Ocean traders.',
+  },
+ 
+  // ── CONCEPTUAL QUESTIONS (30% additional) ─────────────────────────────────
+ 
+  {
+    id: 'africa-83',
+    type: 'free-response',
+    question: 'Why were monsoon winds so critical to trade between India and East Africa, and what would have happened to that trade without them?',
+    correctAnswer: 'Monsoon winds provided predictable, seasonal sailing routes across the Indian Ocean. Without them, ships would have had no reliable means of crossing the ocean and returning home in a single season, making regular trade impractical.',
+    explanation: 'Pre-modern ocean trade depended entirely on natural wind patterns. The monsoons made the Indian Ocean a navigable highway rather than a barrier, enabling the entire East African trade network to flourish.',
+  },
+ 
+  {
+    id: 'africa-84',
+    type: 'multiple-choice',
+    question: 'How did Kilwa\'s geographic position on the East African coast directly translate into economic power?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was near the largest freshwater lake in Africa, supporting farming' },
+      { label: 'B', value: 'B', text: 'It was the southernmost point reachable by Indian ships in one monsoon season, making it a natural trade terminus' },
+      { label: 'C', value: 'C', text: 'It was the closest African city to the Arabian Peninsula' },
+      { label: 'D', value: 'D', text: 'It had the deepest harbor on the coast, capable of holding more ships' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Kilwa\'s wealth was rooted in its geography: Indian traders could reach it and return home within one monsoon cycle, so all trade goods passed through Kilwa, generating enormous tolls and revenue.',
+  },
+ 
+  {
+    id: 'africa-85',
+    type: 'free-response',
+    question: 'What does the spread of Islam to East Africa through trade — rather than conquest — suggest about the relationship between commerce and religion in the medieval world?',
+    correctAnswer: 'It suggests that trade networks served as powerful vehicles for cultural and religious diffusion, even without military force. Sustained contact between Muslim merchants and local populations gradually made Islam attractive or familiar to coastal East Africans.',
+    explanation: 'Islam\'s peaceful spread along trade routes is a recurring historical pattern seen across the Indian Ocean world, contrasting sharply with forced religious conversion through warfare.',
+  },
+ 
+  {
+    id: 'africa-86',
+    type: 'multiple-choice',
+    question: 'Great Zimbabwe grew powerful by controlling trade routes and extracting tribute from smaller cities. Which concept does this best illustrate?',
+    options: [
+      { label: 'A', value: 'A', text: 'Democratic governance' },
+      { label: 'B', value: 'B', text: 'Economic isolationism' },
+      { label: 'C', value: 'C', text: 'Empire-building through economic dominance' },
+      { label: 'D', value: 'D', text: 'Egalitarian resource sharing' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'By positioning itself on key trade routes and forcing smaller states to pay tribute, Great Zimbabwe exemplifies how empires grow not just through military conquest but through controlling economic chokepoints.',
+  },
+ 
+  {
+    id: 'africa-87',
+    type: 'free-response',
+    question: 'Why is language considered some of the strongest evidence of cultural exchange between two groups of people?',
+    correctAnswer: 'Language absorbs vocabulary, grammar, and concepts from cultures in sustained contact. The formation of a hybrid language like Swahili shows that interaction between Arab traders and Bantu-speaking Africans was deep, long-lasting, and mutually influential — not just superficial.',
+    explanation: 'Historians and linguists use language evolution as a direct record of cultural contact. A blended language cannot form without extended, meaningful interaction between populations.',
+  },
+ 
+  {
+    id: 'africa-88',
+    type: 'multiple-choice',
+    question: 'The European strategy of overthrowing a Mutapa ruler and replacing him with a controllable one is an example of which broader colonial tactic?',
+    options: [
+      { label: 'A', value: 'A', text: 'Direct rule through military occupation' },
+      { label: 'B', value: 'B', text: 'Indirect rule through a puppet government' },
+      { label: 'C', value: 'C', text: 'Cultural assimilation through missionary work' },
+      { label: 'D', value: 'D', text: 'Economic integration through free trade agreements' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Installing a compliant leader while maintaining the appearance of local governance is a classic form of indirect colonial rule, allowing Europeans to control resources and policy without stationing large armies.',
+  },
+ 
+  {
+    id: 'africa-89',
+    type: 'parts',
+    question: 'Evaluate the overall significance of East African coastal cities as centers of exchange.',
+    parts: [
+      {
+        label: 'a',
+        type: 'free-response',
+        question: 'What types of exchange — beyond just goods — took place in cities like Kilwa and Mombasa?',
+        correctAnswer: 'Cultural exchange (including spread of Islam and new languages like Swahili), religious exchange (construction of mosques), linguistic exchange, and the movement of people (including enslaved Africans).',
+        explanation: 'Trade cities were intersections of civilizations where ideas, religions, languages, and peoples mixed alongside physical commodities.',
+      },
+      {
+        label: 'b',
+        type: 'free-response',
+        question: 'Why did the wealth of these coastal cities ultimately make them targets for the Portuguese?',
+        correctAnswer: 'The accumulated wealth from centuries of Indian Ocean trade made these cities highly valuable prizes. Controlling them gave the Portuguese access to gold, ivory, and other trade revenues, as well as strategic positions along the sea route to Asia.',
+        explanation: 'The Portuguese arrived in the Indian Ocean seeking to break into — and then dominate — the existing trade network. The richest cities were the most strategically and economically valuable targets.',
+      },
+    ],
+  },
 ];
