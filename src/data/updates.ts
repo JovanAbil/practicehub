@@ -17,6 +17,15 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'May 18th, 2026',
+    title: 'Minor Updates',
+    items: [
+      'Website has officially been moved to Github',
+      'Chemistry & Biology Units are finalized',
+      'AI Prompt updated so it can extract notes properly, use Claude!',
+    ],
+  },
+  {
     date: 'April 29th, 2026',
     title: 'Minor Updates',
     items: [
