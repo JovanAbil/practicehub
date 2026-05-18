@@ -19,6 +19,11 @@ const AI_PROMPT = `You are a study question generator. Given the notes below, cr
 CRITICAL: The file MUST start with this exact import statement on the very first line:
 import { Question } from '@/types/quiz';
 
+ALSO CRITICAL:
+Make each statement from the notes into a (who, what, when, where, why, how) question and then 
+30% of those 100% amount of questions should be added to the main set as conceptual and understanding based questions.
+So in total 130% questions; 100% simple who,what,when,where,why,how and 30% conceptual additional questions
+
 Then export a single array. Use the variable name provided or default to "generatedQuestions".
 
 === COMPLETE QUESTION FORMATTING GUIDE ===
