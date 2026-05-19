@@ -9,6 +9,7 @@ import { CheckCircle2, XCircle, SkipForward } from 'lucide-react';
 import { PartsQuestion, PartAttemptState } from '@/types/quiz';
 import MathText from '@/components/MathText';
 import MathQuickInput from '@/components/MathQuickInput';
+import { resolveImagePath } from '@/utils/resolveImagePath';
 
 import QuestionTable from '@/components/QuestionTable';
 import { useRef } from 'react';
