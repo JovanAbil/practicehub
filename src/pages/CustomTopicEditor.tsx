@@ -835,7 +835,7 @@ const CustomTopicEditor = () => {
                   </Button>
                   {editingQuestion.image && (
                     <div className="flex items-center gap-2">
-                      <img src={editingQuestion.image} alt="Preview" className="h-16 w-16 object-cover rounded" />
+                      <img src={resolveImagePath(editingQuestion.image)} alt="Preview" className="h-16 w-16 object-cover rounded" />
                       {questions.length > 0 && (
                         <Button
                           variant="outline"
@@ -922,7 +922,7 @@ const CustomTopicEditor = () => {
                       </div>
                       {option.image && (
                         <div className="flex items-center gap-2 ml-10">
-                          <img src={option.image} alt={`Option ${option.label}`} className="h-12 w-12 object-cover rounded border" />
+                          <img src={resolveImagePath(option.image)} alt={`Option ${option.label}`} className="h-12 w-12 object-cover rounded border" />
                           <Button variant="ghost" size="sm" onClick={() => removeOptionImage(index)}>
                             <Trash2 className="h-3 w-3 mr-1" />
                             Remove
@@ -1027,7 +1027,7 @@ const CustomTopicEditor = () => {
                           </Button>
                           {part.image && (
                             <>
-                              <img src={part.image} alt="Part img" className="h-10 w-10 object-cover rounded" />
+                              <img src={resolveImagePath(part.image)} alt="Part img" className="h-10 w-10 object-cover rounded" />
                               <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => {
                                 const newParts = [...editingQuestion.parts!];
                                 newParts[pIdx] = { ...newParts[pIdx], image: '' };
