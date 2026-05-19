@@ -130,7 +130,7 @@ const PartsQuestionView = ({
       {question.image && (
         <div className="mb-4 flex justify-center">
           <img 
-            src={question.image} 
+            src={resolveImagePath(question.image)}
             alt="Question diagram" 
             className="max-w-2xl max-h-96 w-auto h-auto object-contain rounded-lg border-2 border-border"
           />
@@ -168,7 +168,7 @@ const PartsQuestionView = ({
             {part.image && (
               <div className="mb-3 flex justify-start">
                 <img 
-                  src={part.image} 
+                  src={resolveImagePath(part.image)} 
                   alt={`Part ${part.label} diagram`} 
                   className="max-w-md max-h-48 w-auto h-auto object-contain rounded border border-border"
                 />
@@ -202,7 +202,7 @@ const PartsQuestionView = ({
                     <Label htmlFor={`${part.label}-${option.value}`} className="flex-1 cursor-pointer text-sm">
                       <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
                       {option.image ? (
-                        <img src={option.image} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
+                        <img src={resolveImagePath(option.image)} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
                       ) : (
                         <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
                       )}
@@ -249,7 +249,7 @@ const PartsQuestionView = ({
                       <span className="flex-1 text-sm">
                         <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
                         {option.image ? (
-                          <img src={option.image} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
+                          <img src={resolveImagePath(option.image)} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
                         ) : (
                           <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
                         )}
