@@ -39,8 +39,6 @@ export const mathApCourses: CourseEntry[] = [
       { id: 'logarithmic', name: 'Logarithmic' },
       { id: 'trigonometric', name: 'Trigonometric' },
       { id: 'polar', name: 'Polar' },
-      { id: 'parametric', name: 'Parametric (Not Updated)' },
-      { id: 'vectorsMatrices', name: 'Vectors and Matrices (Not Updated)' },
     ],
   },
 ];
