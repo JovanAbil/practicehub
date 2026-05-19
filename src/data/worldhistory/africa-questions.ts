@@ -1231,4 +1231,1017 @@ export const africaQuestions: Question[] = [
     listAnswers: ["A: Sahara Desert","B: Atlas Mountains","C: Strait of Gibraltar","D: Mediterranean Sea","E: Niger River","F: Lake Chad","G: Gulf of Guinea","H: Congo River","I: Nile River","K: White Nile","L: Blue Nile","M: Zambezi River","N: Kalahari Desert","O: Limpopo River","P: Orange River","Q: Red Sea","R: Gulf of Aden","S: Indian Ocean","T: Madagascar","U: Arabian Peninsula","V: Persian Gulf","W: Black Sea","X: Atlantic Ocean"],
     image: "/images/worldhistory/africa1.png",
   },
+   {
+    id: 'africa-91',
+    type: 'multiple-choice',
+    question: 'What is a griot?',
+    options: [
+      { label: 'A', value: 'A', text: 'A type of salt mined in the Sahara' },
+      { label: 'B', value: 'B', text: 'A poet who sings the praises of wealthy patrons, preserving history through oral tradition' },
+      { label: 'C', value: 'C', text: 'A title given to Malian kings' },
+      { label: 'D', value: 'D', text: 'A Muslim scholar who taught at Sankore University' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Griots were oral historians and praise-singers whose tradition predates the written word in West Africa. Their sung epics are the main source of early Malian history.',
+  },
+ 
+  {
+    id: 'africa-92',
+    type: 'multiple-choice',
+    question: 'Why are griot epics historically significant?',
+    options: [
+      { label: 'A', value: 'A', text: 'They were written down by Arab scholars and preserved in Timbuktu' },
+      { label: 'B', value: 'B', text: 'They are the main source of early Malian history, passed down orally before writing existed' },
+      { label: 'C', value: 'C', text: 'They documented trade transactions between Ghana and the Saharan merchants' },
+      { label: 'D', value: 'D', text: 'They were used to teach children Islamic law' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Because writing came late to much of West Africa, griots served as living libraries. Their oral epics preserve genealogies, royal histories, and cultural memory that would otherwise be lost.',
+  },
+ 
+  // ── MANSA MUSA'S PILGRIMAGE ───────────────────────────────────────────────
+ 
+  {
+    id: 'africa-93',
+    type: 'multiple-choice',
+    question: 'How many enslaved people accompanied Mansa Musa on his pilgrimage to Mecca, and what did each carry?',
+    options: [
+      { label: 'A', value: 'A', text: '100 slaves, each carrying a sack of gold dust' },
+      { label: 'B', value: 'B', text: '500 slaves, each carrying a staff of pure gold' },
+      { label: 'C', value: 'C', text: '1,000 slaves, each carrying a bolt of fine silk' },
+      { label: 'D', value: 'D', text: '200 slaves, each carrying a chest of salt and gold' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mansa Musa\'s pilgrimage entourage included 500 enslaved people, each carrying a golden staff — a spectacular display of Mali\'s enormous wealth that astonished the entire Islamic world.',
+  },
+ 
+  {
+    id: 'africa-94',
+    type: 'multiple-choice',
+    question: 'What economic consequence did Mansa Musa\'s generosity cause in Cairo during his pilgrimage?',
+    options: [
+      { label: 'A', value: 'A', text: 'He bought so many goods that Cairo ran out of imported silk' },
+      { label: 'B', value: 'B', text: 'He gave away so much gold that Cairo\'s gold price slumped for 12 years' },
+      { label: 'C', value: 'C', text: 'His spending caused a famine by driving up food prices' },
+      { label: 'D', value: 'D', text: 'He caused the salt trade to collapse by trading it freely' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The sheer quantity of gold Mansa Musa distributed in Cairo flooded the market and caused gold\'s value to drop, depressing Cairo\'s economy for roughly a decade — a dramatic demonstration of Mali\'s wealth.',
+  },
+ 
+  {
+    id: 'africa-95',
+    type: 'multiple-choice',
+    question: 'What unusual building practice did Mansa Musa follow on his return journey from Mecca?',
+    options: [
+      { label: 'A', value: 'A', text: 'He founded a new city at every river crossing' },
+      { label: 'B', value: 'B', text: 'He ordered a mosque built every time he stopped on a Friday' },
+      { label: 'C', value: 'C', text: 'He planted a gold-topped column at every major town he passed through' },
+      { label: 'D', value: 'D', text: 'He constructed a new school at every city that converted to Islam' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Friday is the holy day in Islam. Mansa Musa\'s commitment to building a mosque at every Friday stop along his return journey reflected both his deep piety and his enormous resources.',
+  },
+ 
+  // ── DJENNÉ ────────────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-96',
+    type: 'multiple-choice',
+    question: 'What role did the city of Djenné play in the trans-Saharan trade network during the Middle Ages?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was the final port where goods were loaded onto ships for the Indian Ocean' },
+      { label: 'B', value: 'B', text: 'All gold and salt traveling to and from Timbuktu passed through Djenné' },
+      { label: 'C', value: 'C', text: 'It was where the gold was mined before being traded northward' },
+      { label: 'D', value: 'D', text: 'It was the seat of Mansa Musa\'s empire and political capital' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Djenné functioned as the key commercial gateway on the route between the goldfields and Timbuktu. Every caravan moving gold north or salt south passed through it, making it enormously prosperous.',
+  },
+ 
+  {
+    id: 'africa-97',
+    type: 'multiple-choice',
+    question: 'What unusual material was used to construct the Great Mosque of Djenné, and approximately when was it built?',
+    options: [
+      { label: 'A', value: 'A', text: 'Carved stone, dating to the 10th century' },
+      { label: 'B', value: 'B', text: 'Mud (adobe), dating back to the 13th century' },
+      { label: 'C', value: 'C', text: 'Fired brick, constructed in the 15th century' },
+      { label: 'D', value: 'D', text: 'Salt blocks and wood, built in the 14th century' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The Great Mosque of Djenné is built entirely of mud (sun-dried adobe) and dates to the 13th century. It is still standing and is the largest mud-brick structure in the world.',
+  },
+ 
+  {
+    id: 'africa-98',
+    type: 'multiple-choice',
+    question: 'What remarkable literacy claim is made about the city of Djenné?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was the first African city to teach mathematics using printed textbooks' },
+      { label: 'B', value: 'B', text: 'It is possibly the only town in Africa where not a single person is illiterate — everyone reads and writes in Arabic' },
+      { label: 'C', value: 'C', text: 'It had the highest percentage of university graduates in medieval West Africa' },
+      { label: 'D', value: 'D', text: 'Every child in Djenné was required by law to memorize the entire Qur\'an by age ten' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Djenné\'s long tradition as an Islamic center of learning — where children were sent from across West Africa to study — produced a culture of universal literacy in Arabic that persists to this day.',
+  },
+ 
+  {
+    id: 'africa-99',
+    type: 'free-response',
+    question: 'Why were children sent to Djenné from all over West Africa, and what subject was at the center of their education?',
+    correctAnswer: 'Djenné was a traditional center of Islamic learning. Children came to study the Qur\'an and Islamic scholarship, which also promoted literacy and learning more broadly.',
+    explanation: 'Djenné\'s reputation as a center of Islamic scholarship made it a destination for students across West Africa, reinforcing the broader link between the spread of Islam and the expansion of education.',
+  },
+ 
+  // ── SALT & TRADE VALUE ────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-100',
+    type: 'multiple-choice',
+    question: 'What was the extraordinary exchange rate between salt and gold in medieval Mali?',
+    options: [
+      { label: 'A', value: 'A', text: 'One pound of salt for one pound of gold' },
+      { label: 'B', value: 'B', text: 'Salt was exchanged ounce for ounce with gold' },
+      { label: 'C', value: 'C', text: 'Ten pounds of salt were worth one pound of gold' },
+      { label: 'D', value: 'D', text: 'Salt was worth twice its weight in gold' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The equal weight exchange of salt for gold — ounce for ounce — illustrates how desperately scarce and essential salt was to people in the goldfields of West Africa who had no local source.',
+  },
+ 
+  {
+    id: 'africa-101',
+    type: 'multiple-choice',
+    question: 'According to historians, which commodity was the original driver of trans-Saharan trade routes — not the more famous one?',
+    options: [
+      { label: 'A', value: 'A', text: 'Gold' },
+      { label: 'B', value: 'B', text: 'Ivory' },
+      { label: 'C', value: 'C', text: 'Salt' },
+      { label: 'D', value: 'D', text: 'Enslaved people' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'Salt, not gold, is credited with creating the ancient trans-Saharan trade routes. Salt was a biological necessity — without it humans and animals cannot survive — making it the original motivator for crossing the Sahara.',
+  },
+ 
+  {
+    id: 'africa-102',
+    type: 'multiple-choice',
+    question: 'Who controlled the salt trade in the Sahara, and who actually performed the physical labor of mining it?',
+    options: [
+      { label: 'A', value: 'A', text: 'Mande merchants controlled it; Berber laborers did the mining' },
+      { label: 'B', value: 'B', text: 'The nomadic Tuareg people controlled the trade; the Bella people did the digging under a traditional arrangement' },
+      { label: 'C', value: 'C', text: 'The Soninke king controlled all salt production; enslaved Saharan peoples did the work' },
+      { label: 'D', value: 'D', text: 'Arab merchants controlled it; Hausa workers did the physical extraction' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The nomadic Tuareg dominated the Saharan salt trade, while the Bella people performed the backbreaking work of extracting salt under a hereditary arrangement passed from father to son.',
+  },
+ 
+  {
+    id: 'africa-103',
+    type: 'free-response',
+    question: 'Describe the condition of the Bella people who worked in the Saharan salt mines.',
+    correctAnswer: 'The Bella people were born into a form of slavery passed down from father to son — considered traditional rather than illegal — and worked under Tuareg masters extracting salt deep in the Sahara.',
+    explanation: 'The Bella people\'s situation illustrates how slavery took different forms across Africa, often rooted in traditional social hierarchies rather than the transatlantic model most familiar in Western history.',
+  },
+ 
+  // ── ISLAM'S ARRIVAL IN WEST AFRICA ────────────────────────────────────────
+ 
+  {
+    id: 'africa-104',
+    type: 'multiple-choice',
+    question: 'When was Islam introduced to the Niger River Valley, and who brought it?',
+    options: [
+      { label: 'A', value: 'A', text: 'In the 8th century, brought by conquering Arab armies' },
+      { label: 'B', value: 'B', text: 'In the 11th and 12th centuries, introduced by Arab traders' },
+      { label: 'C', value: 'C', text: 'In the 15th century, brought by Portuguese missionaries' },
+      { label: 'D', value: 'D', text: 'In the 9th century, introduced by North African Berber warriors' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Arab traders introduced Islam to the Niger River Valley in the 11th and 12th centuries through commerce and cultural exchange rather than military conquest.',
+  },
+ 
+  {
+    id: 'africa-105',
+    type: 'multiple-choice',
+    question: 'What did the arrival of Islam bring to the Niger River Valley beyond religion?',
+    options: [
+      { label: 'A', value: 'A', text: 'Iron-working technology' },
+      { label: 'B', value: 'B', text: 'The written word and literacy' },
+      { label: 'C', value: 'C', text: 'Gunpowder weapons' },
+      { label: 'D', value: 'D', text: 'New agricultural techniques' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'With Islam came Arabic script and the expectation that believers should read the Qur\'an, which introduced literacy to the region and gave rise to scholarship, manuscripts, and educational institutions.',
+  },
+ 
+  {
+    id: 'africa-106',
+    type: 'multiple-choice',
+    question: 'What commodity became the most important item in commerce in the Niger River region during the 16th century — surpassing even gold?',
+    options: [
+      { label: 'A', value: 'A', text: 'Salt' },
+      { label: 'B', value: 'B', text: 'Ivory' },
+      { label: 'C', value: 'C', text: 'Books' },
+      { label: 'D', value: 'D', text: 'Cotton textiles' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'By the 16th century, books had become the most valued trade commodity in the region — a remarkable testament to the intellectual culture that Islam and commerce had built in cities like Timbuktu and Djenné.',
+  },
+ 
+  // ── GHANA'S ORIGINS & STRUCTURE ───────────────────────────────────────────
+ 
+  {
+    id: 'africa-107',
+    type: 'multiple-choice',
+    question: 'What does the name "Ghana" actually refer to, according to Arab sources?',
+    options: [
+      { label: 'A', value: 'A', text: 'A Soninke word meaning "land of gold"' },
+      { label: 'B', value: 'B', text: 'The Arab name given to the Soninke king himself' },
+      { label: 'C', value: 'C', text: 'The name of Ghana\'s capital city' },
+      { label: 'D', value: 'D', text: 'A Berber word for "desert gateway"' },
+    ],
+    correctAnswer: 'B',
+    explanation: '"Ghana" was the title Arab traders used for the Soninke king — not originally the name of the territory. Arab merchants applied the king\'s title to the entire kingdom, which is how the name spread.',
+  },
+ 
+  {
+    id: 'africa-108',
+    type: 'multiple-choice',
+    question: 'Approximately when was the Empire of Ghana established?',
+    options: [
+      { label: 'A', value: 'A', text: 'Around 250 BC' },
+      { label: 'B', value: 'B', text: 'Around 700 AD' },
+      { label: 'C', value: 'C', text: 'Around 1200 AD' },
+      { label: 'D', value: 'D', text: 'Around 400 AD' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The Empire of Ghana was established by around 700 AD, making it one of the earliest major empires in West Africa — predating the Mali Empire by several centuries.',
+  },
+ 
+  {
+    id: 'africa-109',
+    type: 'multiple-choice',
+    question: 'Why did Ghana\'s kings deliberately control the supply of gold and salt rather than allowing free trade?',
+    options: [
+      { label: 'A', value: 'A', text: 'To prevent other kingdoms from knowing where the gold was mined' },
+      { label: 'B', value: 'B', text: 'To prevent an oversupply that would devalue both commodities and reduce royal revenue' },
+      { label: 'C', value: 'C', text: 'To satisfy religious laws that restricted the sale of precious metals' },
+      { label: 'D', value: 'D', text: 'To keep gold exclusively for trade with North African kingdoms' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Ghana\'s kings understood supply-and-demand economics: flooding the market with gold or salt would lower prices and reduce their tax revenue. Controlling supply kept prices high and the kingdom wealthy.',
+  },
+ 
+  {
+    id: 'africa-110',
+    type: 'multiple-choice',
+    question: 'What three roles did Ghana\'s rulers hold simultaneously?',
+    options: [
+      { label: 'A', value: 'A', text: 'Trader, builder, and scholar' },
+      { label: 'B', value: 'B', text: 'Religious, legal, and military leader' },
+      { label: 'C', value: 'C', text: 'Farmer, warrior, and diplomat' },
+      { label: 'D', value: 'D', text: 'Taxman, builder, and religious leader' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Ghana\'s rulers were simultaneously the supreme religious authority, the highest judge in legal disputes, and the commander of the military — a concentration of power that made them nearly absolute rulers.',
+  },
+ 
+  {
+    id: 'africa-111',
+    type: 'parts',
+    question: 'Consider the fall of the Empire of Ghana.',
+    parts: [
+      {
+        label: 'a',
+        type: 'multiple-choice',
+        question: 'What event in 1076 AD set Ghana on a path toward decline?',
+        options: [
+          { label: 'A', value: 'A', text: 'The Songhai people invaded from the east' },
+          { label: 'B', value: 'B', text: 'Muslim Berbers from the north attacked, disrupting the gold-salt trade' },
+          { label: 'C', value: 'C', text: 'A severe drought destroyed Ghana\'s agricultural base' },
+          { label: 'D', value: 'D', text: 'The Mandingo people seized control of the goldfields' },
+        ],
+        correctAnswer: 'B',
+        explanation: 'In 1076 AD, Muslim Berbers from North Africa attacked Ghana. Although they were eventually defeated, the disruption to the gold-salt trade fatally weakened Ghana\'s economic foundation.',
+      },
+      {
+        label: 'b',
+        type: 'free-response',
+        question: 'What geographic shift in gold deposits also contributed to Ghana\'s decline?',
+        correctAnswer: 'Gold supplies in the forest areas of West Africa where Ghana operated declined, and new gold deposits were found further east — shifting the center of wealth away from Ghana\'s territory.',
+        explanation: 'When the goldfields moved east, Ghana\'s geographic advantage as the middleman of the gold-salt trade disappeared, and economic power shifted with the gold.',
+      },
+    ],
+  },
+ 
+  {
+    id: 'africa-112',
+    type: 'multiple-choice',
+    question: 'Who controlled the gold trade in West Africa by 1200 AD, following Ghana\'s decline?',
+    options: [
+      { label: 'A', value: 'A', text: 'The Songhai people' },
+      { label: 'B', value: 'B', text: 'The Mandingo people' },
+      { label: 'C', value: 'C', text: 'The Berber nomads' },
+      { label: 'D', value: 'D', text: 'The Hausa city-states' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'By 1200 AD, the Mandingo people had taken control of the gold trade in West Africa, filling the power vacuum left by Ghana\'s collapse and setting the stage for the rise of the Mali Empire.',
+  },
+ 
+  // ── KEY DATES IN MALI & SONGHAI ───────────────────────────────────────────
+ 
+  {
+    id: 'africa-113',
+    type: 'multiple-choice',
+    question: 'In what year did Sundiata\'s rule — and with it the Mali Empire — officially begin?',
+    options: [
+      { label: 'A', value: 'A', text: '1076 AD' },
+      { label: 'B', value: 'B', text: '1200 AD' },
+      { label: 'C', value: 'C', text: '1235 AD' },
+      { label: 'D', value: 'D', text: '1312 AD' },
+    ],
+    correctAnswer: 'C',
+    explanation: '1235 AD marks the beginning of Sundiata\'s rule, which is also considered the founding of the Mali Empire as a major power in West Africa.',
+  },
+ 
+  {
+    id: 'africa-114',
+    type: 'multiple-choice',
+    question: 'During what years did Mansa Musa rule the Mali Empire?',
+    options: [
+      { label: 'A', value: 'A', text: '1235–1280 AD' },
+      { label: 'B', value: 'B', text: '1312–1337 AD' },
+      { label: 'C', value: 'C', text: '1400–1450 AD' },
+      { label: 'D', value: 'D', text: '1280–1312 AD' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mansa Musa ruled from 1312 to 1337 AD, a period during which the Mali Empire reached the peak of its wealth and international fame.',
+  },
+ 
+  {
+    id: 'africa-115',
+    type: 'multiple-choice',
+    question: 'When did the famous traveler Ibn Battuta visit the Mali Empire?',
+    options: [
+      { label: 'A', value: 'A', text: '1235 AD' },
+      { label: 'B', value: 'B', text: '1312 AD' },
+      { label: 'C', value: 'C', text: '1352 AD' },
+      { label: 'D', value: 'D', text: '1450 AD' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'Ibn Battuta visited Mali in 1352 AD, several decades after Mansa Musa\'s reign. His detailed written observations remain a vital primary source for historians studying medieval West Africa.',
+  },
+ 
+  {
+    id: 'africa-116',
+    type: 'multiple-choice',
+    question: 'During which period did the Mali Empire go into decline?',
+    options: [
+      { label: 'A', value: 'A', text: '1235–1280 AD' },
+      { label: 'B', value: 'B', text: '1337–1380 AD' },
+      { label: 'C', value: 'C', text: '1400–1450 AD' },
+      { label: 'D', value: 'D', text: '1500–1550 AD' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'The Mali Empire declined from roughly 1400 to 1450 AD, weakened by internal strife and the growing power of the Songhai people to the east.',
+  },
+ 
+  {
+    id: 'africa-117',
+    type: 'multiple-choice',
+    question: 'In what year did Sunni Ali capture Timbuktu, and what was the significance of this event?',
+    options: [
+      { label: 'A', value: 'A', text: '1235 AD — it marked the founding of the Mali Empire' },
+      { label: 'B', value: 'B', text: '1352 AD — it allowed Songhai to block Ibn Battuta\'s trade route' },
+      { label: 'C', value: 'C', text: '1468 AD — it gave Songhai control of a key trading and intellectual center' },
+      { label: 'D', value: 'D', text: '1591 AD — it triggered the Moroccan invasion of West Africa' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'Sunni Ali captured Timbuktu in 1468 AD, securing for Songhai one of the most important cities in the Islamic world and the center of West African trade and scholarship.',
+  },
+ 
+  {
+    id: 'africa-118',
+    type: 'multiple-choice',
+    question: 'What year did the Moroccan invasion end the Songhai Empire, and what technological advantage made the difference?',
+    options: [
+      { label: 'A', value: 'A', text: '1468 AD — superior cavalry' },
+      { label: 'B', value: 'B', text: '1450 AD — iron armor' },
+      { label: 'C', value: 'C', text: '1591 AD — gunpowder and cannons' },
+      { label: 'D', value: 'D', text: '1350 AD — crossbows' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'In 1591 AD, Moroccan forces armed with gunpowder weapons — primarily cannons — overwhelmed Songhai\'s traditional army, ending the last great West African empire of the medieval period.',
+  },
+ 
+  // ── TIMBUKTU ──────────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-119',
+    type: 'multiple-choice',
+    question: 'How and when did Timbuktu originally form?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was built as a planned capital by Sundiata in the 13th century' },
+      { label: 'B', value: 'B', text: 'It grew from a Tuareg nomad camp by a well in the 12th century into a major trading post' },
+      { label: 'C', value: 'C', text: 'It was founded by Arab merchants as a permanent trade station in the 10th century' },
+      { label: 'D', value: 'D', text: 'It was established by Mansa Musa as a center of Islamic learning in the 14th century' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Timbuktu began modestly in the 12th century when Tuareg nomads set up a seasonal camp by a well. Over time, traders settled there permanently, and it grew into one of the greatest cities in the medieval world.',
+  },
+ 
+  {
+    id: 'africa-120',
+    type: 'multiple-choice',
+    question: 'Where is Timbuktu located relative to Bamako, Mali\'s current capital?',
+    options: [
+      { label: 'A', value: 'A', text: 'Approximately 200 miles to the northwest' },
+      { label: 'B', value: 'B', text: 'Approximately 700 miles to the northeast, down the Niger River' },
+      { label: 'C', value: 'C', text: 'Approximately 1,000 miles to the south' },
+      { label: 'D', value: 'D', text: 'Directly east, about 300 miles away' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Timbuktu lies roughly 700 miles northeast of Bamako along the Niger River, deep in the Sahel — the semi-arid zone at the southern edge of the Sahara Desert.',
+  },
+ 
+  {
+    id: 'africa-121',
+    type: 'multiple-choice',
+    question: 'What were the only two viable routes to reach Timbuktu before the modern era?',
+    options: [
+      { label: 'A', value: 'A', text: 'Along the Atlantic coast or through the forests of West Africa' },
+      { label: 'B', value: 'B', text: 'Across the Sahara Desert or down the Niger River' },
+      { label: 'C', value: 'C', text: 'Through the Nile Valley or along the East African coast' },
+      { label: 'D', value: 'D', text: 'Over the Atlas Mountains or through the Sudan grasslands' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The geography surrounding Timbuktu left only two practical approaches: an overland crossing of the Sahara from the north, or a river journey down the Niger from the south or west.',
+  },
+ 
+  {
+    id: 'africa-122',
+    type: 'multiple-choice',
+    question: 'Why did no European reach Timbuktu before the 19th century?',
+    options: [
+      { label: 'A', value: 'A', text: 'Timbuktu was protected by a massive military fortification' },
+      { label: 'B', value: 'B', text: 'The Muslim world fiercely guarded access to their trans-Saharan trade routes' },
+      { label: 'C', value: 'C', text: 'Europeans had no knowledge that Timbuktu existed' },
+      { label: 'D', value: 'D', text: 'Timbuktu was completely destroyed and abandoned after the Moroccan invasion' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The enormous wealth flowing through Timbuktu made Muslim traders deeply protective of access. Europeans were effectively locked out of the Saharan trade network, and the journey itself was extraordinarily dangerous.',
+  },
+ 
+  {
+    id: 'africa-123',
+    type: 'multiple-choice',
+    question: 'What prize did the French Geographical Society offer in 1824, and what was the challenge?',
+    options: [
+      { label: 'A', value: 'A', text: '5,000 gold coins to the first person to map the Niger River from source to mouth' },
+      { label: 'B', value: 'B', text: '10,000 francs to the first person to reach Timbuktu and return alive' },
+      { label: 'C', value: 'C', text: '20,000 francs to the first European to cross the Sahara Desert alone' },
+      { label: 'D', value: 'D', text: '15,000 francs to the first explorer to document Mali\'s ancient ruins' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The 10,000 franc prize reflected both the enormous fame of Timbuktu and the genuine danger of reaching it. The city\'s legendary wealth had fired European imagination for centuries.',
+  },
+ 
+  // ── SANKORE UNIVERSITY ────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-124',
+    type: 'multiple-choice',
+    question: 'What was the Sankore Mosque in 16th-century Timbuktu?',
+    options: [
+      { label: 'A', value: 'A', text: 'A palace where Mansa Musa held his royal court' },
+      { label: 'B', value: 'B', text: 'The heart of a great Islamic university system with links to Cordoba and Cairo' },
+      { label: 'C', value: 'C', text: 'A fortress built to defend Timbuktu from Moroccan invasion' },
+      { label: 'D', value: 'D', text: 'A salt warehouse used by Tuareg traders as a trading post' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The Sankore Mosque served as the center of a major university complex in 16th-century Timbuktu, with intellectual connections to the great Islamic centers of learning in Cordoba (Spain) and Cairo (Egypt).',
+  },
+ 
+  {
+    id: 'africa-125',
+    type: 'multiple-choice',
+    question: 'How many students did Sankore University in Timbuktu reportedly enroll at its peak?',
+    options: [
+      { label: 'A', value: 'A', text: '5,000 students' },
+      { label: 'B', value: 'B', text: '10,000 students' },
+      { label: 'C', value: 'C', text: '25,000 students' },
+      { label: 'D', value: 'D', text: '50,000 students' },
+    ],
+    correctAnswer: 'C',
+    explanation: 'According to historians, Sankore University had approximately 25,000 students at its height — making it one of the largest centers of higher learning in the medieval world.',
+  },
+ 
+  {
+    id: 'africa-126',
+    type: 'select-all',
+    question: 'What subjects were studied at Sankore University in Timbuktu? Select all that apply.',
+    options: [
+      { label: 'A', value: 'A', text: 'Astronomy' },
+      { label: 'B', value: 'B', text: 'Mathematics' },
+      { label: 'C', value: 'C', text: 'Islamic sciences and the Qur\'an' },
+      { label: 'D', value: 'D', text: 'Traditional medicine' },
+    ],
+    correctAnswers: ['A', 'B', 'C', 'D'],
+    explanation: 'Sankore University offered a broad curriculum including astronomy, literature, Islamic sciences, the Qur\'an, mathematics, and traditional medicine — comparable to the great European universities of the same era.',
+  },
+ 
+  {
+    id: 'africa-127',
+    type: 'multiple-choice',
+    question: 'How long did it take to complete an upper-level degree at Sankore University, and what did graduates receive?',
+    options: [
+      { label: 'A', value: 'A', text: 'Four years; a scroll inscribed with their name' },
+      { label: 'B', value: 'B', text: 'Approximately ten years; a traditional turban as their diploma symbol' },
+      { label: 'C', value: 'C', text: 'Six years; a staff of carved wood representing scholarly rank' },
+      { label: 'D', value: 'D', text: 'Three years; a gold pendant indicating graduation' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Upper-level degrees at Sankore took roughly 10 years — equivalent to a modern BA plus PhD combined — and were symbolized by a traditional turban presented at graduation.',
+  },
+ 
+  {
+    id: 'africa-128',
+    type: 'multiple-choice',
+    question: 'How does the founding of Sankore University compare to that of famous European universities?',
+    options: [
+      { label: 'A', value: 'A', text: 'Sankore was founded 300 years after the University of Paris' },
+      { label: 'B', value: 'B', text: 'Sankore was founded at approximately the same time as the Universities of Paris, Bologna, and Prague — and 311 years before Harvard' },
+      { label: 'C', value: 'C', text: 'Sankore was the oldest university in the world, predating all European universities by 500 years' },
+      { label: 'D', value: 'D', text: 'Sankore was founded in the 17th century, after Harvard' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Sankore University was founded around the same era as Europe\'s earliest universities — Paris, Bologna, and Prague — and predates Harvard by 311 years, challenging narratives that position Africa as intellectually backward in the medieval period.',
+  },
+ 
+  // ── TIMBUKTU MANUSCRIPTS ──────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-129',
+    type: 'multiple-choice',
+    question: 'What remarkable collection of historical materials survived in Timbuktu, hidden in private collections?',
+    options: [
+      { label: 'A', value: 'A', text: 'Thousands of ancient gold tablets recording royal genealogies' },
+      { label: 'B', value: 'B', text: 'Thousands of old manuscripts covering poetry, astronomy, mathematics, history, and more' },
+      { label: 'C', value: 'C', text: 'Hundreds of carved ivory panels depicting Malian royal ceremonies' },
+      { label: 'D', value: 'D', text: 'Dozens of complete Qur\'ans hand-written by Mansa Musa himself' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Timbuktu\'s manuscript tradition produced thousands of documents that survived centuries hidden in private collections — covering everything from poetry in African languages to astronomy, mathematics, and the history of slavery.',
+  },
+ 
+  {
+    id: 'africa-130',
+    type: 'multiple-choice',
+    question: 'Who was Ahmed Baba, and what did he accomplish?',
+    options: [
+      { label: 'A', value: 'A', text: 'A Moroccan general who invaded and destroyed Timbuktu in 1591' },
+      { label: 'B', value: 'B', text: 'A 16th-century Timbuktu scholar who wrote at least 60 volumes' },
+      { label: 'C', value: 'C', text: 'The founder of the Sankore Mosque and its university' },
+      { label: 'D', value: 'D', text: 'A Malian governor who served under Mansa Musa' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Ahmed Baba was one of Timbuktu\'s most prolific scholars, producing at least 60 volumes during the 16th century. He represents the extraordinary intellectual output of Timbuktu at its height.',
+  },
+ 
+  // ── ANCIENT CIVILIZATION NEAR DJENNÉ ──────────────────────────────────────
+ 
+  {
+    id: 'africa-131',
+    type: 'multiple-choice',
+    question: 'What archaeological discovery near Djenné overturned European assumptions about African civilization?',
+    options: [
+      { label: 'A', value: 'A', text: 'Ruins of a Roman-era trading post, showing European contact earlier than thought' },
+      { label: 'B', value: 'B', text: 'Remains of a town dating to 250 BC, with iron working, proving people lived in organized towns long before Arab contact' },
+      { label: 'C', value: 'C', text: 'Written Arabic manuscripts showing Arab traders arrived in 500 AD rather than the 10th century' },
+      { label: 'D', value: 'D', text: 'Ancient Egyptian artifacts confirming trade links between Egypt and West Africa' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Archaeologist Kevin McDonald excavated a settlement near Djenné dating to 250 BC with iron-working evidence. This proved that organized urban life in West Africa existed 1,000 years before Arab traders arrived — disproving the colonial-era myth that Arabs brought civilization.',
+  },
+ 
+  {
+    id: 'africa-132',
+    type: 'multiple-choice',
+    question: 'How old was the civilization near Djenné compared to the Roman Empire?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was 1,000 years newer than Rome' },
+      { label: 'B', value: 'B', text: 'It was as old as the Roman Empire' },
+      { label: 'C', value: 'C', text: 'It was 500 years older than Rome\'s founding' },
+      { label: 'D', value: 'D', text: 'It arose after Rome\'s fall in the 5th century AD' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The ancient civilization near Djenné — from which the medieval Kingdom of Mali and cities of Djenné and Timbuktu ultimately grew — was as old as the Roman Empire, dating to around 250 BC.',
+  },
+ 
+  // ── THE DOGON PEOPLE ──────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-133',
+    type: 'multiple-choice',
+    question: 'Who were the Dogon, and how did they respond to the arrival of Islam in Mali?',
+    options: [
+      { label: 'A', value: 'A', text: 'They were early converts who helped spread Islam throughout the region' },
+      { label: 'B', value: 'B', text: 'They maintained their older religion and migrated to the hills in the 15th century to escape forced conversion' },
+      { label: 'C', value: 'C', text: 'They were a Muslim subgroup who fled from persecution by Animist rulers' },
+      { label: 'D', value: 'D', text: 'They were Berber nomads who refused to trade with Muslim merchants' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'When Islam arrived in Mali most people embraced it, but the Dogon were an exception. They resisted conversion and in the 15th century migrated to remote cliff-side homes in the hills to maintain their traditional religion.',
+  },
+ 
+  {
+    id: 'africa-134',
+    type: 'free-response',
+    question: 'What is the "Yangou Joy" ceremony of the Dogon people, and when is it performed?',
+    correctAnswer: 'The Yangou Joy is a ceremony performed once a year to celebrate the dead and call their spirits to help the living.',
+    explanation: 'This ceremony reflects the Dogon\'s deeply ancestral spiritual tradition — a practice they preserved by isolating themselves in the hills rather than converting to Islam.',
+  },
+ 
+  // ── MAPUNGUBWE ────────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-135',
+    type: 'multiple-choice',
+    question: 'Where is Mapungubwe, and approximately how old is it?',
+    options: [
+      { label: 'A', value: 'A', text: 'On the East African coast, approximately 500 years old' },
+      { label: 'B', value: 'B', text: 'Near the Zimbabwe border in southern Africa, approximately 1,000 years old' },
+      { label: 'C', value: 'C', text: 'In northern Nigeria, approximately 2,000 years old' },
+      { label: 'D', value: 'D', text: 'Near modern Djenné, approximately 1,500 years old' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mapungubwe is a nearly 1,000-year-old archaeological site in southern Africa near the border with modern Zimbabwe, representing one of hundreds of ancient settlements discovered in the region.',
+  },
+ 
+  {
+    id: 'africa-136',
+    type: 'multiple-choice',
+    question: 'Why was the discovery of Mapungubwe suppressed during the apartheid era in South Africa?',
+    options: [
+      { label: 'A', value: 'A', text: 'The site was considered dangerous due to unexploded military weapons' },
+      { label: 'B', value: 'B', text: 'The apartheid government had no interest in admitting that an advanced ancient African city had existed in the region' },
+      { label: 'C', value: 'C', text: 'Archaeologists could not agree on the correct interpretation of the artifacts' },
+      { label: 'D', value: 'D', text: 'International law prohibited excavation of sacred sites' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The apartheid government promoted the "empty land" myth — that black Africans arrived in South Africa at the same time as white settlers in 1652. An ancient African city like Mapungubwe directly contradicted this narrative, so evidence was locked away for 70 years.',
+  },
+ 
+  {
+    id: 'africa-137',
+    type: 'select-all',
+    question: 'What types of artifacts were discovered at Mapungubwe? Select all that apply.',
+    options: [
+      { label: 'A', value: 'A', text: 'Intricate gold figures' },
+      { label: 'B', value: 'B', text: 'Approximately 10,000 gold beads' },
+      { label: 'C', value: 'C', text: 'Fine pottery' },
+      { label: 'D', value: 'D', text: 'Arabic written manuscripts' },
+    ],
+    correctAnswers: ['A', 'B', 'C'],
+    explanation: 'Mapungubwe yielded gold figures (made of leaf gold on wooden cores), roughly 10,000 gold beads, and fine pottery — all evidence of a sophisticated and wealthy civilization.',
+  },
+ 
+  {
+    id: 'africa-138',
+    type: 'multiple-choice',
+    question: 'How were gold objects constructed at Mapungubwe?',
+    options: [
+      { label: 'A', value: 'A', text: 'By melting solid gold into molds' },
+      { label: 'B', value: 'B', text: 'By hammering leaf gold onto a wooden core' },
+      { label: 'C', value: 'C', text: 'By braiding gold wire around a clay form' },
+      { label: 'D', value: 'D', text: 'By casting gold into sand impressions' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mapungubwe\'s gold craftspeople used the technique of applying very thin sheets of gold (leaf gold) over carved wooden cores, showing technical sophistication in metalworking.',
+  },
+ 
+  // ── APARTHEID & THE "EMPTY LAND" MYTH ────────────────────────────────────
+ 
+  {
+    id: 'africa-139',
+    type: 'multiple-choice',
+    question: 'What false historical claim did the apartheid government of South Africa promote in its schools?',
+    options: [
+      { label: 'A', value: 'A', text: 'That black Africans originally came from North Africa and were not native to southern Africa' },
+      { label: 'B', value: 'B', text: 'That South Africa was an empty land before 1652, and black Africans and white settlers arrived at the same time' },
+      { label: 'C', value: 'C', text: 'That ancient southern African civilizations were actually built by Arab traders' },
+      { label: 'D', value: 'D', text: 'That Great Zimbabwe was constructed by Portuguese explorers' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The "empty land" myth was the apartheid government\'s ideological tool: by claiming black Africans arrived in 1652 alongside white Dutch settlers, they falsely erased the 1,000+ year history of indigenous southern African civilizations.',
+  },
+ 
+  // ── THULAMELA ─────────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-140',
+    type: 'parts',
+    question: 'Consider the ancient site of Thulamela in southern Africa.',
+    parts: [
+      {
+        label: 'a',
+        type: 'multiple-choice',
+        question: 'Who built Thulamela, and when was the site occupied?',
+        options: [
+          { label: 'A', value: 'A', text: 'The Mapungubwe people, between 800 and 1200 AD' },
+          { label: 'B', value: 'B', text: 'The Shona people (descendants of the Mapungubwe), between approximately 1200 and 1640 AD' },
+          { label: 'C', value: 'C', text: 'The Bantu people, between 500 and 900 AD' },
+          { label: 'D', value: 'D', text: 'Arab traders, between 1000 and 1400 AD' },
+        ],
+        correctAnswer: 'B',
+        explanation: 'Thulamela was built by the Shona people, who were direct descendants of the Mapungubwe civilization. The site was settled between approximately 1200 and 1640 AD.',
+      },
+      {
+        label: 'b',
+        type: 'free-response',
+        question: 'What activities did the people of Thulamela engage in to sustain their community?',
+        correctAnswer: 'The Thulamela people farmed, herded cattle, and traded down rivers as far as the Indian Ocean.',
+        explanation: 'Thulamela\'s people combined agriculture, animal husbandry, and long-distance trade — connecting the interior of southern Africa to Indian Ocean commerce.',
+      },
+    ],
+  },
+ 
+  // ── GREAT ZIMBABWE (ADDITIONAL DETAILS) ───────────────────────────────────
+ 
+  {
+    id: 'africa-141',
+    type: 'multiple-choice',
+    question: 'What does the word "Zimbabwe" mean, and what does this reveal about Great Zimbabwe\'s construction?',
+    options: [
+      { label: 'A', value: 'A', text: '"City of gold" — reflecting its wealth' },
+      { label: 'B', value: 'B', text: '"House of stone" — reflecting its massive stone architecture' },
+      { label: 'C', value: 'C', text: '"Place of kings" — reflecting its role as a royal capital' },
+      { label: 'D', value: 'D', text: '"Land of cattle" — reflecting its agricultural wealth' },
+    ],
+    correctAnswer: 'B',
+    explanation: '"Zimbabwe" means "house of stone" — a fitting name for a city renowned for its remarkable dry-stone walls built without mortar, a construction technique that has lasted centuries.',
+  },
+ 
+  {
+    id: 'africa-142',
+    type: 'multiple-choice',
+    question: 'How does Great Zimbabwe rank architecturally among African structures?',
+    options: [
+      { label: 'A', value: 'A', text: 'It is the largest stone structure ever built on the African continent' },
+      { label: 'B', value: 'B', text: 'It is the largest stone structure in Africa south of the Egyptian pyramids' },
+      { label: 'C', value: 'C', text: 'It is the second largest stone structure in all of Africa' },
+      { label: 'D', value: 'D', text: 'It is the oldest stone structure in sub-Saharan Africa' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Great Zimbabwe is the largest stone structure in Africa south of the pyramids — a monument to the remarkable engineering and organizational capacity of the Iron Age Bantu civilization that built it.',
+  },
+ 
+  {
+    id: 'africa-143',
+    type: 'multiple-choice',
+    question: 'How did Great Zimbabwe\'s population at its height in the 15th century compare to European cities of the same era?',
+    options: [
+      { label: 'A', value: 'A', text: 'It had a smaller population than any European city at the time' },
+      { label: 'B', value: 'B', text: 'Its population was as large as many of Europe\'s greatest cities' },
+      { label: 'C', value: 'C', text: 'It surpassed every European city in population' },
+      { label: 'D', value: 'D', text: 'It had a population equivalent to a small European village' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'At its 15th-century peak, Great Zimbabwe was a major urban center comparable in size to the great cities of medieval Europe — a fact that challenges stereotypes about pre-colonial African urbanism.',
+  },
+ 
+  {
+    id: 'africa-144',
+    type: 'multiple-choice',
+    question: 'How does modern Zimbabwe honor Great Zimbabwe as a national symbol?',
+    options: [
+      { label: 'A', value: 'A', text: 'It is used as the seat of Zimbabwe\'s parliament' },
+      { label: 'B', value: 'B', text: 'Its image appears on Zimbabwe\'s flags, coins, money, and stamps' },
+      { label: 'C', value: 'C', text: 'The ruling party is named after Great Zimbabwe' },
+      { label: 'D', value: 'D', text: 'A national holiday is held each year at the ruins' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'After Zimbabwe gained independence in 1980, Great Zimbabwe became the centerpiece of national identity — its image appearing on the country\'s flags, currency, coins, and stamps, reclaiming it from colonial-era dismissal.',
+  },
+ 
+  {
+    id: 'africa-145',
+    type: 'multiple-choice',
+    question: 'Who built Great Zimbabwe, and what is their relationship to earlier southern African civilizations?',
+    options: [
+      { label: 'A', value: 'A', text: 'Arab traders, who had no connection to earlier local civilizations' },
+      { label: 'B', value: 'B', text: 'Iron Age Bantu people who were ancestors of the Shona, themselves descendants of the Mapungubwe civilization' },
+      { label: 'C', value: 'C', text: 'Portuguese explorers who arrived on the East African coast' },
+      { label: 'D', value: 'D', text: 'The Mutapa rulers, who were unrelated to earlier southern African peoples' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Great Zimbabwe was built by Iron Age Bantu people who were the ancestors of the Shona. The Shona were in turn descended from the Mapungubwe civilization — creating a continuous thread of civilization in southern Africa spanning over a millennium.',
+  },
+ 
+  // ── MALI EMPIRE — SIZE & GEOGRAPHY ────────────────────────────────────────
+ 
+  {
+    id: 'africa-146',
+    type: 'multiple-choice',
+    question: 'How large was the Mali Empire at its height?',
+    options: [
+      { label: 'A', value: 'A', text: 'Approximately 500 miles across' },
+      { label: 'B', value: 'B', text: 'Approximately 1,500 miles across West Africa' },
+      { label: 'C', value: 'C', text: 'Approximately 3,000 miles from coast to coast' },
+      { label: 'D', value: 'D', text: 'Approximately 800 miles across' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The Mali Empire stretched approximately 1,500 miles across West Africa, making it one of the largest empires in the medieval world and a dominant force in the region\'s politics and economy.',
+  },
+ 
+  {
+    id: 'africa-147',
+    type: 'multiple-choice',
+    question: 'What role has the Niger River played throughout Mali\'s history?',
+    options: [
+      { label: 'A', value: 'A', text: 'A barrier that prevented invasion from the east' },
+      { label: 'B', value: 'B', text: 'Mali\'s lifeblood and main trading artery' },
+      { label: 'C', value: 'C', text: 'The primary source of salt for the empire' },
+      { label: 'D', value: 'D', text: 'A sacred river central to Animist religious ceremonies' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The Niger River has always been the geographic and economic backbone of Mali — providing water, fish, fertile floodplains, and the primary highway for commerce across the region.',
+  },
+ 
+  // ── MOPTI ─────────────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-148',
+    type: 'multiple-choice',
+    question: 'What transformed Mopti from a sleepy fishing town into a major commercial center?',
+    options: [
+      { label: 'A', value: 'A', text: 'Mansa Musa chose it as a trade waypoint on his pilgrimage route' },
+      { label: 'B', value: 'B', text: 'The French made it their downriver colonial capital at the end of the 19th century' },
+      { label: 'C', value: 'C', text: 'The Moroccan invasion redirected trade through Mopti after Timbuktu fell' },
+      { label: 'D', value: 'D', text: 'Salt deposits were discovered near Mopti in the 18th century' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'French colonial administration chose Mopti as their downriver capital in the late 19th century, which dramatically increased its importance. Today it is the busiest market between Bamako and Timbuktu.',
+  },
+ 
+  // ── MODERN MALI ───────────────────────────────────────────────────────────
+ 
+  {
+    id: 'africa-149',
+    type: 'multiple-choice',
+    question: 'When was democracy established in Mali, and what preceded it?',
+    options: [
+      { label: 'A', value: 'A', text: 'Democracy was established in 1960 at independence; nothing preceded it under colonial rule' },
+      { label: 'B', value: 'B', text: 'Democracy was established in 1991; it was preceded by a century of colonialism and military rule that devastated the country' },
+      { label: 'C', value: 'C', text: 'Democracy was established in 1975 following a peaceful revolution' },
+      { label: 'D', value: 'D', text: 'Democracy has never been established in Mali; the country is still under military rule' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mali established democratic governance in 1991, ending a long period of colonialism and military dictatorship that had severely damaged the country\'s development and institutions.',
+  },
+ 
+  // ── CONCEPTUAL QUESTIONS (30% additional) ─────────────────────────────────
+ 
+  {
+    id: 'africa-150',
+    type: 'free-response',
+    question: 'Griots passed down history orally before writing existed. What are the advantages and risks of oral history compared to written records?',
+    correctAnswer: 'Oral history can be flexible, emotionally rich, and accessible to non-literate communities. However, it is vulnerable to alteration over generations, loss if traditions die out, and selective memory. Written records are more permanent but require literacy and can also be edited or destroyed.',
+    explanation: 'Both oral and written history have strengths and weaknesses. The existence of griot epics as the primary source of early Malian history shows that oral tradition can preserve knowledge across centuries — but also raises questions about accuracy that written primary sources partially answer.',
+  },
+ 
+  {
+    id: 'africa-151',
+    type: 'multiple-choice',
+    question: 'Mansa Musa\'s distribution of gold in Cairo crashed the local gold market for 12 years. What does this event demonstrate about the global interconnectedness of medieval economies?',
+    options: [
+      { label: 'A', value: 'A', text: 'It shows that medieval economies were isolated from one another' },
+      { label: 'B', value: 'B', text: 'It demonstrates that even in the 14th century, the actions of one region\'s ruler could ripple economically across continents' },
+      { label: 'C', value: 'C', text: 'It shows that Egypt was economically weak and dependent on West Africa' },
+      { label: 'D', value: 'D', text: 'It proves that gold had no real value in medieval Egypt' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Mansa Musa\'s pilgrimage is a vivid example of pre-modern globalization: trade networks connected West Africa, North Africa, the Middle East, and beyond so thoroughly that one ruler\'s charity trip could destabilize an entire regional economy.',
+  },
+ 
+  {
+    id: 'africa-152',
+    type: 'free-response',
+    question: 'Books became the most important trade commodity in the 16th-century Niger River region. What does this tell us about the society that had developed there, and how does it challenge common perceptions of medieval Africa?',
+    correctAnswer: 'A society that values books above gold or salt has prioritized intellectual and religious life at the highest level. This challenges the colonial-era perception of Africa as primitive or undeveloped — West Africa was producing scholars, manuscripts, and a market for knowledge at the same time as the European Renaissance.',
+    explanation: 'The book trade in 16th-century Timbuktu is one of history\'s most striking counterexamples to Eurocentric narratives: at the same moment Europeans were dismissing Africa, Timbuktu was running a 25,000-student university and trading manuscripts as its most valuable commodity.',
+  },
+ 
+  {
+    id: 'africa-153',
+    type: 'multiple-choice',
+    question: 'The ancient civilization near Djenné (250 BC) proves that West Africans lived in organized towns long before Arab traders arrived. Why is this archaeological finding historically and politically significant?',
+    options: [
+      { label: 'A', value: 'A', text: 'It proves that West Africa was secretly in contact with ancient Rome' },
+      { label: 'B', value: 'B', text: 'It directly refutes the colonial myth that civilization was brought to Africa by outsiders, showing indigenous cultural development' },
+      { label: 'C', value: 'C', text: 'It shows that iron working was actually invented in West Africa, not the Middle East' },
+      { label: 'D', value: 'D', text: 'It proves that the Mali Empire is 2,000 years older than historians believed' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'For centuries, colonizers argued that Africans had no civilization until Arab or European contact. The 250 BC settlement near Djenné — with its iron working and urban organization — proves that sophisticated West African society developed independently, centuries before any outside contact.',
+  },
+ 
+  {
+    id: 'africa-154',
+    type: 'free-response',
+    question: 'The Dogon people fled to the hills in the 15th century to avoid conversion to Islam. What does their resistance reveal about the limits of cultural diffusion through trade?',
+    correctAnswer: 'Even when a religion spreads peacefully through trade, it does not reach or convert everyone. The Dogon\'s resistance shows that cultural diffusion has limits — people can reject outside influences and preserve their traditions, especially when they physically separate themselves from the source of change.',
+    explanation: 'The Dogon are a case study in cultural resilience. While Islam transformed most of West Africa, the Dogon\'s geographic isolation in cliff-side villages allowed them to maintain traditions for centuries that would otherwise have been lost.',
+  },
+ 
+  {
+    id: 'africa-155',
+    type: 'multiple-choice',
+    question: 'Sankore University was founded around the same time as Europe\'s earliest universities. Why is this chronological comparison historically important?',
+    options: [
+      { label: 'A', value: 'A', text: 'It proves that African scholars taught European scholars at medieval universities' },
+      { label: 'B', value: 'B', text: 'It challenges the narrative that higher education was a uniquely European invention, showing it developed simultaneously across civilizations' },
+      { label: 'C', value: 'C', text: 'It shows that Sankore borrowed its curriculum directly from the University of Paris' },
+      { label: 'D', value: 'D', text: 'It demonstrates that Islam suppressed learning in Europe while promoting it in Africa' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The simultaneous rise of universities in Europe and West Africa shows that formal higher education was a global development, not a uniquely Western one. Sankore\'s intellectual output — thousands of manuscripts, 25,000 students, scholars like Ahmed Baba — stands alongside European institutions as evidence of independent parallel development.',
+  },
+ 
+  {
+    id: 'africa-156',
+    type: 'free-response',
+    question: 'The apartheid government suppressed evidence of Mapungubwe by locking artifacts away for 70 years. How does this illustrate the way political regimes can manipulate or suppress history to serve their ideology?',
+    correctAnswer: 'Governments can control historical narratives by hiding evidence that contradicts their ideology. The apartheid regime needed the "empty land" myth to justify white minority rule; acknowledging Mapungubwe as an advanced ancient African city would have undermined that narrative, so evidence was buried rather than shared.',
+    explanation: 'Mapungubwe is a powerful example of how archaeology becomes political: physical evidence of the past can be suppressed when it threatens those in power. This illustrates why diverse, independent scholarship and archaeology matter — no single government should control the past.',
+  },
+ 
+  {
+    id: 'africa-157',
+    type: 'multiple-choice',
+    question: 'Ghana\'s kings controlled the supply of gold and salt to prevent their devaluation. Which modern economic concept does this practice most closely resemble?',
+    options: [
+      { label: 'A', value: 'A', text: 'Free market capitalism' },
+      { label: 'B', value: 'B', text: 'Supply-side management or commodity price stabilization — similar to how OPEC manages oil output today' },
+      { label: 'C', value: 'C', text: 'A barter economy without price controls' },
+      { label: 'D', value: 'D', text: 'Deficit spending' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'By limiting supply to keep prices high, Ghana\'s kings were practicing a form of commodity management that mirrors strategies used by modern organizations like OPEC. This shows that complex economic thinking is not a modern invention.',
+  },
+ 
+  {
+    id: 'africa-158',
+    type: 'free-response',
+    question: 'The Thulamela people farmed, herded cattle, and traded as far as the Indian Ocean. What does this suggest about the level of economic integration between the interior of southern Africa and the coastal trade networks?',
+    correctAnswer: 'It shows that even inland communities hundreds of miles from the coast were plugged into the Indian Ocean trade system. Southern Africa was not isolated — goods and wealth moved along river routes connecting the interior to coastal cities, integrating sub-Saharan communities into a wider global economy.',
+    explanation: 'Thulamela\'s Indian Ocean connections remind us that African economic history is one of interconnection, not isolation. Rivers served as highways linking inland communities to global trade centuries before European colonial infrastructure existed.',
+  },
+ 
+  {
+    id: 'africa-159',
+    type: 'multiple-choice',
+    question: 'No European reached Timbuktu before the 19th century, and the French had to offer a prize to incentivize the attempt. What does this say about the power relationship between the Islamic world and Europe during the medieval and early modern periods?',
+    options: [
+      { label: 'A', value: 'A', text: 'Europeans were not interested in African trade during this period' },
+      { label: 'B', value: 'B', text: 'The Islamic world was powerful enough to control access to its most lucrative trade networks, effectively excluding Europeans for centuries' },
+      { label: 'C', value: 'C', text: 'Timbuktu was actually a minor city that Europeans simply overlooked' },
+      { label: 'D', value: 'D', text: 'Africa was too far from Europe for regular contact until the 19th century' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'The European inability to access Timbuktu until the 19th century shows that for much of history, Islamic civilizations — not European ones — controlled the world\'s most profitable trade routes. European expansion into Africa in the 1800s was partly motivated by centuries of being locked out of this wealth.',
+  },
+ 
+  {
+    id: 'africa-160',
+    type: 'free-response',
+    question: 'Considering the arc from Ghana (700 AD) through Mali (1235–1450 AD) through Songhai (1450–1591 AD), what pattern emerges in how each empire rose and fell?',
+    correctAnswer: 'Each empire rose by gaining control of the gold-salt trade routes and fell when that control was disrupted — whether by military attack (Berbers disrupting Ghana, Moroccans destroying Songhai), internal decline, or the emergence of a rival power. Strong rulers expanded territory and wealth; weak successors or external shocks broke the empire apart.',
+    explanation: 'The three empires form a sequence of rise, dominance, and collapse tied almost entirely to trade route control and leadership quality. This pattern — where economic chokepoints create empires, and losing them ends empires — is a recurring theme in world history.',
+  },
+ 
+  {
+    id: 'africa-161',
+    type: 'multiple-choice',
+    question: 'Great Zimbabwe\'s image appears on Zimbabwe\'s flags, coins, and currency after independence in 1980. Why is it significant that a post-colonial nation chose an ancient African site as its national symbol?',
+    options: [
+      { label: 'A', value: 'A', text: 'It was chosen simply because Great Zimbabwe was the most famous tourist destination in the country' },
+      { label: 'B', value: 'B', text: 'It represented a reclaiming of African identity and history after colonial rule, which had either denied or minimized indigenous civilizations' },
+      { label: 'C', value: 'C', text: 'The ruins were the largest structure in the country and therefore the most visible landmark' },
+      { label: 'D', value: 'D', text: 'It was chosen by the former colonial government as part of the independence transition agreement' },
+    ],
+    correctAnswer: 'B',
+    explanation: 'Choosing Great Zimbabwe as a national symbol was a deliberate political and cultural act: it declared that Zimbabwe\'s identity was rooted in an ancient, sophisticated African civilization — not in the colonial narrative that denied such history. This is why the country itself was renamed "Zimbabwe."',
+  },
+ 
+  {
+    id: 'africa-162',
+    type: 'free-response',
+    question: 'The salt trade, not the gold trade, originally created the trans-Saharan routes. Why might a biological necessity like salt be a more powerful driver of trade routes than a luxury like gold?',
+    correctAnswer: 'Salt is biologically essential — humans and animals will die without it. Because survival depends on it, people will travel further, pay more, and build permanent trade routes to secure a consistent supply. Gold is valuable but not essential to life, so gold trade follows existing routes while salt trade creates new ones out of necessity.',
+    explanation: 'Necessities, not luxuries, tend to establish the infrastructure of trade. The history of salt as a civilizational driver (the word "salary" comes from the Latin for salt) appears worldwide — from Roman salt roads to West African caravan routes.',
+  },
 ];
