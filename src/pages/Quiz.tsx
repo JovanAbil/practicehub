@@ -8,6 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import MathQuickInput from '@/components/MathQuickInput';
+import { resolveImagePath } from '@/utils/resolveImagePath';
 
 import { ArrowLeft, CheckCircle2, XCircle, Flag, SkipForward } from 'lucide-react';
 import PartsQuestionView from '@/components/PartsQuestionView';
@@ -924,7 +925,7 @@ const Quiz = () => {
               {currentQuestion.image && (
                 <div className="mb-6 flex justify-center">
                   <img 
-                    src={currentQuestion.image} 
+                    src={resolveImagePath(currentQuestion.image)} 
                     alt="Question diagram" 
                     className="max-w-2xl max-h-96 w-auto h-auto object-contain rounded-lg border-2 border-border"
                   />
@@ -958,7 +959,7 @@ const Quiz = () => {
                         <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
                         {option.image ? (
                           <img 
-                            src={option.image} 
+                            src={resolveImagePath(option.image)}  
                             alt={`Option ${index + 1}`}
                             className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
                           />
@@ -1019,7 +1020,7 @@ const Quiz = () => {
                           <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
                           {option.image ? (
                             <img 
-                              src={option.image} 
+                              src={resolveImagePath(option.image)}  
                               alt={`Option ${index + 1}`}
                               className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
                             />
