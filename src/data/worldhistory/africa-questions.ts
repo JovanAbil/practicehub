@@ -1226,7 +1226,7 @@ export const africaQuestions: Question[] = [
   {
     id: 'africa-90',
     type: 'free-response',
-    question: 'Match the letters to their place. Names are not given for more difficulty.',
+    question: 'Match the letters to their place. Names are not given for more difficulty. Options: [Gulf of Aden, Atlantic Ocean, Nile River, Arabian Peninsula, Congo River, Kalahari Desert, Orange River, Madagascar, Black Sea, Niger River, White Nile, Indian Ocean, Sahara Desert, Limpopo River, Mediterranean Sea, Red Sea, Gulf of Guinea, Blue Nile, Atlas Mountains, Strait of Gibraltar, Lake Chad, Zambezi River, Persian Gulf]',
     correctAnswer: '',
     listAnswers: ["A: Sahara Desert","B: Atlas Mountains","C: Strait of Gibraltar","D: Mediterranean Sea","E: Niger River","F: Lake Chad","G: Gulf of Guinea","H: Congo River","I: Nile River","K: White Nile","L: Blue Nile","M: Zambezi River","N: Kalahari Desert","O: Limpopo River","P: Orange River","Q: Red Sea","R: Gulf of Aden","S: Indian Ocean","T: Madagascar","U: Arabian Peninsula","V: Persian Gulf","W: Black Sea","X: Atlantic Ocean"],
     image: '/images/worldhistory/africa1.png',
