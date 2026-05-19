@@ -1,3 +1,4 @@
+import { resolveImagePath } from '@/utils/resolveImagePath';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
