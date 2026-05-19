@@ -424,7 +424,7 @@ const Results = () => {
                       {question.image && (
                         <div className="mb-3 flex justify-center">
                           <img 
-                            src={question.image} 
+                            src={resolveImagePath(question.image)} 
                             alt="Question diagram" 
                             className="max-w-2xl max-h-96 w-auto h-auto object-contain rounded-lg border-2 border-border"
                           />
@@ -453,7 +453,7 @@ const Results = () => {
                                 <span className="font-semibold mr-2">{option.label})</span>
                                 {option.image ? (
                                   <img 
-                                    src={option.image} 
+                                    src={resolveImagePath(option.image)} 
                                     alt={`Option ${option.label}`}
                                     className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
                                   />
@@ -490,7 +490,7 @@ const Results = () => {
                               >
                                 <span className="font-semibold mr-2">{option.label})</span>
                                 {option.image ? (
-                                  <img src={option.image} alt={`Option ${option.label}`} className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2" />
+                                  <img src={resolveImagePath(option.image)} alt={`Option ${option.label}`} className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2" />
                                 ) : (
                                   <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
                                 )}
@@ -520,7 +520,7 @@ const Results = () => {
                                     {part.options.map(opt => (
                                       <div key={opt.value} className={`p-2 rounded border ${opt.value === part.correctAnswer ? 'border-success bg-success/10' : partState?.userAnswer === opt.value && !partState?.isCorrect ? 'border-destructive bg-destructive/10' : 'border-border'}`}>
                                         <span className="font-semibold mr-2">{opt.label})</span>
-                                        {opt.image ? <img src={opt.image} alt={`Option`} className="max-w-sm max-h-32 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{opt.text}</MathText>}
+                                        {opt.image ? <img src={resolveImagePath(opt.image)} alt={`Option`} className="max-w-sm max-h-32 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{opt.text}</MathText>}
                                       </div>
                                     ))}
                                   </div>
