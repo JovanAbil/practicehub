@@ -23,8 +23,6 @@ import { exponentialQuestions } from '@/data/apprecalc/exponential-questions';
 import { logarithmicQuestions } from '@/data/apprecalc/logarithmic-questions';
 import { trigonometricQuestions } from '@/data/apprecalc/trigonometric-questions';
 import { polarQuestions } from '@/data/apprecalc/polar-questions';
-import { parametricQuestions } from '@/data/apprecalc/parametric-questions';
-import { vectorsMatricesQuestions } from '@/data/apprecalc/vectorsMatrices-questions';
 // Biology
 import { biochemistryQuestions } from '@/data/biology/biochemistry-questions';
 import { cellstructureQuestions } from '@/data/biology/cellstructure-questions';
@@ -88,8 +86,6 @@ const questionMap: Record<string, Question[]> = {
   'precalc-logarithmic': logarithmicQuestions,
   'precalc-trigonometric': trigonometricQuestions,
   'precalc-polar': polarQuestions,
-  'precalc-parametric': parametricQuestions,
-  'precalc-vectorsMatrices': vectorsMatricesQuestions,
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
   'biology-cellenergetics': cellenergeticsQuestions,
@@ -151,8 +147,6 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'logarithmic', name: 'Unit 2B - Logarithmic Functions' },
     { id: 'trigonometric', name: 'Unit 3A - Trigonometric Functions' },
     { id: 'polar', name: 'Unit 3B - Polar Functions' },
-    { id: 'parametric', name: 'Unit 4A - Parametric Functions' },
-    { id: 'vectorsMatrices', name: 'Unit 4B - Vectors and Matrices' },
   ],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
