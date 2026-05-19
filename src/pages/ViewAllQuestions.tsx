@@ -110,13 +110,13 @@ const ViewAllQuestions = () => {
                 </span>
               </div>
               {question.table && <QuestionTable data={question.table} enableChemistry={subject === 'chemistry'} />}
-              {question.image && <div className="mb-4 flex justify-center"><img src={question.image} alt="Question" className="max-w-xl max-h-64 object-contain rounded-lg border-2 border-border" /></div>}
+              {question.image && <div className="mb-4 flex justify-center"><img src={resolveImagePath(question.image)} alt="Question" className="max-w-xl max-h-64 object-contain rounded-lg border-2 border-border" /></div>}
               <MathText tag="p" className="text-base mb-4" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
               {question.type === 'multiple-choice' && (
                 <div className="space-y-2 mb-4">
                   {question.options.map((option) => (
                     <div key={option.value} className={`p-3 rounded-lg border ${option.value === question.correctAnswer ? 'border-success bg-success/10' : 'border-border'}`}>
-                      {option.image ? <img src={option.image} alt={`Option`} className="max-w-md max-h-48 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>}
+                      {option.image ? <img src={resolveImagePath(option.image)} alt={`Option`} className="max-w-md max-h-48 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>}
                       {option.value === question.correctAnswer && <span className="ml-2 text-success font-semibold text-sm">✓</span>}
                     </div>
                   ))}
@@ -126,7 +126,7 @@ const ViewAllQuestions = () => {
                 <div className="space-y-2 mb-4">
                   {question.options.map((option) => (
                     <div key={option.value} className={`p-3 rounded-lg border ${question.correctAnswers.includes(option.value) ? 'border-success bg-success/10' : 'border-border'}`}>
-                      {option.image ? <img src={option.image} alt={`Option`} className="max-w-md max-h-48 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>}
+                      {option.image ? <img src={resolveImagePath(option.image)} alt={`Option`} className="max-w-md max-h-48 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>}
                       {question.correctAnswers.includes(option.value) && <span className="ml-2 text-success font-semibold text-sm">✓</span>}
                     </div>
                   ))}
@@ -154,13 +154,13 @@ const ViewAllQuestions = () => {
                   {question.parts.map((part, partIdx) => (
                     <div key={part.label} className="p-4 rounded-lg border border-border bg-muted/20">
                       <p className="text-sm font-bold text-primary mb-2">Part {part.label})</p>
-                      {part.image && <div className="mb-2 flex justify-center"><img src={part.image} alt={`Part ${part.label}`} className="max-w-md max-h-48 object-contain rounded-lg border border-border" /></div>}
+                      {part.image && <div className="mb-2 flex justify-center"><img src={resolveImagePath(part.image)} alt={`Part ${part.label}`} className="max-w-md max-h-48 object-contain rounded-lg border border-border" /></div>}
                       <MathText className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
                       {part.type === 'multiple-choice' && part.options && (
                         <div className="space-y-1 mt-2">
                           {part.options.map((opt) => (
                             <div key={opt.value} className={`p-2 rounded border text-sm ${opt.value === part.correctAnswer ? 'border-success bg-success/10' : 'border-border'}`}>
-                              {opt.image ? <img src={opt.image} alt="Option" className="max-w-xs max-h-32 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{opt.text}</MathText>}
+                              {opt.image ? <img src={resolveImagePath(opt.image)} alt="Option" className="max-w-xs max-h-32 object-contain rounded" /> : <MathText enableChemistry={subject === 'chemistry'}>{opt.text}</MathText>}
                               {opt.value === part.correctAnswer && <span className="ml-2 text-success font-semibold text-xs">✓</span>}
                             </div>
                           ))}
