@@ -1,3 +1,4 @@
+import { resolveImagePath } from '@/utils/resolveImagePath';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
