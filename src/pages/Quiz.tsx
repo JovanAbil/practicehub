@@ -357,7 +357,6 @@ const Quiz = () => {
       // Number keys toggle checkboxes for select-all
       if (!isSubmitted && currentQuestion?.type === 'select-all') {
         const keyNum = parseInt(e.key);
-        const keyNum = parseInt(e.key);
         if (keyNum >= 1 && keyNum <= shuffledOptions.length) {
           e.preventDefault();
           const val = shuffledOptions[keyNum - 1].value;
