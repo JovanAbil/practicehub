@@ -35,6 +35,7 @@ import {
   saveInProgressQuiz,
 } from '@/utils/inProgressQuizStorage';
 
+
 const Quiz = () => {
   const frqInputRef = useRef<HTMLTextAreaElement>(null);
   const { subject, unitId, quizType } = useParams();
@@ -69,6 +70,7 @@ const Quiz = () => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([]);
   const [showSkipTransition, setShowSkipTransition] = useState(false);
   const [listInputs, setListInputs] = useState<string[]>([]);
+  const [crossedOutOptions, setCrossedOutOptions] = useState<string[]>([]);
 
   // Once the quiz is completed (or skipped to results), stop saving progress
   // so the flush-on-unmount and debounced save can't resurrect a stale entry.
@@ -343,6 +345,7 @@ const Quiz = () => {
         const keyNum = parseInt(e.key);
         if (keyNum >= 1 && keyNum <= shuffledOptions.length) {
           e.preventDefault();
+          if (crossedOutOptions.includes(shuffledOptions[keyNum - 1].value)) return;
           setCurrentAnswer(shuffledOptions[keyNum - 1].value);
           if (document.activeElement instanceof HTMLButtonElement) {
             document.activeElement.blur();
@@ -354,9 +357,11 @@ const Quiz = () => {
       // Number keys toggle checkboxes for select-all
       if (!isSubmitted && currentQuestion?.type === 'select-all') {
         const keyNum = parseInt(e.key);
+        const keyNum = parseInt(e.key);
         if (keyNum >= 1 && keyNum <= shuffledOptions.length) {
           e.preventDefault();
           const val = shuffledOptions[keyNum - 1].value;
+          if (crossedOutOptions.includes(val)) return;
           setSelectedCheckboxes(prev => 
             prev.includes(val) ? prev.filter(v => v !== val) : [...prev, val]
           );
@@ -521,6 +526,7 @@ const Quiz = () => {
             setListInputs([]);
             setIsSubmitted(false);
             setShowGrading(false);
+            setCrossedOutOptions([]);
             setShuffledOptions([]);
             return;
           }
@@ -542,6 +548,7 @@ const Quiz = () => {
             setListInputs([]);
             setIsSubmitted(false);
             setShowGrading(false);
+            setCrossedOutOptions([]);
             setShuffledOptions([]);
             return;
           }
@@ -559,9 +566,23 @@ const Quiz = () => {
     setListInputs([]);
     setIsSubmitted(false);
     setShowGrading(false);
+    setCrossedOutOptions([]);
     setShuffledOptions([]);
   };
 
+  const toggleCrossOut = (optionValue: string) => {
+    if (isSubmitted) return;
+    setCrossedOutOptions(prev =>
+      prev.includes(optionValue)
+        ? prev.filter(v => v !== optionValue)
+        : [...prev, optionValue]
+    );
+    if (currentAnswer === optionValue) setCurrentAnswer('');
+    if (selectedCheckboxes.includes(optionValue)) {
+      setSelectedCheckboxes(prev => prev.filter(v => v !== optionValue));
+    }
+  };
+  
   const goToResults = (finalAttempts: QuizAttempt[]) => {
     const finalTime = timer.stop();
     
@@ -632,6 +653,7 @@ const Quiz = () => {
         setListInputs([]);
         setIsSubmitted(false);
         setShowGrading(false);
+        setCrossedOutOptions([]);
         setShuffledOptions([]);
         return;
       }
@@ -679,6 +701,7 @@ const Quiz = () => {
         setListInputs([]);
         setIsSubmitted(false);
         setShowGrading(false);
+        setCrossedOutOptions([]);
         setShuffledOptions([]);
         return;
       }
@@ -912,6 +935,7 @@ const Quiz = () => {
                 setListInputs([]);
                 setIsSubmitted(false);
                 setShowGrading(false);
+                setCrossedOutOptions([]);
                 setShuffledOptions([]);
               }}
               subject={subject}
@@ -943,38 +967,55 @@ const Quiz = () => {
                   disabled={isSubmitted}
                   className="space-y-3"
                 >
-                  {shuffledOptions.map((option, index) => (
-                    <div
-                      key={option.value}
-                      className={`flex items-center space-x-3 p-4 rounded-lg border-2 transition-all ${
-                        isSubmitted && option.value === currentQuestion.correctAnswer
-                          ? 'border-success bg-success/10'
-                          : isSubmitted && option.value === currentAnswer && currentAnswer !== currentQuestion.correctAnswer
-                          ? 'border-destructive bg-destructive/10'
-                          : 'border-border hover:border-primary'
-                      }`}
-                    >
-                      <RadioGroupItem value={option.value} id={option.value} />
-                      <Label htmlFor={option.value} className="flex-1 cursor-pointer">
-                        <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
-                        {option.image ? (
-                          <img 
-                            src={resolveImagePath(option.image)}  
-                            alt={`Option ${index + 1}`}
-                            className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
-                          />
-                        ) : (
-                          <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
+                  {shuffledOptions.map((option, index) => {
+                    const isCrossedOut = crossedOutOptions.includes(option.value);
+                    return (
+                      <div
+                        key={option.value}
+                        className={`flex items-center space-x-3 p-4 rounded-lg border-2 transition-all ${
+                          isCrossedOut
+                            ? 'border-muted/50 bg-muted/20 opacity-60'
+                            : isSubmitted && option.value === currentQuestion.correctAnswer
+                            ? 'border-success bg-success/10'
+                            : isSubmitted && option.value === currentAnswer && currentAnswer !== currentQuestion.correctAnswer
+                            ? 'border-destructive bg-destructive/10'
+                            : 'border-border hover:border-primary'
+                        }`}
+                      >
+                        {!isSubmitted && (
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
+                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                              isCrossedOut
+                                ? 'bg-destructive text-destructive-foreground border-destructive'
+                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                            }`}
+                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                          >✕</button>
                         )}
-                      </Label>
-                      {isSubmitted && option.value === currentQuestion.correctAnswer && (
-                        <CheckCircle2 className="h-5 w-5 text-success" />
-                      )}
-                      {isSubmitted && option.value === currentAnswer && currentAnswer !== currentQuestion.correctAnswer && (
-                        <XCircle className="h-5 w-5 text-destructive" />
-                      )}
-                    </div>
-                  ))}
+                        <RadioGroupItem value={option.value} id={option.value} disabled={isCrossedOut || isSubmitted} />
+                        <Label htmlFor={option.value} className={`flex-1 cursor-pointer ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
+                          <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
+                          {option.image ? (
+                            <img
+                              src={resolveImagePath(option.image)}
+                              alt={`Option ${index + 1}`}
+                              className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
+                            />
+                          ) : (
+                            <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
+                          )}
+                        </Label>
+                        {isSubmitted && option.value === currentQuestion.correctAnswer && (
+                          <CheckCircle2 className="h-5 w-5 text-success" />
+                        )}
+                        {isSubmitted && option.value === currentAnswer && currentAnswer !== currentQuestion.correctAnswer && (
+                          <XCircle className="h-5 w-5 text-destructive" />
+                        )}
+                      </div>
+                    );
+                  })}
                 </RadioGroup>
               ) : currentQuestion.type === 'select-all' ? (
                 <div className="space-y-3">
@@ -984,49 +1025,55 @@ const Quiz = () => {
                     const isCorrectOption = currentQuestion.correctAnswers.includes(option.value);
                     const wasSelectedWrong = isSubmitted && isSelected && !isCorrectOption;
                     const wasCorrectNotSelected = isSubmitted && !isSelected && isCorrectOption;
-                    
+                    const isCrossedOut = crossedOutOptions.includes(option.value);
                     return (
                       <div
                         key={option.value}
                         className={`flex items-center space-x-3 p-4 rounded-lg border-2 transition-all cursor-pointer ${
-                          isSubmitted && isCorrectOption
+                          isCrossedOut
+                            ? 'border-muted/50 bg-muted/20 opacity-60'
+                            : isSubmitted && isCorrectOption
                             ? 'border-success bg-success/10'
                             : wasSelectedWrong
                             ? 'border-destructive bg-destructive/10'
                             : 'border-border hover:border-primary'
                         }`}
                         onClick={() => {
-                          if (isSubmitted) return;
+                          if (isSubmitted || isCrossedOut) return;
                           setSelectedCheckboxes(prev =>
-                            prev.includes(option.value) 
-                              ? prev.filter(v => v !== option.value) 
+                            prev.includes(option.value)
+                              ? prev.filter(v => v !== option.value)
                               : [...prev, option.value]
                           );
                         }}
                       >
+                        {!isSubmitted && (
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
+                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                              isCrossedOut
+                                ? 'bg-destructive text-destructive-foreground border-destructive'
+                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                            }`}
+                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                          >✕</button>
+                        )}
                         <Checkbox
                           checked={isSelected}
-                          disabled={isSubmitted}
+                          disabled={isCrossedOut || isSubmitted}
                           onCheckedChange={() => {
-                            if (isSubmitted) return;
+                            if (isSubmitted || isCrossedOut) return;
                             setSelectedCheckboxes(prev =>
-                              prev.includes(option.value) 
-                                ? prev.filter(v => v !== option.value) 
+                              prev.includes(option.value)
+                                ? prev.filter(v => v !== option.value)
                                 : [...prev, option.value]
                             );
                           }}
                         />
-                        <span className="flex-1">
+                        <span className={`flex-1 ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
                           <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
-                          {option.image ? (
-                            <img 
-                              src={resolveImagePath(option.image)}  
-                              alt={`Option ${index + 1}`}
-                              className="max-w-md max-h-64 w-auto h-auto object-contain rounded border border-border mt-2"
-                            />
-                          ) : (
-                            <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
-                          )}
+                          <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
                         </span>
                         {isSubmitted && isCorrectOption && (
                           <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0" />
