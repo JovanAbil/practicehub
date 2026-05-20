@@ -676,35 +676,19 @@ export const africaQuestions: Question[] = [
   {
     id: "africa-93",
     type: "multiple-choice",
-    question: "Why was the discovery of Mapungubwe suppressed during the apartheid era in South Africa?",
-    options: [{"label":"A","value":"A","text":"The site was considered dangerous due to unexploded military weapons"},{"label":"B","value":"B","text":"The apartheid government had no interest in admitting that an advanced ancient African city had existed in the region"},{"label":"C","value":"C","text":"Archaeologists could not agree on the correct interpretation of the artifacts"},{"label":"D","value":"D","text":"International law prohibited excavation of sacred sites"}],
-    correctAnswer: "B",
-    explanation: "The apartheid government promoted the \"empty land\" myth — that black Africans arrived in South Africa at the same time as white settlers in 1652. An ancient African city like Mapungubwe directly contradicted this narrative, so evidence was locked away for 70 years.",
-  },
-  {
-    id: "africa-94",
-    type: "select-all",
-    question: "What types of artifacts were discovered at Mapungubwe? Select all that apply.",
-    options: [{"label":"A","value":"A","text":"Intricate gold figures"},{"label":"B","value":"B","text":"Approximately 10,000 gold beads"},{"label":"C","value":"C","text":"Fine pottery"},{"label":"D","value":"D","text":"Arabic written manuscripts"}],
-    correctAnswers: [],
-    explanation: "Mapungubwe yielded gold figures (made of leaf gold on wooden cores), roughly 10,000 gold beads, and fine pottery — all evidence of a sophisticated and wealthy civilization.",
-  },
-  {
-    id: "africa-95",
-    type: "multiple-choice",
     question: "How were gold objects constructed at Mapungubwe?",
     options: [{"label":"A","value":"A","text":"By melting solid gold into molds"},{"label":"B","value":"B","text":"By hammering leaf gold onto a wooden core"},{"label":"C","value":"C","text":"By braiding gold wire around a clay form"},{"label":"D","value":"D","text":"By casting gold into sand impressions"}],
     correctAnswer: "B",
     explanation: "Mapungubwe's gold craftspeople used the technique of applying very thin sheets of gold (leaf gold) over carved wooden cores, showing technical sophistication in metalworking.",
   },
   {
-    id: "africa-96",
+    id: "africa-94",
     type: "parts",
     question: "Consider the ancient site of Thulamela in southern Africa.",
     parts: [{"label":"a","type":"multiple-choice","question":"Who built Thulamela, and when was the site occupied?","options":[{"label":"A","value":"A","text":"The Mapungubwe people, between 800 and 1200 AD"},{"label":"B","value":"B","text":"The Shona people (descendants of the Mapungubwe), between approximately 1200 and 1640 AD"},{"label":"C","value":"C","text":"The Bantu people, between 500 and 900 AD"},{"label":"D","value":"D","text":"Arab traders, between 1000 and 1400 AD"}],"correctAnswer":"B","explanation":"Thulamela was built by the Shona people, who were direct descendants of the Mapungubwe civilization. The site was settled between approximately 1200 and 1640 AD."},{"label":"b","type":"free-response","question":"What activities did the people of Thulamela engage in to sustain their community?","correctAnswer":"The Thulamela people farmed, herded cattle, and traded down rivers as far as the Indian Ocean.","explanation":"Thulamela's people combined agriculture, animal husbandry, and long-distance trade — connecting the interior of southern Africa to Indian Ocean commerce."}],
   },
   {
-    id: "africa-97",
+    id: "africa-95",
     type: "multiple-choice",
     question: "What does the word \"Zimbabwe\" mean, and what does this reveal about Great Zimbabwe's construction?",
     options: [{"label":"A","value":"A","text":"\"City of gold\" — reflecting its wealth"},{"label":"B","value":"B","text":"\"House of stone\" — reflecting its massive stone architecture"},{"label":"C","value":"C","text":"\"Place of kings\" — reflecting its role as a royal capital"},{"label":"D","value":"D","text":"\"Land of cattle\" — reflecting its agricultural wealth"}],
@@ -712,7 +696,7 @@ export const africaQuestions: Question[] = [
     explanation: "\"Zimbabwe\" means \"house of stone\" — a fitting name for a city renowned for its remarkable dry-stone walls built without mortar, a construction technique that has lasted centuries.",
   },
   {
-    id: "africa-98",
+    id: "africa-96",
     type: "multiple-choice",
     question: "How does Great Zimbabwe rank architecturally among African structures?",
     options: [{"label":"A","value":"A","text":"It is the largest stone structure ever built on the African continent"},{"label":"B","value":"B","text":"It is the largest stone structure in Africa south of the Egyptian pyramids"},{"label":"C","value":"C","text":"It is the second largest stone structure in all of Africa"},{"label":"D","value":"D","text":"It is the oldest stone structure in sub-Saharan Africa"}],
@@ -720,7 +704,7 @@ export const africaQuestions: Question[] = [
     explanation: "Great Zimbabwe is the largest stone structure in Africa south of the pyramids — a monument to the remarkable engineering and organizational capacity of the Iron Age Bantu civilization that built it.",
   },
   {
-    id: "africa-99",
+    id: "africa-97",
     type: "multiple-choice",
     question: "How did Great Zimbabwe's population at its height in the 15th century compare to European cities of the same era?",
     options: [{"label":"A","value":"A","text":"It had a smaller population than any European city at the time"},{"label":"B","value":"B","text":"Its population was as large as many of Europe's greatest cities"},{"label":"C","value":"C","text":"It surpassed every European city in population"},{"label":"D","value":"D","text":"It had a population equivalent to a small European village"}],
@@ -728,7 +712,7 @@ export const africaQuestions: Question[] = [
     explanation: "At its 15th-century peak, Great Zimbabwe was a major urban center comparable in size to the great cities of medieval Europe — a fact that challenges stereotypes about pre-colonial African urbanism.",
   },
   {
-    id: "africa-100",
+    id: "africa-98",
     type: "multiple-choice",
     question: "How does modern Zimbabwe honor Great Zimbabwe as a national symbol?",
     options: [{"label":"A","value":"A","text":"It is used as the seat of Zimbabwe's parliament"},{"label":"B","value":"B","text":"Its image appears on Zimbabwe's flags, coins, money, and stamps"},{"label":"C","value":"C","text":"The ruling party is named after Great Zimbabwe"},{"label":"D","value":"D","text":"A national holiday is held each year at the ruins"}],
@@ -736,7 +720,7 @@ export const africaQuestions: Question[] = [
     explanation: "After Zimbabwe gained independence in 1980, Great Zimbabwe became the centerpiece of national identity — its image appearing on the country's flags, currency, coins, and stamps, reclaiming it from colonial-era dismissal.",
   },
   {
-    id: "africa-101",
+    id: "africa-99",
     type: "multiple-choice",
     question: "Who built Great Zimbabwe, and what is their relationship to earlier southern African civilizations?",
     options: [{"label":"A","value":"A","text":"Arab traders, who had no connection to earlier local civilizations"},{"label":"B","value":"B","text":"Iron Age Bantu people who were ancestors of the Shona, themselves descendants of the Mapungubwe civilization"},{"label":"C","value":"C","text":"Portuguese explorers who arrived on the East African coast"},{"label":"D","value":"D","text":"The Mutapa rulers, who were unrelated to earlier southern African peoples"}],
@@ -744,7 +728,7 @@ export const africaQuestions: Question[] = [
     explanation: "Great Zimbabwe was built by Iron Age Bantu people who were the ancestors of the Shona. The Shona were in turn descended from the Mapungubwe civilization — creating a continuous thread of civilization in southern Africa spanning over a millennium.",
   },
   {
-    id: "africa-102",
+    id: "africa-100",
     type: "multiple-choice",
     question: "What role has the Niger River played throughout Mali's history?",
     options: [{"label":"A","value":"A","text":"A barrier that prevented invasion from the east"},{"label":"B","value":"B","text":"Mali's lifeblood and main trading artery"},{"label":"C","value":"C","text":"The primary source of salt for the empire"},{"label":"D","value":"D","text":"A sacred river central to Animist religious ceremonies"}],
@@ -752,7 +736,7 @@ export const africaQuestions: Question[] = [
     explanation: "The Niger River has always been the geographic and economic backbone of Mali — providing water, fish, fertile floodplains, and the primary highway for commerce across the region.",
   },
   {
-    id: 'africa-103',
+    id: 'africa-101',
     type: 'free-response',
     question: 'Match the letters to their place. Names are not given for more difficulty. Options: [Gulf of Aden, Atlantic Ocean, Nile River, Arabian Peninsula, Congo River, Kalahari Desert, Orange River, Madagascar, Black Sea, Niger River, White Nile, Indian Ocean, Sahara Desert, Limpopo River, Mediterranean Sea, Red Sea, Gulf of Guinea, Blue Nile, Atlas Mountains, Strait of Gibraltar, Lake Chad, Zambezi River, Persian Gulf]',
     correctAnswer: '',
