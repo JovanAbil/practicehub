@@ -623,7 +623,7 @@ export const africaQuestions: Question[] = [
     type: "select-all",
     question: "What subjects were studied at Sankore University in Timbuktu? Select all that apply.",
     options: [{"label":"A","value":"A","text":"Astronomy"},{"label":"B","value":"B","text":"Mathematics"},{"label":"C","value":"C","text":"Islamic sciences and the Qur'an"},{"label":"D","value":"D","text":"Traditional medicine"}],
-    correctAnswers: [],
+    correctAnswers: ["A", "B", "C", "D"],
     explanation: "Sankore University offered a broad curriculum including astronomy, literature, Islamic sciences, the Qur'an, mathematics, and traditional medicine — comparable to the great European universities of the same era.",
   },
   {
