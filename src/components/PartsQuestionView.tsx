@@ -223,18 +223,6 @@ const PartsQuestionView = ({
                           : 'border-border hover:border-primary'
                       }`}
                     >
-                      {!isPartSubmitted && (
-                        <button
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
-                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
-                            isCrossedOut
-                              ? 'bg-destructive text-destructive-foreground border-destructive'
-                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
-                          }`}
-                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
-                        >✕</button>
-                      )}
                       <RadioGroupItem value={option.value} id={`${part.label}-${option.value}`} disabled={isCrossedOut || isPartSubmitted} />
                       <Label htmlFor={`${part.label}-${option.value}`} className={`flex-1 cursor-pointer text-sm ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
                         <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
@@ -249,6 +237,18 @@ const PartsQuestionView = ({
                       )}
                       {isPartSubmitted && option.value === partAnswers[part.label] && partAnswers[part.label] !== part.correctAnswer && (
                         <XCircle className="h-4 w-4 text-destructive flex-shrink-0" />
+                      )}
+                      {!isPartSubmitted && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
+                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                            isCrossedOut
+                              ? 'bg-destructive text-destructive-foreground border-destructive'
+                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                          }`}
+                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                        >✕</button>
                       )}
                     </div>
                   );
@@ -286,18 +286,6 @@ const PartsQuestionView = ({
                         });
                       }}
                     >
-                      {!isPartSubmitted && (
-                        <button
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
-                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
-                            isCrossedOut
-                              ? 'bg-destructive text-destructive-foreground border-destructive'
-                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
-                          }`}
-                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
-                        >✕</button>
-                      )}
                       <Checkbox checked={selected} disabled={isCrossedOut || isPartSubmitted} />
                       <span className={`flex-1 text-sm ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
                         <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
@@ -310,6 +298,18 @@ const PartsQuestionView = ({
                       {isPartSubmitted && isCorrectOption && <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />}
                       {wasSelectedWrong && <XCircle className="h-4 w-4 text-destructive flex-shrink-0" />}
                       {isPartSubmitted && !selected && isCorrectOption && <span className="text-xs text-warning font-medium flex-shrink-0">Missed</span>}
+                      {!isPartSubmitted && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
+                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                            isCrossedOut
+                              ? 'bg-destructive text-destructive-foreground border-destructive'
+                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                          }`}
+                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                        >✕</button>
+                      )}
                     </div>
                   );
                 })}
