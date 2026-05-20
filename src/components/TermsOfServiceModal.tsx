@@ -137,7 +137,7 @@ const TermsOfServiceModal = ({ externalOpen = false, onExternalClose }: TermsOfS
         }
       }}>
         <DialogHeader>
-          <DialogTitle className="text-2xl">Welcome to CSW Studying!</DialogTitle>
+          <DialogTitle className="text-2xl">Welcome to Practice Hub!</DialogTitle>
           <DialogDescription>
             {externalOpen ? 'Viewing Terms of Service' : 'Please review our terms before continuing'}
           </DialogDescription>
