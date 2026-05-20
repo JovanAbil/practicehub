@@ -107,13 +107,13 @@ export const scienceSchoolCourses: Record<string, CourseEntry[]> = {
 
 /** AP/Universal social courses — shown at top */
 export const socialApCourses: CourseEntry[] = [
-  {
-    id: 'apush',
-    name: 'AP US History',
-    subject: 'apush',
-    units: [],
-    hasChallenge: true,
-  },
+  //{
+    //id: 'apush',
+    //name: 'AP US History',
+    //subject: 'apush',
+    //units: [],
+    //hasChallenge: true,
+  //},
 ];
 
 /** School-specific social courses */
