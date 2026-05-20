@@ -35,6 +35,7 @@ const PartsQuestionView = ({
   const [partShowGrading, setPartShowGrading] = useState<{ [label: string]: boolean }>({});
   const frqRefs = useRef<{ [label: string]: HTMLTextAreaElement | null }>({});
   const [partListInputs, setPartListInputs] = useState<{ [label: string]: string[] }>({});
+  const [crossedOutPartOptions, setCrossedOutPartOptions] = useState<{ [label: string]: string[] }>({});
 
   // Shuffle MCQ options per part (stable per render cycle)
   const shuffledPartOptions = useMemo(() => {
@@ -120,6 +121,26 @@ const PartsQuestionView = ({
     onPartsStateChange(newPartsState);
   };
 
+  const toggleCrossOutPart = (partLabel: string, optionValue: string) => {
+    if (partSubmitted[partLabel]) return;
+    setCrossedOutPartOptions(prev => {
+      const current = prev[partLabel] || [];
+      const next = current.includes(optionValue)
+        ? current.filter(v => v !== optionValue)
+        : [...current, optionValue];
+      return { ...prev, [partLabel]: next };
+    });
+    if (partAnswers[partLabel] === optionValue) {
+      setPartAnswers(prev => ({ ...prev, [partLabel]: '' }));
+    }
+    if ((partCheckboxes[partLabel] || []).includes(optionValue)) {
+      setPartCheckboxes(prev => ({
+        ...prev,
+        [partLabel]: (prev[partLabel] || []).filter(v => v !== optionValue),
+      }));
+    }
+  };
+
   return (
     <div className="space-y-4">
       {/* Main question stem */}
@@ -187,34 +208,51 @@ const PartsQuestionView = ({
                 disabled={isPartSubmitted}
                 className="space-y-2"
               >
-                {options.map((option, idx) => (
-                  <div
-                    key={option.value}
-                    className={`flex items-center space-x-2 p-3 rounded-lg border transition-all text-sm ${
-                      isPartSubmitted && option.value === part.correctAnswer
-                        ? 'border-success bg-success/10'
-                        : isPartSubmitted && option.value === partAnswers[part.label] && partAnswers[part.label] !== part.correctAnswer
-                        ? 'border-destructive bg-destructive/10'
-                        : 'border-border hover:border-primary'
-                    }`}
-                  >
-                    <RadioGroupItem value={option.value} id={`${part.label}-${option.value}`} />
-                    <Label htmlFor={`${part.label}-${option.value}`} className="flex-1 cursor-pointer text-sm">
-                      <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
-                      {option.image ? (
-                        <img src={resolveImagePath(option.image)} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
-                      ) : (
-                        <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
+                {options.map((option, idx) => {
+                  const isCrossedOut = (crossedOutPartOptions[part.label] || []).includes(option.value);
+                  return (
+                    <div
+                      key={option.value}
+                      className={`flex items-center space-x-2 p-3 rounded-lg border transition-all text-sm ${
+                        isCrossedOut
+                          ? 'border-muted/50 bg-muted/20 opacity-60'
+                          : isPartSubmitted && option.value === part.correctAnswer
+                          ? 'border-success bg-success/10'
+                          : isPartSubmitted && option.value === partAnswers[part.label] && partAnswers[part.label] !== part.correctAnswer
+                          ? 'border-destructive bg-destructive/10'
+                          : 'border-border hover:border-primary'
+                      }`}
+                    >
+                      {!isPartSubmitted && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
+                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                            isCrossedOut
+                              ? 'bg-destructive text-destructive-foreground border-destructive'
+                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                          }`}
+                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                        >✕</button>
                       )}
-                    </Label>
-                    {isPartSubmitted && option.value === part.correctAnswer && (
-                      <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-                    )}
-                    {isPartSubmitted && option.value === partAnswers[part.label] && partAnswers[part.label] !== part.correctAnswer && (
-                      <XCircle className="h-4 w-4 text-destructive flex-shrink-0" />
-                    )}
-                  </div>
-                ))}
+                      <RadioGroupItem value={option.value} id={`${part.label}-${option.value}`} disabled={isCrossedOut || isPartSubmitted} />
+                      <Label htmlFor={`${part.label}-${option.value}`} className={`flex-1 cursor-pointer text-sm ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
+                        <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
+                        {option.image ? (
+                          <img src={resolveImagePath(option.image)} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
+                        ) : (
+                          <MathText enableChemistry={subject === 'chemistry'}>{option.text}</MathText>
+                        )}
+                      </Label>
+                      {isPartSubmitted && option.value === part.correctAnswer && (
+                        <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
+                      )}
+                      {isPartSubmitted && option.value === partAnswers[part.label] && partAnswers[part.label] !== part.correctAnswer && (
+                        <XCircle className="h-4 w-4 text-destructive flex-shrink-0" />
+                      )}
+                    </div>
+                  );
+                })}
               </RadioGroup>
             )}
 
@@ -226,18 +264,21 @@ const PartsQuestionView = ({
                   const selected = (partCheckboxes[part.label] || []).includes(option.value);
                   const isCorrectOption = (part.correctAnswers || []).includes(option.value);
                   const wasSelectedWrong = isPartSubmitted && selected && !isCorrectOption;
+                  const isCrossedOut = (crossedOutPartOptions[part.label] || []).includes(option.value);
                   return (
                     <div
                       key={option.value}
                       className={`flex items-center space-x-2 p-3 rounded-lg border transition-all text-sm cursor-pointer ${
-                        isPartSubmitted && isCorrectOption
+                        isCrossedOut
+                          ? 'border-muted/50 bg-muted/20 opacity-60'
+                          : isPartSubmitted && isCorrectOption
                           ? 'border-success bg-success/10'
                           : wasSelectedWrong
                           ? 'border-destructive bg-destructive/10'
                           : 'border-border hover:border-primary'
                       }`}
                       onClick={() => {
-                        if (isPartSubmitted) return;
+                        if (isPartSubmitted || isCrossedOut) return;
                         const cur = partCheckboxes[part.label] || [];
                         setPartCheckboxes({
                           ...partCheckboxes,
@@ -245,8 +286,20 @@ const PartsQuestionView = ({
                         });
                       }}
                     >
-                      <Checkbox checked={selected} disabled={isPartSubmitted} />
-                      <span className="flex-1 text-sm">
+                      {!isPartSubmitted && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); toggleCrossOutPart(part.label, option.value); }}
+                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                            isCrossedOut
+                              ? 'bg-destructive text-destructive-foreground border-destructive'
+                              : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                          }`}
+                          title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                        >✕</button>
+                      )}
+                      <Checkbox checked={selected} disabled={isCrossedOut || isPartSubmitted} />
+                      <span className={`flex-1 text-sm ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
                         <span className="font-semibold mr-1 text-muted-foreground">{idx + 1}.</span>
                         {option.image ? (
                           <img src={resolveImagePath(option.image)} alt={`Option ${idx + 1}`} className="max-w-xs max-h-32 object-contain rounded border border-border mt-1" />
