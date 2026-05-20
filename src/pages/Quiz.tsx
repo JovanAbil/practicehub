@@ -981,18 +981,6 @@ const Quiz = () => {
                             : 'border-border hover:border-primary'
                         }`}
                       >
-                        {!isSubmitted && (
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
-                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
-                              isCrossedOut
-                                ? 'bg-destructive text-destructive-foreground border-destructive'
-                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
-                            }`}
-                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
-                          >✕</button>
-                        )}
                         <RadioGroupItem value={option.value} id={option.value} disabled={isCrossedOut || isSubmitted} />
                         <Label htmlFor={option.value} className={`flex-1 cursor-pointer ${isCrossedOut ? 'line-through text-muted-foreground' : ''}`}>
                           <span className="font-semibold mr-2 text-muted-foreground">{index + 1}.</span>
@@ -1011,6 +999,18 @@ const Quiz = () => {
                         )}
                         {isSubmitted && option.value === currentAnswer && currentAnswer !== currentQuestion.correctAnswer && (
                           <XCircle className="h-5 w-5 text-destructive" />
+                        )}
+                        {!isSubmitted && (
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
+                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                              isCrossedOut
+                                ? 'bg-destructive text-destructive-foreground border-destructive'
+                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                            }`}
+                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                          >✕</button>
                         )}
                       </div>
                     );
@@ -1046,18 +1046,6 @@ const Quiz = () => {
                           );
                         }}
                       >
-                        {!isSubmitted && (
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
-                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
-                              isCrossedOut
-                                ? 'bg-destructive text-destructive-foreground border-destructive'
-                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
-                            }`}
-                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
-                          >✕</button>
-                        )}
                         <Checkbox
                           checked={isSelected}
                           disabled={isCrossedOut || isSubmitted}
@@ -1082,6 +1070,18 @@ const Quiz = () => {
                         )}
                         {wasCorrectNotSelected && (
                           <span className="text-xs text-warning font-medium flex-shrink-0">Missed</span>
+                        )}
+                        {!isSubmitted && (
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); toggleCrossOut(option.value); }}
+                            className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs border transition-colors ${
+                              isCrossedOut
+                                ? 'bg-destructive text-destructive-foreground border-destructive'
+                                : 'bg-background text-muted-foreground border-border hover:border-destructive hover:text-destructive'
+                            }`}
+                            title={isCrossedOut ? 'Uncross option' : 'Cross out option'}
+                          >✕</button>
                         )}
                       </div>
                     );
