@@ -17,6 +17,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'May 19th, 2026',
+    title: 'Bug Fixes',
+    items: [
+      'Bugs with images loading has been fixed',
+      'Africa has been updated for World History Stella CSW',
+      'Can cross out options for Select All that Apply and MCQ type questions',
+      'Parametric and Vectors removed from AP Precalculus as they aren\'t on the AP test'
+    ],
+  },
+  {
     date: 'May 18th, 2026',
     title: 'Minor Updates',
     items: [
