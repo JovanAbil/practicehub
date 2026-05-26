@@ -50,10 +50,6 @@ import { eastasiaQuestions } from '@/data/worldhistory/eastasia-questions';
 import { japanQuestions } from '@/data/worldhistory/japan-questions';
 import { indiaQuestions } from '@/data/worldhistory/india-questions';
 import { africaQuestions } from '@/data/worldhistory/africa-questions';
-import { worldHistoryUnit8Questions } from '@/data/worldhistory/world-history-unit8';
-import { worldHistoryUnit9Questions } from '@/data/worldhistory/world-history-unit9';
-import { worldHistoryUnit10Questions } from '@/data/worldhistory/world-history-unit10';
-import { worldHistoryUnit11Questions } from '@/data/worldhistory/world-history-unit11';
 // Practice
 import { unit1Questions } from '@/data/practice/unit1-questions';
 //AP CSP
@@ -110,10 +106,6 @@ const questionMap: Record<string, Question[]> = {
   'world-history-japan': japanQuestions,
   'world-history-india': indiaQuestions,
   'world-history-africa': africaQuestions,
-  'world-history-unit8': worldHistoryUnit8Questions,
-  'world-history-unit9': worldHistoryUnit9Questions,
-  'world-history-unit10': worldHistoryUnit10Questions,
-  'world-history-unit11': worldHistoryUnit11Questions,
   'practice-unit1': unit1Questions,
   'apcsp-creative': creativeQuestions,
   'apcsp-data': dataQuestions,
@@ -177,9 +169,6 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'japan', name: 'Unit 6 - Japan' },
     { id: 'india', name: 'Unit 7 - India' },
     { id: 'africa', name: 'Unit 8 - Africa' },
-    { id: 'unit9', name: 'Unit 9' },
-    { id: 'unit10', name: 'Unit 10' },
-    { id: 'unit11', name: 'Unit 11' },
   ],
   apcsp: [
     { id: 'creative', name: 'Creative Development' },
