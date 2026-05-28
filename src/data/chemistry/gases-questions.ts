@@ -65,7 +65,7 @@ export const gasesQuestions: Question[] = [
     id: "gases-9",
     type: "free-response",
     question: "How many grams are there in 8.64 × 10$^{21}$ molecules of disilicon hexabromide (Si$_{2}$Br$_{6}$)?",
-    correctAnswer: "5.25 g",
+    correctAnswer: "7.684 g",
     explanation: "Convert molecules to moles using Avogadro’s number.\nFind molar mass of Si$_{2}$Br$_{6}$.\nMultiply moles by molar mass.",
   },
   {
