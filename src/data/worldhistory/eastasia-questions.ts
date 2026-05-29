@@ -376,7 +376,7 @@ export const eastasiaQuestions: Question[] = [
     id: "eastasia-61",
     type: "free-response",
     question: "How did Tang's last emperor die?\n",
-    correctAnswer: "Tang’s last emperor, a child was murdered after rebels took over\n",
+    correctAnswer: "Tang’s last emperor, a child, was murdered after rebels took over\n",
   },
   {
     id: "eastasia-62",
