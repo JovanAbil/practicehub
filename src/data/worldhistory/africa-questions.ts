@@ -714,7 +714,7 @@ export const africaQuestions: Question[] = [
     id: "africa-98",
     type: "free-response",
     question: "Do the savannah's produce gold or salt?",
-    correctAnswer: "No",
+    correctAnswer: "No, they don't produce either",
     explanation: "",
   },
   {
