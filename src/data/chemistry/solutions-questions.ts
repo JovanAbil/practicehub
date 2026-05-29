@@ -366,7 +366,7 @@ export const solutionsQuestions: Question[] = [
   {
     id: "solution-51",
     type: "multiple-choice",
-    question: "Is 0.52 boiling or freezing of water?",
+    question: "Is 0.52 $K_{f}$ boiling or freezing of water?",
     options: [{"label":"A","value":"A","text":"Boiling"},{"label":"B","value":"B","text":"Freezing"}],
     correctAnswer: "A",
     explanation: "",
@@ -374,7 +374,7 @@ export const solutionsQuestions: Question[] = [
   {
     id: "solution-52",
     type: "multiple-choice",
-    question: "Is 1.86 boiling or freezing of water?",
+    question: "Is 1.86 $K_{f}$ boiling or freezing of water?",
     options: [{"label":"A","value":"A","text":"Boiling"},{"label":"B","value":"B","text":"Freezing"}],
     correctAnswer: "B",
     explanation: "",
