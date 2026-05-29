@@ -715,4 +715,10 @@ export const japanQuestions: Question[] = [
     correctAnswer: "",
     listAnswers: ["Honshu","Hokkaido","Kyushu","Shikoku"],
   },
+  {
+    id: "japan-105",
+    type: "free-response",
+    question: "Who was Francis Xavier",
+    correctAnswer: "The first Jesuit Missionary",
+  },
 ];
