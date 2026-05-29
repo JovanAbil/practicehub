@@ -903,7 +903,7 @@ export const reactionsQuestions: Question[] = [
   {
     id: "reactions-129",
     type: "free-response",
-    question: "How would we do 2 objects when calculating the heat?",
+    question: "How would we compare 2 objects when calculating the heat?",
     correctAnswer: "-mc$\\Delta$T = mc$\\Delta$T ",
     explanation: "",
   },
