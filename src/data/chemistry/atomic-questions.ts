@@ -222,7 +222,7 @@ export const atomicQuestions: Question[] = [
   {
     id: "atomic-29",
     type: "free-response",
-    question: "What is the full eelctron configuration for noibium?",
+    question: "What is the full electron configuration for noibium?",
     correctAnswer: "1s$^{2}$2s$^{2}$2p$^{6}$3s$^{2}$3p$^{6}$4s$^{2}$3d$^{10}$4p$^{6}$5s$^{2}$4d$^{3}$",
     explanation: "",
   },
