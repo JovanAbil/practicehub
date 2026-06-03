@@ -86,7 +86,7 @@ export const gasesQuestions: Question[] = [
     id: "gases-12",
     type: "free-response",
     question: "A compound is 21.20% Nitrogen, 6.06% Hydrogen, 24.30% Sulfur, and 48.45% Oxygen. Write the empirical formula and name the compound.",
-    correctAnswer: "NH$_{4}$SO$_{2}$, ammonium sulfite",
+    correctAnswer: "(NH$_{4}$)$_{2}$SO$_{4}$",
     explanation: "Assume 100 g sample.\nConvert to moles.\nDivide by smallest mole value.\nWrite empirical formula from mole ratio.",
   },
   {
@@ -121,7 +121,7 @@ export const gasesQuestions: Question[] = [
     id: "gases-17",
     type: "free-response",
     question: "A gas tank contains 1.25 moles of CO$_{2}$ and 2.45 moles of N$_{2}$ at 28.7 atm and 180°C. Calculate the volume of the tank.",
-    correctAnswer: "3.08 L",
+    correctAnswer: "4.792 L",
     explanation: "",
   },
   {
@@ -162,9 +162,9 @@ export const gasesQuestions: Question[] = [
   {
     id: "gases-23",
     type: "free-response",
-    question: "In a certain weapon, 3.4 Mg of chlorine gas is produced. If it has a temperature of 23°C and pressure of 20.6 psi, what is the volume of the gas?",
+    question: "In a certain reaction, 3.4 g of chlorine gas is produced. If it has a temperature of 23°C and pressure of 20.6 psi, what is the volume of the gas?",
     correctAnswer: "39.31 L",
-    explanation: "",
+    explanation: "Use the ideal gas law: PV = nRT. Convert pressure to atm: 20.6 psi ÷ 14.696 = 1.401 atm. Convert temperature to Kelvin: 23 + 273 = 296 K. Find moles of Cl₂: 3.4 g ÷ 70.9 g/mol = 0.04795 mol. Solve for V: V = nRT/P = (0.04795)(0.08206)(296) ÷ 1.401 = 39.31 L",
   },
   {
     id: "gases-24",
