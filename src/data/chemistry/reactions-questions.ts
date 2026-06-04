@@ -636,7 +636,7 @@ export const reactionsQuestions: Question[] = [
   {
     id: "reactions-90",
     type: "free-response",
-    question: "When you are using kenetics in chemistry?",
+    question: "When you are using kinetics in chemistry?",
     correctAnswer: "The speed of reactions",
     explanation: "",
   },
