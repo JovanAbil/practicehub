@@ -5,6 +5,7 @@
  * Content lives in src/data/data-proof.ts — you don't need to edit this file.
  */
 
+import { resolveImagePath } from '@/utils/resolveImagePath';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, ChevronDown, ChevronUp, Play, ImageIcon } from 'lucide-react';
@@ -130,7 +131,7 @@ const DataProof = () => {
                                 <div className="px-4 pb-2">
                                   {item.type === 'image' ? (
                                     <img
-                                      src={item.src}
+                                      src={resolveImagePath(item.src)}
                                       alt={item.title}
                                       className="w-full rounded-lg object-cover"
                                       loading="lazy"
@@ -138,7 +139,7 @@ const DataProof = () => {
                                   ) : item.src.includes('youtube.com') || item.src.includes('youtu.be') ? (
                                     <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden">
                                       <iframe
-                                        src={item.src}
+                                        src={resolveImagePath(item.src)}
                                         title={item.title}
                                         className="absolute inset-0 w-full h-full"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -147,7 +148,7 @@ const DataProof = () => {
                                     </div>
                                   ) : (
                                     <video
-                                      src={item.src}
+                                      src={resolveImagePath(item.src)}
                                       controls
                                       className="w-full rounded-lg"
                                       preload="metadata"
