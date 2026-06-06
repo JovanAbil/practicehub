@@ -102,14 +102,14 @@ export const timelineEntries: TimelineEntry[] = [
       },
       {
         type: 'image',
-        src: '/images/dataproof/jan19th-june5thAnalytics',
+        src: '/images/dataproof/jan19th-june5thAnalytics.png',
         title: 'Analytics Overview',
         description:
           'Counter.dev analytics dashboard showing visitor traffic over this period for both URLs. Shows uniqueness on each visitor.',
       },
       {
         type: 'image',
-        src: '/images/dataproof/jan19th-june5thdata',
+        src: '/images/dataproof/jan19th-june5thdata.png',
         title: 'Detailed Analytics Data',
         description:
           'Detailed breakdown of page views, referrers, and visitor data for both URLs. For reference, website development started November of 2025; launched midterm week of 2026.',
