@@ -47,7 +47,7 @@ const dataPoints: DataPoint[] = [
   },
   {
     title: 'Engagement',
-    description: 'High engagement with above 2,000 pageviews shows students return repeatedly to study, not just visit once.',
+    description: 'High engagement with above 9,000 pageviews shows students return repeatedly to study, not just visit once.',
     stat: `${STATS.totalPageviews}`,
     statLabel: 'pageviews',
     icon: Eye,
@@ -84,7 +84,7 @@ const DataStatistics = () => {
             Data & Statistics
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Evidence of how Practice Hub helps CSW students study more effectively.
+            Evidence of how Practice Hub helps students study more effectively.
           </p>
         </div>
 
