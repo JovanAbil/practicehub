@@ -50,7 +50,7 @@ export const dataQuestions: Question[] = [
     id: "data-7",
     type: "free-response",
     question: "What limits processing data?",
-    correctAnswer: "The users capabilites and their tools",
+    correctAnswer: "The users capabilities and their tools",
     explanation: "",
   },
   {
@@ -78,7 +78,7 @@ export const dataQuestions: Question[] = [
     id: "data-11",
     type: "free-response",
     question: "What do you do if the data is too large for one computer?",
-    correctAnswer: "Use parellel systems.",
+    correctAnswer: "Use parallel systems.",
     explanation: "",
   },
   {
