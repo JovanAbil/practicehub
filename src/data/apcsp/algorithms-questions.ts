@@ -196,7 +196,7 @@ export const algorithmsQuestions: Question[] = [
   {
     id: "algorithms-28",
     type: "free-response",
-    question: "What do you have to check for questions asking about functions and how it relats to duration of a program?",
+    question: "What do you have to check for questions asking about functions and how it relates to duration of a program?",
     correctAnswer: "How many times it is called.",
     explanation: "",
   },
