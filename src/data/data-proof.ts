@@ -89,6 +89,33 @@ export const timelineEntries: TimelineEntry[] = [
       },
     ],
   },
+  {
+    date: 'Janurary 19, 2026 - June 5, 2026',
+    summary: 'Academic Year 2025-2026 & Analytics Report',
+    media: [
+      {
+        type: 'video',
+        src: '/images/dataproof/DataProof2.mov',
+        title: 'Site Walkthrough',
+        description:
+          "A recorded walkthrough demonstrating the analytics of the website, 2025-2026 Academic Year progress check. Site URL changed, combined results are shown.",
+      },
+      {
+        type: 'image',
+        src: '/images/dataproof/jan19th-june5thAnalytics',
+        title: 'Analytics Overview',
+        description:
+          'Counter.dev analytics dashboard showing visitor traffic over this period for both URLs. Shows uniqueness on each visitor.',
+      },
+      {
+        type: 'image',
+        src: '/images/dataproof/jan19th-june5thdata',
+        title: 'Detailed Analytics Data',
+        description:
+          'Detailed breakdown of page views, referrers, and visitor data for both URLs. For reference, website development started November of 2025; launched midterm week of 2026.',
+      },
+    ],
+  },
   // ── Add newer entries BELOW ──
 ];
 
