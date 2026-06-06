@@ -502,7 +502,7 @@ export const reactionsQuestions: Question[] = [
   {
     id: "reactions-71",
     type: "free-response",
-    question: "What is soluable in aqueous solutions? (There are 6)",
+    question: "What is soluble in aqueous solutions? (There are 6)",
     correctAnswer: "",
     explanation: "",
     listAnswers: ["Nitrates","Acetates","Group 1","Sulfates","Ammoniums","Group 17"],
@@ -510,7 +510,7 @@ export const reactionsQuestions: Question[] = [
   {
     id: "reactions-72",
     type: "free-response",
-    question: "What is not soluable in aqueous solutions? (There are 6)",
+    question: "What is not soluble in aqueous solutions? (There are 6)",
     correctAnswer: "",
     explanation: "",
     listAnswers: ["Lead - Pb","Mercury - Hg","Silver - Ag","Ca$^{2+}$ - Calcium","Sr$^{2+}$ - Strontium","Ba$^{2+}$  - Barium"],
