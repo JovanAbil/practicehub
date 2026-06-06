@@ -22,7 +22,7 @@ export const computingQuestions: Question[] = [
     id: "computing-3",
     type: "free-response",
     question: "What term refers to unequal access to computing technology and the internet?",
-    correctAnswer: "computing Divide",
+    correctAnswer: "Computing Divide",
     explanation: "",
   },
   {
@@ -134,7 +134,7 @@ export const computingQuestions: Question[] = [
     id: "computing-19",
     type: "free-response",
     question: "How to calculate the amount of searches a binary search needs to do?",
-    correctAnswer: "$\\log_{2}[x]$ and $x$ = the amount of indexs in the list",
+    correctAnswer: "$\\log_{2}[x]$ and $x$ = the amount of indexes in the list",
     explanation: "",
   },
   {
