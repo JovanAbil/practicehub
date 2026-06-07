@@ -3,7 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { ArrowLeft, Save, Play, Pencil, Trash2, Check, Download, Upload } from 'lucide-react';
+import { ArrowLeft, Save, Play, Pencil, Trash2, Check, Download, Upload, Globe } from 'lucide-react';
+import { getPublicPresetsForCourseChallenge, PublicPreset } from '@/data/public-presets';
 import {
   AlertDialog,
   AlertDialogContent,
@@ -280,6 +281,70 @@ const CourseChallengePresetBuilder = () => {
     });
   };
 
+  // ---- Public Presets (bundled, read-only) ---------------------------------
+  const publicCoursePresets = useMemo(
+    () => getPublicPresetsForCourseChallenge(subject || ''),
+    [subject]
+  );
+  
+  const getAllSubjectQuestions = (): Question[] => {
+    const all: Question[] = [];
+    allQuestionsByUnit.forEach(({ questions }) => all.push(...questions));
+    return all;
+  };
+  
+  const handleUsePublicPreset = (preset: PublicPreset) => {
+    const all = getAllSubjectQuestions();
+    const presetQuestions = all.filter(q => preset.questionIds.includes(q.id));
+    if (presetQuestions.length === 0) {
+      toast.error("None of this preset's questions are available in this subject.");
+      return;
+    }
+    navigate(`/quiz/${subject}/course-challenge/cram?t=${Date.now()}&publicPresetId=${preset.id}`, {
+      state: { presetQuestions, presetName: preset.name, startNewAttempt: true },
+      replace: true,
+    });
+  };
+  
+  const handleSavePublicToMyPresets = (preset: PublicPreset) => {
+    const all = getAllSubjectQuestions();
+    const availableIds = new Set(all.map(q => q.id));
+    const validIds = preset.questionIds.filter(id => availableIds.has(id));
+    if (validIds.length === 0) {
+      toast.error('No matching questions to save.');
+      return;
+    }
+    const created = createPreset(preset.name, subject || '', 'course-challenge', validIds);
+    const skipped = preset.questionIds.length - validIds.length;
+    toast.success(
+      skipped > 0
+        ? `Saved "${created.name}" (${validIds.length} of ${preset.questionIds.length} questions)`
+        : `Saved "${created.name}" to your presets`
+    );
+  };
+  
+  const handleDownloadPublicPreset = (preset: PublicPreset) => {
+    const exportData = {
+      version: 1,
+      preset: {
+        name: preset.name,
+        subject: preset.subject,
+        unitId: preset.unitId,
+        questionIds: preset.questionIds,
+      },
+    };
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${preset.name.replace(/[^a-zA-Z0-9]/g, '_')}_preset.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success('Preset downloaded!');
+  };
+  
   const getSubjectTitleText = () => getSubjectTitle(subject || '');
 
   return (
@@ -368,6 +433,48 @@ const CourseChallengePresetBuilder = () => {
           </AlertDialogContent>
         </AlertDialog>
 
+        {/* Public Presets (bundled, read-only) */}
+        {publicCoursePresets.length > 0 && (
+          <Card className="p-4 mb-6 border-primary/40">
+            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <Globe className="h-4 w-4 text-primary" />
+                <h2 className="text-lg font-semibold">Public Presets</h2>
+              </div>
+              <span className="text-xs text-muted-foreground">Curated presets for this course challenge</span>
+            </div>
+            <div className="space-y-2">
+              {publicCoursePresets.map(preset => (
+                <div
+                  key={preset.id}
+                  className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-primary transition-colors flex-wrap gap-3"
+                >
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-medium">{preset.name}</span>
+                    {preset.description && (
+                      <span className="text-muted-foreground text-sm">{preset.description}</span>
+                    )}
+                    <span className="text-muted-foreground text-xs">
+                      {preset.questionIds.length} questions{preset.author ? ` • by ${preset.author}` : ''}
+                    </span>
+                  </div>
+                  <div className="flex gap-2 flex-wrap justify-end">
+                    <Button size="sm" onClick={() => handleUsePublicPreset(preset)}>
+                      <Play className="mr-1 h-3 w-3" /> Use
+                    </Button>
+                    <Button size="sm" variant="outline" onClick={() => handleSavePublicToMyPresets(preset)}>
+                      <Save className="mr-1 h-3 w-3" /> Save
+                    </Button>
+                    <Button size="sm" variant="outline" onClick={() => handleDownloadPublicPreset(preset)}>
+                      <Download className="h-3 w-3" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+        
         {/* Saved Presets */}
         <Card className="p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
