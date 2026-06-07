@@ -261,3 +261,222 @@ Filename: `<sanitised_name>_preset.json`.
 - Order is preserved — put best presets first.
 - Don't bundle >~50 questions per preset; large sets belong in uploaded `.ts`.
 - `subject` starting with `custom-…` is user-local and not a valid target.
+
+---
+
+## Public Presets for Course Challenges
+
+Course Challenge has its own preset builder at
+`/course-challenge/<subject>/preset-builder` and renders
+`src/pages/CourseChallengePresetBuilder.tsx`. It spans **every unit in a
+subject** instead of a single unit, so it uses a separate helper and a
+reserved sentinel `unitId`.
+
+### Convention
+
+| Field | Value |
+|---|---|
+| `subject` | Subject URL slug (e.g. `apcsp`, `chemistry`) |
+| `unitId` | **Must be the literal string `'course-challenge'`** |
+| `questionIds` | IDs from **any** `-questions.ts` file under that subject |
+
+That sentinel is what `getPublicPresetsForCourseChallenge(subject)` filters
+on, and it matches the `unitId` already used by the saved-presets system for
+this page (see `handleSavePreset` in the file).
+
+### Adding a course-challenge preset (data only)
+
+Append to `publicPresets` in `src/data/public-presets.ts`:
+
+```ts
+{
+  id: 'apcsp-course-challenge-mixed-50',
+  name: 'AP CSP — Mixed 50',
+  description: 'Cross-unit cram set covering all five big ideas.',
+  subject: 'apcsp',
+  unitId: 'course-challenge',
+  questionIds: [
+    'algorithms-1', 'algorithms-7',
+    'data-3', 'data-14',
+    'computing-2', 'systems-5', 'creative-9',
+    // …
+  ],
+  author: 'CSW Studying',
+},
+```
+
+No other changes required if the wiring below is already in place.
+
+---
+
+## Exact line map — `src/pages/CourseChallengePresetBuilder.tsx`
+
+Numbers match the file as shipped. Re-grep markers if the file is reformatted.
+
+| Lines | What's there | Grep marker |
+|---|---|---|
+| 6 | `..., Download, Upload, Globe } from 'lucide-react';` | `Globe } from 'lucide-react'` |
+| 7 | `import { getPublicPresetsForCourseChallenge, PublicPreset } from '@/data/public-presets';` | `getPublicPresetsForCourseChallenge` |
+| 283–347 | `publicCoursePresets` memo + 3 handlers | `// ---- Public Presets` |
+| 436–476 | "Public Presets" `<Card>` JSX, above the `{/* Saved Presets */}` card | `{/* Public Presets (bundled, read-only) */}` |
+
+---
+
+## Copy / paste patch — Course Challenge builder (only if wiring is lost)
+
+### 1. `src/data/public-presets.ts` — add the helper (paste below `getPublicPresetsForUnit`)
+
+```ts
+// Course Challenge presets are stored with unitId === 'course-challenge'
+// and reference question IDs from ANY unit in that subject.
+export const getPublicPresetsForCourseChallenge = (
+  subject: string
+): PublicPreset[] =>
+  publicPresets.filter(p => p.subject === subject && p.unitId === 'course-challenge');
+```
+
+### 2. `src/pages/CourseChallengePresetBuilder.tsx` — imports (line 6)
+
+Replace:
+
+```tsx
+import { ArrowLeft, Save, Play, Pencil, Trash2, Check, Download, Upload } from 'lucide-react';
+```
+
+With:
+
+```tsx
+import { ArrowLeft, Save, Play, Pencil, Trash2, Check, Download, Upload, Globe } from 'lucide-react';
+import { getPublicPresetsForCourseChallenge, PublicPreset } from '@/data/public-presets';
+```
+
+### 3. Handlers — paste **immediately above** `const getSubjectTitleText = ...` (around line 283)
+
+```tsx
+// ---- Public Presets (bundled, read-only) ---------------------------------
+const publicCoursePresets = useMemo(
+  () => getPublicPresetsForCourseChallenge(subject || ''),
+  [subject]
+);
+
+const getAllSubjectQuestions = (): Question[] => {
+  const all: Question[] = [];
+  allQuestionsByUnit.forEach(({ questions }) => all.push(...questions));
+  return all;
+};
+
+const handleUsePublicPreset = (preset: PublicPreset) => {
+  const all = getAllSubjectQuestions();
+  const presetQuestions = all.filter(q => preset.questionIds.includes(q.id));
+  if (presetQuestions.length === 0) {
+    toast.error("None of this preset's questions are available in this subject.");
+    return;
+  }
+  navigate(`/quiz/${subject}/course-challenge/cram?t=${Date.now()}&publicPresetId=${preset.id}`, {
+    state: { presetQuestions, presetName: preset.name, startNewAttempt: true },
+    replace: true,
+  });
+};
+
+const handleSavePublicToMyPresets = (preset: PublicPreset) => {
+  const all = getAllSubjectQuestions();
+  const availableIds = new Set(all.map(q => q.id));
+  const validIds = preset.questionIds.filter(id => availableIds.has(id));
+  if (validIds.length === 0) {
+    toast.error('No matching questions to save.');
+    return;
+  }
+  const created = createPreset(preset.name, subject || '', 'course-challenge', validIds);
+  const skipped = preset.questionIds.length - validIds.length;
+  toast.success(
+    skipped > 0
+      ? `Saved "${created.name}" (${validIds.length} of ${preset.questionIds.length} questions)`
+      : `Saved "${created.name}" to your presets`
+  );
+};
+
+const handleDownloadPublicPreset = (preset: PublicPreset) => {
+  const exportData = {
+    version: 1,
+    preset: {
+      name: preset.name,
+      subject: preset.subject,
+      unitId: preset.unitId,
+      questionIds: preset.questionIds,
+    },
+  };
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${preset.name.replace(/[^a-zA-Z0-9]/g, '_')}_preset.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast.success('Preset downloaded!');
+};
+```
+
+### 4. JSX — paste **immediately above** the `{/* Saved Presets */}` card (around line 436)
+
+```tsx
+{/* Public Presets (bundled, read-only) */}
+{publicCoursePresets.length > 0 && (
+  <Card className="p-4 mb-6 border-primary/40">
+    <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+      <div className="flex items-center gap-2">
+        <Globe className="h-4 w-4 text-primary" />
+        <h2 className="text-lg font-semibold">Public Presets</h2>
+      </div>
+      <span className="text-xs text-muted-foreground">Curated presets for this course challenge</span>
+    </div>
+    <div className="space-y-2">
+      {publicCoursePresets.map(preset => (
+        <div
+          key={preset.id}
+          className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-primary transition-colors flex-wrap gap-3"
+        >
+          <div className="flex flex-col min-w-0">
+            <span className="font-medium">{preset.name}</span>
+            {preset.description && (
+              <span className="text-muted-foreground text-sm">{preset.description}</span>
+            )}
+            <span className="text-muted-foreground text-xs">
+              {preset.questionIds.length} questions{preset.author ? ` • by ${preset.author}` : ''}
+            </span>
+          </div>
+          <div className="flex gap-2 flex-wrap justify-end">
+            <Button size="sm" onClick={() => handleUsePublicPreset(preset)}>
+              <Play className="mr-1 h-3 w-3" /> Use
+            </Button>
+            <Button size="sm" variant="outline" onClick={() => handleSavePublicToMyPresets(preset)}>
+              <Save className="mr-1 h-3 w-3" /> Save
+            </Button>
+            <Button size="sm" variant="outline" onClick={() => handleDownloadPublicPreset(preset)}>
+              <Download className="h-3 w-3" />
+            </Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Card>
+)}
+```
+
+---
+
+## Why the route is `/quiz/<subject>/course-challenge/cram`
+
+Both the manual "Start Practice" button and the saved-preset "Use" button
+already navigate to that route — Public Presets piggyback on the exact same
+path so Quiz.tsx behaves identically (forced re-mount via `?t=<Date.now()>`,
+`replace: true`, `state.startNewAttempt: true`). Do not invent a new route.
+
+## GitHub Pages compatibility
+
+Identical to the unit-level case above — `navigate(...)` uses React Router,
+downloads use `URL.createObjectURL`, saves use `localStorage`. There are no
+hard-coded domains. If you ever add a shareable course-challenge URL, build
+it with `window.location.origin + import.meta.env.BASE_URL + ...`.
+
