@@ -1,90 +1,105 @@
-# How-to-Use Section Videos Guide
+# How-to-Use Section Videos Guide (GitHub Pages compatible)
 
-How to add tutorial videos to the How to Use page (/how-to-use).
-
----
-
-## Overview
-
-Each section on the How to Use page can display an optional tutorial video at the top. Videos are configured in a single data file — no code changes required to add, remove, or swap videos.
+How to add tutorial videos to the How to Use page (/how-to-use), with the
+asset paths set up so they work on **both** Lovable hosting and on standalone
+GitHub Pages under a repo path.
 
 ---
 
-## Files Involved
+## Files
 
 | File | Role |
 |------|------|
-| `src/data/how-to-use-videos.ts` | Video configuration — maps section IDs to video files |
-| `src/components/SectionVideo.tsx` | Video player component (renders `<video>` with controls) |
-| `src/pages/HowToUse.tsx` | How to Use page (reads from config, renders videos) |
-| `public/videos/how-to-use/` | Where video files live (create this folder) |
+| `src/data/how-to-use-videos.ts` | Maps section IDs → `{ src, poster?, label }`. |
+| `src/components/SectionVideo.tsx` | Renders `<video>`. MUST wrap `src` and `poster` with `resolveImagePath`. |
+| `src/utils/resolveImagePath.ts` | The hosting-agnostic path rewriter (see [19-IMAGE-ROUTING-FIX.md](./19-IMAGE-ROUTING-FIX.md)). |
+| `src/pages/HowToUse.tsx` | Reads the config and renders the videos. |
+| `public/videos/how-to-use/` | Where the actual `.mp4` / `.webm` / poster files live. |
 
 ---
 
-## Step-by-Step: Adding a Video
+## One-time setup — make `SectionVideo` GitHub-Pages-safe
 
-### Step 1: Prepare the Video File
+If you have not already done so, update `src/components/SectionVideo.tsx`
+to wrap `src` and `poster`:
 
-- **Format**: `.mp4` (best browser compatibility) or `.webm` (smaller file size)
-- **Size**: Keep under 10 MB for fast loading; compress if needed
-- **Resolution**: 720p or 1080p is fine; wider aspect ratios (16:9) look best
-- **Tools**: Use HandBrake (free) to compress large videos
+```tsx
+import { resolveImagePath } from '@/utils/resolveImagePath';
+import type { SectionVideo as SectionVideoType } from '@/data/how-to-use-videos';
 
-### Step 2: Place the Video File
+interface SectionVideoProps {
+  video: SectionVideoType;
+}
 
-Create the folder if it doesn't exist:
+export const SectionVideo = ({ video }: SectionVideoProps) => {
+  return (
+    <div className="mb-4 rounded-lg overflow-hidden border border-border bg-muted/30">
+      <video
+        src={resolveImagePath(video.src)}
+        poster={resolveImagePath(video.poster)}
+        controls
+        preload="metadata"
+        className="w-full max-h-[400px] object-contain bg-black"
+        aria-label={video.label}
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  );
+};
 ```
-public/videos/how-to-use/
-```
 
-Place your video file there:
+Why this matters: data files store absolute paths like
+`/videos/how-to-use/getting-started.mp4`. On GitHub Pages the actual URL is
+`/<repo-name>/videos/...`. Without `resolveImagePath`, the browser asks for
+`github.io/videos/...` and gets a 404.
+
+---
+
+## Adding a video — step by step
+
+### 1. Prepare the file
+- `.mp4` (H.264) or `.webm` (VP9)
+- Under ~10 MB; compress with HandBrake
+- 720p / 1080p, 16:9
+
+### 2. Drop it into `public/`
 ```
 public/videos/how-to-use/getting-started.mp4
-public/videos/how-to-use/quiz-modes.mp4
-etc.
+public/videos/how-to-use/getting-started-poster.jpg   (optional)
 ```
 
-### Step 3: Update the Configuration
+GitHub Pages serves the `public/` folder at the deployment root, so your
+asset will be reachable at
+`https://<user>.github.io/<repo>/videos/how-to-use/getting-started.mp4`
+**only because** `resolveImagePath` prepends `/<repo>/` at runtime.
 
-Open `src/data/how-to-use-videos.ts` and change the `null` for your section to a video config:
+### 3. Register it in `how-to-use-videos.ts`
 
-```typescript
-// Before:
-'getting-started': null,
-
-// After:
+```ts
 'getting-started': {
   src: '/videos/how-to-use/getting-started.mp4',
   label: 'Video walkthrough of getting started with Practice Hub',
+  poster: '/videos/how-to-use/getting-started-poster.jpg', // optional
 },
 ```
 
-### Step 4: (Optional) Add a Poster Image
+**Always use the leading `/`** — `resolveImagePath` requires it.
+Never write paths like `videos/...` (no leading slash) or
+`https://cswstudying.lovable.app/videos/...` (hard-coded domain).
 
-A poster is the thumbnail shown before the video plays:
-
-```typescript
-'getting-started': {
-  src: '/videos/how-to-use/getting-started.mp4',
-  label: 'Getting started walkthrough',
-  poster: '/videos/how-to-use/getting-started-poster.jpg',
-},
-```
-
-Place the poster image in the same `public/videos/how-to-use/` folder.
-
-### That's It!
-
-The video will automatically appear at the top of that section on the How to Use page.
+### 4. Verify
+- Local: `npm run dev` → video request goes to
+  `localhost:8080/videos/how-to-use/getting-started.mp4`. ✅
+- GitHub Pages: open the deployed URL → request goes to
+  `github.io/<repo>/videos/how-to-use/getting-started.mp4`. ✅
 
 ---
 
 ## Section IDs
 
-These are the valid section keys in `how-to-use-videos.ts`:
-
-| Section ID | Section Title |
-|------------|--------------|
+| Section ID | Title |
+|---|---|
 | `getting-started` | Getting Started |
 | `quiz-modes` | Quiz Modes |
 | `question-types` | Question Types |
@@ -96,81 +111,52 @@ These are the valid section keys in `how-to-use-videos.ts`:
 
 ---
 
-## Removing a Video
+## Removing / replacing a video
 
-Set the section back to `null`:
-
-```typescript
-'getting-started': null,
-```
-
-You can optionally delete the video file from `public/videos/how-to-use/` as well.
+- **Remove**: set the section to `null` in `how-to-use-videos.ts`. Optionally
+  delete the file from `public/videos/how-to-use/`.
+- **Replace**: drop the new file in `public/videos/how-to-use/` and update
+  the `src` (and `poster` if used).
 
 ---
 
-## Replacing a Video
+## Adding a new section
 
-1. Place the new video file in `public/videos/how-to-use/`
-2. Update the `src` path in `how-to-use-videos.ts`
-3. Delete the old file if no longer needed
-
----
-
-## Adding a New Section
-
-If you add a new section to the How to Use page:
-
-1. Give it a unique section ID string
-2. Add a `{renderVideo('your-section-id')}` call at the top of the `<Card>` in `HowToUse.tsx`
-3. Add the key to the `howToUseVideos` object in `how-to-use-videos.ts` (set to `null` initially)
+1. Pick a unique `sectionId`.
+2. In `HowToUse.tsx`, add `{renderVideo('your-section-id')}` at the top of
+   the `<Card>`.
+3. Add the key to `how-to-use-videos.ts`, initially `null`.
 
 ---
 
-## Video Player Behavior
+## GitHub Pages file-size limits
 
-- Videos show native browser controls (play, pause, seek, volume, fullscreen)
-- Videos do NOT autoplay
-- Videos load metadata only (not the full file) until the user hits play
-- Videos are responsive (full width, max height 400px)
-- Poster image (if set) shows before playback
-
----
-
-## Best Practices
-
-1. **Keep videos short** — 30 seconds to 2 minutes per section
-2. **Show, don't tell** — demonstrate the actual UI interaction
-3. **No audio required** — many users watch without sound
-4. **Compress before uploading** — use HandBrake or similar
-5. **Use descriptive file names** — `getting-started.mp4`, not `video1.mp4`
+GitHub blocks individual files > 100 MB on push, and warns at 50 MB.
+Keep videos small (target 1–5 MB). For anything larger, host externally
+(YouTube/Vimeo) and modify `SectionVideo.tsx` to render an `<iframe>`
+instead — note the iframe `src` will be a full `https://...` URL and
+therefore passes through `resolveImagePath` untouched.
 
 ---
 
-## GitHub Pages Note
+## Future-proofing (custom domain / backend)
 
-When hosting on GitHub Pages, video files in `public/` are served as static assets. Large videos (>50MB) may hit GitHub's file size limits. If you need large videos, consider hosting them externally (YouTube, Vimeo) and linking instead. For external videos, you'd need to modify `SectionVideo.tsx` to support iframe embeds.
+The `resolveImagePath` wrap also handles a future migration:
+
+- Custom domain at root → `base: '/'` → wrap is a no-op.
+- Asset CDN / backend → change `resolveImagePath` only; this file stays
+  untouched.
+
+See [19-IMAGE-ROUTING-FIX.md](./19-IMAGE-ROUTING-FIX.md) and
+[23-HOSTING-PORTABILITY.md](./23-HOSTING-PORTABILITY.md).
 
 ---
 
 ## Troubleshooting
 
-### Video doesn't appear
-- Check that the section ID in `how-to-use-videos.ts` matches exactly
-- Verify the video file exists at the specified path in `public/`
-- Check browser console for 404 errors
-
-### Video won't play
-- Ensure the format is `.mp4` (H.264 codec) or `.webm` (VP9 codec)
-- Test in multiple browsers (Chrome, Firefox, Safari)
-- Check file isn't corrupted — try playing it locally first
-
-### Video is too large / slow to load
-- Compress with HandBrake (target: 1-5 MB for 1-minute video)
-- Reduce resolution to 720p
-- Consider using `.webm` format (usually 30-50% smaller)
-
----
-
-## Last Updated
-
-April 2026
+| Symptom | Fix |
+|---|---|
+| Video 404 on GitHub Pages | Confirm `vite.config.ts` has `base: '/<repo>/'` for production builds AND `SectionVideo.tsx` wraps `src`/`poster` in `resolveImagePath`. |
+| Video plays but poster missing | `poster={...}` was not wrapped. |
+| Video works locally, breaks on GitHub | Same as the first row — almost always missing `resolveImagePath`. |
+| File too large to push | Compress with HandBrake or host externally. |
