@@ -1,16 +1,19 @@
 export interface PublicPreset {
   id: string;            // stable unique id, e.g. "apcsp-algorithms-vocab"
-  name: string;          // shown as the card title
-  description?: string;  // optional one-liner
+  name: string;
+  description?: string;
   subject: string;       // MUST match the URL subject slug
-  unitId: string;        // MUST match the URL unit slug
-  questionIds: string[]; // ids from that unit's -questions.ts file
-  author?: string;       // optional credit shown next to the count
+  unitId: string;        // MUST match the URL unitId slug
+  questionIds: string[];
+  author?: string;
 }
 
-export const publicPresets: PublicPreset[] = [ /* ... */ ];
+export const publicPresets: PublicPreset[] = [
+  // add entries here
+];
 
 export const getPublicPresetsForUnit = (
   subject: string,
   unitId: string
-): PublicPreset[];
+): PublicPreset[] =>
+  publicPresets.filter(p => p.subject === subject && p.unitId === unitId);
