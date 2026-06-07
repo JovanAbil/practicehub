@@ -17,3 +17,10 @@ export const getPublicPresetsForUnit = (
   unitId: string
 ): PublicPreset[] =>
   publicPresets.filter(p => p.subject === subject && p.unitId === unitId);
+
+// Course Challenge presets are stored with unitId === 'course-challenge'
+// and reference question IDs from ANY unit in that subject.
+export const getPublicPresetsForCourseChallenge = (
+  subject: string
+): PublicPreset[] =>
+  publicPresets.filter(p => p.subject === subject && p.unitId === 'course-challenge');
