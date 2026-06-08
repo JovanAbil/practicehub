@@ -994,19 +994,6 @@ const CustomTopicEditor = () => {
                             </SelectContent>
                           </Select>
                           {editingQuestion.parts!.length > 1 && (
-                            <Button variant="ghost" size="icon" className="h-8 w-8" title="Duplicate this part" onClick={() => {
-                            const labels = 'abcdefghij';
-                            const source = editingQuestion.parts![pIdx];
-                            // Deep clone so the duplicate doesn't share option/array references
-                            const cloned: EditingPart = JSON.parse(JSON.stringify(source));
-                            const newParts = [...editingQuestion.parts!];
-                            newParts.splice(pIdx + 1, 0, cloned);
-                            const relabeled = newParts.map((p, i) => ({ ...p, label: labels[i] || `${i + 1}` }));
-                            setEditingQuestion({ ...editingQuestion, parts: relabeled });
-                          }}>
-                            <Copy className="h-4 w-4" />
-                          </Button>
-                          {editingQuestion.parts!.length > 1 && (
                             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => {
                               const newParts = editingQuestion.parts!.filter((_, i) => i !== pIdx);
                               const labels = 'abcdefghij';
