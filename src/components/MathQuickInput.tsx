@@ -73,24 +73,6 @@ const mathFunctions = [
 // Desmos-like keyboard shortcuts - trigger on space
 // Use word boundary (?:^|[^a-zA-Z]) to ensure shortcuts only match standalone words
 const keyboardShortcuts: { pattern: RegExp; latexReplacement: string; unicodeReplacement: string; cursorOffset: number; originalText: string }[] = [
-  { pattern: /(?:^|[^a-zA-Z])sqrt$/i, latexReplacement: '\\sqrt{}', unicodeReplacement: '√()', cursorOffset: 0, originalText: 'sqrt' },
-  { pattern: /(?:^|[^a-zA-Z])cbrt$/i, latexReplacement: '\\sqrt[3]{}', unicodeReplacement: '∛()', cursorOffset: 0, originalText: 'cbrt' },
-  { pattern: /(?:^|[^a-zA-Z])nrt$/i, latexReplacement: '\\sqrt[n]{}', unicodeReplacement: 'ⁿ√()', cursorOffset: 0, originalText: 'nrt' },
-  { pattern: /(?:^|[^a-zA-Z])lim$/i, latexReplacement: '\\lim_{x \\to }', unicodeReplacement: 'lim(x→)', cursorOffset: 0, originalText: 'lim' },
-  { pattern: /(?:^|[^a-zA-Z])ln$/i, latexReplacement: '\\ln()', unicodeReplacement: 'ln()', cursorOffset: 0, originalText: 'ln' },
-  { pattern: /(?:^|[^a-zA-Z])exp$/i, latexReplacement: 'e^{}', unicodeReplacement: 'e^()', cursorOffset: 0, originalText: 'exp' },
-  { pattern: /(?:^|[^a-zA-Z])inf$/i, latexReplacement: '\\infty', unicodeReplacement: '∞', cursorOffset: 0, originalText: 'inf' },
-  { pattern: /(?:^|[^a-zA-Z])pi$/i, latexReplacement: '\\pi', unicodeReplacement: 'π', cursorOffset: 0, originalText: 'pi' },
-  { pattern: /(?:^|[^a-zA-Z])theta$/i, latexReplacement: '\\theta', unicodeReplacement: 'θ', cursorOffset: 0, originalText: 'theta' },
-  { pattern: /(?:^|[^a-zA-Z])alpha$/i, latexReplacement: '\\alpha', unicodeReplacement: 'α', cursorOffset: 0, originalText: 'alpha' },
-  { pattern: /(?:^|[^a-zA-Z])beta$/i, latexReplacement: '\\beta', unicodeReplacement: 'β', cursorOffset: 0, originalText: 'beta' },
-  { pattern: /(?:^|[^a-zA-Z])delta$/i, latexReplacement: '\\Delta', unicodeReplacement: 'Δ', cursorOffset: 0, originalText: 'delta' },
-  { pattern: /(?:^|[^a-zA-Z])sum$/i, latexReplacement: '\\sum_{}^{}', unicodeReplacement: 'Σ', cursorOffset: 0, originalText: 'sum' },
-  { pattern: /(?:^|[^a-zA-Z])int$/i, latexReplacement: '\\int_{}^{}', unicodeReplacement: '∫', cursorOffset: 0, originalText: 'int' },
-  { pattern: /(?:^|[^a-zA-Z])pm$/i, latexReplacement: '\\pm', unicodeReplacement: '±', cursorOffset: 0, originalText: 'pm' },
-  { pattern: /(?:^|[^a-zA-Z])neq$/i, latexReplacement: '\\neq', unicodeReplacement: '≠', cursorOffset: 0, originalText: 'neq' },
-  { pattern: /(?:^|[^a-zA-Z])leq$/i, latexReplacement: '\\leq', unicodeReplacement: '≤', cursorOffset: 0, originalText: 'leq' },
-  { pattern: /(?:^|[^a-zA-Z])geq$/i, latexReplacement: '\\geq', unicodeReplacement: '≥', cursorOffset: 0, originalText: 'geq' },
   { pattern: /->$/i, latexReplacement: '\\to', unicodeReplacement: '→', cursorOffset: 0, originalText: '->' },
 ];
 
