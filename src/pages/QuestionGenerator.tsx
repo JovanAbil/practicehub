@@ -290,6 +290,31 @@ Use \\n for line breaks in explanations/questions.
   },
 }
 
+== Piecewise Functions ==
+For piecewise functions (functions defined by different expressions over different intervals), use the inline [[piecewise|...]] token directly inside the question string. This renders a proper left brace with aligned (expression | condition) rows.
+
+Grammar: [[piecewise|<name?>|<expr1> : <cond1>|<expr2> : <cond2>|...]]
+- The first segment is the function name (e.g. f(x)) ONLY if it contains no colon.
+- Otherwise every segment is a piece.
+- Inside expr and cond, use normal LaTeX without surrounding $ (and remember double-escaping: \\\\leq, \\\\geq, \\\\infty).
+
+Example question using piecewise:
+{
+  id: 'piecewise-1',
+  type: 'multiple-choice',
+  question: "Let [[piecewise|f(x)|x^2 : x < 0|2x+1 : 0 \\\\leq x \\\\leq 3|9 : x > 3]]. Find $f(2)$.",
+  options: [
+    { label: 'A', value: 'A', text: '$4$' },
+    { label: 'B', value: 'B', text: '$5$' },
+    { label: 'C', value: 'C', text: '$9$' },
+    { label: 'D', value: 'D', text: '$2$' },
+  ],
+  correctAnswer: 'B',
+  explanation: 'Since $0 \\\\leq 2 \\\\leq 3$, use $2x+1$, giving $5$.',
+}
+
+NEVER write piecewise functions as plain text like "{ x^2 if x<0 ; 2x if x>=0 }" — always use the [[piecewise|...]] token so it renders correctly.
+
 == Images ==
 {
   image: '/images/subject/filename.png',
