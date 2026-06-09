@@ -15,8 +15,11 @@ const MathText = ({ children, className = '', tag = 'span' }: MathTextProps) => 
 
   useEffect(() => {
     if (containerRef.current) {
-      // Convert escaped newlines (\\n in source) to actual newlines before processing
-      let processed = String(children).replace(/\\n/g, '\n');
+      // Convert escaped newlines (\\n in source) to actual newlines before processing.
+      // CRITICAL: use a negative lookahead so we don't eat the "\n" at the start of
+      // LaTeX commands like \neq, \nabla, \ne, \not, \neg, \ni, \nu — those must
+      // stay intact for KaTeX. Only treat \n as a newline if the next char is NOT a letter.
+      let processed = String(children).replace(/\\n(?![a-zA-Z])/g, '\n');
 
       // Handle escaped dollar signs (literal $) - replace with placeholder
       const DOLLAR_PLACEHOLDER = '__ESCAPED_DOLLAR__';
