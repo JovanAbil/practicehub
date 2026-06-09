@@ -19,6 +19,13 @@ interface MathSymbol {
   name: string;
 }
 
+interface MathTemplate {
+  name: string;
+  description: string;
+  // Full text to insert verbatim (NOT wrapped in $...$ by the builder).
+  raw: string;
+}
+
 interface MathFunction {
   name: string;
   syntax: string;
@@ -132,6 +139,24 @@ const mathFunctions: MathFunction[] = [
   },
 ];
 
+const mathTemplates: MathTemplate[] = [
+  {
+    name: 'Piecewise (2 pieces)',
+    description: '[[piecewise|f(x)|expr1 : cond1|expr2 : cond2]]',
+    raw: '[[piecewise|f(x)|x^2 : x < 0|2x : x \\geq 0]]',
+  },
+  {
+    name: 'Piecewise (3 pieces)',
+    description: 'Three-branch piecewise function',
+    raw: '[[piecewise|f(x)|x^2 : x < 0|2x+1 : 0 \\leq x \\leq 3|9 : x > 3]]',
+  },
+  {
+    name: 'Piecewise (no name)',
+    description: 'Just the cases, no "f(x) =" label',
+    raw: '[[piecewise|x : x \\geq 0|-x : x < 0]]',
+  },
+];
+
 const MathBuilderSidebar = ({ isOpen, onClose, onInsert }: MathBuilderSidebarProps) => {
   const [builderText, setBuilderText] = useState('');
   const [sidebarWidth, setSidebarWidth] = useState(384); // 24rem = 384px
@@ -186,6 +211,12 @@ const MathBuilderSidebar = ({ isOpen, onClose, onInsert }: MathBuilderSidebarPro
     inputRef.current?.focus();
   };
 
+  const handleTemplateClick = (tpl: MathTemplate) => {
+    // Templates like [[piecewise|...]] must NOT be wrapped in $...$ —
+    // they are parsed by parsePiecewiseToken in the question renderer.
+    onInsert(tpl.raw);
+  };
+  
   const handleInsert = () => {
     if (builderText.trim()) {
       onInsert(`$${builderText}$`);
@@ -237,6 +268,12 @@ const MathBuilderSidebar = ({ isOpen, onClose, onInsert }: MathBuilderSidebarPro
               <p className="text-muted-foreground">
                 Click symbols or functions below to add them to the builder, then click Insert.
               </p>
+              <p className="text-muted-foreground">
+                For <strong>piecewise functions</strong>, scroll down to{' '}
+                <strong>Special Templates</strong> — those insert a{' '}
+                <code className="bg-muted px-1 py-0.5 rounded font-mono">[[piecewise|...]]</code>{' '}
+                token that renders as a real <code>{`{`}</code> brace.
+              </p>
             </div>
           </div>
         </div>
@@ -283,6 +320,35 @@ const MathBuilderSidebar = ({ isOpen, onClose, onInsert }: MathBuilderSidebarPro
             ))}
           </div>
         </div>
+
+        <Separator />
+
+        {/* Special Templates Section */}
+        <div className="p-4">
+          <Label className="text-sm font-semibold mb-3 block">Special Templates</Label>
+          <p className="text-xs text-muted-foreground mb-3">
+            These insert a token directly (no <code className="font-mono">$...$</code> wrapping).
+            Piecewise tokens are converted to a real <code>cases</code> brace at render time.
+          </p>
+          <div className="space-y-2">
+            {mathTemplates.map((tpl) => (
+              <Button
+                key={tpl.name}
+                variant="outline"
+                className="w-full justify-start text-left h-auto py-2 px-3 hover:bg-primary/10 hover:border-primary"
+                onClick={() => handleTemplateClick(tpl)}
+              >
+                <div className="flex flex-col items-start gap-0.5 w-full">
+                  <span className="font-medium text-sm">{tpl.name}</span>
+                  <code className="text-xs text-muted-foreground font-mono truncate w-full">
+                    {tpl.description}
+                  </code>
+                </div>
+              </Button>
+            ))}
+          </div>
+        </div>
+        
       </ScrollArea>
 
       {/* Builder Section - Fixed at bottom */}
