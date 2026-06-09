@@ -612,6 +612,32 @@ const extractOptionsArray = (questionStr: string): { label: string; value: strin
   return options;
 };
 
+// Parse a string-array literal that may use either single or double quotes.
+// JSON.parse only accepts double quotes, so when an AI (or hand-written file)
+// uses ['A','C'] the parse silently fails and answers disappear. This helper
+// tries JSON first, then falls back to evaluating the literal with `new Function`
+// (which natively understands both quote styles), and finally falls back to a
+// regex sweep of every quoted token inside the brackets.
+const parseStringArrayLiteral = (raw: string): string[] => {
+  if (!raw) return [];
+  const trimmed = raw.trim();
+  try {
+    const parsed = JSON.parse(trimmed);
+    if (Array.isArray(parsed)) return parsed.map(String);
+  } catch { /* fall through */ }
+  try {
+    // eslint-disable-next-line no-new-func
+    const parsed = new Function(`return ${trimmed}`)();
+    if (Array.isArray(parsed)) return parsed.map(String);
+  } catch { /* fall through */ }
+  // Last-resort: pull every quoted token out of the brackets
+  const out: string[] = [];
+  const re = /(["'])((?:\\.|(?!\1).)*)\1/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(trimmed)) !== null) out.push(m[2]);
+  return out;
+};
+
 // Parse uploaded .ts file content to extract questions
 export const parseTopicFile = (content: string): { questions: Question[], mathEnabled: boolean } | null => {
   try {
@@ -726,7 +752,8 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
                   else { if (lc === '"' || lc === "'") { lInStr = true; lStrChar = lc; } else if (lc === '[') lDepth++; else if (lc === ']') { lDepth--; if (lDepth === 0) { lEnd = li; break; } } }
                 }
                 if (lEnd !== -1) {
-                  try { listAnswers = JSON.parse(questionStr.substring(lStart, lEnd + 1)); } catch { listAnswers = undefined; }
+                  const arr = parseStringArrayLiteral(questionStr.substring(lStart, lEnd + 1));
+                  listAnswers = arr.length > 0 ? arr : undefined;
                 }
               }
               
@@ -766,7 +793,7 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
                   else { if (cc === '"' || cc === "'") { caInStr = true; caStrChar = cc; } else if (cc === '[') caDepth++; else if (cc === ']') { caDepth--; if (caDepth === 0) { caEnd = ci; break; } } }
                 }
                 if (caEnd !== -1) {
-                  try { correctAnswers = JSON.parse(questionStr.substring(caStart, caEnd + 1)); } catch { correctAnswers = []; }
+                  const correctAnswers = parseStringArrayLiteral(questionStr.substring(caStart, caEnd + 1));
                 }
               }
               const q: Question = {
