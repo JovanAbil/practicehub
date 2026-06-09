@@ -27,6 +27,7 @@ import { Question, QuizAttempt, PartAttemptState, SelectAllQuestion } from '@/ty
 import { toast } from 'sonner';
 import QuestionTable from '@/components/QuestionTable';
 import MathText from '@/components/MathText';
+import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
 
 import {
   buildRouteKey,
@@ -955,9 +956,28 @@ const Quiz = () => {
                 </div>
               )}
               
-              <MathText tag="h3" className="text-xl font-semibold mb-6 leading-relaxed" enableChemistry={subject === 'chemistry'}>
-                {currentQuestion.question}
-              </MathText>
+              {(() => {
+                const text = currentQuestion.question;
+                if (!text.includes('[[piecewise')) {
+                  return (
+                    <MathText tag="h3" className="text-xl font-semibold mb-6 leading-relaxed" enableChemistry={subject === 'chemistry'}>
+                      {text}
+                    </MathText>
+                  );
+                }
+                const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+                return (
+                  <h3 className="text-xl font-semibold mb-6 leading-relaxed">
+                    {segments.map((seg, i) => {
+                      const parsed = parsePiecewiseToken(seg);
+                      if (parsed) {
+                        return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+                      }
+                      return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
+                    })}
+                  </h3>
+                );
+              })()}
 
               {currentQuestion.type === 'multiple-choice' ? (
                 <RadioGroup
