@@ -6,6 +6,7 @@ import { ArrowLeft, Copy, CheckCircle2 } from 'lucide-react';
 import { useState, useMemo, useEffect } from 'react';
 import { toast } from 'sonner';
 import MathText from '@/components/MathText';
+import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
 import QuestionTable from '@/components/QuestionTable';
 import useCustomUnits from '@/hooks/useCustomUnits';
 import { Footer } from '@/components/Footer';
@@ -112,7 +113,22 @@ const ViewAllQuestions = () => {
               </div>
               {question.table && <QuestionTable data={question.table} enableChemistry={subject === 'chemistry'} />}
               {question.image && <div className="mb-4 flex justify-center"><img src={resolveImagePath(question.image)} alt="Question" className="max-w-xl max-h-64 object-contain rounded-lg border-2 border-border" /></div>}
-              <MathText tag="p" className="text-base mb-4" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
+              {(() => {
+                const text = question.question;
+                if (!text.includes('[[piecewise')) {
+                  return <MathText tag="p" className="text-base mb-4" enableChemistry={subject === 'chemistry'}>{text}</MathText>;
+                }
+                const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+                return (
+                  <p className="text-base mb-4">
+                    {segments.map((seg, i) => {
+                      const parsed = parsePiecewiseToken(seg);
+                      if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+                      return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
+                    })}
+                  </p>
+                );
+              })()}
               {question.type === 'multiple-choice' && (
                 <div className="space-y-2 mb-4">
                   {question.options.map((option) => (
@@ -156,7 +172,22 @@ const ViewAllQuestions = () => {
                     <div key={part.label} className="p-4 rounded-lg border border-border bg-muted/20">
                       <p className="text-sm font-bold text-primary mb-2">Part {part.label})</p>
                       {part.image && <div className="mb-2 flex justify-center"><img src={resolveImagePath(part.image)} alt={`Part ${part.label}`} className="max-w-md max-h-48 object-contain rounded-lg border border-border" /></div>}
-                      <MathText className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
+                      {(() => {
+                        const text = part.question;
+                        if (!text.includes('[[piecewise')) {
+                          return <MathText className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{text}</MathText>;
+                        }
+                        const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+                        return (
+                          <span className="text-sm mb-3 block">
+                            {segments.map((seg, i) => {
+                              const parsed = parsePiecewiseToken(seg);
+                              if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+                              return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
+                            })}
+                          </span>
+                        );
+                      })()}
                       {part.type === 'multiple-choice' && part.options && (
                         <div className="space-y-1 mt-2">
                           {part.options.map((opt) => (
