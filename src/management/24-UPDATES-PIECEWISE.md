@@ -580,3 +580,138 @@ After all edits:
    both A and C should be pre-marked correct in the editor.
 5. **Word typing stays intact.** Type `summary` and `interesting` in any
    FRQ box — neither should turn into LaTeX.
+
+---
+
+## 8. Add a "Piecewise" button to the Math Builder sidebar
+
+This makes piecewise easy to insert from the custom question editor — no
+need to remember the `[[piecewise|...]]` grammar. The button writes the
+token directly into the field (NOT wrapped in `$...$`, because the token
+is not LaTeX — it's parsed by `parsePiecewiseToken` before render).
+
+File to edit: **`src/components/MathBuilderSidebar.tsx`**
+
+### 8a. Add a "Templates" type (top of file, near other interfaces)
+
+Find the `MathFunction` interface (around line 22–27). Right below it,
+**paste this new interface**:
+
+```typescript
+interface MathTemplate {
+  name: string;
+  description: string;
+  // Full text to insert verbatim (NOT wrapped in $...$ by the builder).
+  raw: string;
+}
+```
+
+### 8b. Add the piecewise template list
+
+Find the end of the `mathFunctions` array (the closing `];` around line
+127, right after the Tangent entry). **Directly after** that `];`, paste:
+
+```typescript
+const mathTemplates: MathTemplate[] = [
+  {
+    name: 'Piecewise (2 pieces)',
+    description: '[[piecewise|f(x)|expr1 : cond1|expr2 : cond2]]',
+    raw: '[[piecewise|f(x)|x^2 : x < 0|2x : x \\geq 0]]',
+  },
+  {
+    name: 'Piecewise (3 pieces)',
+    description: 'Three-branch piecewise function',
+    raw: '[[piecewise|f(x)|x^2 : x < 0|2x+1 : 0 \\leq x \\leq 3|9 : x > 3]]',
+  },
+  {
+    name: 'Piecewise (no name)',
+    description: 'Just the cases, no "f(x) =" label',
+    raw: '[[piecewise|x : x \\geq 0|-x : x < 0]]',
+  },
+];
+```
+
+### 8c. Add a handler that inserts the token RAW (no `$...$` wrap)
+
+Find `handleInsert` (around line 188). **Directly above** it, paste:
+
+```typescript
+  const handleTemplateClick = (tpl: MathTemplate) => {
+    // Templates like [[piecewise|...]] must NOT be wrapped in $...$ —
+    // they are parsed by parsePiecewiseToken in the question renderer.
+    onInsert(tpl.raw);
+  };
+```
+
+### 8d. Render the Templates section in the sidebar
+
+Find the closing `</div>` of the "Math Functions" section — it's the
+`</div>` right before the final `</ScrollArea>` (around line 280–285).
+**Directly before** that `</ScrollArea>` closing tag, paste:
+
+```tsx
+        <Separator />
+
+        {/* Special Templates Section */}
+        <div className="p-4">
+          <Label className="text-sm font-semibold mb-3 block">Special Templates</Label>
+          <p className="text-xs text-muted-foreground mb-3">
+            These insert a token directly (no <code className="font-mono">$...$</code> wrapping).
+            Piecewise tokens are converted to a real <code>cases</code> brace at render time.
+          </p>
+          <div className="space-y-2">
+            {mathTemplates.map((tpl) => (
+              <Button
+                key={tpl.name}
+                variant="outline"
+                className="w-full justify-start text-left h-auto py-2 px-3 hover:bg-primary/10 hover:border-primary"
+                onClick={() => handleTemplateClick(tpl)}
+              >
+                <div className="flex flex-col items-start gap-0.5 w-full">
+                  <span className="font-medium text-sm">{tpl.name}</span>
+                  <code className="text-xs text-muted-foreground font-mono truncate w-full">
+                    {tpl.description}
+                  </code>
+                </div>
+              </Button>
+            ))}
+          </div>
+        </div>
+```
+
+### 8e. (Optional) Add a usage hint to the Instructions panel
+
+In the "Instructions Section" (around lines 217–235), inside the inner
+`<div className="text-sm space-y-2">`, **paste this `<p>` as the last
+child** (just before the closing `</div>` of that text block):
+
+```tsx
+              <p className="text-muted-foreground">
+                For <strong>piecewise functions</strong>, scroll down to{' '}
+                <strong>Special Templates</strong> — those insert a{' '}
+                <code className="bg-muted px-1 py-0.5 rounded font-mono">[[piecewise|...]]</code>{' '}
+                token that renders as a real <code>{`{`}</code> brace.
+              </p>
+```
+
+### 8f. Verify
+
+1. Open any custom topic editor, click the calculator/math icon to open
+   the Math Builder sidebar.
+2. Scroll to the bottom — you should see a **Special Templates** group
+   with three Piecewise buttons.
+3. Click **Piecewise (3 pieces)**. The field receives the raw
+   `[[piecewise|f(x)|...]]` token (NOT surrounded by `$`).
+4. Save the question and open it in the quiz — it should render as a
+   proper `{` brace with aligned rows, exactly like §1 of this doc.
+5. If you see the literal `[[piecewise|...]]` text instead, you skipped
+   §1b (wiring `parsePiecewiseToken` into the renderer).
+
+### 8g. Why two insert paths?
+
+- `handleInsert` (existing) wraps content in `$...$` → for LaTeX math.
+- `handleTemplateClick` (new) inserts raw text → for custom tokens like
+  `[[piecewise|...]]` that are parsed BEFORE KaTeX ever sees them.
+
+If you ever add more custom tokens (tables, graphs, etc.), append them
+to `mathTemplates` — same pattern, no extra wiring needed.
