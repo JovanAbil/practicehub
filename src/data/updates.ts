@@ -17,6 +17,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'June 8th, 2026',
+    title: 'Minor Updates and Bug Fixes',
+    items: [
+      'Most Math Errors and Spelling Errors have been fixed, email me if you find any!',
+      'Piecewise functions were added, find in custom editor to make questions',
+      'Public Presets are set up, email me to add them!',
+      'Lists and SATA questions weren\'t properly being imported, fixed bug',
+      'Can now duplicate parts based questions in custom editor'
+    ],
+  },
+  {
     date: 'May 19th, 2026',
     title: 'Bug Fixes',
     items: [
