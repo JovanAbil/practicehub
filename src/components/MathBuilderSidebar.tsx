@@ -27,22 +27,22 @@ interface MathFunction {
 }
 
 const mathSymbols: MathSymbol[] = [
-  { display: '°', latex: '^\\circ', name: 'Degrees' },
-  { display: '∞', latex: '\\infty', name: 'Infinity' },
-  { display: 'π', latex: '\\pi', name: 'Pi' },
-  { display: '±', latex: '\\pm', name: 'Plus/Minus' },
-  { display: '≤', latex: '\\leq', name: 'Less or Equal' },
-  { display: '≥', latex: '\\geq', name: 'Greater or Equal' },
-  { display: '≠', latex: '\\neq', name: 'Not Equal' },
-  { display: '≈', latex: '\\approx', name: 'Approximately' },
-  { display: '√', latex: '\\sqrt{}', name: 'Square Root' },
-  { display: 'θ', latex: '\\theta', name: 'Theta' },
-  { display: 'α', latex: '\\alpha', name: 'Alpha' },
-  { display: 'β', latex: '\\beta', name: 'Beta' },
-  { display: '→', latex: '\\to', name: 'Arrow' },
-  { display: '∪', latex: '\\cup', name: 'Union' },
-  { display: '∩', latex: '\\cap', name: 'Intersection' },
-  { display: '∈', latex: '\\in', name: 'Element of' },
+  { display: '°', latex: '°', name: 'Degrees' },
+  { display: '∞', latex: '∞', name: 'Infinity' },
+  { display: 'π', latex: 'π', name: 'Pi' },
+  { display: '±', latex: '±', name: 'Plus/Minus' },
+  { display: '≤', latex: '≤', name: 'Less or Equal' },
+  { display: '≥', latex: '≥', name: 'Greater or Equal' },
+  { display: '≠', latex: '≠', name: 'Not Equal' },
+  { display: '≈', latex: '≈', name: 'Approximately' },
+  { display: '√', latex: '√', name: 'Square Root' },
+  { display: 'θ', latex: 'θ', name: 'Theta' },
+  { display: 'α', latex: 'α', name: 'Alpha' },
+  { display: 'β', latex: 'β', name: 'Beta' },
+  { display: '→', latex: '→', name: 'Arrow' },
+  { display: '∪', latex: '∪', name: 'Union' },
+  { display: '∩', latex: '∩', name: 'Intersection' },
+  { display: '∈', latex: '∈', name: 'Element of' },
 ];
 
 const mathFunctions: MathFunction[] = [
