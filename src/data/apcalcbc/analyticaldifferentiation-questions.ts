@@ -28,7 +28,7 @@ export const analyticaldifferentiationQuestions: Question[] = [
     type: "parts",
     question: "A hot air balloon is launched into the air with a human pilot. The twice-differentiable function $h$ models the balloon's height, measured in feet, at time $t$, measured in minutes. The table gives values of the $h(t)$ of the balloon at selected times $t$.",
     parts: [{"label":"a","type":"free-response","question":"For $5 \\leq t \\leq 15$, must there be a time $t$ when the balloon is 50 feet in the air? Justify your answer.","correctAnswer":"$h(t)$ is continuous and differentiable so according to the IVT there is a value of $c$ such that $h(c) = 50$ and $5 \\leq c \\leq 15$","explanation":"1. Apply the IVT instead of MVT because it is asking for a value rather than comparing the rate of change with instantaneous rate of change"},{"label":"b","type":"free-response","question":"For $20 \\leq t \\leq 30$, must there be a time $t$ when the balloon's velocity is $1.5$ feet per minute? Justify your answer.","correctAnswer":"Since $h(t)$ is differentiable and continuous, according to the MVT, there must be a value $c$ where $20 \\leq c \\leq 30$ and $h'(c) = 1.5$","explanation":"1. Use MVT as it is comparing the rate of change with instantaneous."}],
-    image: "/images/ap-calc-bc/analyticaldifferentiation1.png",
+    image: "/images/apcalcbc/analyticaldifferentiation1.png",
   },
   {
     id: "analyticaldifferentiation-5",
@@ -81,7 +81,7 @@ export const analyticaldifferentiationQuestions: Question[] = [
     question: "Determine the intervals where $f$ is increasing and decreasing based on the graph of $f'$.",
     correctAnswer: "",
     listAnswers: ["Increasing: $(-\\infty, -3)$ and $(1, 3)$ because $f' > 0$","Decreasing: $(-3, 1)$ and $(3, \\infty)$ because $f' < 0$"],
-    image: "/images/ap-calc-bc/analyticaldifferentiation2.png",
+    image: "/images/apcalcbc/analyticaldifferentiation2.png",
   },
   {
     id: "analyticaldifferentiation-13",
@@ -217,14 +217,14 @@ export const analyticaldifferentiationQuestions: Question[] = [
     type: "free-response",
     question: "Given the graph of $f'$, find the points of inflection and state the intervals of concavity.",
     correctAnswer: "It is concave down at $(-4, -1)$ and $(1, 2)$. It is concave up at $(-1, 1)$ and $(2, 3)$. The points of inflection is at $x = -1, 1, 2$",
-    image: "/images/ap-calc-bc/analyticaldifferentiation3.png",
+    image: "/images/apcalcbc/analyticaldifferentiation3.png",
   },
   {
     id: "analyticaldifferentiation-34",
     type: "free-response",
     question: "Given the graph of $f''$, find the points of inflection and state the intervals of concavity.",
     correctAnswer: "It is concave down at $(-3, 1)$ and $(3, \\infty)$. It is concave up at $(-\\infty, -3)$ and $(1, 3)$. The points of inflection are at $x = -3, 1, 3$",
-    image: "/images/ap-calc-bc/analyticaldifferentiation4.png",
+    image: "/images/apcalcbc/analyticaldifferentiation4.png",
   },
   {
     id: "analyticaldifferentiation-35",
@@ -297,7 +297,7 @@ export const analyticaldifferentiationQuestions: Question[] = [
     type: "parts",
     question: "For the given function $f(x)$, $f'(x)$ and $f''(x)$ do not change signs. A table of values for $f(x)$ is given in the table",
     parts: [{"label":"a","type":"free-response","question":"If $f(x)$ increasing or decreasing?","correctAnswer":"It is increasing.","explanation":"The numbers are literally increasing."},{"label":"b","type":"free-response","question":"If $f(x)$ concave up or concave down?","correctAnswer":"It is concave up.","explanation":"It is concave up because $f'$ is increasing when you take the first constant difference, e.g the average rate of change, e.g the derivative, it increases and therefore $f'' > 0$ so it is concave up."}],
-    image: "/images/ap-calc-bc/analyticaldifferentiation5.png",
+    image: "/images/apcalcbc/analyticaldifferentiation5.png",
   },
   {
     id: "analyticaldifferentiation-46",
