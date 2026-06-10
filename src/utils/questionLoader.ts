@@ -23,6 +23,17 @@ import { exponentialQuestions } from '@/data/apprecalc/exponential-questions';
 import { logarithmicQuestions } from '@/data/apprecalc/logarithmic-questions';
 import { trigonometricQuestions } from '@/data/apprecalc/trigonometric-questions';
 import { polarQuestions } from '@/data/apprecalc/polar-questions';
+// AP Calc BC
+import { limitsQuestions } from '@/data/apcalcbc/limits-questions';
+import { derivativeQuestions } from '@/data/apcalcbc/derivative-questions';
+import { differentiationQuestions } from '@/data/apcalcbc/differentiation-questions';
+import { contextualdifferentiationQuestions } from '@/data/apcalcbc/contextualdifferentiation-questions';
+import { analyticaldifferentiationQuestions } from '@/data/apcalcbc/analyticaldifferentiation-questions';
+//import { integralsQuestions } from '@/data/apcalcbc/integrals-questions';
+//import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
+//import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
+//import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
+//import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
 // Biology
 import { biochemistryQuestions } from '@/data/biology/biochemistry-questions';
 import { cellstructureQuestions } from '@/data/biology/cellstructure-questions';
@@ -82,6 +93,16 @@ const questionMap: Record<string, Question[]> = {
   'precalc-logarithmic': logarithmicQuestions,
   'precalc-trigonometric': trigonometricQuestions,
   'precalc-polar': polarQuestions,
+  'calcbc-limits': limitsQuestions, 
+  'calcbc-derivative': derivativeQuestions,
+  'calcbc-differentiation': differentiationQuestions,
+  'calcbc-contextualdifferentiation': contextualdifferentiationQuestions,
+  'calcbc-analyticaldifferentiation': analyticaldifferentiationQuestions,
+  // 'calcbc-integrals': integralsQuestions,
+  // 'calcbc-differential': differentialQuestions,
+  // 'calcbc-integration': integrationQuestions,
+  // 'calcbc-parametricpolar': parametricpolarQuestions,
+  // 'calcbc-sequencesseries': sequencesseriesQuestions,
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
   'biology-cellenergetics': cellenergeticsQuestions,
@@ -140,6 +161,18 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'trigonometric', name: 'Unit 3A - Trigonometric Functions' },
     { id: 'polar', name: 'Unit 3B - Polar Functions' },
   ],
+  calcbc: [
+      { id: 'limits', name: 'Unit 1 - Limits' },
+      { id: 'derivative', name: 'Unit 2 - Derivatives' },
+      { id: 'differentiation', name: 'Unit 3 - Differentiation' },
+      { id: 'contextualdifferentiation', name: 'Unit 4 - Contextual Differentiation' },
+      { id: 'analyticaldifferentiation', name: 'Unit 5 - Analytical Differentiation' },
+      { id: 'integrals', name: 'Unit 6 - Integrals' },
+      { id: 'differential', name: 'Unit 7 - Differential' },
+      { id: 'integration', name: 'Unit 8 - Integration' },
+      { id: 'parametricpolar', name: 'Unit 9 - Parametric and Polar' },
+      { id: 'sequencesseries', name: 'Unit 10 - Sequences and Series' },
+    ],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
     { id: 'cellstructure', name: 'Unit 2 - Cell Structure & Function' },
@@ -199,6 +232,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
  */
 const subjectTitles: Record<string, string> = {
   precalc: 'AP Precalculus',
+  calcbc: 'AP Calc BC',
   biology: 'Biology',
   chemistry: 'Chemistry',
   'world-history': 'World History',
