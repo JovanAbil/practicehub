@@ -221,7 +221,7 @@ export const limitsQuestions: Question[] = [
     type: "parts",
     question: "Answer the following.",
     parts: [{"label":"a","type":"free-response","question":"$\\lim_{x \\to 1} = $","correctAnswer":"$-1$"},{"label":"b","type":"free-response","question":"$f(-3)$","correctAnswer":"$0$"},{"label":"c","type":"free-response","question":"$\\lim_{x \\to 2} = $","correctAnswer":"$2$"},{"label":"d","type":"free-response","question":"$f(2) = $","correctAnswer":"$3$"},{"label":"e","type":"free-response","question":"$f(1) = $","correctAnswer":"Undefined"},{"label":"f","type":"free-response","question":"$f(-2) = $","correctAnswer":"$2$"},{"label":"g","type":"free-response","question":"$\\lim_{x \\to 0} = $","correctAnswer":"$-2$"},{"label":"h","type":"free-response","question":"$\\lim_{x \\to -3} = $","correctAnswer":"$1$"}],
-    image: "/images/ap-calc-bc/limits1.png",
+    image: "/images/apcalcbc/limits1.png",
   },
   {
     id: "limits-31",
@@ -265,7 +265,7 @@ export const limitsQuestions: Question[] = [
     type: "parts",
     question: "Answer the following questions, write all answers in limit notation.",
     parts: [{"label":"a","type":"free-response","question":"The limit of $f$ as $x$ approaches $3$ from the left side is? ","correctAnswer":"$\\lim_{x \\to 3^{-}}f(x)=-1$"},{"label":"b","type":"free-response","question":"The limit of $f$ as $x$ approaches $3$ from the right side is? ","correctAnswer":"$\\lim_{x \\to 3^{+}}f(x)=2$"},{"label":"c","type":"free-response","question":"If the two sides are different what is the limit of $\\lim_{x \\to 3}f(x)=$","correctAnswer":"$\\lim_{x \\to 3}f(x)=$ Does not exist"}],
-    image: "/images/ap-calc-bc/limits2.png",
+    image: "/images/apcalcbc/limits2.png",
   },
   {
     id: "limits-37",
@@ -273,7 +273,7 @@ export const limitsQuestions: Question[] = [
     question: "According to the table, what is the value of $lim_{x \\to -4} = $",
     correctAnswer: "$2.5$",
     explanation: "",
-    image: "/images/ap-calc-bc/limits3.png",
+    image: "/images/apcalcbc/limits3.png",
   },
   {
     id: "limits-38",
@@ -302,7 +302,7 @@ export const limitsQuestions: Question[] = [
     question: "The table gives selected limits of the functions $f$ and $g$. What is $\\lim{x \\to 1}(f(-x) + \\frac{g(x)}{2})$?",
     correctAnswer: "$5$",
     explanation: "",
-    image: "/images/ap-calc-bc/limits4.png",
+    image: "/images/apcalcbc/limits4.png",
   },
   {
     id: "limits-42",
@@ -317,7 +317,7 @@ export const limitsQuestions: Question[] = [
     question: "The graph of the function $f$ is shown. What limit statement is equivalent to $\\lim{x \\to 4} f(f(x))$?",
     correctAnswer: "$lim_{x \\to 1}f(x) = -1$",
     explanation: "",
-    image: "/images/ap-calc-bc/limits5.png",
+    image: "/images/apcalcbc/limits5.png",
   },
   {
     id: "limits-44",
@@ -325,7 +325,7 @@ export const limitsQuestions: Question[] = [
     question: "The table above gives selected values and limits of the function $f$, $g$, and $h$. What is $\\lim_{x \\to 5}(h(x)(f(x)+2(gx)))-h(5)$?",
     correctAnswer: "$17$",
     explanation: "",
-    image: "/images/ap-calc-bc/limits6.png",
+    image: "/images/apcalcbc/limits6.png",
   },
   {
     id: "limits-45",
@@ -512,7 +512,7 @@ export const limitsQuestions: Question[] = [
     question: "Find $\\lim_{x \\to 5} f(x)$",
     correctAnswer: "Does not exist.",
     explanation: "From the left it approaches 4 according to the left side pattern, and from the right it approaches 1 according to the right side pattern.",
-    image: "/images/ap-calc-bc/limits7.png",
+    image: "/images/apcalcbc/limits7.png",
   },
   {
     id: "limits-72",
@@ -681,6 +681,6 @@ export const limitsQuestions: Question[] = [
     type: "parts",
     question: "Answer the following.",
     parts: [{"label":"a","type":"free-response","question":"On the interval $4 \\leq x \\leq 9$, what is the fewest possible times $f(x) = 1$?","correctAnswer":"$1$","explanation":"It has to cross 1 going from intervals 8 to 9 because it is continuous, there may be more but for sure it needs to cross at least one time."},{"label":"b","type":"free-response","question":"On the interval $0 \\leq x \\leq 4$, must there be a value of $x$ for which $f(x) = 2$? Explain.","correctAnswer":"","listAnswers":["$f$ is a continuous on [0, 4]","$f(0) = 1, f(4) = 3$","$f(0) ≠ f(4)$","$k = 2$ is between $f(0)$ and $f(4)$."]}],
-    image: "/images/ap-calc-bc/limits8.png",
+    image: "/images/apcalcbc/limits8.png",
   },
 ];
