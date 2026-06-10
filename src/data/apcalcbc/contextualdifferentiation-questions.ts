@@ -107,7 +107,7 @@ export const contextualdifferentiationQuestions: Question[] = [
     type: "parts",
     question: "The figure shows the velocity $v = x(t)$ of a particle moving on a coordinate line. ",
     parts: [{"label":"a","type":"free-response","question":"When is the particle moving right? Justify.","correctAnswer":"The particle moves right when $v(t) > 0$. This occurs on [0, 1) and (4.8, 7). "},{"label":"b","type":"free-response","question":"When is the particle moving left? Justify.","correctAnswer":"The particle moves right when $v(t) < 0$. This occurs on (1, 4.8). "},{"label":"c","type":"free-response","question":"When is the particle's acceleration positive?","correctAnswer":"The particles acceleration is positive from 2 to 6 seconds."},{"label":"d","type":"free-response","question":"When is the particle's acceleration negative?","correctAnswer":"The particles acceleration is negative from 0 to 2 seconds and 6 to 7 seconds."},{"label":"e","type":"free-response","question":"When is the particle's acceleration zero?","correctAnswer":"The particle's acceleration is never 0."},{"label":"f","type":"free-response","question":"When does the particle have the greatest speed?","correctAnswer":"When $t = 0, 2$"},{"label":"g","type":"free-response","question":"When is the particle speeding up? Justify.","correctAnswer":"It is speeding up on (4.8, 6) and (1, 2) because both velocity and acceleration have the same signs."},{"label":"h","type":"free-response","question":"When is the particle slowing down? Justify.","correctAnswer":"It is slowing down on (0, 1), (2, 4.8) and (6, 7) because velocity and acceleration have different signs."}],
-    image: "/images/ap-calc-bc/contextualdifferentiation1.png",
+    image: "/images/apcalcbc/contextualdifferentiation1.png",
   },
   {
     id: "contextualdifferentiation-18",
@@ -121,7 +121,7 @@ export const contextualdifferentiationQuestions: Question[] = [
     question: "Estimate $P'(20)$.",
     correctAnswer: "approx. $4$.",
     explanation: "The goal for this question was to display how to show your work, not the answer.\n- You were meant to show an y2-y1/x2-x1 problem using either 10 and 30, or finding the average of using both 10, 20 and 20, 30 which is also 4. ",
-    image: "/images/ap-calc-bc/contextualdifferentiation2.png",
+    image: "/images/apcalcbc/contextualdifferentiation2.png",
   },
   {
     id: "contextualdifferentiation-20",
