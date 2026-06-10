@@ -46,7 +46,7 @@ export const differentiationQuestions: Question[] = [
     type: "parts",
     question: "Given the table of values, find $f'(4)$ for each function.",
     parts: [{"label":"a","type":"free-response","question":"$f(x) = (g(x))^{2}$","correctAnswer":"$f'(4)=-12$"},{"label":"b","type":"free-response","question":"$f(x) = \\sqrt{h(x)}$","correctAnswer":"$f'(4)=\\frac{5}{6}$"},{"label":"c","type":"free-response","question":"$f(x) = h(g(x))$","correctAnswer":"$f'(4)=6$"}],
-    image: "/images/ap-calc-bc/differentiation1.png",
+    image: "/images/apcalcbc/differentiation1.png",
   },
   {
     id: "differentiation-8",
@@ -134,7 +134,7 @@ export const differentiationQuestions: Question[] = [
     type: "parts",
     question: "The table gives values of the differentiable functions $f, g$ and $f'$ at selected values of $x$. Let $g(x)=f^{-1}(x)$.",
     parts: [{"label":"a","type":"free-response","question":"What is the value of $g'(1)$?","correctAnswer":"$g'(1) = -\\frac{1}{2}$","explanation":"1. Apply inverse derivative formula\n"},{"label":"b","type":"free-response","question":"Write an equation for the line tangent to $f^{-1}$ at $x=1$.","correctAnswer":"$y-2=-\\frac{1}{2}(x-1)$","explanation":"1. Point slope form"}],
-    image: "/images/ap-calc-bc/differentiation2.png",
+    image: "/images/apcalcbc/differentiation2.png",
   },
   {
     id: "differentiation-22",
