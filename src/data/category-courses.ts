@@ -29,19 +29,6 @@ export interface CourseEntry {
 /** AP/Universal math courses — shown at top */
 export const mathApCourses: CourseEntry[] = [
   {
-    id: 'precalc',
-    name: 'AP Precalculus',
-    subject: 'precalc',
-    units: [
-      { id: 'polynomial', name: 'Polynomial' },
-      { id: 'rational', name: 'Rational' },
-      { id: 'exponential', name: 'Exponential' },
-      { id: 'logarithmic', name: 'Logarithmic' },
-      { id: 'trigonometric', name: 'Trigonometric' },
-      { id: 'polar', name: 'Polar' },
-    ],
-  },
-  {
     id: 'calcbc',
     name: 'AP Calculus BC',
     subject: 'calcbc',
@@ -56,6 +43,19 @@ export const mathApCourses: CourseEntry[] = [
       { id: 'integration', name: 'Integration' },
       { id: 'parametricpolar', name: 'Parametric and Polar' },
       { id: 'sequencesseries', name: 'Sequences and Series' },
+    ],
+  },
+  {
+    id: 'precalc',
+    name: 'AP Precalculus',
+    subject: 'precalc',
+    units: [
+      { id: 'polynomial', name: 'Polynomial' },
+      { id: 'rational', name: 'Rational' },
+      { id: 'exponential', name: 'Exponential' },
+      { id: 'logarithmic', name: 'Logarithmic' },
+      { id: 'trigonometric', name: 'Trigonometric' },
+      { id: 'polar', name: 'Polar' },
     ],
   },
 ];
