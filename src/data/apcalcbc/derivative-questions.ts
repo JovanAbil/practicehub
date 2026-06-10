@@ -125,7 +125,7 @@ export const derivativeQuestions: Question[] = [
     question: "The graph of $f'(x)$, the derivative of $f$, is shown at the right. If $f(2) = 7$, write an equation of the line tangent to the graph of $f$ at $(2,7)$.",
     correctAnswer: "$y - 7 = 3(x-2)$",
     explanation: "",
-    image: "/images/ap-calc-bc/derivative1.png",
+    image: "/images/apcalcbc/derivative1.png",
   },
   {
     id: "derivative-19",
@@ -140,7 +140,7 @@ export const derivativeQuestions: Question[] = [
     question: "Using the table, estimate $f'(3)$. Show the work that leads to your answer.",
     correctAnswer: "$\\frac{f(4)-f(2)}{4-2} = \\frac{10-3}{2} = \\frac{7}{2}$ miles per hour.",
     explanation: "",
-    image: "/images/ap-calc-bc/derivative2.png",
+    image: "/images/apcalcbc/derivative2.png",
   },
   {
     id: "derivative-21",
@@ -148,7 +148,7 @@ export const derivativeQuestions: Question[] = [
     question: "Using the table, esimate $w'(100)$. Show the work that leads to your answer.",
     correctAnswer: "$\\frac{500-700}{120-80} = \\frac{-200}{40} = 5$ gallons/sec/sec or $5$ gallons per second$^{2}$",
     explanation: "",
-    image: "/images/ap-calc-bc/derivative3.png",
+    image: "/images/apcalcbc/derivative3.png",
   },
   {
     id: "derivative-22",
@@ -165,7 +165,7 @@ export const derivativeQuestions: Question[] = [
     correctAnswer: "",
     explanation: "",
     listAnswers: ["$x = -3$ not continuous","$x = -2$ not differentiable","$x = 2$ not differentiable","$x = 4$ not continuous"],
-    image: "/images/ap-calc-bc/derivative4.png",
+    image: "/images/apcalcbc/derivative4.png",
   },
   {
     id: "derivative-24",
@@ -369,7 +369,7 @@ export const derivativeQuestions: Question[] = [
     type: "parts",
     question: "The table shows values of two differentiable functions $f$ and $g$, as well as their derivatives.",
     parts: [{"label":"a","type":"free-response","question":"$h(x) = 3f(x)g(x)$. \nFind $h'(2)$.","correctAnswer":"$h'(2) = 30$"},{"label":"b","type":"free-response","question":"$r(x) = (\\frac{f(x)}{2}+2)(3-g(x))$\nFind $r'(-5)$.","correctAnswer":"$r'(-5) = -\\frac{15}{2}$"}],
-    image: "/images/ap-calc-bc/derivative5.png",
+    image: "/images/apcalcbc/derivative5.png",
   },
   {
     id: "derivative-54",
@@ -388,7 +388,7 @@ export const derivativeQuestions: Question[] = [
     type: "parts",
     question: "The table shows the values of two differentiable functions $f$ and $g$, as well as their derivatives.",
     parts: [{"label":"a","type":"free-response","question":"$h(x) = \\frac{f(x)}{3g(x)}$\nFind $h'(2)$.","correctAnswer":"$h'(2) = -2$"},{"label":"b","type":"free-response","question":"$r(x) = -\\frac{g(x)}{1-f(x)}$\nFind $r'(2)$.","correctAnswer":"$r'(2) = \\frac{4}{9}$"}],
-    image: "/images/ap-calc-bc/derivative6.png",
+    image: "/images/apcalcbc/derivative6.png",
   },
   {
     id: "derivative-57",
