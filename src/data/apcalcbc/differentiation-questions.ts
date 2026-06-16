@@ -171,7 +171,7 @@ export const differentiationQuestions: Question[] = [
     id: "differentiation-27",
     type: "parts",
     question: "Domain and range of inverse trig functions.",
-    parts: [{"label":"a","type":"free-response","question":"What is the domain and range of $y=\\sin^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: $-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}$"]},{"label":"b","type":"free-response","question":"What is the domain and range of $y=\\cos^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: #0 \\leq y \\leq \\pi$"]},{"label":"c","type":"free-response","question":"What is the domain and range of $y=\\tan^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-\\infty \\leq x \\leq \\infty$","Range: $-\\frac{\\pi}{2} < y < \\frac{\\pi}{2}$"]}],
+    parts: [{"label":"a","type":"free-response","question":"What is the domain and range of $y=\\sin^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: $-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}$"]},{"label":"b","type":"free-response","question":"What is the domain and range of $y=\\cos^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: $0 \\leq y \\leq \\pi$"]},{"label":"c","type":"free-response","question":"What is the domain and range of $y=\\tan^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-\\infty \\leq x \\leq \\infty$","Range: $-\\frac{\\pi}{2} < y < \\frac{\\pi}{2}$"]}],
   },
   {
     id: "differentiation-28",
