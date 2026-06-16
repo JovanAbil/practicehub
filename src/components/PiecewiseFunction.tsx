@@ -83,6 +83,7 @@ export const parsePiecewiseToken = (token: string): { name?: string; pieces: Pie
     return { expr: seg.slice(0, idx).trim(), when: seg.slice(idx + 1).trim() };
   });
   return { name, pieces };
+};
 
   export const PiecewiseAwareText = ({
     text,
@@ -109,5 +110,4 @@ export const parsePiecewiseToken = (token: string): { name?: string; pieces: Pie
         })}
       </Tag>
     );
-  };
 };
