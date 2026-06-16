@@ -709,6 +709,134 @@ child** (just before the closing `</div>` of that text block):
 
 ### 8g. Why two insert paths?
 
+
+---
+## 9. Piecewise on the Results / Review page
+**Symptom:** piecewise renders correctly in `Quiz.tsx`, `PartsQuestionView.tsx`,
+and `ViewAllQuestions.tsx`, but on the **Results** page (post-quiz review)
+the same question shows the raw `[[piecewise|...]]` text. That is because
+`src/pages/Results.tsx` was not wired in §1b — it has its OWN copies of
+`<MathText>` for the question stem and each part stem, and they need the
+same wrapper.
+There are exactly **two** stem-render sites to fix in `src/pages/Results.tsx`.
+Options / answers / explanations almost never contain piecewise, so leave
+those `<MathText>` calls alone.
+### 9a. Add the import
+Open `src/pages/Results.tsx`. Find line **10**:
+```tsx
+import MathText from '@/components/MathText';
+```
+Replace it with:
+```tsx
+import MathText from '@/components/MathText';
+import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
+```
+### 9b. Wrap the main question stem (line 434)
+Find line **434**:
+```tsx
+                      <MathText tag="p" className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
+```
+Replace that single line with:
+```tsx
+                      {(() => {
+                        const text = question.question;
+                        if (!text.includes('[[piecewise')) {
+                          return (
+                            <MathText tag="p" className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>
+                              {text}
+                            </MathText>
+                          );
+                        }
+                        const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+                        return (
+                          <p className="text-sm mb-3">
+                            {segments.map((seg, i) => {
+                              const parsed = parsePiecewiseToken(seg);
+                              if (parsed) {
+                                return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+                              }
+                              return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
+                            })}
+                          </p>
+                        );
+                      })()}
+```
+### 9c. Wrap each part stem (line 517)
+Find line **517** (inside the `question.type === 'parts'` branch):
+```tsx
+                                <MathText tag="p" className="mb-2" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
+```
+Replace that single line with:
+```tsx
+                                {(() => {
+                                  const text = part.question;
+                                  if (!text.includes('[[piecewise')) {
+                                    return (
+                                      <MathText tag="p" className="mb-2" enableChemistry={subject === 'chemistry'}>
+                                        {text}
+                                      </MathText>
+                                    );
+                                  }
+                                  const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+                                  return (
+                                    <p className="mb-2">
+                                      {segments.map((seg, i) => {
+                                        const parsed = parsePiecewiseToken(seg);
+                                        if (parsed) {
+                                          return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+                                        }
+                                        return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
+                                      })}
+                                    </p>
+                                  );
+                                })()}
+```
+### 9d. Verify
+1. Take a quiz that contains a `[[piecewise|...]]` question (e.g. the
+   `piecewise-demo-1` example from §1).
+2. Submit the quiz to reach the Results page.
+3. The "Review Each Question" card should now show the proper `{` brace
+   with aligned rows — identical to how it looked during the quiz.
+4. If it still shows literal `[[piecewise|...]]`, you either edited the
+   wrong line (double-check the `text-sm mb-3` / `mb-2` className) or
+   forgot the import in §9a.
+### 9e. Optional — DRY it up
+If you don't want to duplicate the wrapper logic across files, extract it
+into `src/components/PiecewiseFunction.tsx` as a named export:
+```tsx
+export const PiecewiseAwareText = ({
+  text,
+  tag = 'span',
+  className = '',
+  enableChemistry = false,
+}: {
+  text: string;
+  tag?: keyof JSX.IntrinsicElements;
+  className?: string;
+  enableChemistry?: boolean;
+}) => {
+  if (!text.includes('[[piecewise')) {
+    return <MathText tag={tag} className={className} enableChemistry={enableChemistry}>{text}</MathText>;
+  }
+  const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+  const Tag = tag as any;
+  return (
+    <Tag className={className}>
+      {segments.map((seg, i) => {
+        const parsed = parsePiecewiseToken(seg);
+        if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+        return <MathText key={i} enableChemistry={enableChemistry}>{seg}</MathText>;
+      })}
+    </Tag>
+  );
+};
+```
+Then every site in §1b and §9 collapses to a one-liner like:
+```tsx
+<PiecewiseAwareText tag="p" className="text-sm mb-3" text={question.question} enableChemistry={subject === 'chemistry'} />
+```
+This is purely a refactor — behavior is identical.
+
 - `handleInsert` (existing) wraps content in `$...$` → for LaTeX math.
 - `handleTemplateClick` (new) inserts raw text → for custom tokens like
   `[[piecewise|...]]` that are parsed BEFORE KaTeX ever sees them.
