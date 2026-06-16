@@ -83,4 +83,31 @@ export const parsePiecewiseToken = (token: string): { name?: string; pieces: Pie
     return { expr: seg.slice(0, idx).trim(), when: seg.slice(idx + 1).trim() };
   });
   return { name, pieces };
+
+  export const PiecewiseAwareText = ({
+    text,
+    tag = 'span',
+    className = '',
+    enableChemistry = false,
+  }: {
+    text: string;
+    tag?: keyof JSX.IntrinsicElements;
+    className?: string;
+    enableChemistry?: boolean;
+  }) => {
+    if (!text.includes('[[piecewise')) {
+      return <MathText tag={tag} className={className} enableChemistry={enableChemistry}>{text}</MathText>;
+    }
+    const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
+    const Tag = tag as any;
+    return (
+      <Tag className={className}>
+        {segments.map((seg, i) => {
+          const parsed = parsePiecewiseToken(seg);
+          if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
+          return <MathText key={i} enableChemistry={enableChemistry}>{seg}</MathText>;
+        })}
+      </Tag>
+    );
+  };
 };
