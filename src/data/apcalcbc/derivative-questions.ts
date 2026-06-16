@@ -194,7 +194,7 @@ export const derivativeQuestions: Question[] = [
     id: "derivative-27",
     type: "parts",
     question: "Find the derivative using the POWER RULE.",
-    parts: [{"label":"a","type":"free-response","question":"$y = x^{32}$","correctAnswer":"$y' = 32x^{31}$"},{"label":"b","type":"free-response","question":"$y = \\frac{1}{x}$","correctAnswer":"$y' = -\\frac{1}{x^{2}}$","explanation":"1. Convert to $x^{-1}$\n2. Apply rule\n3. Simplify"},{"label":"c","type":"free-response","question":"$y = \\frac{1}{x^4}$","correctAnswer":"$y' = -\\frac{4}{x^{5}}$","explanation":"1. Convert to $x^{-4}$\n2. Apply rule\n3. Simplify"},{"label":"d","type":"free-response","question":"$y = \\sqrt[7]{x^{3}}$","correctAnswer":"$y' = \\frac{3}{7\\sqrt[7]{x^{4}}$","explanation":"1. Rewrite as $y = x^{\\frac{3}(7}}$\n2. Derive\n3. Simplify, you can move radical to the top but make sure its equivalent"},{"label":"e","type":"free-response","question":"$f(x) = \\frac{x}{\\sqrt{x}}$","correctAnswer":"$f'(x) = \\frac{1}{2\\sqrt{x}}$"},{"label":"f","type":"free-response","question":"$f(x) = \\sqrt[3]{x}(x^{3})$","correctAnswer":"$f'(x) = \\frac{10}{3}\\sqrt[3]{x^{7}}$"}],
+    parts: [{"label":"a","type":"free-response","question":"$y = x^{32}$","correctAnswer":"$y' = 32x^{31}$"},{"label":"b","type":"free-response","question":"$y = \\frac{1}{x}$","correctAnswer":"$y' = -\\frac{1}{x^{2}}$","explanation":"1. Convert to $x^{-1}$\n2. Apply rule\n3. Simplify"},{"label":"c","type":"free-response","question":"$y = \\frac{1}{x^4}$","correctAnswer":"$y' = -\\frac{4}{x^{5}}$","explanation":"1. Convert to $x^{-4}$\n2. Apply rule\n3. Simplify"},{"label":"d","type":"free-response","question":"$y = \\sqrt[7]{x^{3}}$","correctAnswer":"$y' = \\frac{3}{7\\sqrt[7]{x^{4}}}$","explanation":"1. Rewrite as $y = x^{\\frac{3}{7}}$\n2. Derive\n3. Simplify, you can move radical to the top but make sure its equivalent"},{"label":"e","type":"free-response","question":"$f(x) = \\frac{x}{\\sqrt{x}}$","correctAnswer":"$f'(x) = \\frac{1}{2\\sqrt{x}}$"},{"label":"f","type":"free-response","question":"$f(x) = \\sqrt[3]{x}(x^{3})$","correctAnswer":"$f'(x) = \\frac{10}{3}\\sqrt[3]{x^{7}}$"}],
   },
   {
     id: "derivative-28",
@@ -303,7 +303,7 @@ export const derivativeQuestions: Question[] = [
     id: "derivative-43",
     type: "free-response",
     question: "What is the derivative of anything raised to the $x$ such as $a^{x}$?",
-    correctAnswer: "$a^{x) \\ln a$",
+    correctAnswer: "$a^{x} \\ln a$",
     explanation: "",
   },
   {
