@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { CheckCircle2, XCircle, SkipForward } from 'lucide-react';
 import { PartsQuestion, PartAttemptState } from '@/types/quiz';
 import MathText from '@/components/MathText';
-import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 import MathQuickInput from '@/components/MathQuickInput';
 import { resolveImagePath } from '@/utils/resolveImagePath';
 
@@ -159,26 +159,7 @@ const PartsQuestionView = ({
         </div>
       )}
       
-      {(() => {
-        const text = question.question;
-        if (!text.includes('[[piecewise')) {
-          return (
-            <MathText tag="h3" className="text-xl font-semibold mb-4 leading-relaxed" enableChemistry={subject === 'chemistry'}>
-              {text}
-            </MathText>
-          );
-        }
-        const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
-        return (
-          <h3 className="text-xl font-semibold mb-4 leading-relaxed">
-            {segments.map((seg, i) => {
-              const parsed = parsePiecewiseToken(seg);
-              if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
-              return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
-            })}
-          </h3>
-        );
-      })()}
+      <PiecewiseAwareText tag="h3" className="text-xl font-semibold mb-4 leading-relaxed" text={question.question} enableChemistry={subject === 'chemistry'} />
 
       {/* Parts */}
       {question.parts.map((part, partIdx) => {
@@ -214,27 +195,8 @@ const PartsQuestionView = ({
               </div>
             )}
 
-            {(() => {
-              const text = part.question;
-              if (!text.includes('[[piecewise')) {
-                return (
-                  <MathText tag="p" className="text-sm mb-3 leading-relaxed" enableChemistry={subject === 'chemistry'}>
-                    {text}
-                  </MathText>
-                );
-              }
-              const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
-              return (
-                <p className="text-sm mb-3 leading-relaxed">
-                  {segments.map((seg, i) => {
-                    const parsed = parsePiecewiseToken(seg);
-                    if (parsed) return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
-                    return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
-                  })}
-                </p>
-              );
-            })()}
-
+            <PiecewiseAwareText tag="p" className="text-sm mb-3 leading-relaxed" text={part.question} enableChemistry={subject === 'chemistry'} />
+            
             {/* MCQ options */}
             {part.type === 'multiple-choice' && options.length > 0 && (
               <RadioGroup
