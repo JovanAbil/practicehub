@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { Question, QuizAttempt } from '@/types/quiz';
 import QuestionTable from '@/components/QuestionTable';
 import MathText from '@/components/MathText';
-import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 import useWrongAnswers from '@/hooks/useWrongAnswers';
 import { Footer } from '@/components/Footer';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
@@ -433,28 +433,7 @@ const Results = () => {
                         </div>
                       )}
                       
-                                            {(() => {
-                        const text = question.question;
-                        if (!text.includes('[[piecewise')) {
-                          return (
-                            <MathText tag="p" className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>
-                              {text}
-                            </MathText>
-                          );
-                        }
-                        const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
-                        return (
-                          <p className="text-sm mb-3">
-                            {segments.map((seg, i) => {
-                              const parsed = parsePiecewiseToken(seg);
-                              if (parsed) {
-                                return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
-                              }
-                              return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
-                            })}
-                          </p>
-                        );
-                      })()}
+                      <PiecewiseAwareText tag="p" className="text-sm mb-3" text={question.question} enableChemistry={subject === 'chemistry'} />
 
                       {question.type === 'multiple-choice' ? (
                         <div className="space-y-2 mb-3">
@@ -537,28 +516,7 @@ const Results = () => {
                             return (
                               <div key={part.label} className={`p-3 rounded-lg border-2 text-sm ${partState?.isCorrect ? 'border-success bg-success/5' : 'border-destructive bg-destructive/5'}`}>
                                 <p className="font-semibold mb-1">Part {part.label.toUpperCase()}: </p>
-                                                                {(() => {
-                                  const text = part.question;
-                                  if (!text.includes('[[piecewise')) {
-                                    return (
-                                      <MathText tag="p" className="mb-2" enableChemistry={subject === 'chemistry'}>
-                                        {text}
-                                      </MathText>
-                                    );
-                                  }
-                                  const segments = text.split(/(\[\[piecewise\|[\s\S]+?\]\])/g);
-                                  return (
-                                    <p className="mb-2">
-                                      {segments.map((seg, i) => {
-                                        const parsed = parsePiecewiseToken(seg);
-                                        if (parsed) {
-                                          return <PiecewiseFunction key={i} name={parsed.name} pieces={parsed.pieces} />;
-                                        }
-                                        return <MathText key={i} enableChemistry={subject === 'chemistry'}>{seg}</MathText>;
-                                      })}
-                                    </p>
-                                  );
-                                })()}
+                                <PiecewiseAwareText tag="p" className="mb-2" text={part.question} enableChemistry={subject === 'chemistry'} />
                                 {part.type === 'multiple-choice' && part.options && (
                                   <div className="space-y-1 mb-2">
                                     {part.options.map(opt => (
