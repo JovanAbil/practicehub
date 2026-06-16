@@ -159,7 +159,7 @@ export const differentiationQuestions: Question[] = [
     id: "differentiation-25",
     type: "parts",
     question: "Find the derivative using the inverse trig derivative rules.",
-    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(3x)$","correctAnswer":"$\\frac{3}{\\sqrt{1-9x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(2x^{2})$","correctAnswer":"$\\frac{4}{\\sqrt{4x^{4}+1}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\arcsec(5x})$","correctAnswer":"$\\frac{1}{|x|\\sqrt{25x^{2}-1}}$"}],
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(3x)$","correctAnswer":"$\\frac{3}{\\sqrt{1-9x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(2x^{2})$","correctAnswer":"$\\frac{4}{\\sqrt{4x^{4}+1}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\arcsec{5x})$","correctAnswer":"$\\frac{1}{|x|\\sqrt{25x^{2}-1}}$"}],
   },
   {
     id: "differentiation-26",
