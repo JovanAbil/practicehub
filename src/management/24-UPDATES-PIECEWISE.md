@@ -709,34 +709,53 @@ child** (just before the closing `</div>` of that text block):
 
 ### 8g. Why two insert paths?
 
+- `handleInsert` (existing) wraps content in `$...$` → for LaTeX math.
+- `handleTemplateClick` (new) inserts raw text → for custom tokens like
+  `[[piecewise|...]]` that are parsed BEFORE KaTeX ever sees them.
+
+If you ever add more custom tokens (tables, graphs, etc.), append them
+to `mathTemplates` — same pattern, no extra wiring needed.
 
 ---
+
 ## 9. Piecewise on the Results / Review page
+
 **Symptom:** piecewise renders correctly in `Quiz.tsx`, `PartsQuestionView.tsx`,
 and `ViewAllQuestions.tsx`, but on the **Results** page (post-quiz review)
 the same question shows the raw `[[piecewise|...]]` text. That is because
 `src/pages/Results.tsx` was not wired in §1b — it has its OWN copies of
 `<MathText>` for the question stem and each part stem, and they need the
 same wrapper.
+
 There are exactly **two** stem-render sites to fix in `src/pages/Results.tsx`.
 Options / answers / explanations almost never contain piecewise, so leave
 those `<MathText>` calls alone.
+
 ### 9a. Add the import
+
 Open `src/pages/Results.tsx`. Find line **10**:
+
 ```tsx
 import MathText from '@/components/MathText';
 ```
+
 Replace it with:
+
 ```tsx
 import MathText from '@/components/MathText';
 import PiecewiseFunction, { parsePiecewiseToken } from '@/components/PiecewiseFunction';
 ```
+
 ### 9b. Wrap the main question stem (line 434)
+
 Find line **434**:
+
 ```tsx
                       <MathText tag="p" className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
 ```
+
 Replace that single line with:
+
 ```tsx
                       {(() => {
                         const text = question.question;
@@ -761,12 +780,17 @@ Replace that single line with:
                         );
                       })()}
 ```
+
 ### 9c. Wrap each part stem (line 517)
+
 Find line **517** (inside the `question.type === 'parts'` branch):
+
 ```tsx
                                 <MathText tag="p" className="mb-2" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
 ```
+
 Replace that single line with:
+
 ```tsx
                                 {(() => {
                                   const text = part.question;
@@ -791,7 +815,9 @@ Replace that single line with:
                                   );
                                 })()}
 ```
+
 ### 9d. Verify
+
 1. Take a quiz that contains a `[[piecewise|...]]` question (e.g. the
    `piecewise-demo-1` example from §1).
 2. Submit the quiz to reach the Results page.
@@ -800,9 +826,32 @@ Replace that single line with:
 4. If it still shows literal `[[piecewise|...]]`, you either edited the
    wrong line (double-check the `text-sm mb-3` / `mb-2` className) or
    forgot the import in §9a.
+
 ### 9e. Optional — DRY it up
-If you don't want to duplicate the wrapper logic across files, extract it
-into `src/components/PiecewiseFunction.tsx` as a named export:
+
+If you don't want to duplicate the wrapper logic across files, see **§10**
+below. It is the exact same refactor, but written as a complete copy-paste
+recipe for every file so you don't have to figure out the one-liners yourself.
+
+---
+
+## 10. DRY Shortcut — `PiecewiseAwareText` one-liners (RECOMMENDED)
+
+Instead of pasting the bulky IIFE blocks from §1b and §9 into four different
+files, do this:
+
+1. Add **one** shared component export to `PiecewiseFunction.tsx`.
+2. In the same four files, replace each stem `<MathText>` with a single-line
+   `<PiecewiseAwareText>`.
+
+Same behavior, zero duplication, much less code to maintain.
+
+### 10a. Add the export to `src/components/PiecewiseFunction.tsx`
+
+Open the file. The last existing line is the closing brace of
+`parsePiecewiseToken` (around line 86). Paste this **after** that function and
+**before** the end of the file:
+
 ```tsx
 export const PiecewiseAwareText = ({
   text,
@@ -831,15 +880,178 @@ export const PiecewiseAwareText = ({
   );
 };
 ```
-Then every site in §1b and §9 collapses to a one-liner like:
+
+`MathText` is already imported at the top of this file, so no import change is
+needed here.
+
+### 10b. The four files to edit
+
+These are the exact same files from §1b and §9, but each edit is now a
+single-line replacement.
+
+#### File 1 — `src/pages/Quiz.tsx`
+
+**Add the import.** Find line 28:
+
 ```tsx
-<PiecewiseAwareText tag="p" className="text-sm mb-3" text={question.question} enableChemistry={subject === 'chemistry'} />
+import MathText from '@/components/MathText';
 ```
-This is purely a refactor — behavior is identical.
 
-- `handleInsert` (existing) wraps content in `$...$` → for LaTeX math.
-- `handleTemplateClick` (new) inserts raw text → for custom tokens like
-  `[[piecewise|...]]` that are parsed BEFORE KaTeX ever sees them.
+Replace with:
 
-If you ever add more custom tokens (tables, graphs, etc.), append them
-to `mathTemplates` — same pattern, no extra wiring needed.
+```tsx
+import MathText from '@/components/MathText';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
+```
+
+**Replace the main question stem.** Find lines 934–936:
+
+```tsx
+              <MathText tag="h3" className="text-xl font-semibold mb-6 leading-relaxed" enableChemistry={subject === 'chemistry'}>
+                {currentQuestion.question}
+              </MathText>
+```
+
+Replace those three lines with:
+
+```tsx
+              <PiecewiseAwareText tag="h3" className="text-xl font-semibold mb-6 leading-relaxed" text={currentQuestion.question} enableChemistry={subject === 'chemistry'} />
+```
+
+#### File 2 — `src/components/PartsQuestionView.tsx`
+
+**Add the import.** Find line 10:
+
+```tsx
+import MathText from '@/components/MathText';
+```
+
+Replace with:
+
+```tsx
+import MathText from '@/components/MathText';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
+```
+
+**Replace the parent question stem.** Find lines 139–141:
+
+```tsx
+      <MathText tag="h3" className="text-xl font-semibold mb-4 leading-relaxed" enableChemistry={subject === 'chemistry'}>
+        {question.question}
+      </MathText>
+```
+
+Replace with:
+
+```tsx
+      <PiecewiseAwareText tag="h3" className="text-xl font-semibold mb-4 leading-relaxed" text={question.question} enableChemistry={subject === 'chemistry'} />
+```
+
+**Replace each part stem.** Find lines 177–179:
+
+```tsx
+            <MathText tag="p" className="text-sm mb-3 leading-relaxed" enableChemistry={subject === 'chemistry'}>
+              {part.question}
+            </MathText>
+```
+
+Replace with:
+
+```tsx
+            <PiecewiseAwareText tag="p" className="text-sm mb-3 leading-relaxed" text={part.question} enableChemistry={subject === 'chemistry'} />
+```
+
+#### File 3 — `src/pages/ViewAllQuestions.tsx`
+
+**Add the import.** Find line 7:
+
+```tsx
+import MathText from '@/components/MathText';
+```
+
+Replace with:
+
+```tsx
+import MathText from '@/components/MathText';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
+```
+
+**Replace the main question stem.** Find line 114:
+
+```tsx
+              <MathText tag="p" className="text-base mb-4" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
+```
+
+Replace with:
+
+```tsx
+              <PiecewiseAwareText tag="p" className="text-base mb-4" text={question.question} enableChemistry={subject === 'chemistry'} />
+```
+
+**Replace the parts stem.** Find line 158:
+
+```tsx
+                      <MathText className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
+```
+
+Replace with:
+
+```tsx
+                      <PiecewiseAwareText className="text-sm mb-3" text={part.question} enableChemistry={subject === 'chemistry'} />
+```
+
+#### File 4 — `src/pages/Results.tsx`
+
+**Add the import.** Find line 10:
+
+```tsx
+import MathText from '@/components/MathText';
+```
+
+Replace with:
+
+```tsx
+import MathText from '@/components/MathText';
+import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
+```
+
+**Replace the main question stem.** Find line 434:
+
+```tsx
+                      <MathText tag="p" className="text-sm mb-3" enableChemistry={subject === 'chemistry'}>{question.question}</MathText>
+```
+
+Replace with:
+
+```tsx
+                      <PiecewiseAwareText tag="p" className="text-sm mb-3" text={question.question} enableChemistry={subject === 'chemistry'} />
+```
+
+**Replace the part stem.** Find line 517:
+
+```tsx
+                                <MathText tag="p" className="mb-2" enableChemistry={subject === 'chemistry'}>{part.question}</MathText>
+```
+
+Replace with:
+
+```tsx
+                                <PiecewiseAwareText tag="p" className="mb-2" text={part.question} enableChemistry={subject === 'chemistry'} />
+```
+
+### 10c. Why this is simpler
+
+You edited **five** locations total (one export + four one-line replacements)
+instead of pasting four separate 15-to-20-line IIFE blocks. If you ever need
+to tweak how `[[piecewise]]` is rendered, you change it in **one** place
+(`PiecewiseAwareText`) instead of four.
+
+### 10d. Verify
+
+1. Add the export from §10a.
+2. Apply the four one-liner replacements from §10b.
+3. Open a quiz question that contains `[[piecewise|f(x)|x^2 : x < 0|2x : x >= 0]]`.
+4. Check it in Quiz, View All Questions, and Results — it should render as a
+   left brace with aligned rows in every location.
+5. If you see literal `[[piecewise|...]]` text, the `PiecewiseAwareText`
+   import is missing in that file, or the stem `<MathText>` was not replaced.
