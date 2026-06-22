@@ -1,3 +1,4 @@
+import CalculatorBadge from '@/components/CalculatorBadge';
 import { resolveImagePath } from '@/utils/resolveImagePath';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -113,6 +114,7 @@ const ViewAllQuestions = () => {
               </div>
               {question.table && <QuestionTable data={question.table} enableChemistry={subject === 'chemistry'} />}
               {question.image && <div className="mb-4 flex justify-center"><img src={resolveImagePath(question.image)} alt="Question" className="max-w-xl max-h-64 object-contain rounded-lg border-2 border-border" /></div>}
+              <CalculatorBadge active={q.calculator} />
               <PiecewiseAwareText tag="p" className="text-base mb-4" text={question.question} enableChemistry={subject === 'chemistry'} />
               {question.type === 'multiple-choice' && (
                 <div className="space-y-2 mb-4">
