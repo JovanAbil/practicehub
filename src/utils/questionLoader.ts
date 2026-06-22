@@ -23,15 +23,19 @@ import { exponentialQuestions } from '@/data/apprecalc/exponential-questions';
 import { logarithmicQuestions } from '@/data/apprecalc/logarithmic-questions';
 import { trigonometricQuestions } from '@/data/apprecalc/trigonometric-questions';
 import { polarQuestions } from '@/data/apprecalc/polar-questions';
+// AP Calc AB
+import { limitsQuestions } from '@/data/apcalcab/limits-questions';
+import { derivativeQuestions } from '@/data/apcalcab/derivative-questions';
+import { differentiationQuestions } from '@/data/apcalcab/differentiation-questions';
+import { contextualdifferentiationQuestions } from '@/data/apcalcab/contextualdifferentiation-questions';
+import { analyticaldifferentiationQuestions } from '@/data/apcalcab/analyticaldifferentiation-questions';
+import { integralsABQuestions } from '@/data/apcalcab/integrals-questions';
+import { differentialABQuestions } from '@/data/apcalcab/differential-questions';
+import { integrationABQuestions } from '@/data/apcalcab/integration-questions';
 // AP Calc BC
-import { limitsQuestions } from '@/data/apcalcbc/limits-questions';
-import { derivativeQuestions } from '@/data/apcalcbc/derivative-questions';
-import { differentiationQuestions } from '@/data/apcalcbc/differentiation-questions';
-import { contextualdifferentiationQuestions } from '@/data/apcalcbc/contextualdifferentiation-questions';
-import { analyticaldifferentiationQuestions } from '@/data/apcalcbc/analyticaldifferentiation-questions';
-//import { integralsQuestions } from '@/data/apcalcbc/integrals-questions';
-//import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
-//import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
+import { integralsQuestions } from '@/data/apcalcbc/integrals-questions';
+import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
+import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
 //import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
 //import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
 // Biology
@@ -93,14 +97,22 @@ const questionMap: Record<string, Question[]> = {
   'precalc-logarithmic': logarithmicQuestions,
   'precalc-trigonometric': trigonometricQuestions,
   'precalc-polar': polarQuestions,
+  'calcab-limits': limitsQuestions, 
+  'calcab-derivative': derivativeQuestions,
+  'calcab-differentiation': differentiationQuestions,
+  'calcab-contextualdifferentiation': contextualdifferentiationQuestions,
+  'calcab-analyticaldifferentiation': analyticaldifferentiationQuestions,
+  'calcab-integrals': integralsABQuestions,
+  'calcab-differential': differentialABQuestions,
+  'calcab-integration': integrationABQuestions,
   'calcbc-limits': limitsQuestions, 
   'calcbc-derivative': derivativeQuestions,
   'calcbc-differentiation': differentiationQuestions,
   'calcbc-contextualdifferentiation': contextualdifferentiationQuestions,
   'calcbc-analyticaldifferentiation': analyticaldifferentiationQuestions,
-  // 'calcbc-integrals': integralsQuestions,
-  // 'calcbc-differential': differentialQuestions,
-  // 'calcbc-integration': integrationQuestions,
+  'calcbc-integrals': integralsQuestions,
+  'calcbc-differential': differentialQuestions,
+  'calcbc-integration': integrationQuestions,
   // 'calcbc-parametricpolar': parametricpolarQuestions,
   // 'calcbc-sequencesseries': sequencesseriesQuestions,
   'biology-biochemistry': biochemistryQuestions,
@@ -161,6 +173,16 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'trigonometric', name: 'Unit 3A - Trigonometric Functions' },
     { id: 'polar', name: 'Unit 3B - Polar Functions' },
   ],
+  calcab: [
+      { id: 'limits', name: 'Unit 1 - Limits' },
+      { id: 'derivative', name: 'Unit 2 - Derivatives' },
+      { id: 'differentiation', name: 'Unit 3 - Differentiation' },
+      { id: 'contextualdifferentiation', name: 'Unit 4 - Contextual Differentiation' },
+      { id: 'analyticaldifferentiation', name: 'Unit 5 - Analytical Differentiation' },
+      { id: 'integrals', name: 'Unit 6 - Integrals' },
+      { id: 'differential', name: 'Unit 7 - Differential' },
+      { id: 'integration', name: 'Unit 8 - Integration' },
+    ],
   calcbc: [
       { id: 'limits', name: 'Unit 1 - Limits' },
       { id: 'derivative', name: 'Unit 2 - Derivatives' },
@@ -232,6 +254,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
  */
 const subjectTitles: Record<string, string> = {
   precalc: 'AP Precalculus',
+  calcab: 'AP Calc AB',
   calcbc: 'AP Calc BC',
   biology: 'Biology',
   chemistry: 'Chemistry',
