@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { CheckCircle2, XCircle, SkipForward } from 'lucide-react';
 import { PartsQuestion, PartAttemptState } from '@/types/quiz';
 import MathText from '@/components/MathText';
+import CalculatorBadge from '@/components/CalculatorBadge';
 import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 import MathQuickInput from '@/components/MathQuickInput';
 import { resolveImagePath } from '@/utils/resolveImagePath';
@@ -145,11 +146,9 @@ const PartsQuestionView = ({
   return (
     <div className="space-y-4">
       {/* Main question stem */}
+      <CalculatorBadge active={question.calculator} />
+
       {question.table && (
-        <QuestionTable data={question.table} enableChemistry={subject === 'chemistry'} />
-      )}
-      
-      {question.image && (
         <div className="mb-4 flex justify-center">
           <img 
             src={resolveImagePath(question.image)}
