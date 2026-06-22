@@ -4,7 +4,7 @@ import { Question } from '@/types/quiz';
 // Math Enabled: true
 // Questions: 35
 
-export const differentialQuestions: Question[] = [
+export const differentialABQuestions: Question[] = [
   {
     id: "differential-1",
     type: "free-response",
