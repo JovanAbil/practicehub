@@ -29,6 +29,21 @@ export interface CourseEntry {
 /** AP/Universal math courses — shown at top */
 export const mathApCourses: CourseEntry[] = [
   {
+    id: 'calcab',
+    name: 'AP Calculus AB',
+    subject: 'calcbc',
+    units: [
+      { id: 'limits', name: 'Limits' },
+      { id: 'derivative', name: 'Derivatives' },
+      { id: 'differentiation', name: 'Differentiation' },
+      { id: 'contextualdifferentiation', name: 'Contextual Differentiation' },
+      { id: 'analyticaldifferentiation', name: 'Analytical Differentiation' },
+      { id: 'integrals', name: 'Integrals' },
+      { id: 'differential', name: 'Differential' },
+      { id: 'integration', name: 'Integration' },
+    ],
+  },
+  {
     id: 'calcbc',
     name: 'AP Calculus BC',
     subject: 'calcbc',
