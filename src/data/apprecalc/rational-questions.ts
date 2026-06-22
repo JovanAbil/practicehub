@@ -150,7 +150,7 @@ export const rationalQuestions: Question[] = [
     type: "free-response",
     question: "What are the vertical asymptotes in limit notation?",
     correctAnswer: "",
-    listAnswers: ["\\lim_{x \\to 2^-} f(x) = -\\infty ","\\lim_{x \\to 2^+} f(x) = \\infty ","\\lim_{x \\to 3^-} f(x) = \\infty ","\\lim_{x \\to 3^+} f(x) = \\infty "],
+    listAnswers: ["$\\lim_{x \\to 2^-} f(x) = -\\infty$ ","$\\lim_{x \\to 2^+} f(x) = \\infty $","$\\lim_{x \\to 3^-} f(x) = \\infty $","$\\lim_{x \\to 3^+} f(x) = \\infty$ "],
     image: "/images/apprecalc/rational2.png",
   },
   {
