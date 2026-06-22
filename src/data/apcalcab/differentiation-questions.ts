@@ -1,0 +1,208 @@
+import { Question } from '@/types/quiz';
+
+// Topic: differentiation
+// Math Enabled: true
+// Questions: 32
+
+export const differentiationQuestions: Question[] = [
+  {
+    id: "differentiation-1",
+    type: "free-response",
+    question: "What is a composite function?",
+    correctAnswer: "A function with its input as another function such as $f(g(x))$",
+  },
+  {
+    id: "differentiation-2",
+    type: "free-response",
+    question: "What is the chain rule?",
+    correctAnswer: "The derivative of a composite function.",
+  },
+  {
+    id: "differentiation-3",
+    type: "free-response",
+    question: "What is the base equation of the chain rule? Use $f(g(x))$ as a reference.",
+    correctAnswer: "$f'(g(x)) \\times g'(x)$",
+  },
+  {
+    id: "differentiation-4",
+    type: "parts",
+    question: "Find the derivative using the chain rule.",
+    parts: [{"label":"a","type":"free-response","question":"$f(x) = (x^{2} - 5)^{4}$","correctAnswer":"$f'(x) = 8x(x^{2}-5)^3$","explanation":"1. $f'(g(x))(g'(x))$\n2. $4(x^{2}-5)^{3}(2x)$\n3. Answer"},{"label":"b","type":"free-response","question":"$g(x) = \\sqrt{4x-3}$","correctAnswer":"$g'(x) = \\frac{2}{\\sqrt{4x-3}}$"},{"label":"c","type":"free-response","question":"$h(x) = \\sin^{2}5x$","correctAnswer":"$h'(x) = 10\\sin(5x)\\cos(5x)$"}],
+  },
+  {
+    id: "differentiation-5",
+    type: "free-response",
+    question: "Derive $f(x) = (\\frac{t^{2}+1}{2t-5})^{3}$",
+    correctAnswer: "$f'(x) = 6\\frac{(t^{2}+1)^{}{2}(t^{2}-5t-1)}{(2t-5)^{4}}$",
+  },
+  {
+    id: "differentiation-6",
+    type: "free-response",
+    question: "If $g(x) = 2x\\sqrt{1-x}$ find $g'(-3)$.",
+    correctAnswer: "$g'(-3) = \\frac{11}{2}$",
+  },
+  {
+    id: "differentiation-7",
+    type: "parts",
+    question: "Given the table of values, find $f'(4)$ for each function.",
+    parts: [{"label":"a","type":"free-response","question":"$f(x) = (g(x))^{2}$","correctAnswer":"$f'(4)=-12$"},{"label":"b","type":"free-response","question":"$f(x) = \\sqrt{h(x)}$","correctAnswer":"$f'(4)=\\frac{5}{6}$"},{"label":"c","type":"free-response","question":"$f(x) = h(g(x))$","correctAnswer":"$f'(4)=6$"}],
+    image: "/images/apcalcbc/differentiation1.png",
+  },
+  {
+    id: "differentiation-8",
+    type: "free-response",
+    question: "What is an explicit equation?",
+    correctAnswer: "An equation that is usually in the format of $y = x$ variables are in terms of each other.",
+  },
+  {
+    id: "differentiation-9",
+    type: "free-response",
+    question: "What is an implicit equation?",
+    correctAnswer: "An equation that is usually in the format of $x + y = a$, variables are together.",
+  },
+  {
+    id: "differentiation-10",
+    type: "parts",
+    question: "Chain Rule and Implicit Differentiation, solve the following.",
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}x = $","correctAnswer":"$1$","explanation":"This is because $\\frac{d}{dx} \\times x = \\frac{dx}{dx}$ which is just 1 when treated like a fraction."},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}y = $","correctAnswer":"$\\frac{dy}{dx}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}x^{2} = $","correctAnswer":"$2x\\frac{dx}{dx}$","explanation":"$\\frac{dx}{dx} = 1$ so the actual answer is $2x$ "},{"label":"d","type":"free-response","question":"$\\frac{d}{dx}y^{2} = $","correctAnswer":"$2y\\frac{dy}{dx}$"},{"label":"e","type":"free-response","question":"$\\frac{d}{dx}e^{5x} = $","correctAnswer":"$5e^{5x}$"},{"label":"f","type":"free-response","question":"$\\frac{d}{dx}e^{5y} = $","correctAnswer":"$5e^{5y}\\frac{dy}{dx}$"}],
+  },
+  {
+    id: "differentiation-11",
+    type: "free-response",
+    question: "Find $\\frac{dy}{dx}$ for $y^2-5x^3=3y$",
+    correctAnswer: "$\\frac{dy}{dx} = y' = \\frac{15x^{2}}{2y-3}$",
+    explanation: "1. Apply power rule, each time the derivative of $y$ is involved, remember that its multiplying by $\\frac{d}{dx}$ each time the power rule is applied.\n2. Factor out $\\frac{dy}{dx}$, isolate it \n3. Answer!",
+  },
+  {
+    id: "differentiation-12",
+    type: "parts",
+    question: "Derive using implicit differentiation.",
+    parts: [{"label":"a","type":"free-response","question":"$y^{3}-2x = x^{4} + 2y$","correctAnswer":"$\\frac{dy}{dx} = \\frac{4x^{3}+2}{3y^{2}-2}$","explanation":"1. Power rule while multiplying each instance of $y$ with $\\frac{d}{dx}$\n2. Factor, isolate, simplify $\\frac{dy}{dx}$"},{"label":"b","type":"free-response","question":"$\\sin (xy) = 10x$","correctAnswer":"$y' = \\frac{10 \\sec (xy)-y}{x}$","explanation":"1. Chain rule\n2. Product Rule\n3. Factor and Isolate"}],
+  },
+  {
+    id: "differentiation-13",
+    type: "free-response",
+    question: "Find the equation of all tangent lines for $x^{2} + y^{2} = 4$ when $x = 1$",
+    correctAnswer: "$y-\\sqrt{3} = -\\frac{1}{\\sqrt{3}}(x-1)$ and $y+\\sqrt{3} = \\frac{1}{\\sqrt{3}}(x-1)$",
+    explanation: "1. Plug in $x = 1$ to find $y$ values\n2. Take the derivative using implicit and chain rule\n3. Plug in values into point slope form\n4. Answers!",
+  },
+  {
+    id: "differentiation-14",
+    type: "free-response",
+    question: "When the slope is ____, we have a horizontal tangent line.",
+    correctAnswer: "0",
+  },
+  {
+    id: "differentiation-15",
+    type: "free-response",
+    question: "When the slope is ____, we have a vertical tangent line.",
+    correctAnswer: "undefined",
+  },
+  {
+    id: "differentiation-16",
+    type: "parts",
+    question: "Use the function $3x^{2}+2y^{2} = 16$ to answer the following.",
+    parts: [{"label":"a","type":"free-response","question":"Find all horizontal tangent lines.","correctAnswer":"$y = ±\\sqrt{8} $","explanation":"1. Power and Implicit rule\n2. Set it $= 0$\n3. Solve"},{"label":"b","type":"free-response","question":"Find all vertical tangent lines.","correctAnswer":"$x = ±\\sqrt{\\frac{4}{3}}$","explanation":"1. Get the derived function\n2. Denominater must be $0$, so $y = 0$\n3. Solve"}],
+  },
+  {
+    id: "differentiation-17",
+    type: "free-response",
+    question: "What does $x^{-1}$ mean?",
+    correctAnswer: "Reciprocal.",
+  },
+  {
+    id: "differentiation-18",
+    type: "free-response",
+    question: "What does $f^{-1}(x)$ mean?",
+    correctAnswer: "Inverse.",
+  },
+  {
+    id: "differentiation-19",
+    type: "free-response",
+    question: "What are the 3 ways to say a function is an inverse of another function? Use $g(x)$ and $f(x)$ in the rules.",
+    correctAnswer: "",
+    listAnswers: ["$g(x)$ is the inverse of $f(x)$","$g(x) = f^{-1}(x)$","$f(g(x)) = x$ and $g(f(x)) = x$"],
+  },
+  {
+    id: "differentiation-20",
+    type: "free-response",
+    question: "What is the derivative of an inverse function? $\\frac{d}{dx}[f^{-1}(x)]$ as a reference.",
+    correctAnswer: "$\\frac{1}{f'[f^{-1}(x)]}$",
+  },
+  {
+    id: "differentiation-21",
+    type: "parts",
+    question: "The table gives values of the differentiable functions $f, g$ and $f'$ at selected values of $x$. Let $g(x)=f^{-1}(x)$.",
+    parts: [{"label":"a","type":"free-response","question":"What is the value of $g'(1)$?","correctAnswer":"$g'(1) = -\\frac{1}{2}$","explanation":"1. Apply inverse derivative formula\n"},{"label":"b","type":"free-response","question":"Write an equation for the line tangent to $f^{-1}$ at $x=1$.","correctAnswer":"$y-2=-\\frac{1}{2}(x-1)$","explanation":"1. Point slope form"}],
+    image: "/images/apcalcbc/differentiation2.png",
+  },
+  {
+    id: "differentiation-22",
+    type: "free-response",
+    question: "Let $g$ be a differentiable function such that $g(12) = 4$, $g(3) = 6$, $g'(12) = -5$, and $g'(3) = -2$. The function $h$ is differentiable and $h(x) = g^{-1}(x)$ for all $x$. What is the value of $h'(6)$?",
+    correctAnswer: "$h'(6) = -\\frac{1}{2}$",
+  },
+  {
+    id: "differentiation-23",
+    type: "free-response",
+    question: "If $f(x) = 3x^{3}+1$ and $g$ is the inverse function of $f$, what is the value of $g'(25)$?",
+    correctAnswer: "$g'(25) = \\frac{1}{36}$",
+    explanation: "1. Convert $g'(25)$ to $f'(25)$\n2. Apply inverse derivative rule\n3. Solve\n",
+  },
+  {
+    id: "differentiation-24",
+    type: "parts",
+    question: "Inverse Trig Derivatives.",
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(x) =$","correctAnswer":"$\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\cos^{-1}(x) =$","correctAnswer":"$-\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\sec^{-1}(x) =$","correctAnswer":"$\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"d","type":"free-response","question":"$\\frac{d}{dx}\\csc^{-1}(x) =$","correctAnswer":"$-\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"e","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(x) =$","correctAnswer":"$\\frac{1}{\\sqrt{x^{2}+1}}$"},{"label":"f","type":"free-response","question":"$\\frac{d}{dx}\\cot^{-1}(x) =$","correctAnswer":"$-\\frac{1}{\\sqrt{x^{2}+1}}$"}],
+  },
+  {
+    id: "differentiation-25",
+    type: "parts",
+    question: "Find the derivative using the inverse trig derivative rules.",
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(3x)$","correctAnswer":"$\\frac{3}{\\sqrt{1-9x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(2x^{2})$","correctAnswer":"$\\frac{4}{\\sqrt{4x^{4}+1}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\arcsec{5x})$","correctAnswer":"$\\frac{1}{|x|\\sqrt{25x^{2}-1}}$"}],
+  },
+  {
+    id: "differentiation-26",
+    type: "parts",
+    question: "Simplify $\\sec^{-1}x$ Derivatives properly!",
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{9x^{2}}{|3x^{3}|\\sqrt{9x^6-1}}$","correctAnswer":"$\\frac{3}{|x|\\sqrt{9x^6-1}}$","explanation":"1. Plug a negative number in to check if it is always positive or sometimes negative\n2. Since answer is always going to be positive, after factoring out the $x^{2}$, $x$ must stay absolute value to keep that true."},{"label":"b","type":"free-response","question":"$\\frac{4x}{|2x^{2}|\\sqrt{4x^2-1}}$","correctAnswer":"$\\frac{2}{x\\sqrt{4x^2-1}}$","explanation":"1. Plug a negative number in to check if it is always positive or sometimes negative\n2. Since answer is going to be negative when plugging in a negative number, after factoring out the $2x$, $x$ must NOT stay absolute value to keep that true."}],
+  },
+  {
+    id: "differentiation-27",
+    type: "parts",
+    question: "Domain and range of inverse trig functions.",
+    parts: [{"label":"a","type":"free-response","question":"What is the domain and range of $y=\\sin^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: $-\\frac{\\pi}{2} \\leq y \\leq \\frac{\\pi}{2}$"]},{"label":"b","type":"free-response","question":"What is the domain and range of $y=\\cos^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-1 \\leq x \\leq 1$","Range: $0 \\leq y \\leq \\pi$"]},{"label":"c","type":"free-response","question":"What is the domain and range of $y=\\tan^{-1}(x)$","correctAnswer":"","listAnswers":["Domain: $-\\infty \\leq x \\leq \\infty$","Range: $-\\frac{\\pi}{2} < y < \\frac{\\pi}{2}$"]}],
+  },
+  {
+    id: "differentiation-28",
+    type: "parts",
+    question: "Evalute each function at the given $x$-value.",
+    parts: [{"label":"a","type":"free-response","question":"$f(x) = \\arcsin(x)$ at $x = \\frac{\\sqrt{3}}{2}$","correctAnswer":"$\\frac{\\pi}{3}$"},{"label":"b","type":"free-response","question":"$f(x) = \\cos^{-1}(\\frac{x}{4})$ at $x = -2$","correctAnswer":"$\\frac{2\\pi}{3}$"},{"label":"c","type":"free-response","question":"$f(x) = \\arctan(x)$ at $x = \\frac{1}{\\sqrt{3}}$","correctAnswer":"$\\frac{\\pi}{6}$"}],
+  },
+  {
+    id: "differentiation-29",
+    type: "free-response",
+    question: "What is the rule for higher order derivatives after the 3rd derivative?",
+    correctAnswer: "$f^{n}(x) =$ function ",
+    explanation: "Example: $f^{4}(x) = 360x^{2}-48$",
+  },
+  {
+    id: "differentiation-30",
+    type: "free-response",
+    question: "Find $f'''(x)$ for $f(x) = x^{6}-2x^{4}+5x^{2}-3x+9$",
+    correctAnswer: "$f'''(x)=120x^{3}-48x$",
+  },
+  {
+    id: "differentiation-31",
+    type: "free-response",
+    question: "Find $\\frac{d^{2}y}{dx^{2}}$ for $y = \\sqrt{x}+x^{-1}$",
+    correctAnswer: "$\\frac{d^{2}y}{dx^{2}} = -\\frac{1}{4}x^{-\\frac{3}{2}} + 6x^{-4}$",
+  },
+  {
+    id: "differentiation-32",
+    type: "free-response",
+    question: "Find the 2nd derivative with implicit differentiation for $\\sin y = x + y$",
+    correctAnswer: "$\\frac{d^{2}y}{dx^{2}} = \\frac{\\sin y}{(\\cos y - 1)^{3}}$",
+    explanation: "1. Take first derivative using implicit differentiation\n2. Take 2nd derivative using implicit differentiation\n3. Make sure work is clean\n4. When there is a $\\frac{dy}{dx}$, substitute the first derivative.",
+  },
+];
