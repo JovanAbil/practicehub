@@ -27,6 +27,7 @@ import { Question, QuizAttempt, PartAttemptState, SelectAllQuestion } from '@/ty
 import { toast } from 'sonner';
 import QuestionTable from '@/components/QuestionTable';
 import MathText from '@/components/MathText';
+import CalculatorBadge from '@/components/CalculatorBadge';
 import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 
 import {
@@ -942,6 +943,8 @@ const Quiz = () => {
             />
           ) : (
             <>
+              <CalculatorBadge active={currentQuestion.calculator} />
+
               {currentQuestion.table && (
                 <QuestionTable data={currentQuestion.table} enableChemistry={subject === 'chemistry'} />
               )}
