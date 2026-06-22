@@ -13,6 +13,7 @@ import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 import useWrongAnswers from '@/hooks/useWrongAnswers';
 import { Footer } from '@/components/Footer';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
+import CalculatorBadge from '@/components/CalculatorBadge';
 import { toast } from 'sonner';
 import {
   Dialog,
@@ -432,7 +433,8 @@ const Results = () => {
                           />
                         </div>
                       )}
-                      
+
+                      <CalculatorBadge active={question.calculator} />
                       <PiecewiseAwareText tag="p" className="text-sm mb-3" text={question.question} enableChemistry={subject === 'chemistry'} />
 
                       {question.type === 'multiple-choice' ? (
