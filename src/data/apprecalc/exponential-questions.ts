@@ -375,7 +375,7 @@ export const exponentialQuestions: Question[] = [
     id: "exponential-60",
     type: "parts",
     question: "$f(x) = (x+3)^3+4$",
-    parts: [{"label":"a","type":"free-response","question":"What is the $f^-1(x)$","correctAnswer":"$f^-1(x) = \\sqrt[3]{x-4}+3$"},{"label":"b","type":"free-response","question":"What is the domain of $f^-1(x)$","correctAnswer":"$(-\\infty, infty)$"},{"label":"c","type":"free-response","question":"What is the range of $f^-1(x)$","correctAnswer":"$(-\\infty, infty)$"}],
+    parts: [{"label":"a","type":"free-response","question":"What is the $f^-1(x)$","correctAnswer":"$f^-1(x) = \\sqrt[3]{x-4}+3$"},{"label":"b","type":"free-response","question":"What is the domain of $f^-1(x)$","correctAnswer":"$(-\\infty, \\infty)$"},{"label":"c","type":"free-response","question":"What is the range of $f^-1(x)$","correctAnswer":"$(-\\infty, \\infty)$"}],
   },
   {
     id: "exponential-61",
