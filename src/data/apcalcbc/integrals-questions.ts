@@ -24,7 +24,7 @@ export const integralsQuestions: Question[] = [
     type: "parts",
     question: "A particle is moving along the $x$-axis at a rate modeled by $r(t)$ and shown in the graph below. ",
     parts: [{"label":"a","type":"free-response","question":"How far is the particle from its starting position after 10 seconds?","correctAnswer":"It is $40$ cm to the left. "},{"label":"b","type":"free-response","question":"How far is the particle from its position at $t = 2$ after $t = 8$ seconds?","correctAnswer":"It is left $60$ cm. "}],
-    image: "/images/ap-calc-bc/integrals1.png",
+    image: "/images/apcalcbc/integrals1.png",
   },
   {
     id: "integrals-4",
@@ -80,7 +80,7 @@ export const integralsQuestions: Question[] = [
     type: "parts",
     question: "Using the graph of $f(x)=4x-\\frac{1}{2}x^{2}$ to answer the following.",
     parts: [{"label":"a","type":"free-response","question":"On the interval $[2, 8]$, use 3 subintervals to calculate using the Left-Riemann Sum.","correctAnswer":"$40$"},{"label":"b","type":"free-response","question":"On the interval $[2, 8]$, use 3 subintervals to calculate using the Right-Riemann Sum.","correctAnswer":"$28$"},{"label":"c","type":"free-response","question":"On the interval $[2, 8]$, use 3 subintervals to calculate using the Midpoint-Riemann Sum.","correctAnswer":"$37$"},{"label":"d","type":"free-response","question":"On the interval $[2, 8]$, use 3 subintervals to calculate using the Trapezoidal-Riemann Sum.","correctAnswer":"$34$"}],
-    image: "/images/ap-calc-bc/integrals2.png",
+    image: "/images/apcalcbc/integrals2.png",
   },
   {
     id: "integrals-12",
@@ -149,7 +149,7 @@ export const integralsQuestions: Question[] = [
     type: "parts",
     question: "The rate at which water is being pumped into a tank is given by the continuous and increasing function $R(t)$. A table of selected values of $R(t)$ for the time interval $0 < t < 12$ minutes, is given below.",
     parts: [{"label":"a","type":"free-response","question":"Right-Riemann sum with 4 subintervals.","correctAnswer":"$243$ gallons."},{"label":"b","type":"free-response","question":"Is the approximation greater or less than the true value for the value of \"Right-Riemann sum with 4 subintervals.\"","correctAnswer":"It is greater than because it is a Right-Riemann sum on an increasing function."},{"label":"c","type":"free-response","question":"Left-Riemann sum with 4 subintervals.","correctAnswer":"$183$ gallons."},{"label":"d","type":"free-response","question":"Is the approximation greater or less than the true value for the value of \"Left-Riemann sum with 4 subintervals.\"","correctAnswer":"It is less than because it is a Left-Riemann sum on an increasing function."},{"label":"e","type":"free-response","question":"Midpoint-Riemann sum with 2 subintervals.","correctAnswer":"$216$ gallons"},{"label":"f","type":"free-response","question":"Trapezoidal-Riemann sum with 4 subintervals.","correctAnswer":"$213$ gallons"}],
-    image: "/images/ap-calc-bc/integrals3.png",
+    image: "/images/apcalcbc/integrals3.png",
   },
   {
     id: "integrals-21",
@@ -213,7 +213,7 @@ export const integralsQuestions: Question[] = [
     question: "Let $F(x) = \\int_{0}^{x} f(t) \\, dt$. Use the graph of $f$ in the figure to find the values of the table on the interval $0 \\leq x \\leq 5. What is $F(x)$ when $x = 5$?",
     correctAnswer: "It is $5$.",
     explanation: "Add up all the values if it is above the $x$-axis and subtract the area if the area was under the $x$-axis from $0$ to $5$.",
-    image: "/images/ap-calc-bc/integrals4.png",
+    image: "/images/apcalcbc/integrals4.png",
   },
   {
     id: "integrals-30",
@@ -268,7 +268,7 @@ export const integralsQuestions: Question[] = [
     type: "parts",
     question: "Let $g(x) = \\int_{a}^{x} f(t) \\, dt$ where the graph of $f$ is shown below and $a$ is a constant. ",
     parts: [{"label":"a","type":"free-response","question":"Relative minimum of $g$.","correctAnswer":"$x ~ 5.4$","explanation":"Approximation, the graph shows the derivative because $g'(x) = f(x)$ from the accumulation rules. $g'(x)$ is a relative min when it changes from negative to positive."},{"label":"b","type":"free-response","question":"Relative maximum of $g$.","correctAnswer":"$x = 3$","explanation":"The graph shows the derivative because $g'(x) = f(x)$ from the accumulation rules. $g'(x)$ is a relative min when it changes from positive to negative."},{"label":"c","type":"free-response","question":"Intervals where $g$ is concave up.","correctAnswer":"$(4, 6)$","explanation":"So when $g'' > 0$, so when $f' > 0$ and that is when the slope is positive for the function $f$."},{"label":"d","type":"free-response","question":"Intervals where $g$ is concave down.","correctAnswer":"$(2, 4)$","explanation":"So when $g'' < 0$, so when $f' < 0$ and that is when the slope is negative for the function $f$."},{"label":"e","type":"free-response","question":"Points of inflection(s) of $g$.","correctAnswer":"$x = 4$","explanation":"Where $g''$ so $f'$ changes sign"},{"label":"f","type":"free-response","question":"If $g(1) = 5$, what is the maximum value of $g$ on the interval $[1, 5]$?","correctAnswer":"The maximum value is $8$","explanation":"1. $5 + \\int_{1}^{3} f(t) \\, dt$\n2. $5 + 3$"}],
-    image: "/images/ap-calc-bc/integrals5.png",
+    image: "/images/apcalcbc/integrals5.png",
   },
   {
     id: "integrals-38",
@@ -276,7 +276,7 @@ export const integralsQuestions: Question[] = [
     question: "Let $\\int_{0}^{\\frac{x}{2}+5}f(t) \\, dt$ where the graph of $f$ is shown. Find the $x$-value where $g$ has a relative maximum.",
     correctAnswer: "$x = -4$",
     explanation: "1. $g'$ changes from positive to negative\n2. $g'(x) = f(\\frac{x}{2} + 5) \\times \\frac{1}{2} = 0$\n3. $f(\\frac{x}{2} + 5) = 0$\n4. \\frac{x}{2} + 5 = 3\n5. \\frac{x}{2} = -2",
-    image: "/images/ap-calc-bc/integrals5.png",
+    image: "/images/apcalcbc/integrals5.png",
   },
   {
     id: "integrals-39",
@@ -340,7 +340,7 @@ export const integralsQuestions: Question[] = [
     question: "What is $\\int_{12}^{8} 3f(x) \\, dx = $",
     correctAnswer: "$\\int_{12}^{8} 3f(x) \\, dx = 12$",
     explanation: "1. Reversal of limits property\n2. Multiply by constant property",
-    image: "/images/ap-calc-bc/integrals6.png",
+    image: "/images/apcalcbc/integrals6.png",
   },
   {
     id: "integrals-48",
@@ -367,7 +367,7 @@ export const integralsQuestions: Question[] = [
     type: "parts",
     question: "Answer the following.",
     parts: [{"label":"a","type":"free-response","question":"$|\\int_{-2}^{4} f(x) \\, dx| = $","correctAnswer":"$2$"},{"label":"b","type":"free-response","question":"$\\int_{-2}^{4} |f(x)| \\, dx = $","correctAnswer":"$\\pi + 2$"}],
-    image: "/images/ap-calc-bc/integrals7.png",
+    image: "/images/apcalcbc/integrals7.png",
   },
   {
     id: "integrals-52",
