@@ -4,7 +4,7 @@ import { Question } from '@/types/quiz';
 // Math Enabled: true
 // Questions: 53
 
-export const integrationQuestions: Question[] = [
+export const integrationABQuestions: Question[] = [
   {
     id: "integration-1",
     type: "free-response",
