@@ -766,6 +766,9 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
               };
               if (image) q.image = image;
               if (listAnswers && listAnswers.length > 0) q.listAnswers = listAnswers;
+              if (extractStringField(questionStr, 'calculator') === 'true' || questionStr.includes('calculator: true')) {
+                q.calculator = true;
+              }
               questions.push(q);
             } else if (correctAnswer && type === 'multiple-choice') {
               const options = extractOptionsArray(questionStr);
@@ -778,6 +781,9 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
                 explanation: explanation || '',
               };
               if (image) q.image = image;
+              if (extractStringField(questionStr, 'calculator') === 'true' || questionStr.includes('calculator: true')) {
+                q.calculator = true;
+              }
               questions.push(q);
             } else if (type === 'select-all') {
               const options = extractOptionsArray(questionStr);
@@ -805,6 +811,9 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
                 explanation: explanation || '',
               };
               if (image) q.image = image;
+              if (extractStringField(questionStr, 'calculator') === 'true' || questionStr.includes('calculator: true')) {
+                q.calculator = true;
+              }
               questions.push(q);
             }
           }
