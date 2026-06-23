@@ -407,7 +407,7 @@ export const integralsABQuestions: Question[] = [
   {
     id: "integrals-57",
     type: "free-response",
-    question: "What is $\\int \\cosx \\, dx$",
+    question: "What is $\\int \\cos x \\, dx$",
     correctAnswer: "$\\int \\cos x \\, dx = \\sin x + C$",
     explanation: "",
   },
