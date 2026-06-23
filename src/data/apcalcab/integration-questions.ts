@@ -107,6 +107,7 @@ export const integrationABQuestions: Question[] = [
     question: "A storm has washed away sand from a beach, causing the edge of the water to get closer to a nearby road. The rate at which the distance between the road and the edge of the water was decreasing during the storm is modeled by $r(t) = e^{-\\sin t}$ feet per hour, $t$ hours after the storm began. The edge of the water was $200$ feet from the road when the storm began. If the storm lasted $4$ hours, how far is the water from the road after the storm?",
     correctAnswer: "$196.937$ feet",
     explanation: "1. Take the integral for the accumulation of the rate of change.",
+    calculator: true,
   },
   {
     id: "integration-16",
@@ -170,6 +171,7 @@ export const integrationABQuestions: Question[] = [
     question: "Find the area bounded by the curves $y = \\ln x$ and $y = \\frac{1}{2}x - 2$",
     correctAnswer: "$8.784$",
     explanation: "1. Make sure no rounding, storing it in variables in Desmos",
+    calculator: true,
   },
   {
     id: "integration-25",
@@ -178,6 +180,7 @@ export const integrationABQuestions: Question[] = [
     correctAnswer: "$k = 1.764$",
     explanation: "1. Set up 2 integrals where the boundary $k$ follows the rules to be equal to each side\n2. Plug in boundaries and solve",
     image: "/images/apcalcbc/integration2.png",
+    calculator: true,
   },
   {
     id: "integration-26",
@@ -222,6 +225,7 @@ export const integrationABQuestions: Question[] = [
     correctAnswer: "$\\int_{0}^{1} (\\sqrt{x}-x^{2})^{2} \\, dx = 0.1285$ ",
     explanation: "1. Area = $s^{2}$, $s$ represents each side\n2. $s = \\sqrt{x} - x^{2}$ because it is the graph thats on the top minus the bottom\n3. Set up the integral, and use calculator to jump to the answer",
     image: "/images/apcalcbc/integration5.png",
+    calculator: true,
   },
   {
     id: "integration-32",
@@ -230,6 +234,7 @@ export const integrationABQuestions: Question[] = [
     correctAnswer: "$\\int_{0}^{1} (\\sqrt{y} - y^{2}) \\, dy$",
     explanation: "1. Make everything in terms of $y$\n2. Area = $s^{2}$, $s$ represents each side\n3. $s = \\sqrt{y} - y^{2}$ because it is the graph thats on the top minus the bottom\n",
     image: "/images/apcalcbc/integration5.png",
+    calculator: true,
   },
   {
     id: "integration-33",
