@@ -375,6 +375,7 @@ export const integralsQuestions: Question[] = [
     question: "$\\int_{2}^{3} \\sqrt{x-1} \\, dx$",
     correctAnswer: "$1.219$",
     explanation: "Use the calculator.",
+    calculator: true,
   },
   {
     id: "integrals-53",
@@ -382,6 +383,7 @@ export const integralsQuestions: Question[] = [
     question: "$\\int_{-2}^{4} (\\frac{x}{3}-1) \\, dx$",
     correctAnswer: "$-4$",
     explanation: "Use the calculator.",
+    calculator: true,
   },
   {
     id: "integrals-54",
