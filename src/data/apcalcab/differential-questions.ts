@@ -246,6 +246,7 @@ export const differentialABQuestions: Question[] = [
     question: "An animal weighs $3$ pounds at birth and $4$ pounds just three months later. The weight of the animal is increasing at a rate proportional to its weight. Set up a differential equation for this scenario. How much will the animal weigh when it is $5$ months old?",
     correctAnswer: "$4.846$",
     explanation: "1. Rate proportional to its weight means its exponential\n2. It is growth because it grows\n3. Use the $y = Ce^{kt}$\n4. Solve for $w(5)$",
+    calculator: true,
   },
   {
     id: "differential-35",
@@ -253,5 +254,6 @@ export const differentialABQuestions: Question[] = [
     question: "A population $y$ grows according to the equation $\\frac{dy}{dt} = ky$, where $k$ is a constant and $t$ is measured in years. If the population doubles every $7$ years, what is the value of $k$?",
     correctAnswer: "$0.099$",
     explanation: "1. Use $y = Ce^{kt}$\n2. $2y_{0} = y_{0}e^{7k}$ because it is doubling and the initial times 2 will be the same as it doubling for every 7 years\n3. Solve and plug in for $k$",
+    calculator: true,
   },
 ];
