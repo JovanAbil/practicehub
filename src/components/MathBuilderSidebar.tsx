@@ -50,6 +50,8 @@ const mathSymbols: MathSymbol[] = [
   { display: '∪', latex: '∪', name: 'Union' },
   { display: '∩', latex: '∩', name: 'Intersection' },
   { display: '∈', latex: '∈', name: 'Element of' },
+  { display: '〈', latex: '〈', name: 'Vector Left' },
+  { display: '〉', latex: '〉', name: 'Vector Right' },
 ];
 
 const mathFunctions: MathFunction[] = [
