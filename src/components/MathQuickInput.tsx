@@ -37,6 +37,8 @@ const symbols = [
   { label: 'Δ', latex: 'Δ', unicode: 'Δ', tooltip: 'Delta' },
   { label: 'Σ', latex: '\\sum', unicode: 'Σ', tooltip: 'Summation' },
   { label: '∫', latex: '\\int', unicode: '∫', tooltip: 'Integral' },
+  { label: '〈', latex: '〈', unicode: '〈', tooltip: 'Vector Left' },
+  { label: '〉', latex: '〉', unicode: '〉', tooltip: 'Vector Right' },
 ];
 
 const spanishAccents = [
@@ -84,25 +86,7 @@ const immediateShortcuts: { key: string; latexReplacement: string; unicodeReplac
 
 // Patterns to detect and remove on backspace (LaTeX commands with their braces)
 const latexRemovalPatterns = [
-  { pattern: /\\frac\{\}\{\}$/, length: 10 },
-  { pattern: /\\frac\{[^}]*\}\{\}$/, getLength: (match: string) => match.length },
-  { pattern: /\\sqrt\{\}$/, length: 7 },
-  { pattern: /\\sqrt\[[^\]]*\]\{\}$/, getLength: (match: string) => match.length },
-  { pattern: /\\lim_\{x \\to \}$/, length: 13 },
-  { pattern: /\\ln\(\)$/, length: 5 },
-  { pattern: /\\sum_\{\}\^\{\}$/, length: 11 },
-  { pattern: /\\int_\{\}\^\{\}$/, length: 11 },
-  { pattern: /e\^\{\}$/, length: 4 },
-  { pattern: /\^\{\}$/, length: 3 },
-  { pattern: /_\{\}$/, length: 3 },
-  { pattern: /\^\(\)$/, length: 3 },
-  { pattern: /₍₎$/, length: 2 },
-  { pattern: /√\(\)$/, length: 3 },
-  { pattern: /∛\(\)$/, length: 3 },
-  { pattern: /ⁿ√\(\)$/, length: 4 },
-  { pattern: /e\^\(\)$/, length: 4 },
   { pattern: /lim\(x→\)$/, length: 7 },
-  { pattern: /ln\(\)$/, length: 4 },
 ];
 
 // Track last replacement for undo functionality
