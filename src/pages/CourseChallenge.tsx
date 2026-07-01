@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 import { Footer } from '@/components/Footer';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
 import RemoveConfirmDialog from '@/components/RemoveConfirmDialog';
+import DailyPlanCard from '@/components/DailyPlanCard';
 
 import { buildRouteKey, hasInProgressQuiz } from '@/utils/inProgressQuizStorage';
 
@@ -125,6 +126,13 @@ const CourseChallenge = () => {
     return '/';
   };
 
+// Pool for the Daily Plan: every built-in unit question + every imported set
+const dailyPlanPool = useMemo(() => {
+  const builtIn = units.flatMap(u => u.questions ?? []);
+  const imported = importedSets.flatMap(s => s.questions);
+  return [...builtIn, ...imported];
+}, [units, importedSets]);
+  
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <div className="container mx-auto px-4 py-8 max-w-5xl flex-1">
@@ -170,6 +178,8 @@ const CourseChallenge = () => {
             </div>
           </Card>
         )}
+        
+        <DailyPlanCard subject={subject || ''} allQuestions={dailyPlanPool} />
 
         {/* Import Custom Questions Box */}
         <Card className="mb-6 p-6 border-2 border-dashed border-primary/50 bg-primary/5">
