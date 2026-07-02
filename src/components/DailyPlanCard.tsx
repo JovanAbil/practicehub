@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { CalendarDays, Download, Upload, RotateCcw, Play } from 'lucide-react';
+import { CalendarDays, Download, Upload, RotateCcw } from 'lucide-react';
 import { Question } from '@/types/quiz';
 import {
   ensureTodayPlan, loadDailyPlan, setQuestionsPerDay,
@@ -16,6 +15,12 @@ interface Props {
   allQuestions: Question[];
 }
 
+/**
+ * Compact "Daily" control row shown directly under the Cram Mode button.
+ * - Left: Daily button (starts today's plan)
+ * - Right: number input for questions-per-day (default 15, saved locally)
+ * - Small icon buttons for Export / Import / Reset
+ */
 const DailyPlanCard = ({ subject, allQuestions }: Props) => {
   const navigate = useNavigate();
   const fileRef = useRef<HTMLInputElement>(null);
@@ -28,18 +33,16 @@ const DailyPlanCard = ({ subject, allQuestions }: Props) => {
 
   if (!state) return null;
 
-  const totalPool = state.unusedIds.length + state.usedIds.length;
-  const progressPct = totalPool ? Math.round((state.usedIds.length / totalPool) * 100) : 0;
-
   const startToday = () => {
     const byId = new Map(allQuestions.map(q => [q.id, q]));
     const todays = state.todayQuestionIds.map(id => byId.get(id)).filter(Boolean) as Question[];
-    if (todays.length === 0) { toast.error('No questions in today\u2019s plan'); return; }
+    if (todays.length === 0) { toast.error("No questions in today's plan"); return; }
     navigate(`/quiz/${subject}/daily/plan`, {
       state: {
-        importedQuestions: todays,
+        presetQuestions: todays,
         dailyPlanKey: subject,
         startNewAttempt: true,
+        orderedMode: true,
       },
     });
   };
@@ -71,42 +74,42 @@ const DailyPlanCard = ({ subject, allQuestions }: Props) => {
     toast.success('Daily plan reset');
   };
 
+  const totalPool = state.unusedIds.length + state.usedIds.length;
+  const progressPct = totalPool ? Math.round((state.usedIds.length / totalPool) * 100) : 0;
+
   return (
-    <Card className="mb-6 p-6 border-2 border-primary/40">
-      <div className="flex items-center gap-3 mb-3">
-        <CalendarDays className="h-6 w-6 text-primary" />
-        <h3 className="font-semibold text-lg">Daily Plan</h3>
-      </div>
-      <p className="text-sm text-muted-foreground mb-4">
-        A fresh mix of questions across every topic each day. Correct answers cycle out
-        until you\u2019ve mastered the pool, then the cycle repeats.
-      </p>
+    <div className="mt-3 flex flex-wrap items-center gap-2">
+      <Button onClick={startToday} variant="secondary" size="lg" className="flex-1 min-w-[200px]">
+        <CalendarDays className="mr-2 h-4 w-4" />
+        Daily ({state.todayQuestionIds.length} questions today)
+      </Button>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 text-sm">
-        <div><div className="text-muted-foreground">Today</div><div className="font-semibold">{state.todayQuestionIds.length} questions</div></div>
-        <div><div className="text-muted-foreground">Unused</div><div className="font-semibold">{state.unusedIds.length}</div></div>
-        <div><div className="text-muted-foreground">Mastered</div><div className="font-semibold">{state.usedIds.length} ({progressPct}%)</div></div>
-        <div><div className="text-muted-foreground">Cycles done</div><div className="font-semibold">{state.cycleCount}</div></div>
-      </div>
-
-      <div className="flex items-center gap-2 mb-4">
-        <label className="text-sm text-muted-foreground">Per day:</label>
+      <div className="flex items-center gap-1">
+        <label className="text-xs text-muted-foreground whitespace-nowrap">Per day:</label>
         <Input
           type="number" min={1} max={200}
           value={state.questionsPerDay}
           onChange={e => changePerDay(Number(e.target.value) || 1)}
-          className="w-24 h-8"
+          className="w-20 h-9"
         />
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <Button onClick={startToday}><Play className="mr-2 h-4 w-4" />Start Today\u2019s Plan</Button>
-        <Button variant="outline" onClick={doExport}><Download className="mr-2 h-4 w-4" />Export</Button>
-        <Button variant="outline" onClick={() => fileRef.current?.click()}><Upload className="mr-2 h-4 w-4" />Import</Button>
-        <Button variant="ghost" onClick={doReset}><RotateCcw className="mr-2 h-4 w-4" />Reset</Button>
-        <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={doImport} />
+      <Button variant="ghost" size="icon" onClick={doExport} title="Export daily plan">
+        <Download className="h-4 w-4" />
+      </Button>
+      <Button variant="ghost" size="icon" onClick={() => fileRef.current?.click()} title="Import daily plan">
+        <Upload className="h-4 w-4" />
+      </Button>
+      <Button variant="ghost" size="icon" onClick={doReset} title="Reset daily plan">
+        <RotateCcw className="h-4 w-4" />
+      </Button>
+      <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={doImport} />
+
+      <div className="w-full text-xs text-muted-foreground">
+        Mastered {state.usedIds.length}/{totalPool} ({progressPct}%) · Cycles: {state.cycleCount} ·
+        Correct answers cycle out; wrong ones stay until mastered.
       </div>
-    </Card>
+    </div>
   );
 };
 
