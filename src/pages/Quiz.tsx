@@ -58,6 +58,12 @@ const Quiz = () => {
   const presetQuestions = useMemo(() => location.state?.presetQuestions || [], [location.state?.presetQuestions]);
   const presetId = useMemo(() => location.state?.presetId || searchParams.get('presetId') || '', [location.state?.presetId, searchParams]);
   const startNewAttempt = useMemo(() => !!location.state?.startNewAttempt, [location.state?.startNewAttempt]);
+  // Daily Plan key (Course Challenge "Daily" mode) - forwarded through to Results
+  // so correct answers can be removed from the per-subject daily pool.
+  const dailyPlanKey = useMemo(
+    () => (location.state as any)?.dailyPlanKey as string | undefined,
+    [location.state],
+  );
   
   // Check if this is a custom topic quiz
   const isCustomTopic = subject?.startsWith('custom-');
@@ -633,6 +639,7 @@ const Quiz = () => {
         quizType,
         timeElapsed: finalTime,
         attempts: expandedAttempts,
+        dailyPlanKey,
       } 
     });
   };
@@ -894,7 +901,7 @@ const Quiz = () => {
                   const allCorrect = currentQuestion.parts.every(p => newPartsState[p.label]?.isCorrect);
                   newAttempts[currentIndex].userAnswer = 'PARTS_COMPLETE';
                   newAttempts[currentIndex].isCorrect = allCorrect;
-                  if (isCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+                  if (allCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
                 }
                 setAttempts(newAttempts);
               }}
