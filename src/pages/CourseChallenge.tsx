@@ -178,8 +178,6 @@ const dailyPlanPool = useMemo(() => {
             </div>
           </Card>
         )}
-        
-        <DailyPlanCard subject={subject || ''} allQuestions={dailyPlanPool} />
 
         {/* Import Custom Questions Box */}
         <Card className="mb-6 p-6 border-2 border-dashed border-primary/50 bg-primary/5">
@@ -259,6 +257,8 @@ const dailyPlanPool = useMemo(() => {
           <Trophy className="mr-2 h-4 w-4" />
           Cram Mode (All Units{totalImportedQuestions > 0 ? ` + ${totalImportedQuestions} imported` : ''})
         </Button>
+
+        <DailyPlanCard subject={subject || ''} allQuestions={dailyPlanPool} />
 
         {canResumeCram && (
           <Button
