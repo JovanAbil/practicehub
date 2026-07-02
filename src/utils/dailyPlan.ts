@@ -80,11 +80,11 @@ export const ensureTodayPlan = (
   const alive = new Set(allIds);
   state.unusedIds = state.unusedIds.filter(id => alive.has(id));
   state.usedIds = state.usedIds.filter(id => alive.has(id));
+  state.todayQuestionIds = state.todayQuestionIds.filter(id => alive.has(id));
 
   // New day? Redraw.
   const today = todayStr();
   if (state.todayDate !== today) {
-    // Cycle if unused is empty
     if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
       state.unusedIds = [...state.usedIds];
       state.usedIds = [];
@@ -112,7 +112,6 @@ export const setQuestionsPerDay = (subject: string, n: number) => {
   const s = loadDailyPlan(subject);
   if (!s) return;
   s.questionsPerDay = Math.max(1, Math.min(200, Math.floor(n)));
-  // Re-draw today with the new count from the current unused pool
   const already = new Set(s.todayQuestionIds);
   const pool = s.unusedIds.filter(id => !already.has(id));
   if (s.todayQuestionIds.length < s.questionsPerDay) {
