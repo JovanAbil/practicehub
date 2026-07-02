@@ -6,7 +6,7 @@ import { ArrowLeft, Trophy, ExternalLink, Wrench, Target, Upload, X, FileText, D
 import { courseChallengeResources } from '@/data/study-resources';
 import { useWrongAnswers } from '@/hooks/useWrongAnswers';
 import { parseTopicFile, getImportedQuestions, saveImportedQuestions, removeImportedQuestions, ImportedQuestionSet, generateBuiltInTopicFile } from '@/utils/customUnitsExport';
-import { getSubjectUnits, getSubjectTitle } from '@/utils/questionLoader';
+import { getSubjectUnits, getSubjectTitle, questionMap } from '@/utils/questionLoader';
 import { toast } from 'sonner';
 import { Footer } from '@/components/Footer';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
@@ -128,10 +128,10 @@ const CourseChallenge = () => {
 
 // Pool for the Daily Plan: every built-in unit question + every imported set
 const dailyPlanPool = useMemo(() => {
-  const builtIn = units.flatMap(u => u.questions ?? []);
+  const builtIn = units.flatMap(u => questionMap[`${subject}-${u.id}`] ?? []);
   const imported = importedSets.flatMap(s => s.questions);
   return [...builtIn, ...imported];
-}, [units, importedSets]);
+}, [units, importedSets, subject]);
   
   return (
     <div className="min-h-screen bg-background flex flex-col">
