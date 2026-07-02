@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { Trophy, Home, CheckCircle2, XCircle, Clock, Download, Flag, RotateCcw, Target, SkipForward } from 'lucide-react';
+import { Trophy, Home, CheckCircle2, XCircle, Clock, Download, Flag, RotateCcw, Target, SkipForward, CalendarCheck } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Question, QuizAttempt } from '@/types/quiz';
 import QuestionTable from '@/components/QuestionTable';
@@ -71,7 +71,7 @@ const Results = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { addWrongAnswers } = useWrongAnswers();
-  const { score, total, subject, unitId, quizType, attempts, timeElapsed } = location.state || {};
+  const { score, total, subject, unitId, quizType, attempts, timeElapsed, dailyPlanKey } = location.state || {};
 
   // Preset download dialog state - must be before any early returns
   const [showDownloadDialog, setShowDownloadDialog] = useState(false);
@@ -210,6 +210,19 @@ const Results = () => {
     toast.success('Wrong answers downloaded as preset!');
   };
 
+  const handleDownloadDailyPlan = () => {
+    if (!dailyPlanKey) return;
+    import('@/utils/dailyPlan').then(({ exportDailyPlan }) => {
+      const blob = new Blob([exportDailyPlan(dailyPlanKey)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `daily-plan-${dailyPlanKey}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  };
+
   const getSubjectDisplayName = (s: string) => {
     const names: Record<string, string> = {
       'apprecalc': 'AP Precalculus',
@@ -302,6 +315,27 @@ const Results = () => {
             </Button>
           </div>
         </Card>
+
+        {/* Daily Plan Progress */}
+        {dailyPlanKey && (
+          <Card className="p-6 mb-8 border-primary/40 animate-fade-in" style={{ animationDelay: '0.03s' }}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-start gap-3">
+                <CalendarCheck className="h-6 w-6 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg mb-1">Daily Plan Progress</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Correct answers were removed from your daily pool. Wrong ones stay until mastered.
+                  </p>
+                </div>
+              </div>
+              <Button onClick={handleDownloadDailyPlan} variant="outline" className="shrink-0">
+                <Download className="mr-2 h-4 w-4" />
+                Download Daily Plan
+              </Button>
+            </div>
+          </Card>
+        )}
 
         {/* Targeted Practice */}
         {practiceAttempts.length > 0 && (
