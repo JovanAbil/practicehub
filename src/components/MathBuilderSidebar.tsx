@@ -140,10 +140,82 @@ const mathFunctions: MathFunction[] = [
     template: '\\tan()',
   },
   {
-    name: 'Vector',
+    name: 'Vector (Arrow)',
     syntax: '\\vec{variable}',
     example: '\\vec{v}',
-    template: '\\vec{}',
+    template: '\\vec{}'
+  },
+  {
+    name: 'Vector Bold',
+    syntax: '\\mathbf{variable}',
+    example: '\\mathbf{v}',
+    template: '\\mathbf{}'
+  },
+  {
+    name: 'Vector Bold Italics',
+    syntax: '\\bm{variable}',
+    example: '\\bm{v}',
+    template: '\\bm{}'
+  },
+  {
+    name: 'Vector Hat (Unit Vector)',
+    syntax: '\\hat{variable}',
+    example: '\\hat{i}',
+    template: '\\hat{}'
+  },
+  {
+    name: 'Column Vector (Parentheses)',
+    syntax: '\\begin{pmatrix} component1 \\\\ component2 \\end{pmatrix}',
+    example: '\\begin{pmatrix} x \\\\ y \\end{pmatrix}',
+    template: '\\begin{pmatrix}\n  {}\n  \\\\\n  {}\n\\end{pmatrix}'
+  },
+  {
+    name: 'Column Vector (Brackets)',
+    syntax: '\\begin{bmatrix} component1 \\\\ component2 \\end{bmatrix}',
+    example: '\\begin{bmatrix} x \\\\ y \\end{bmatrix}',
+    template: '\\begin{bmatrix}\n  {}\n  \\\\\n  {}\n\\end{bmatrix}'
+  },
+  {
+    name: 'Vector Magnitude / Norm',
+    syntax: '\\|variable\\|',
+    example: '\\|\\mathbf{v}\\|',
+    template: '\\|{}\\vec{}\\|'
+  },
+  {
+    name: 'Dot Product',
+    syntax: 'vector1 \\cdot vector2',
+    example: '\\mathbf{u} \\cdot \\mathbf{v}',
+    template: '{} \\cdot {}'
+  },
+  {
+    name: 'Cross Product',
+    syntax: 'vector1 \\times vector2',
+    example: '\\mathbf{u} \\times \\mathbf{v}',
+    template: '{} \\times {}'
+  },
+  {
+    name: 'Parametric (2D Cases)',
+    syntax: '\\begin{cases} x(t) = ... \\\\ y(t) = ... \\end{cases}',
+    example: '\\begin{cases} x(t) = r \\cos(t) \\\\ y(t) = r \\sin(t) \\end{cases}',
+    template: '\\begin{cases}\n  x(t) = {} \\\\\n  y(t) = {}\n\\end{cases}'
+  },
+  {
+    name: 'Parametric (3D Cases)',
+    syntax: '\\begin{cases} x(t) = ... \\\\ y(t) = ... \\\\ z(t) = ... \\end{cases}',
+    example: '\\begin{cases} x(t) = x_0 + at \\\\ y(t) = y_0 + bt \\\\ z(t) = z_0 + ct \\end{cases}',
+    template: '\\begin{cases}\n  x(t) = {} \\\\\n  y(t) = {} \\\\\n  z(t) = {}\n\\end{cases}'
+  },
+  {
+    name: 'Parametric (Vector Form)',
+    syntax: '\\mathbf{r}(t) = \\langle x(t), y(t) \\rangle',
+    example: '\\mathbf{r}(t) = \\langle t, t^2 \\rangle',
+    template: '\\mathbf{r}(t) = \\langle {}, {} \\rangle'
+  },
+  {
+    name: 'Piecewise Function',
+    syntax: 'f(x) = \\begin{cases} formula1 & \\text{if } condition1 \\\\ formula2 & \\text{if } condition2 \\end{cases}',
+    example: 'f(x) = \\begin{cases} -x & \\text{if } x < 0 \\\\ x & \\text{if } x \\ge 0 \\end{cases}',
+    template: 'f(x) = \\begin{cases}\n  {} & \\text{if } {} \\\\\n  {} & \\text{if } {}\n\\end{cases}'
   },
 ];
 
