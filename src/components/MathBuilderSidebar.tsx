@@ -139,6 +139,12 @@ const mathFunctions: MathFunction[] = [
     example: '\\tan(\\theta)',
     template: '\\tan()',
   },
+  {
+    name: 'Vector',
+    syntax: '\\vec{variable}',
+    example: '\\vec(v)',
+    template: '\\vec{}',
+  },
 ];
 
 const mathTemplates: MathTemplate[] = [
