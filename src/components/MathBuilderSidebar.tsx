@@ -188,12 +188,6 @@ const mathFunctions: MathFunction[] = [
     template: '{} \\cdot {}'
   },
   {
-    name: 'Cross Product',
-    syntax: 'vector1 \\times vector2',
-    example: '\\mathbf{u} \\times \\mathbf{v}',
-    template: '{} \\times {}'
-  },
-  {
     name: 'Parametric (2D Cases)',
     syntax: '\\begin{cases} x(t) = ... \\\\ y(t) = ... \\end{cases}',
     example: '\\begin{cases} x(t) = r \\cos(t) \\\\ y(t) = r \\sin(t) \\end{cases}',
