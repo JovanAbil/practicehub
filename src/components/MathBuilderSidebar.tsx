@@ -176,12 +176,6 @@ const mathFunctions: MathFunction[] = [
     template: '\\begin{bmatrix}\n  {}\n  \\\\\n  {}\n\\end{bmatrix}'
   },
   {
-    name: 'Vector Magnitude / Norm',
-    syntax: '\\|variable\\|',
-    example: '\\|\\mathbf{v}\\|',
-    template: '\\|{}\\vec{}\\|'
-  },
-  {
     name: 'Parametric or Piecewise',
     syntax: '\\begin{cases} x(t) = ... \\\\ y(t) = ... \\\\ z(t) = ... \\end{cases}',
     example: '\\begin{cases} x(t) = x_0 + at \\\\ y(t) = y_0 + bt \\\\ z(t) = z_0 + ct \\end{cases}',
