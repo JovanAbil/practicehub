@@ -17,6 +17,15 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'July 1st, 2026',
+    title: 'Daily Practice + Small Features',
+    items: [
+      'Added daily practice with imports/exports and editable questions per day in Course Challenge',
+      'Calc AB + BC getting updated',
+      'Math Builder in Custom Builder recieved Parametric, Piecewise, and Vectors LateX',
+    ],
+  },
+  {
     date: 'June 8th, 2026',
     title: 'Minor Updates and Bug Fixes',
     items: [
