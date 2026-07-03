@@ -142,7 +142,7 @@ const mathFunctions: MathFunction[] = [
   {
     name: 'Vector',
     syntax: '\\vec{variable}',
-    example: '\\vec(v)',
+    example: '\\vec{v}',
     template: '\\vec{}',
   },
 ];
