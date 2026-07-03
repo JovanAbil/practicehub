@@ -42,7 +42,7 @@ const dataPoints: DataPoint[] = [
     title: 'Active Study Tool',
     description: 'Students use Practice Hub to prepare for tests, review wrong answers with targeted practice, and build custom study sets.',
     stat: `${STATS.totalVisitors}`,
-    statLabel: 'unique visitors',
+    statLabel: 'visitors',
     icon: Users,
   },
   {
