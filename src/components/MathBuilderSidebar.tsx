@@ -52,9 +52,23 @@ const mathSymbols: MathSymbol[] = [
   { display: '∈', latex: '∈', name: 'Element of' },
   { display: '〈', latex: '〈', name: 'Vector Left' },
   { display: '〉', latex: '〉', name: 'Vector Right' },
+  { display: 'ℝ', latex: '\\mathbb{R}', name: 'All Real Numbers' },
+  { display: '⇌', latex: '⇌', name: 'Equilibrium Arrow' },
 ];
 
 const mathFunctions: MathFunction[] = [
+  {
+    name: 'Bold',
+    syntax: '\\mathbf{variable}',
+    example: '\\mathbf{v}',
+    template: '\\mathbf{}'
+  },
+  {
+    name: 'Bold Italics',
+    syntax: '\\bm{variable}',
+    example: '\\bm{v}',
+    template: '\\bm{}'
+  },
   {
     name: 'Fraction',
     syntax: '\\frac{numerator}{denominator}',
@@ -146,16 +160,10 @@ const mathFunctions: MathFunction[] = [
     template: '\\vec{}'
   },
   {
-    name: 'Bold',
-    syntax: '\\mathbf{variable}',
-    example: '\\mathbf{v}',
-    template: '\\mathbf{}'
-  },
-  {
-    name: 'Bold Italics',
-    syntax: '\\bm{variable}',
-    example: '\\bm{v}',
-    template: '\\bm{}'
+    name: 'Vector (Half Arrow)',
+    syntax: '\\overrightharpoon{variable}',
+    example: '\\overrightharpoon{v}',
+    template: '\\overrightharpoon{}'
   },
   {
     name: 'Vector Hat (Unit Vector)',
@@ -167,13 +175,13 @@ const mathFunctions: MathFunction[] = [
     name: 'Column Vector (Parentheses)',
     syntax: '\\begin{pmatrix} component1 \\\\ component2 \\end{pmatrix}',
     example: '\\begin{pmatrix} x \\\\ y \\end{pmatrix}',
-    template: '\\begin{pmatrix}\n  {}\n  \\\\\n  {}\n\\end{pmatrix}'
+    template: '\\begin{pmatrix}\n  {} & {}\n  \\\\\n  {} & {}\n\\end{pmatrix}'
   },
   {
     name: 'Column Vector (Brackets)',
     syntax: '\\begin{bmatrix} component1 \\\\ component2 \\end{bmatrix}',
     example: '\\begin{bmatrix} x \\\\ y \\end{bmatrix}',
-    template: '\\begin{bmatrix}\n  {}\n  \\\\\n  {}\n\\end{bmatrix}'
+    template: '\\begin{bmatrix}\n  {} & {}\n  \\\\\n  {} & {}\n\\end{bmatrix}'
   },
   {
     name: 'Parametric or Piecewise',
