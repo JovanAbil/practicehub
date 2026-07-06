@@ -4,7 +4,7 @@ import { Question } from '@/types/quiz';
 // Math Enabled: true
 // Questions: 74
 
-export const vectorsmatricesQuestions: Question[] = [
+export const vectorsMatricesQuestions: Question[] = [
   {
     id: "vectorsmatrices-1",
     type: "free-response",
