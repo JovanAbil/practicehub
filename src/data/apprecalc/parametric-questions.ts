@@ -487,7 +487,7 @@ export const parametricQuestions: Question[] = [
     id: "parametric-78",
     type: "free-response",
     question: "Given the foci of a hyperbola are located at $(0, -4)$ and $(0, 2)$ and the transverse axis has a length of $4$, find the equation of the hyperbola in standard form.",
-    correctAnswer: "$\\frac{(y+1)^{2}{4} - \\frac{(x)^{2}}{5} = 1$",
+    correctAnswer: "$\\frac{(y+1)^{2}}{4} - \\frac{(x)^{2}}{5} = 1$",
     explanation: "1. Find the center by taking the averages of the foci\n2. It is vertical because the $x$ values for the foci are the same\n3. $c^{2}=a^{2}+b^{2}$, $c$ value is the distance from the center to the focus\n4. Make the equation",
   },
   {
