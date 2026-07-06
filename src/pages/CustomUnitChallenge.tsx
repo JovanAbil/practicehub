@@ -25,6 +25,24 @@ const CustomUnitChallenge = () => {
 
   const canResumeCram = hasInProgressQuiz(buildRouteKey(subjectKey, 'challenge', 'cram'));
 
+  // Pool for the Daily Plan = every question inside every topic of this
+  // custom unit. Flattened so DailyPlanCard can round-robin across topics.
+  //
+  // IMPORTANT: this hook must be called unconditionally, before any early
+  // returns. It was previously placed after the `!isLoaded` and `!unit`
+  // early-return blocks below, which violates the Rules of Hooks: React
+  // requires the exact same hooks to run in the exact same order on every
+  // render. As soon as the component transitioned between the "loading",
+  // "not found", and "loaded" states, the number of hooks called would
+  // differ between renders, causing React to throw
+  // ("Rendered fewer hooks than expected") or otherwise behave incorrectly.
+  // Using `unit?.topics ?? []` makes it safe to run even before `unit`
+  // is known to exist.
+  const dailyPlanPool = useMemo<Question[]>(
+    () => (unit?.topics ?? []).flatMap(t => (t.questions ?? []) as Question[]),
+    [unit]
+  );
+
   if (!isLoaded) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -53,12 +71,6 @@ const CustomUnitChallenge = () => {
   }
 
   const topicIds = unit.topics.map(t => t.id);
-  // Pool for the Daily Plan = every question inside every topic of this
-  // custom unit. Flattened so DailyPlanCard can round-robin across topics.
-  const dailyPlanPool = useMemo<Question[]>(
-    () => unit.topics.flatMap(t => (t.questions ?? []) as Question[]),
-    [unit.topics]
-  );
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -100,7 +112,7 @@ const CustomUnitChallenge = () => {
           subject={subjectKey}
           allQuestions={dailyPlanPool}
         />
-        
+
         {canResumeCram && (
           <Button
             variant="outline"
