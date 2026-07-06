@@ -1,12 +1,15 @@
+import { useMemo } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowLeft, Trophy, Wrench, Target } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
+import DailyPlanCard from '@/components/DailyPlanCard';
 import useCustomUnits from '@/hooks/useCustomUnits';
 import useWrongAnswers from '@/hooks/useWrongAnswers';
 import { buildRouteKey, hasInProgressQuiz } from '@/utils/inProgressQuizStorage';
+import type { Question } from '@/types/quiz';
 
 const CustomUnitChallenge = () => {
   const { unitId } = useParams();
@@ -50,6 +53,12 @@ const CustomUnitChallenge = () => {
   }
 
   const topicIds = unit.topics.map(t => t.id);
+  // Pool for the Daily Plan = every question inside every topic of this
+  // custom unit. Flattened so DailyPlanCard can round-robin across topics.
+  const dailyPlanPool = useMemo<Question[]>(
+    () => unit.topics.flatMap(t => (t.questions ?? []) as Question[]),
+    [unit.topics]
+  );
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -87,6 +96,11 @@ const CustomUnitChallenge = () => {
           Cram Mode (All Topics)
         </Button>
 
+        <DailyPlanCard
+          subject={subjectKey}
+          allQuestions={dailyPlanPool}
+        />
+        
         {canResumeCram && (
           <Button
             variant="outline"
