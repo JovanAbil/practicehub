@@ -125,9 +125,9 @@ const mathFunctions: MathFunction[] = [
   },
   {
     name: 'Summation',
-    syntax: '\\sum_{i=start}^{end} expression',
-    example: '\\sum_{i=1}^{n} i',
-    template: '\\sum_{i=}^{} ',
+    syntax: '\\sum_{n=start}^{end} expression',
+    example: '\\sum_{n=1}^{n} i',
+    template: '\\sum_{n=}^{\\infty} ',
   },
   {
     name: 'Integral',
