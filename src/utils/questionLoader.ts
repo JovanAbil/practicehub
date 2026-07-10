@@ -38,8 +38,8 @@ import { integrationABQuestions } from '@/data/apcalcab/integration-questions';
 import { integralsQuestions } from '@/data/apcalcbc/integrals-questions';
 import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
 import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
-//import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
-//import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
+import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
+import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
 // Biology
 import { biochemistryQuestions } from '@/data/biology/biochemistry-questions';
 import { cellstructureQuestions } from '@/data/biology/cellstructure-questions';
@@ -117,8 +117,8 @@ const questionMap: Record<string, Question[]> = {
   'calcbc-integrals': integralsQuestions,
   'calcbc-differential': differentialQuestions,
   'calcbc-integration': integrationQuestions,
-  // 'calcbc-parametricpolar': parametricpolarQuestions,
-  // 'calcbc-sequencesseries': sequencesseriesQuestions,
+  'calcbc-parametricpolar': parametricpolarQuestions,
+  'calcbc-sequencesseries': sequencesseriesQuestions,
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
   'biology-cellenergetics': cellenergeticsQuestions,
