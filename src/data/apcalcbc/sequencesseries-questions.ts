@@ -628,7 +628,7 @@ export const sequencesseriesQuestions: Question[] = [
   {
     id: "sequencesseries-99",
     type: "free-response",
-    question: "If $\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{n}| = \\infinity$ for a power series $\\sum_{n=1}^{\\infty} a_{n}$, then the series converges on what?",
+    question: "If $\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{n}| = \\infty$ for a power series $\\sum_{n=1}^{\\infty} a_{n}$, then the series converges on what?",
     correctAnswer: "For the center $(x = c)$",
   },
   {
