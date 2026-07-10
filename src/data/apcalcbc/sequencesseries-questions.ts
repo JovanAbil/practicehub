@@ -487,7 +487,7 @@ export const sequencesseriesQuestions: Question[] = [
   {
     id: "sequencesseries-77",
     type: "free-response",
-    question: "Let $f(x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n}x^{2n}}{(2n+1)!} = 1 - \\frac{x^{2}}{3!} + \\frac{x^{4}}{5!} - \\frac{x^{6}}{7!} + ...$ Show that $1 - \\frac{1}{3!}$ approximates $f(1}$  with an error less than $0.01$.",
+    question: "Let $f(x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n}x^{2n}}{(2n+1)!} = 1 - \\frac{x^{2}}{3!} + \\frac{x^{4}}{5!} - \\frac{x^{6}}{7!} + ...$ Show that $1 - \\frac{1}{3!}$ approximates $f(1)$  with an error less than $0.01$.",
     correctAnswer: "$|S-S_{n}| \\leq |a_{n+1}|$\n$S - [1-\\frac{1}{3!}] \\leq a_{3}$\n$S - [1-\\frac{1}{3!}] \\leq \\frac{1}{5!}$\n$S - [1-\\frac{1}{3!}] \\leq \\frac{1}{120}$, which is less than $\\frac{1}{100}$\n ",
     explanation: "All the work is required, this is an practice FRQ from Calc BC Exams ",
   },
