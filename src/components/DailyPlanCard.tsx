@@ -31,6 +31,14 @@ const DailyPlanCard = ({ subject, allQuestions }: Props) => {
     setState(ensureTodayPlan(subject, allQuestions));
   }, [subject, allQuestions]);
 
+  useEffect(() => {
+    const refresh = () => {
+      if (allQuestions.length) setState(ensureTodayPlan(subject, allQuestions));
+    };
+    window.addEventListener('focus', refresh);
+    return () => window.removeEventListener('focus', refresh);
+  }, [subject, allQuestions]);
+  
   if (!state) return null;
 
   const startToday = () => {
