@@ -82,16 +82,36 @@ export const ensureTodayPlan = (
   state.usedIds = state.usedIds.filter(id => alive.has(id));
   state.todayQuestionIds = state.todayQuestionIds.filter(id => alive.has(id));
 
-  // New day? Redraw.
+  // --- Carry-over redraw -------------------------------------------------
+  // Rule: mastered ids (in usedIds) always leave today's list. Ids still in
+  // unusedIds (i.e. you got them wrong or never reached them) STAY. The list
+  // is then topped back up to questionsPerDay with fresh ids from the bank.
   const today = todayStr();
-  if (state.todayDate !== today) {
+  const mastered = new Set(state.usedIds);
+
+  // 1. Drop anything that has been mastered — runs on EVERY mount, not just
+  //    on a new day. This is the actual bug fix.
+  state.todayQuestionIds = state.todayQuestionIds.filter(id => !mastered.has(id));
+
+  const isNewDay = state.todayDate !== today;
+
+  if (isNewDay) {
+    // 2. Whole bank mastered? Start a new cycle.
     if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
       state.unusedIds = [...state.usedIds];
       state.usedIds = [];
       state.cycleCount += 1;
+      state.todayQuestionIds = [];
     }
     state.todayDate = today;
-    state.todayQuestionIds = pickRoundRobin(state.unusedIds, state.questionsPerDay);
+  }
+
+  // 3. Top up with new questions (never re-adding what's already listed).
+  if (isNewDay || state.todayQuestionIds.length < state.questionsPerDay) {
+    const already = new Set(state.todayQuestionIds);
+    const pool = state.unusedIds.filter(id => !already.has(id));
+    const need = state.questionsPerDay - state.todayQuestionIds.length;
+    if (need > 0) state.todayQuestionIds.push(...pickRoundRobin(pool, need));
   }
 
   saveDailyPlan(subject, state);
