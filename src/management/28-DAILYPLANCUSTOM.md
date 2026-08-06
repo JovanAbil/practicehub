@@ -185,3 +185,139 @@ One key per custom unit. Independent from the built-in course keys
 Delete the three additions in Steps 1–3. No migrations, no data loss
 elsewhere. Users can also hit the Reset button on the card to wipe just
 that unit's plan.
+
+---
+
+## Section 9 — Bug fix: correct answers are not removed from today's plan
+
+### 9.1 Symptom
+
+You answer a question correctly, finish the daily set, come back (same
+day or the next day) and **the same question is still in today's list**.
+Happens on both the Course Challenge and the Custom Unit Challenge.
+
+### 9.2 Root cause
+
+`markDailyPlanCorrect` *does* work — it moves the id from `unusedIds`
+to `usedIds`. But `todayQuestionIds` is a **separate frozen list**, and
+`ensureTodayPlan` only touches it when the calendar date changes:
+
+```ts
+// src/utils/dailyPlan.ts — current behavior
+if (state.todayDate !== today) {          // ← only on a new day
+  state.todayQuestionIds = pickRoundRobin(state.unusedIds, state.questionsPerDay);
+}
+```
+
+Two consequences:
+
+1. **Same day** — mastered ids are never pruned from `todayQuestionIds`,
+   so re-entering the plan replays them.
+2. **New day** — the list is redrawn *entirely at random*, so yesterday's
+   wrong answers are only carried over by luck.
+
+Desired behavior: keep everything you got wrong, drop everything you got
+right, and top the list back up to `questionsPerDay` with fresh ids from
+the bank.
+
+### 9.3 Fix — replace the redraw block in `src/utils/dailyPlan.ts`
+
+Find this block (around **lines 85–95**, inside `ensureTodayPlan`, right
+after the reconcile section and before `saveDailyPlan`):
+
+```ts
+  // New day? Redraw.
+  const today = todayStr();
+  if (state.todayDate !== today) {
+    if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
+      state.unusedIds = [...state.usedIds];
+      state.usedIds = [];
+      state.cycleCount += 1;
+    }
+    state.todayDate = today;
+    state.todayQuestionIds = pickRoundRobin(state.unusedIds, state.questionsPerDay);
+  }
+```
+
+**REPLACE it with:**
+
+```ts
+  // --- Carry-over redraw -------------------------------------------------
+  // Rule: mastered ids (in usedIds) always leave today's list. Ids still in
+  // unusedIds (i.e. you got them wrong or never reached them) STAY. The list
+  // is then topped back up to questionsPerDay with fresh ids from the bank.
+  const today = todayStr();
+  const mastered = new Set(state.usedIds);
+
+  // 1. Drop anything that has been mastered — runs on EVERY mount, not just
+  //    on a new day. This is the actual bug fix.
+  state.todayQuestionIds = state.todayQuestionIds.filter(id => !mastered.has(id));
+
+  const isNewDay = state.todayDate !== today;
+
+  if (isNewDay) {
+    // 2. Whole bank mastered? Start a new cycle.
+    if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
+      state.unusedIds = [...state.usedIds];
+      state.usedIds = [];
+      state.cycleCount += 1;
+      state.todayQuestionIds = [];
+    }
+    state.todayDate = today;
+  }
+
+  // 3. Top up with new questions (never re-adding what's already listed).
+  if (isNewDay || state.todayQuestionIds.length < state.questionsPerDay) {
+    const already = new Set(state.todayQuestionIds);
+    const pool = state.unusedIds.filter(id => !already.has(id));
+    const need = state.questionsPerDay - state.todayQuestionIds.length;
+    if (need > 0) state.todayQuestionIds.push(...pickRoundRobin(pool, need));
+  }
+```
+
+Nothing else in the file changes. `markDailyPlanCorrect`,
+`setQuestionsPerDay`, export/import all keep working as-is.
+
+### 9.4 Optional — refresh the card after a session ends
+
+`DailyPlanCard` runs `ensureTodayPlan` in a `useEffect` keyed on
+`[subject, allQuestions]`, so returning to the challenge page from
+Results already re-runs it and the count updates. If you ever render the
+card without a remount, add a focus listener in
+`src/components/DailyPlanCard.tsx`, right after the existing `useEffect`
+(around **line 32**):
+
+```tsx
+  useEffect(() => {
+    const refresh = () => {
+      if (allQuestions.length) setState(ensureTodayPlan(subject, allQuestions));
+    };
+    window.addEventListener('focus', refresh);
+    return () => window.removeEventListener('focus', refresh);
+  }, [subject, allQuestions]);
+```
+
+### 9.5 Why this also fixes the custom-unit area
+
+The custom page passes `subject={subjectKey}` where
+`subjectKey === "custom-<unitId>"`, and everything above lives in the
+shared `dailyPlan.ts`. One edit fixes both surfaces — no change needed in
+`CustomUnitChallenge.tsx` or `CourseChallenge.tsx`.
+
+### 9.6 Test checklist
+
+1. Set **Per day = 5**. Start the daily plan.
+2. Answer 3 correctly, 2 wrong. Finish.
+3. Return to the challenge page → button should read **Daily (2 questions
+   today)** and those 2 are the ones you missed.
+4. Reopen the plan → the 3 correct ones are gone.
+5. Change the system date to tomorrow (or clear `todayDate` in
+   `localStorage["daily-plan-<subject>"]`) → the list should be the 2
+   missed ones **plus 3 brand-new ids**, total 5.
+6. Master everything → on the next new day, `cycleCount` increments and
+   the bank refills.
+
+### 9.7 Rollback
+
+Restore the original `// New day? Redraw.` block from 9.3. Existing
+`localStorage` state stays compatible either way — no schema change.
