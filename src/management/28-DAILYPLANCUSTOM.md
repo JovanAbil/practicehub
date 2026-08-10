@@ -321,3 +321,211 @@ shared `dailyPlan.ts`. One edit fixes both surfaces — no change needed in
 
 Restore the original `// New day? Redraw.` block from 9.3. Existing
 `localStorage` state stays compatible either way — no schema change.
+
+---
+
+## 10. Add a **Review** button under the Daily Plan
+
+Goal: a second button, directly beneath the Daily row, that quizzes you on
+questions you **already mastered** (`usedIds`). If you miss one during
+review, it goes **back into `unusedIds`** so the daily plan picks it up
+again. It has its own per-review question count, no export/import/reset
+(it derives everything from the daily state), and is **disabled when
+`usedIds` is empty**.
+
+### 10.1 `src/utils/dailyPlan.ts` — extend the state + add helpers
+
+**a)** In the `DailyPlanState` interface (around **line 3–10**), add one
+optional field after `cycleCount`:
+
+```ts
+  cycleCount: number;         // how many full cycles completed
+  reviewPerDay?: number;      // how many mastered questions per review run
+```
+
+**b)** At the **end of the file** (after `importDailyPlan`, around
+**line 138**), append:
+
+```ts
+/** How many mastered questions are available to review. */
+export const getReviewCount = (subject: string): number =>
+  loadDailyPlan(subject)?.usedIds.length ?? 0;
+
+/** Draw a review set from the mastered bucket (round-robin across topics). */
+export const drawReviewSet = (subject: string): string[] => {
+  const s = loadDailyPlan(subject);
+  if (!s || s.usedIds.length === 0) return [];
+  const n = Math.max(1, Math.min(200, s.reviewPerDay ?? s.questionsPerDay));
+  return pickRoundRobin(s.usedIds, n);
+};
+
+export const setReviewPerDay = (subject: string, n: number) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  s.reviewPerDay = Math.max(1, Math.min(200, Math.floor(n)));
+  saveDailyPlan(subject, s);
+};
+
+/**
+ * Called when a review question is answered WRONG.
+ * Demotes it: mastered -> unused, so tomorrow's daily plan can serve it.
+ */
+export const markDailyPlanWrong = (subject: string, questionId: string) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  if (!s.usedIds.includes(questionId)) return;
+  s.usedIds = s.usedIds.filter(id => id !== questionId);
+  if (!s.unusedIds.includes(questionId)) s.unusedIds.push(questionId);
+  saveDailyPlan(subject, s);
+};
+```
+
+`pickRoundRobin` is already defined above in the same module (around
+**line 42**) — no import needed.
+
+### 10.2 `src/components/DailyPlanCard.tsx` — render the Review row
+
+**a)** Line **5**, extend the icon import:
+
+```tsx
+import { CalendarDays, Download, Upload, RotateCcw, History } from 'lucide-react';
+```
+
+**b)** Lines **7–10**, extend the util import:
+
+```tsx
+import {
+  ensureTodayPlan, loadDailyPlan, setQuestionsPerDay,
+  exportDailyPlan, importDailyPlan, clearDailyPlan, DailyPlanState,
+  drawReviewSet, setReviewPerDay,
+} from '@/utils/dailyPlan';
+```
+
+**c)** After `changePerDay` (around **line 53**), add:
+
+```tsx
+  const changeReviewPerDay = (n: number) => {
+    setReviewPerDay(subject, n);
+    setState(loadDailyPlan(subject));
+  };
+
+  const startReview = () => {
+    const ids = drawReviewSet(subject);
+    if (ids.length === 0) { toast.error('No completed questions to review yet'); return; }
+    const byId = new Map(allQuestions.map(q => [q.id, q]));
+    const qs = ids.map(id => byId.get(id)).filter(Boolean) as Question[];
+    if (qs.length === 0) { toast.error('No completed questions to review yet'); return; }
+    navigate(`/quiz/${subject}/daily/review`, {
+      state: {
+        presetQuestions: qs,
+        dailyPlanKey: subject,
+        dailyReviewMode: true,
+        startNewAttempt: true,
+        orderedMode: true,
+      },
+    });
+  };
+```
+
+**d)** Replace the closing progress line block (**lines 108–111**) with
+the Review row **plus** the progress line:
+
+```tsx
+      <div className="w-full flex flex-wrap items-center gap-2">
+        <Button
+          onClick={startReview}
+          variant="outline"
+          className="flex-1 min-w-[200px]"
+          disabled={state.usedIds.length === 0}
+        >
+          <History className="mr-2 h-4 w-4" />
+          Review ({state.usedIds.length} completed)
+        </Button>
+        <div className="flex items-center gap-1">
+          <label className="text-xs text-muted-foreground whitespace-nowrap">Per review:</label>
+          <Input
+            type="number" min={1} max={200}
+            value={state.reviewPerDay ?? state.questionsPerDay}
+            onChange={e => changeReviewPerDay(Number(e.target.value) || 1)}
+            className="w-20 h-9"
+            disabled={state.usedIds.length === 0}
+          />
+        </div>
+      </div>
+
+      <div className="w-full text-xs text-muted-foreground">
+        Mastered {state.usedIds.length}/{totalPool} ({progressPct}%) · Cycles: {state.cycleCount} ·
+        Correct answers cycle out; wrong ones stay until mastered. Missed review
+        questions return to the daily plan.
+      </div>
+```
+
+No export / import / reset buttons for review — it reads the same
+`localStorage` record the daily plan writes.
+
+### 10.3 `src/pages/Quiz.tsx` — demote missed review questions
+
+**a)** Around **line 59**, next to the existing `dailyPlanKey` memo, add:
+
+```ts
+  const dailyReviewMode = useMemo(() => Boolean((location.state as any)?.dailyReviewMode), [location.state]);
+```
+
+**b)** Extend the `markDailyPlanCorrect` import (top of file) to:
+
+```ts
+import { markDailyPlanCorrect, markDailyPlanWrong } from '@/utils/dailyPlan';
+```
+
+**c)** Every place that currently reads (lines **427**, **435**, **448**,
+and **876** — the MCQ, SATA, self-graded FRQ and parts paths):
+
+```ts
+      if (isCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+```
+
+becomes:
+
+```ts
+      if (dailyPlanKey) {
+        if (isCorrect) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+        else if (dailyReviewMode) markDailyPlanWrong(dailyPlanKey, currentQuestion.id);
+      }
+```
+
+For the parts path at line **876** the local flag is named `allCorrect`,
+so use `allCorrect` in place of `isCorrect` there.
+
+Skips are intentionally left alone — a skipped review question stays
+mastered.
+
+### 10.4 Results page
+
+Nothing to change. `dailyPlanKey` is already forwarded (Quiz line
+**616**), so the "Download Daily Plan" card still appears and the JSON it
+downloads already reflects any demotions from the review run.
+
+### 10.5 Custom units
+
+Nothing to change. `CustomUnitChallenge.tsx` renders the same
+`<DailyPlanCard />` with `subject={`custom-${unitId}`}`, so the Review
+button appears there automatically.
+
+### 10.6 Test checklist
+
+1. Fresh subject → Review button is **disabled**, label reads
+   `Review (0 completed)`.
+2. Run a daily plan, get 3 right → back on the page, Review shows
+   `Review (3 completed)` and is enabled.
+3. Set **Per review = 2** → starting review serves 2 questions.
+4. Miss one in review → return to the page: mastered count drops by 1 and
+   that id appears in tomorrow's daily draw.
+5. Get all review questions right → mastered count is unchanged.
+6. Reset the daily plan → Review returns to disabled.
+
+### 10.7 Rollback
+
+Delete the Review row from `DailyPlanCard.tsx`, revert the four Quiz
+call-sites to the one-line form, and drop the four new exports from
+`dailyPlan.ts`. `reviewPerDay` is optional, so old and new
+`localStorage` records remain compatible.
