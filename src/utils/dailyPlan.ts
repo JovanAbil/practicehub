@@ -7,6 +7,7 @@ export interface DailyPlanState {
   todayDate: string;          // YYYY-MM-DD
   todayQuestionIds: string[]; // ids drawn for today
   cycleCount: number;         // how many full cycles completed
+  reviewPerDay?: number;      // how many mastered questions per review run
 }
 
 const DEFAULT_PER_DAY = 15;
@@ -70,10 +71,9 @@ export const ensureTodayPlan = (
       todayDate: '',
       todayQuestionIds: [],
       cycleCount: 0,
-      reviewPerDay?: 15;   // how many mastered questions per review run
-    } 
-  };
-}
+      reviewPerDay: 15,   // how many mastered questions per review run
+    };
+  }
 
   // Reconcile with current pool (new imports add ids; removed ids drop out)
   const known = new Set([...state.unusedIds, ...state.usedIds]);
