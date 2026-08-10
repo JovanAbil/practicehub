@@ -70,7 +70,7 @@ export const ensureTodayPlan = (
       todayDate: '',
       todayQuestionIds: [],
       cycleCount: 0,
-      reviewPerDay?: number;      // how many mastered questions per review run
+      reviewPerDay?: 15;      // how many mastered questions per review run
     };
   }
 
