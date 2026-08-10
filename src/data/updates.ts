@@ -17,6 +17,15 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'August 10th, 2026',
+    title: 'Small Features',
+    items: [
+      'Added review next to daily practice for Course Challenges only',
+      'Fixed bug with daily practice that made it only update per day instead of per attempt',
+      'Calc AB + Calc BC fully updated',
+    ],
+  },
+  {
     date: 'July 1st, 2026',
     title: 'Daily Practice + Small Features',
     items: [
