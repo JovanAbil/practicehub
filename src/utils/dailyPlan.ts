@@ -70,9 +70,10 @@ export const ensureTodayPlan = (
       todayDate: '',
       todayQuestionIds: [],
       cycleCount: 0,
-      reviewPerDay: 15;      // how many mastered questions per review run
-    };
-  }
+      reviewPerDay?: 15;   // how many mastered questions per review run
+    } 
+  };
+}
 
   // Reconcile with current pool (new imports add ids; removed ids drop out)
   const known = new Set([...state.unusedIds, ...state.usedIds]);
