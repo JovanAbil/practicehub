@@ -70,6 +70,7 @@ export const ensureTodayPlan = (
       todayDate: '',
       todayQuestionIds: [],
       cycleCount: 0,
+      reviewPerDay?: number;      // how many mastered questions per review run
     };
   }
 
@@ -155,4 +156,36 @@ export const importDailyPlan = (subject: string, json: string): boolean => {
     saveDailyPlan(subject, parsed);
     return true;
   } catch { return false; }
+};
+
+/** How many mastered questions are available to review. */
+export const getReviewCount = (subject: string): number =>
+  loadDailyPlan(subject)?.usedIds.length ?? 0;
+
+/** Draw a review set from the mastered bucket (round-robin across topics). */
+export const drawReviewSet = (subject: string): string[] => {
+  const s = loadDailyPlan(subject);
+  if (!s || s.usedIds.length === 0) return [];
+  const n = Math.max(1, Math.min(200, s.reviewPerDay ?? s.questionsPerDay));
+  return pickRoundRobin(s.usedIds, n);
+};
+
+export const setReviewPerDay = (subject: string, n: number) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  s.reviewPerDay = Math.max(1, Math.min(200, Math.floor(n)));
+  saveDailyPlan(subject, s);
+};
+
+/**
+ * Called when a review question is answered WRONG.
+ * Demotes it: mastered -> unused, so tomorrow's daily plan can serve it.
+ */
+export const markDailyPlanWrong = (subject: string, questionId: string) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  if (!s.usedIds.includes(questionId)) return;
+  s.usedIds = s.usedIds.filter(id => id !== questionId);
+  if (!s.unusedIds.includes(questionId)) s.unusedIds.push(questionId);
+  saveDailyPlan(subject, s);
 };
