@@ -28,7 +28,7 @@ import { toast } from 'sonner';
 import QuestionTable from '@/components/QuestionTable';
 import MathText from '@/components/MathText';
 import CalculatorBadge from '@/components/CalculatorBadge';
-import { markDailyPlanCorrect } from '@/utils/dailyPlan';
+import { markDailyPlanCorrect, markDailyPlanWrong } from '@/utils/dailyPlan';
 import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 
 import {
@@ -64,6 +64,7 @@ const Quiz = () => {
     () => (location.state as any)?.dailyPlanKey as string | undefined,
     [location.state],
   );
+  const dailyReviewMode = useMemo(() => Boolean((location.state as any)?.dailyReviewMode), [location.state]);
   
   // Check if this is a custom topic quiz
   const isCustomTopic = subject?.startsWith('custom-');
@@ -434,15 +435,21 @@ const Quiz = () => {
       newAttempts[currentIndex].isCorrect = isCorrect;
       setAttempts(newAttempts);
       setIsSubmitted(true);
-      if (isCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+      if (dailyPlanKey) {
+        if (isCorrect) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+        else if (dailyReviewMode) markDailyPlanWrong(dailyPlanKey, currentQuestion.id);
+      }
     } else if (currentQuestion.type === 'select-all') {
       const correctSorted = [...currentQuestion.correctAnswers].sort().join(',');
       const userSorted = [...selectedCheckboxes].sort().join(',');
       const isCorrect = correctSorted === userSorted;
       newAttempts[currentIndex].isCorrect = isCorrect;
       setAttempts(newAttempts);
-      setIsSubmitted(true);
-      if (isCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+      setIsSubmitted(true);      
+      if (dailyPlanKey) {
+        if (isCorrect) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+        else if (dailyReviewMode) markDailyPlanWrong(dailyPlanKey, currentQuestion.id);
+      }
     } else {
       setAttempts(newAttempts);
       setIsSubmitted(true);
@@ -454,8 +461,11 @@ const Quiz = () => {
     const newAttempts = [...attempts];
     newAttempts[currentIndex].isCorrect = isCorrect;
     setAttempts(newAttempts);
-    setShowGrading(false);
-    if (isCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+    setShowGrading(false);      
+    if (dailyPlanKey) {
+        if (isCorrect) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+        else if (dailyReviewMode) markDailyPlanWrong(dailyPlanKey, currentQuestion.id);
+      }
   };
 
   const handleMarkIncorrect = () => {
@@ -901,7 +911,10 @@ const Quiz = () => {
                   const allCorrect = currentQuestion.parts.every(p => newPartsState[p.label]?.isCorrect);
                   newAttempts[currentIndex].userAnswer = 'PARTS_COMPLETE';
                   newAttempts[currentIndex].isCorrect = allCorrect;
-                  if (allCorrect && dailyPlanKey) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+                  if (dailyPlanKey) {
+                    if (allCorrect) markDailyPlanCorrect(dailyPlanKey, currentQuestion.id);
+                    else if (dailyReviewMode) markDailyPlanWrong(dailyPlanKey, currentQuestion.id);
+                  }
                 }
                 setAttempts(newAttempts);
               }}
