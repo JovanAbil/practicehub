@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { CalendarDays, Download, Upload, RotateCcw } from 'lucide-react';
+import { CalendarDays, Download, Upload, RotateCcw, History } from 'lucide-react';
 import { Question } from '@/types/quiz';
 import {
   ensureTodayPlan, loadDailyPlan, setQuestionsPerDay,
   exportDailyPlan, importDailyPlan, clearDailyPlan, DailyPlanState,
+  drawReviewSet, setReviewPerDay,
 } from '@/utils/dailyPlan';
 import { toast } from 'sonner';
 
@@ -58,6 +59,28 @@ const DailyPlanCard = ({ subject, allQuestions }: Props) => {
   const changePerDay = (n: number) => {
     setQuestionsPerDay(subject, n);
     setState(loadDailyPlan(subject));
+  };
+
+  const changeReviewPerDay = (n: number) => {
+    setReviewPerDay(subject, n);
+    setState(loadDailyPlan(subject));
+  };
+
+  const startReview = () => {
+    const ids = drawReviewSet(subject);
+    if (ids.length === 0) { toast.error('No completed questions to review yet'); return; }
+    const byId = new Map(allQuestions.map(q => [q.id, q]));
+    const qs = ids.map(id => byId.get(id)).filter(Boolean) as Question[];
+    if (qs.length === 0) { toast.error('No completed questions to review yet'); return; }
+    navigate(`/quiz/${subject}/daily/review`, {
+      state: {
+        presetQuestions: qs,
+        dailyPlanKey: subject,
+        dailyReviewMode: true,
+        startNewAttempt: true,
+        orderedMode: true,
+      },
+    });
   };
 
   const doExport = () => {
@@ -113,9 +136,32 @@ const DailyPlanCard = ({ subject, allQuestions }: Props) => {
       </Button>
       <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={doImport} />
 
+      <div className="w-full flex flex-wrap items-center gap-2">
+        <Button
+          onClick={startReview}
+          variant="outline"
+          className="flex-1 min-w-[200px]"
+          disabled={state.usedIds.length === 0}
+        >
+          <History className="mr-2 h-4 w-4" />
+          Review ({state.usedIds.length} completed)
+        </Button>
+        <div className="flex items-center gap-1">
+          <label className="text-xs text-muted-foreground whitespace-nowrap">Per review:</label>
+          <Input
+            type="number" min={1} max={200}
+            value={state.reviewPerDay ?? state.questionsPerDay}
+            onChange={e => changeReviewPerDay(Number(e.target.value) || 1)}
+            className="w-20 h-9"
+            disabled={state.usedIds.length === 0}
+          />
+        </div>
+      </div>
+
       <div className="w-full text-xs text-muted-foreground">
         Mastered {state.usedIds.length}/{totalPool} ({progressPct}%) · Cycles: {state.cycleCount} ·
-        Correct answers cycle out; wrong ones stay until mastered.
+        Correct answers cycle out; wrong ones stay until mastered. Missed review
+        questions return to the daily plan.
       </div>
     </div>
   );
