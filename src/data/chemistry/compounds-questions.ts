@@ -145,7 +145,7 @@ export const compoundsQuestions: Question[] = [
   {
     id: 'compounds-21',
     type: 'free-response',
-    question: 'What is the name of NH4⁺?',
+    question: 'What is the name of NH$_{4}^{+}$?',
     correctAnswer: 'ammonium',
     explanation: 'Memorize'
   },
@@ -153,14 +153,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-22',
     type: 'free-response',
     question: 'What is the formula and charge of ammonium?',
-    correctAnswer: 'NH4⁺, +1',
+    correctAnswer: 'NH$_{4}^{+}$, +1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-23',
     type: 'free-response',
-    question: 'What is the name of C2H3O2⁻?',
+    question: 'What is the name of C$_{2}$H$_{3}$O$_{2}^{-}$?',
     correctAnswer: 'acetate',
     explanation: 'Memorize'
   },
@@ -168,14 +168,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-24',
     type: 'free-response',
     question: 'What is the formula and charge of acetate?',
-    correctAnswer: 'C2H3O2⁻, -1',
+    correctAnswer: 'C$_{2}$H$_{3}$O$_{2}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-25',
     type: 'free-response',
-    question: 'What is the name of ClO3⁻?',
+    question: 'What is the name of ClO$_{3}^{-}$?',
     correctAnswer: 'chlorate',
     explanation: 'Memorize'
   },
@@ -183,14 +183,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-26',
     type: 'free-response',
     question: 'What is the formula and charge of chlorate?',
-    correctAnswer: 'ClO3⁻, -1',
+    correctAnswer: 'ClO$_{3}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-27',
     type: 'free-response',
-    question: 'What is the name of ClO2⁻?',
+    question: 'What is the name of ClO$_{2}^{-}$?',
     correctAnswer: 'chlorite',
     explanation: 'Memorize'
   },
@@ -198,14 +198,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-28',
     type: 'free-response',
     question: 'What is the formula and charge of chlorite?',
-    correctAnswer: 'ClO2⁻, -1',
+    correctAnswer: 'ClO$_{2}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-29',
     type: 'free-response',
-    question: 'What is the name of CN⁻?',
+    question: 'What is the name of CN$^{-}$?',
     correctAnswer: 'cyanide',
     explanation: 'Memorize'
   },
@@ -213,14 +213,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-30',
     type: 'free-response',
     question: 'What is the formula and charge of cyanide?',
-    correctAnswer: 'CN⁻, -1',
+    correctAnswer: 'CN$^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-31',
     type: 'free-response',
-    question: 'What is the name of ClO⁻?',
+    question: 'What is the name of ClO$^{-}$?',
     correctAnswer: 'hypochlorite',
     explanation: 'Memorize'
   },
@@ -228,14 +228,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-32',
     type: 'free-response',
     question: 'What is the formula and charge of hypochlorite?',
-    correctAnswer: 'ClO⁻, -1',
+    correctAnswer: 'ClO$^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-33',
     type: 'free-response',
-    question: 'What is the name of HCO3⁻?',
+    question: 'What is the name of HCO$_{3}^{-}$?',
     correctAnswer: 'bicarbonate (hydrogen carbonate)',
     explanation: 'Memorize'
   },
@@ -243,14 +243,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-34',
     type: 'free-response',
     question: 'What is the formula and charge of bicarbonate?',
-    correctAnswer: 'HCO3⁻, -1',
+    correctAnswer: 'HCO$_{3}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-35',
     type: 'free-response',
-    question: 'What is the name of OH⁻?',
+    question: 'What is the name of OH$^{-}$?',
     correctAnswer: 'hydroxide',
     explanation: 'Memorize'
   },
@@ -258,14 +258,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-36',
     type: 'free-response',
     question: 'What is the formula and charge of hydroxide?',
-    correctAnswer: 'OH⁻, -1',
+    correctAnswer: 'OH$^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-37',
     type: 'free-response',
-    question: 'What is the name of NO3⁻?',
+    question: 'What is the name of NO$_{3}^{-}$?',
     correctAnswer: 'nitrate',
     explanation: 'Memorize'
   },
@@ -273,14 +273,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-38',
     type: 'free-response',
     question: 'What is the formula and charge of nitrate?',
-    correctAnswer: 'NO3⁻, -1',
+    correctAnswer: 'NO$_{3}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-39',
     type: 'free-response',
-    question: 'What is the name of NO2⁻?',
+    question: 'What is the name of NO$_{2}^{-}$?',
     correctAnswer: 'nitrite',
     explanation: 'Memorize'
   },
@@ -288,14 +288,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-40',
     type: 'free-response',
     question: 'What is the formula and charge of nitrite?',
-    correctAnswer: 'NO2⁻, -1',
+    correctAnswer: 'NO$_{2}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-41',
     type: 'free-response',
-    question: 'What is the name of ClO4⁻?',
+    question: 'What is the name of ClO$_{4}^{-}$?',
     correctAnswer: 'perchlorate',
     explanation: 'Memorize'
   },
@@ -303,14 +303,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-42',
     type: 'free-response',
     question: 'What is the formula and charge of perchlorate?',
-    correctAnswer: 'ClO4⁻, -1',
+    correctAnswer: 'ClO$_{4}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-43',
     type: 'free-response',
-    question: 'What is the name of MnO4⁻?',
+    question: 'What is the name of MnO$_{4}^{-}$?',
     correctAnswer: 'permanganate',
     explanation: 'Memorize'
   },
@@ -318,14 +318,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-44',
     type: 'free-response',
     question: 'What is the formula and charge of permanganate?',
-    correctAnswer: 'MnO4⁻, -1',
+    correctAnswer: 'MnO$_{4}^{-}$, -1',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-45',
     type: 'free-response',
-    question: 'What is the name of CO3²⁻?',
+    question: 'What is the name of CO$_{3}^{2-}$?',
     correctAnswer: 'carbonate',
     explanation: 'Memorize'
   },
@@ -333,14 +333,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-46',
     type: 'free-response',
     question: 'What is the formula and charge of carbonate?',
-    correctAnswer: 'CO3²⁻, -2',
+    correctAnswer: 'CO$_{3}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-47',
     type: 'free-response',
-    question: 'What is the name of CrO4²⁻?',
+    question: 'What is the name of CrO$_{4}^{2-}$?',
     correctAnswer: 'chromate',
     explanation: 'Memorize'
   },
@@ -348,14 +348,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-48',
     type: 'free-response',
     question: 'What is the formula and charge of chromate?',
-    correctAnswer: 'CrO4²⁻, -2',
+    correctAnswer: 'CrO$_{4}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-49',
     type: 'free-response',
-    question: 'What is the name of Cr2O7²⁻?',
+    question: 'What is the name of Cr$_{2}$O$_{7}^{2-}$?',
     correctAnswer: 'dichromate',
     explanation: 'Memorize'
   },
@@ -363,14 +363,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-50',
     type: 'free-response',
     question: 'What is the formula and charge of dichromate?',
-    correctAnswer: 'Cr2O7²⁻, -2',
+    correctAnswer: 'Cr$_{2}$O$_{7}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-51',
     type: 'free-response',
-    question: 'What is the name of O2²⁻?',
+    question: 'What is the name of O$_{2}^{2-}$?',
     correctAnswer: 'peroxide',
     explanation: 'Memorize'
   },
@@ -378,14 +378,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-52',
     type: 'free-response',
     question: 'What is the formula and charge of peroxide?',
-    correctAnswer: 'O2²⁻, -2',
+    correctAnswer: 'O$_{2}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-53',
     type: 'free-response',
-    question: 'What is the name of SO4²⁻?',
+    question: 'What is the name of SO$_{4}^{2-}$?',
     correctAnswer: 'sulfate',
     explanation: 'Memorize'
   },
@@ -393,14 +393,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-54',
     type: 'free-response',
     question: 'What is the formula and charge of sulfate?',
-    correctAnswer: 'SO4²⁻, -2',
+    correctAnswer: 'SO$_{4}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-55',
     type: 'free-response',
-    question: 'What is the name of SO3²⁻?',
+    question: 'What is the name of SO$_{3}^{2-}$?',
     correctAnswer: 'sulfite',
     explanation: 'Memorize'
   },
@@ -408,14 +408,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-56',
     type: 'free-response',
     question: 'What is the formula and charge of sulfite?',
-    correctAnswer: 'SO3²⁻, -2',
+    correctAnswer: 'SO$_{3}^{2-}$, -2',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-57',
     type: 'free-response',
-    question: 'What is the name of PO4³⁻?',
+    question: 'What is the name of PO$_{4}^{3-}$?',
     correctAnswer: 'phosphate',
     explanation: 'Memorize'
   },
@@ -423,14 +423,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-58',
     type: 'free-response',
     question: 'What is the formula and charge of phosphate?',
-    correctAnswer: 'PO4³⁻, -3',
+    correctAnswer: 'PO$_{4}^{3-}$, -3',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-59',
     type: 'free-response',
-    question: 'What is the name of PO3³⁻?',
+    question: 'What is the name of PO$_{3}^{3-}$?',
     correctAnswer: 'phosphite',
     explanation: 'Memorize'
   },
@@ -438,14 +438,14 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-60',
     type: 'free-response',
     question: 'What is the formula and charge of phosphite?',
-    correctAnswer: 'PO3³⁻, -3',
+    correctAnswer: 'PO$_{3}^{3-}$, -3',
     explanation: 'Memorize'
   },
-
+ 
   {
     id: 'compounds-61',
     type: 'free-response',
-    question: 'What is the name of C2O4²⁻?',
+    question: 'What is the name of C$_{2}$O$_{4}^{2-}$?',
     correctAnswer: 'oxalate',
     explanation: 'Memorize'
   },
@@ -453,7 +453,7 @@ export const compoundsQuestions: Question[] = [
     id: 'compounds-62',
     type: 'free-response',
     question: 'What is the formula and charge of oxalate?',
-    correctAnswer: 'C2O4²⁻, -2',
+    correctAnswer: 'C$_{2}$O$_{4}^{2-}$, -2',
     explanation: 'Memorize'
   },
 ];
