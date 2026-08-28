@@ -683,4 +683,11 @@ export const limitsQuestions: Question[] = [
     parts: [{"label":"a","type":"free-response","question":"On the interval $4 \\leq x \\leq 9$, what is the fewest possible times $f(x) = 1$?","correctAnswer":"$1$","explanation":"It has to cross 1 going from intervals 8 to 9 because it is continuous, there may be more but for sure it needs to cross at least one time."},{"label":"b","type":"free-response","question":"On the interval $0 \\leq x \\leq 4$, must there be a value of $x$ for which $f(x) = 2$? Explain.","correctAnswer":"","listAnswers":["$f$ is a continuous on [0, 4]","$f(0) = 1, f(4) = 3$","$f(0) ≠ f(4)$","$k = 2$ is between $f(0)$ and $f(4)$."]}],
     image: "/images/apcalcbc/limits8.png",
   },
+  {
+    id: "limits-92",
+    type: "free-response",
+    question: "Evaluate $\\lim_{x \\to 0} \\frac{(1-\\cos^{2}x)\\sin x}{x^{2}}$.",
+    correctAnswer: "0",
+    explanation: "",
+  },
 ];
