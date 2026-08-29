@@ -31,7 +31,7 @@ export const mathApCourses: CourseEntry[] = [
   {
     id: 'calcab',
     name: 'AP Calculus AB',
-    subject: 'calcbc',
+    subject: 'calcab',
     units: [
       { id: 'limits', name: 'Limits' },
       { id: 'derivative', name: 'Derivatives' },
@@ -96,7 +96,25 @@ export const mathSchoolCourses: Record<string, CourseEntry[]> = {
 // ============================================
 
 /** AP/Universal science courses — shown at top */
-export const scienceApCourses: CourseEntry[] = [];
+export const scienceApCourses: CourseEntry[] = [
+  {
+      id: 'apchem',
+      name: 'AP Chem',
+      subject: 'apchem',
+      units: [
+        { id: 'basics', name: 'Intro to AP Chem' },
+        { id: 'atomic', name: 'Atomic Structure and Properties' },
+        { id: 'molecular', name: 'Molecular and Ionic Compound Structure and Properties' },
+        { id: 'intermolecular', name: 'Intermolecular Forces and Properties' },
+        { id: 'reactions', name: 'Chemical Reactions' },
+        { id: 'kinetics', name: 'Kinetics' },
+        { id: 'thermodynamics', name: 'Thermodynamics' },
+        { id: 'equilibrium', name: 'Equilibrium' },
+        { id: 'acidsbases', name: 'Acids and Bases' },
+        { id: 'applicationsthermodynamics', name: 'Applications of Thermodynamics' },
+      ],
+    },
+];
 
 /** School-specific science courses */
 export const scienceSchoolCourses: Record<string, CourseEntry[]> = {
@@ -129,6 +147,14 @@ export const scienceSchoolCourses: Record<string, CourseEntry[]> = {
         { id: 'reactions', name: 'Chemical Reactions' },
         { id: 'stoichiometry', name: 'Stoichiometry' },
         { id: 'acidbases', name: 'Acids and Bases' },
+      ],
+    },
+    {
+      id: 'physics',
+      name: 'Physics (Prisco)',
+      subject: 'physics',
+      units: [
+        //{ id: '', name: '' },
       ],
     },
   ],
@@ -175,6 +201,15 @@ export const socialSchoolCourses: Record<string, CourseEntry[]> = {
       units: [
         { id: 'chinese', name: 'Chinese Shang - Song' },
         { id: 'chinese2', name: 'Chinese Yuan - Modern' },
+      ],
+      hasChallenge: true,
+    },
+    {
+      id: 'ushistory',
+      name: 'US History',
+      subject: 'ushistory',
+      units: [
+        //{ id: '', name: '' },
       ],
       hasChallenge: true,
     },
@@ -230,6 +265,17 @@ export const otherApCourses: CourseEntry[] = [
       { id: 'algorithms', name: 'Algorithms and Programming' },
       { id: 'systems', name: 'Computer Systems and Networks' },
       { id: 'computing', name: 'Impact of Computing' },
+    ],
+  },
+  {
+    id: 'apcsa',
+    name: 'AP Computer Science A',
+    subject: 'apcsa',
+    units: [
+      { id: 'objects', name: 'Using Objects and Methods' },
+      { id: 'selection', name: 'Selection and Iteration' },
+      { id: 'class', name: 'Class Creation' },
+      { id: 'data', name: 'Data Collection' },
     ],
   },
 ];
