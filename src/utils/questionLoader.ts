@@ -138,20 +138,20 @@ const questionMap: Record<string, Question[]> = {
   'calcbc-analyticaldifferentiation': analyticaldifferentiationQuestions,
   'calcbc-integrals': integralsQuestions,
   'calcbc-differential': differentialQuestions,
-  'calcbc-integration': integrationQuestions;
+  'calcbc-integration': integrationQuestions,
   'calcbc-parametricpolar': parametricpolarQuestions,
   'calcbc-sequencesseries': sequencesseriesQuestions,
 
-  'apchem-basics': basicsQuestions;
-  'apchem-atomic': atomicQuestions;
-  'apchem-molecular': molecularQuestions;
-  'apchem-intermolecular': intermolecularQuestions;
-  //'apchem-reactions': reactionsQuestions;
-  //'apchem-kinetics': kineticsQuestions;
-  //'apchem-thermodynamics': thermodynamicsQuestions;
-  //'apchem-equilibrium': equilibriumQuestions;
-  //'apchem-acidsbases': acidsbasesQuestions;
-  //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions;
+  'apchem-basics': basicsQuestions,
+  'apchem-atomic': atomicQuestions,
+  'apchem-molecular': molecularQuestions,
+  'apchem-intermolecular': intermolecularQuestions,
+  //'apchem-reactions': reactionsQuestions,
+  //'apchem-kinetics': kineticsQuestions,
+  //'apchem-thermodynamics': thermodynamicsQuestions,
+  //'apchem-equilibrium': equilibriumQuestions,
+  //'apchem-acidsbases': acidsbasesQuestions,
+  //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions,
     
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
