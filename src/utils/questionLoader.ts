@@ -40,6 +40,19 @@ import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
 import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
 import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
 import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
+//AP Chem
+import { basicsQuestions } from '@/data/apchem/basics-questions';
+import { atomicQuestions } from '@/data/apchem/atomic-questions';
+import { molecularQuestions } from '@/data/apchem/molecular-questions';
+import { intermolecularQuestions } from '@/data/apchem/intermolecular-questions';
+//import { reactionsQuestions } from '@/data/apchem/reactions-questions';
+//import { kineticsQuestions } from '@/data/apchem/kinetics-questions';
+//import { thermodynamicsQuestions } from '@/data/apchem/thermodynamics-questions';
+//import { equilibriumQuestions } from '@/data/apchem/equilibrium-questions';
+//import { acidsbasesQuestions } from '@/data/apchem/acidsbases-questions';
+//import { applicationsthermodynamicsQuestions } from '@/data/apchem/applicationsthermodynamics-questions';
+// Physics
+//import { Questions } from '@/data/physics/-questions';
 // Biology
 import { biochemistryQuestions } from '@/data/biology/biochemistry-questions';
 import { cellstructureQuestions } from '@/data/biology/cellstructure-questions';
@@ -58,6 +71,8 @@ import { solutionsQuestions } from '@/data/chemistry/solutions-questions';
 import { reactionsQuestions } from '@/data/chemistry/reactions-questions';
 import { stoichiometryQuestions } from '@/data/chemistry/stoichiometry-questions';
 import { acidbasesQuestions } from '@/data/chemistry/acidbases-questions';
+// US History
+//import { Questions } from '@/data/ushistory/-questions';
 // World History
 import { religionsQuestions } from '@/data/worldhistory/religions-questions';
 import { islamQuestions } from '@/data/worldhistory/islam-questions';
@@ -75,6 +90,11 @@ import { dataQuestions } from '@/data/apcsp/data-questions';
 import { algorithmsQuestions } from '@/data/apcsp/algorithms-questions';
 import { systemsQuestions } from '@/data/apcsp/systems-questions';
 import { computingQuestions } from '@/data/apcsp/computing-questions';
+// AP CSA
+//import { objectsQuestions } from '@/data/apcsa/objects-questions';
+//import { selectionQuestions } from '@/data/apcsa/selection-questions';
+//import { classQuestions } from '@/data/apcsa/class-questions';
+//import { dataQuestions } from '@/data/apcsa/data-questions';
 
 //World History Kohl
 import { chineseQuestions } from '@/data/worldhistorykohl/chinese-history-shang-song-questions';
@@ -101,6 +121,7 @@ const questionMap: Record<string, Question[]> = {
   'precalc-polar': polarQuestions,
   'precalc-parametric': parametricQuestions,
   'precalc-vectorsMatrices': vectorsMatricesQuestions,
+  
   'calcab-limits': limitsQuestions, 
   'calcab-derivative': derivativeQuestions,
   'calcab-differentiation': differentiationQuestions,
@@ -109,6 +130,7 @@ const questionMap: Record<string, Question[]> = {
   'calcab-integrals': integralsABQuestions,
   'calcab-differential': differentialABQuestions,
   'calcab-integration': integrationABQuestions,
+  
   'calcbc-limits': limitsQuestions, 
   'calcbc-derivative': derivativeQuestions,
   'calcbc-differentiation': differentiationQuestions,
@@ -116,9 +138,21 @@ const questionMap: Record<string, Question[]> = {
   'calcbc-analyticaldifferentiation': analyticaldifferentiationQuestions,
   'calcbc-integrals': integralsQuestions,
   'calcbc-differential': differentialQuestions,
-  'calcbc-integration': integrationQuestions,
+  'calcbc-integration': integrationQuestions;
   'calcbc-parametricpolar': parametricpolarQuestions,
   'calcbc-sequencesseries': sequencesseriesQuestions,
+
+  'apchem-basics': basicsQuestions;
+  'apchem-atomic': atomicQuestions;
+  'apchem-molecular': molecularQuestions;
+  'apchem-intermolecular': intermolecularQuestions;
+  //'apchem-reactions': reactionsQuestions;
+  //'apchem-kinetics': kineticsQuestions;
+  //'apchem-thermodynamics': thermodynamicsQuestions;
+  //'apchem-equilibrium': equilibriumQuestions;
+  //'apchem-acidsbases': acidsbasesQuestions;
+  //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions;
+    
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
   'biology-cellenergetics': cellenergeticsQuestions,
@@ -127,6 +161,7 @@ const questionMap: Record<string, Question[]> = {
   'biology-molecular': molecularQuestions,
   'biology-evolution': evolutionQuestions,
   'biology-ecology': ecologyQuestions,
+    
   'chemistry-metric': metricQuestions,
   'chemistry-atomic': atomicQuestions,
   'chemistry-compounds': compoundsQuestions,
@@ -135,6 +170,7 @@ const questionMap: Record<string, Question[]> = {
   'chemistry-reactions': reactionsQuestions,
   'chemistry-stoichiometry': stoichiometryQuestions,
   'chemistry-acidbases': acidbasesQuestions,
+    
   'world-history-religions': religionsQuestions,
   'world-history-islam': islamQuestions,
   'world-history-renaissance': renaissanceQuestions,
@@ -143,14 +179,23 @@ const questionMap: Record<string, Question[]> = {
   'world-history-japan': japanQuestions,
   'world-history-india': indiaQuestions,
   'world-history-africa': africaQuestions,
+    
   'practice-unit1': unit1Questions,
+    
   'apcsp-creative': creativeQuestions,
   'apcsp-data': dataQuestions,
   'apcsp-algorithms': algorithmsQuestions,
   'apcsp-systems': systemsQuestions,
   'apcsp-computing': computingQuestions,
+
+  //'apcsa-objects': objectsQuestions,
+  //'apcsa-selection': selectionQuestions,
+  //'apcsa-class': classQuestions,
+  //'apcsa-data': dataQuestions,
+    
   'worldhistorykohl-chinese': chineseQuestions,
   'worldhistorykohl-chinese2': chinese2Questions,
+    
   'drivers-drivers1': drivers1Questions,
   'drivers-drivers2': drivers2Questions,
   'drivers-drivers3': drivers3Questions,
@@ -201,6 +246,21 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
       { id: 'parametricpolar', name: 'Unit 9 - Parametric and Polar' },
       { id: 'sequencesseries', name: 'Unit 10 - Sequences and Series' },
     ],
+  apchem: [
+      { id: 'basics', name: 'Intro to AP Chem' },
+      { id: 'atomic', name: 'Atomic Structure and Properties' },
+      { id: 'molecular', name: 'Molecular and Ionic Compound Structure and Properties' },
+      { id: 'intermolecular', name: 'Intermolecular Forces and Properties' },
+      //{ id: 'reactions', name: 'Chemical Reactions' },
+      //{ id: 'kinetics', name: 'Kinetics' },
+      //{ id: 'thermodynamics', name: 'Thermodynamics' },
+      //{ id: 'equilibrium', name: 'Equilibrium' },
+      //{ id: 'acidsbases', name: 'Acids and Bases' },
+      //{ id: 'applicationsthermodynamics', name: 'Applications of Thermodynamics' },
+  ],
+  //physics: [
+    
+  //],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
     { id: 'cellstructure', name: 'Unit 2 - Cell Structure & Function' },
@@ -238,6 +298,12 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'systems', name: 'Computer Systems and Networks' },
     { id: 'computing', name: 'Impact of Computing' },
   ],
+  //apcsa: [
+    //{ id: 'objects', name: 'Using Objects and Methods' },
+    //{ id: 'selection', name: 'Selection and Iteration' },
+    //{ id: 'class', name: 'Class Creation' },
+    //{ id: 'data', name: 'Data Collection' },
+  //],
   temporary: [
     //{ id: 'precalc3b', name: 'AP Precalc 3B' },
   ],
@@ -245,6 +311,9 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'chinese', name: 'Chinese Shang - Song' },
     { id: 'chinese2', name: 'Chinese Yuan - Modern' },
   ],
+  //ushistory: [
+    
+  //],
   drivers: [
     { id: 'drivers1', name: 'Unit 1' }, 
     { id: 'drivers2', name: 'Unit 2' },
@@ -262,11 +331,15 @@ const subjectTitles: Record<string, string> = {
   precalc: 'AP Precalculus',
   calcab: 'AP Calc AB',
   calcbc: 'AP Calc BC',
+  apchem: 'AP Chem',
+  //physics: 'Physics',
   biology: 'Biology',
   chemistry: 'Chemistry',
+  //ushistory: 'US History',
   'world-history': 'World History',
   
   apcsp: 'AP CSP',
+  //apcsa: 'AP CSA',
   temporary: 'Temporary Practice',
   worldhistorykohl: 'World History (Kohl)',
   drivers: 'Drivers Ed',
