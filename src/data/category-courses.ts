@@ -73,7 +73,7 @@ export const mathApCourses: CourseEntry[] = [
       { id: 'polar', name: 'Polar' },
       { id: 'parametric', name: 'Parametric' },
       { id: 'vectorsMatrices', name: 'VectorsMatrices' },
-      { id: 'precalcrules', name: 'Precalc Rules' },
+      { id: 'rules', name: 'Precalc Rules' },
     ],
   },
 ];
