@@ -38,7 +38,7 @@ export const parametricQuestions: Question[] = [
   {
     id: "parametric-6",
     type: "free-response",
-    question: "What is the position of the particle at $t = 10$ for $f(t) = (t^{3)-4t, 3t)$?",
+    question: "What is the position of the particle at $t = 10$ for $f(t) = (t^{3}-4t, 3t)$?",
     correctAnswer: "$(960, 30)$",
   },
   {
