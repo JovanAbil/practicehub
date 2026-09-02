@@ -1866,4 +1866,18 @@ export const rulesQuestions: Question[] = [
     correctAnswer: 'The domain written in interval notation or inequality form.',
     explanation: '',
   },
+  {
+    id: 'rules-248',
+    type: 'free-response',
+    question: 'Solve without a calculator: \\tan(\\cos^{-1} \\frac{2}{3})',
+    correctAnswer: '\\frac{\\sqrt{5}}{2}',
+    explanation: '',
+  },
+  {
+    id: 'rules-249',
+    type: 'free-response',
+    question: 'Solve without a calculator: \\sec(\\sin^{-1} \\frac{12}{13})',
+    correctAnswer: '\\frac{12}{13}',
+    explanation: '',
+  },
 ];
