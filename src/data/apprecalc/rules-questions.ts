@@ -8,7 +8,7 @@ import { Question } from '@/types/quiz';
 // practice problems have been excluded.
 // =====================================================================
 
-export const precalcRulesQuestions: Question[] = [
+export const rulesQuestions: Question[] = [
   // ---------------------------------------------------------------
   // FUNCTION TRANSFORMATIONS
   // ---------------------------------------------------------------
