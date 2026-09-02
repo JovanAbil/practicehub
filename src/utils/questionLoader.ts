@@ -25,6 +25,7 @@ import { trigonometricQuestions } from '@/data/apprecalc/trigonometric-questions
 import { polarQuestions } from '@/data/apprecalc/polar-questions';
 import { parametricQuestions } from '@/data/apprecalc/parametric-questions';
 import { vectorsMatricesQuestions } from '@/data/apprecalc/vectorsMatrices-questions';
+import { precalcRulesQuestions } from '@/data/apprecalc/precalcrules-questions';
 // AP Calc AB
 import { limitsQuestions } from '@/data/apcalcab/limits-questions';
 import { derivativeQuestions } from '@/data/apcalcab/derivative-questions';
@@ -121,6 +122,7 @@ const questionMap: Record<string, Question[]> = {
   'precalc-polar': polarQuestions,
   'precalc-parametric': parametricQuestions,
   'precalc-vectorsMatrices': vectorsMatricesQuestions,
+  'precalc-rules': precalcRulesQuestions,
   
   'calcab-limits': limitsQuestions, 
   'calcab-derivative': derivativeQuestions,
@@ -223,6 +225,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'polar', name: 'Unit 3B - Polar Functions' },
     { id: 'parametric', name: 'Unit 4A - Parametric Functions' },
     { id: 'vectorsMatrices', name: 'Unit 4B - Vectors and Matrices' },
+    { id: 'Precalc Rules', name: 'All the rules in Precalc' },
   ],
   calcab: [
       { id: 'limits', name: 'Unit 1 - Limits' },
