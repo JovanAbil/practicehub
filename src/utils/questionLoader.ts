@@ -26,6 +26,7 @@ import { polarQuestions } from '@/data/apprecalc/polar-questions';
 import { parametricQuestions } from '@/data/apprecalc/parametric-questions';
 import { vectorsMatricesQuestions } from '@/data/apprecalc/vectorsMatrices-questions';
 import { rulesQuestions } from '@/data/apprecalc/rules-questions';
+
 // AP Calc AB
 import { limitsQuestions } from '@/data/apcalcab/limits-questions';
 import { derivativeQuestions } from '@/data/apcalcab/derivative-questions';
@@ -35,12 +36,14 @@ import { analyticaldifferentiationQuestions } from '@/data/apcalcab/analyticaldi
 import { integralsABQuestions } from '@/data/apcalcab/integrals-questions';
 import { differentialABQuestions } from '@/data/apcalcab/differential-questions';
 import { integrationABQuestions } from '@/data/apcalcab/integration-questions';
+
 // AP Calc BC
 import { integralsQuestions } from '@/data/apcalcbc/integrals-questions';
 import { differentialQuestions } from '@/data/apcalcbc/differential-questions';
 import { integrationQuestions } from '@/data/apcalcbc/integration-questions';
 import { parametricpolarQuestions } from '@/data/apcalcbc/parametricpolar-questions';
 import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questions';
+
 //AP Chem
 import { basicsQuestions } from '@/data/apchem/basics-questions';
 import { atomicQuestions } from '@/data/apchem/atomic-questions';
@@ -52,8 +55,16 @@ import { intermolecularQuestions } from '@/data/apchem/intermolecular-questions'
 //import { equilibriumQuestions } from '@/data/apchem/equilibrium-questions';
 //import { acidsbasesQuestions } from '@/data/apchem/acidsbases-questions';
 //import { applicationsthermodynamicsQuestions } from '@/data/apchem/applicationsthermodynamics-questions';
+
 // Physics
-//import { Questions } from '@/data/physics/-questions';
+//import { kinematicsQuestions } from '@/data/physics/kinematics-questions';
+//import { dynamicsQuestions } from '@/data/physics/dynamics-questions';
+//import { energyQuestions } from '@/data/physics/energy-questions';
+//import { momentumQuestions } from '@/data/physics/momentum-questions';
+//import { electrostaticsQuestions } from '@/data/physics/electrostatics-questions';
+//import { circuitsQuestions } from '@/data/physics/circuits-questions';
+//import { wavesQuestions } from '@/data/physics/waves-questions';
+
 // Biology
 import { biochemistryQuestions } from '@/data/biology/biochemistry-questions';
 import { cellstructureQuestions } from '@/data/biology/cellstructure-questions';
@@ -63,6 +74,7 @@ import { geneticsQuestions } from '@/data/biology/genetics-questions';
 import { molecularQuestions } from '@/data/biology/molecular-questions';
 import { evolutionQuestions } from '@/data/biology/evolution-questions';
 import { ecologyQuestions } from '@/data/biology/ecology-questions';
+
 // Chemistry
 import { metricQuestions } from '@/data/chemistry/metric-questions';
 import { atomicQuestions } from '@/data/chemistry/atomic-questions';
@@ -72,8 +84,10 @@ import { solutionsQuestions } from '@/data/chemistry/solutions-questions';
 import { reactionsQuestions } from '@/data/chemistry/reactions-questions';
 import { stoichiometryQuestions } from '@/data/chemistry/stoichiometry-questions';
 import { acidbasesQuestions } from '@/data/chemistry/acidbases-questions';
+
 // US History
 //import { Questions } from '@/data/ushistory/-questions';
+
 // World History
 import { religionsQuestions } from '@/data/worldhistory/religions-questions';
 import { islamQuestions } from '@/data/worldhistory/islam-questions';
@@ -83,14 +97,17 @@ import { eastasiaQuestions } from '@/data/worldhistory/eastasia-questions';
 import { japanQuestions } from '@/data/worldhistory/japan-questions';
 import { indiaQuestions } from '@/data/worldhistory/india-questions';
 import { africaQuestions } from '@/data/worldhistory/africa-questions';
+
 // Practice
 import { unit1Questions } from '@/data/practice/unit1-questions';
+
 //AP CSP
 import { creativeQuestions } from '@/data/apcsp/creative-questions';
 import { dataQuestions } from '@/data/apcsp/data-questions';
 import { algorithmsQuestions } from '@/data/apcsp/algorithms-questions';
 import { systemsQuestions } from '@/data/apcsp/systems-questions';
 import { computingQuestions } from '@/data/apcsp/computing-questions';
+
 // AP CSA
 //import { objectsQuestions } from '@/data/apcsa/objects-questions';
 //import { selectionQuestions } from '@/data/apcsa/selection-questions';
@@ -100,7 +117,9 @@ import { computingQuestions } from '@/data/apcsp/computing-questions';
 //World History Kohl
 import { chineseQuestions } from '@/data/worldhistorykohl/chinese-history-shang-song-questions';
 import { chinese2Questions } from '@/data/worldhistorykohl/chinese-history-yuan-modern-china-questions';
+
 // Temporary
+
 //Drivers Ed
 import { drivers1Questions } from '@/data/drivers/unit1-questions';
 import { drivers2Questions } from '@/data/drivers/unit2-questions';
@@ -114,6 +133,7 @@ import { drivers6Questions } from '@/data/drivers/unit6-questions';
  * Map of question keys to question arrays
  */
 const questionMap: Record<string, Question[]> = {
+  //precalc
   'precalc-polynomial': polynomialQuestions,
   'precalc-rational': rationalQuestions,
   'precalc-exponential': exponentialQuestions,
@@ -123,7 +143,8 @@ const questionMap: Record<string, Question[]> = {
   'precalc-parametric': parametricQuestions,
   'precalc-vectorsMatrices': vectorsMatricesQuestions,
   'precalc-rules': rulesQuestions,
-  
+
+  //calcab
   'calcab-limits': limitsQuestions, 
   'calcab-derivative': derivativeQuestions,
   'calcab-differentiation': differentiationQuestions,
@@ -132,7 +153,8 @@ const questionMap: Record<string, Question[]> = {
   'calcab-integrals': integralsABQuestions,
   'calcab-differential': differentialABQuestions,
   'calcab-integration': integrationABQuestions,
-  
+
+  //calcbc
   'calcbc-limits': limitsQuestions, 
   'calcbc-derivative': derivativeQuestions,
   'calcbc-differentiation': differentiationQuestions,
@@ -144,6 +166,7 @@ const questionMap: Record<string, Question[]> = {
   'calcbc-parametricpolar': parametricpolarQuestions,
   'calcbc-sequencesseries': sequencesseriesQuestions,
 
+  //apchem
   'apchem-basics': basicsQuestions,
   'apchem-atomic': atomicQuestions,
   'apchem-molecular': molecularQuestions,
@@ -154,7 +177,17 @@ const questionMap: Record<string, Question[]> = {
   //'apchem-equilibrium': equilibriumQuestions,
   //'apchem-acidsbases': acidsbasesQuestions,
   //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions,
-    
+
+  //physics
+  //'physics-kinematics': kinematicsQuestions,
+  //'physics-dynamics': dynamicsQuestions,
+  //'physics-energy': energyQuestions,
+  //'physics-momentum': momentumQuestions,
+  //'physics-electrostatics': electrostaticsQuestions,
+  //'physics-circuits': circuitsQuestions,
+  //'physics-waves': wavesQuestions,
+
+  //bio
   'biology-biochemistry': biochemistryQuestions,
   'biology-cellstructure': cellstructureQuestions,
   'biology-cellenergetics': cellenergeticsQuestions,
@@ -163,7 +196,8 @@ const questionMap: Record<string, Question[]> = {
   'biology-molecular': molecularQuestions,
   'biology-evolution': evolutionQuestions,
   'biology-ecology': ecologyQuestions,
-    
+
+  //chem
   'chemistry-metric': metricQuestions,
   'chemistry-atomic': atomicQuestions,
   'chemistry-compounds': compoundsQuestions,
@@ -172,7 +206,8 @@ const questionMap: Record<string, Question[]> = {
   'chemistry-reactions': reactionsQuestions,
   'chemistry-stoichiometry': stoichiometryQuestions,
   'chemistry-acidbases': acidbasesQuestions,
-    
+
+  //worldhistory
   'world-history-religions': religionsQuestions,
   'world-history-islam': islamQuestions,
   'world-history-renaissance': renaissanceQuestions,
@@ -181,9 +216,11 @@ const questionMap: Record<string, Question[]> = {
   'world-history-japan': japanQuestions,
   'world-history-india': indiaQuestions,
   'world-history-africa': africaQuestions,
-    
+
+  //practice
   'practice-unit1': unit1Questions,
-    
+
+  //apcsp
   'apcsp-creative': creativeQuestions,
   'apcsp-data': dataQuestions,
   'apcsp-algorithms': algorithmsQuestions,
@@ -194,10 +231,12 @@ const questionMap: Record<string, Question[]> = {
   //'apcsa-selection': selectionQuestions,
   //'apcsa-class': classQuestions,
   //'apcsa-data': dataQuestions,
-    
+
+  //whkohl
   'worldhistorykohl-chinese': chineseQuestions,
   'worldhistorykohl-chinese2': chinese2Questions,
-    
+
+  //driversed - useless
   'drivers-drivers1': drivers1Questions,
   'drivers-drivers2': drivers2Questions,
   'drivers-drivers3': drivers3Questions,
@@ -262,7 +301,13 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
       //{ id: 'applicationsthermodynamics', name: 'Applications of Thermodynamics' },
   ],
   //physics: [
-    
+  //      { id: 'kinematics', name: 'Kinematics' },
+  //      { id: 'dynamics', name: 'Dynamics' },
+  //      { id: 'energy', name: 'Energy' },
+  //      { id: 'momentum', name: 'Momentum' },
+  //      { id: 'electrostatics', name: 'Electrostatics' },
+  //      { id: 'circuits', name: 'Electric Circuits' },
+  //      { id: 'waves', name: 'Waves' },
   //],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
