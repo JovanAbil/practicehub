@@ -18,7 +18,7 @@
  */
 
 export const SITE_STATS = {
-  totalVisitors: 1098,
-  totalPageviews: 11665,
-  lastUpdated: "August 8th, 2026",
+  totalVisitors: 1118,
+  totalPageviews: 12259,
+  lastUpdated: "September 1st, 2026",
 };
