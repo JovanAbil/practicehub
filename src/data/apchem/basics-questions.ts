@@ -894,4 +894,47 @@ export const basicsQuestions: Question[] = [
     question: "What does the numerical prefix mean in a organic hydrocarbon?",
     correctAnswer: "It means the number of CARBON atoms.",
   },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "How should you answer AP Chem FRQs that you have to justify or explain after?",
+    correctAnswer: "Answer question directly first and then explain/justify",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "Should you use 'it' in an AP Chem response?",
+    correctAnswer: "Not recommended",
+    explanation: "Don't recommend because it creates ambiguity",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "When specific units are given on an AP Chem FRQ, how should you format your response?",
+    correctAnswer: "Answer with specific units always",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "Does the AP Chem FRQs give fake or impossible data sets that incinuates an answer of, 'This isn't possible'?",
+    correctAnswer: "No, all questions are answerable",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "What format should be used for answering questions that asks for an explanation of the reason behind an observation?",
+    correctAnswer: "CER: Claim, Evidence, Reasoning",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "For answers that could be solved with math but doesn't indicate to use a 'calculation' in an AP Chem FRQ, what should you use to reason?",
+    correctAnswer: "Deduction, remove other points based on wrongs instead of answering with math",
+  },
+  {
+    id: "basics-",
+    type: "free-response",
+    question: "Can you write variables that represent constants in place of the number when doing calculations in AP Chem FRQs?",
+    correctAnswer: "No",
+  },
 ];
