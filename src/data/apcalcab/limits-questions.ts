@@ -167,10 +167,9 @@ export const limitsQuestions: Question[] = [
   },
   {
     id: "limits-23",
-    type: "free-response",
-    question: "Without computing, explain what $\\lim_{x \\to \\infty} \\dfrac{p(x)}{q(x)}$ equals when $\\deg(p) < \\deg(q)$, $\\deg(p) = \\deg(q)$, and $\\deg(p) > \\deg(q)$.",
-    correctAnswer: "",
-    explanation: "These are the three cases for horizontal asymptotes of rational functions, determined by comparing the degrees of the numerator and denominator.",
+    type: "parts",
+    question: "Answer the following.",
+    parts: [{"label":"a","type":"free-response","question":"What happens if you try to find the limit at a hole? ","correctAnswer":"Both the top and the bottom of the function equals 0 making it indeterminate."},{"label":"b","type":"free-response","question":"$f(x) = \\frac{cx-5x^{2}}{2x^{2}+ax+b}$. The graph of $f$ has a vertical asymptote at $x = 1$, and $f$ has a removable discontinuity at $x = -2$. Find $a, b, c$","correctAnswer":"","explanation":"Make both the top and the bottom equal 0 because there is a hole discontinuity.","listAnswers":["$a = 2$","$b = -4$","$c = -10$"]}],
   },
   {
     id: "limits-24",
@@ -182,11 +181,10 @@ export const limitsQuestions: Question[] = [
   },
   {
     id: "limits-25",
-    type: "select-all",
-    question: "Which of the following functions have a horizontal asymptote of $y = 0$ as $x \\to +\\infty$?",
-    options: [{"label":"A","value":"A","text":"$f(x) = 5e^{-x}$"},{"label":"B","value":"B","text":"$f(x) = \\dfrac{x}{x^{2}+2}$"},{"label":"C","value":"C","text":"$f(x) = \\dfrac{x^{2}+1}{x+1}$"},{"label":"D","value":"D","text":"$f(x) = 3^{-x}$"}],
-    correctAnswers: [],
-    explanation: "A: $5e^{-x} \\to 0$. B: denominator grows faster. C: numerator grows faster (no HA). D: $3^{-x} = (1/3)^x \\to 0$.",
+    type: "free-response",
+    question: "When there is a discontinuity when finding the limit of a composite equation in one of the functions, what must you do?",
+    correctAnswer: "Instead of saying the limit DNE, check both sides of the limit for the graph and then apply that to find the outer function's limit when $x$ approaches the inner function's limit and if they both equal the same thing, they have the same limit. ",
+    explanation: "1. Remember the definition of the limit is when both sides approach the same value for the equation that it used, not the equation within the equation.",
   },
   {
     id: "limits-26",
@@ -314,15 +312,15 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-43",
     type: "free-response",
-    question: "The graph of the function $f$ is shown. What limit statement is equivalent to $\\lim{x \\to 4} f(f(x))$?",
-    correctAnswer: "$lim_{x \\to 1}f(x) = -1$",
+    question: "The graph of the function $f$ is shown. What limit statement is equivalent to $\\lim_{x \\to 4} f(f(x))$?",
+    correctAnswer: "$\\lim_{x \\to 1}f(x) = -1$",
     explanation: "",
     image: "/images/apcalcbc/limits5.png",
   },
   {
     id: "limits-44",
     type: "free-response",
-    question: "The table above gives selected values and limits of the function $f$, $g$, and $h$. What is $\\lim_{x \\to 5}(h(x)(f(x)+2(gx)))-h(5)$?",
+    question: "The table above gives selected values and limits of the function $f$, $g$, and $h$. What is $\\lim_{x \\to 5}(h(x)(f(x)+2(g(x))))-h(5)$?",
     correctAnswer: "$17$",
     explanation: "",
     image: "/images/apcalcbc/limits6.png",
@@ -580,8 +578,8 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-81",
     type: "free-response",
-    question: "What is the restriction for even root radicals $\\log(x)$?",
-    correctAnswer: "$x \\geq 0$; e.g the equation in the logarithmic needs to be greater than 0.",
+    question: "What is the restriction for $\\log(x)$?",
+    correctAnswer: "$x > 0$; e.g the equation in the logarithmic needs to be greater than 0.",
     explanation: "",
   },
   {
@@ -594,7 +592,7 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-83",
     type: "free-response",
-    question: "What is the domain of $f(x) = \\frac{5}{2-sqrt{x}}$?",
+    question: "What is the domain of $f(x) = \\frac{5}{2-\\sqrt{x}}$?",
     correctAnswer: "$[0, 4) \\cup (4, \\infty)$",
     explanation: "",
   },
@@ -629,7 +627,7 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-88",
     type: "free-response",
-    question: "Let $f$ be the function defined by $f(x) = [$ $\\frac{x^{2}-3x-18}{x-6}, x ≠ 6$ | $a, x = 6$. For what value of $a$ is $f$ continuous at $x=6$?",
+    question: "Let $f$ be the function defined by $f(x) = \\begin{cases} \\frac{x^{2}-3x-18}{x-6}, \\space\\space\\space x ≠ 6 \\\\ a, \\space\\space\\space x = 6$. For what value of $a$ is $f$ continuous at $x=6$?",
     correctAnswer: "$a = 9$",
     explanation: "",
   },
@@ -714,8 +712,9 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-101",
     type: "free-response",
-    question: "Evaluate $\\lim_{x \\to 5} f(x)$ for $f(x) = \\begin{cases}  \\frac{x-5}{x^{2}-6x+5}, \\space\\space\\space x \\neq 5\\\\  4, \\space\\space\\space x = 5  \\end{cases}$",
-    correctAnswer: "$-\\frac{1}{4}$",
+    question: "Identify all horizontal asymptotes of $f(x) = \\frac{\\sqrt{16x^{6}+x^{3}+5x}}{5x^{3}-8x}$",
+    correctAnswer: "As $x \\to \\infty$, $y = \\frac{4}{5}$ and as $x \\to -\\infty$, $y = -\\frac{4}{5}$",
+    explanation: "Plugging in a large negative number is allowed because it will turn positive from the even power that $x$ is raised to.",
   },
   {
     id: "limits-102",
@@ -733,7 +732,7 @@ export const limitsQuestions: Question[] = [
     id: "limits-104",
     type: "free-response",
     question: "Find the domain of $h(x) = \\frac{5-x}{5-\\sqrt{x}}$",
-    correctAnswer: "[0, 25) U (25, \\infty)",
+    correctAnswer: "$[0, 25) U (25, \\infty)$",
   },
   {
     id: "limits-105",
@@ -824,25 +823,5 @@ export const limitsQuestions: Question[] = [
     question: "If the function $f$ is continuous for all real numbers and if $f(x) = \\frac{x^{2}+6x+8}{x+2}$ when $x \\neq -2$, then $f(-2) = $",
     correctAnswer: "$f(-2) = 2$",
     explanation: "1. It says $f$ is continuous for all real numbers \n2. Find the limit and that is the value to make it all continuous",
-  },
-  {
-    id: "limits-119",
-    type: "free-response",
-    question: "Identify all horizontal asymptotes of $f(x) = \\frac{\\sqrt{16x^{6}+x^{3}+5x}}{5x^{3}-8x}$",
-    correctAnswer: "As $x \\to \\infty$, $y = \\frac{4}{5}$ and as $x \\to -\\infty$, $y = -\\frac{4}{5}$",
-    explanation: "Plugging in a large negative number is allowed because it will turn positive from the even power that $x$ is raised to.",
-  },
-  {
-    id: "limits-120",
-    type: "free-response",
-    question: "When there is a discontinuity when finding the limit of a composite equation in one of the functions, what must you do?",
-    correctAnswer: "Instead of saying the limit DNE, check both sides of the limit for the graph and then apply that to find the outer function's limit when $x$ approaches the inner function's limit and if they both equal the same thing, they have the same limit. ",
-    explanation: "1. Remember the definition of the limit is when both sides approach the same value for the equation that it used, not the equation within the equation.",
-  },
-  {
-    id: "limits-121",
-    type: "parts",
-    question: "Answer the following.",
-    parts: [{"label":"a","type":"free-response","question":"What happens if you try to find the limit at a hole? ","correctAnswer":"Both the top and the bottom of the function equals 0 making it indeterminate."},{"label":"b","type":"free-response","question":"$f(x) = \\frac{cx-5x^{2}}{2x^{2}+ax+b}$. The graph of $f$ has a vertical asymptote at $x = 1$, and $f$ has a removable discontinuity at $x = -2$. Find $a, b, c$","correctAnswer":"","explanation":"Make both the top and the bottom equal 0 because there is a hole discontinuity.","listAnswers":["$a = 2$","$b = -4$","$c = -10$"]}],
   },
 ];
