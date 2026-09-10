@@ -627,7 +627,7 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-88",
     type: "free-response",
-    question: "Let $f$ be the function defined by $f(x) = \\begin{cases} \\frac{x^{2}-3x-18}{x-6}, \\space\\space\\space x ≠ 6 \\\\ a, \\space\\space\\space x = 6$. For what value of $a$ is $f$ continuous at $x=6$?",
+    question: "Let $f$ be the function defined by $f(x) = \\begin{cases} \\frac{x^{2}-3x-18}{x-6}, \\space\\space\\space x ≠ 6 \\\\ a, \\space\\space\\space x = 6 \\end{cases}$. For what value of $a$ is $f$ continuous at $x=6$?",
     correctAnswer: "$a = 9$",
     explanation: "",
   },
