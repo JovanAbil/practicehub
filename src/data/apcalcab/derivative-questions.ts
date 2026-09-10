@@ -68,7 +68,7 @@ export const derivativeQuestions: Question[] = [
   {
     id: "derivative-10",
     type: "free-response",
-    question: "What does the comma in a function such as $f'(x)$ represent?",
+    question: "What does the apostrophe in a function such as $f'(x)$ represent?",
     correctAnswer: "It represents a derived function.",
     explanation: "",
   },
@@ -309,7 +309,7 @@ export const derivativeQuestions: Question[] = [
   {
     id: "derivative-44",
     type: "free-response",
-    question: "What is the derivative of anything logarithmic such as $log_{a}x$?",
+    question: "What is the derivative of anything logarithmic such as $\\log_{a}x$?",
     correctAnswer: "$\\frac{1}{x}(\\frac{1}{\\ln a})$",
     explanation: "",
   },
@@ -323,14 +323,14 @@ export const derivativeQuestions: Question[] = [
   {
     id: "derivative-46",
     type: "free-response",
-    question: "What is the derivative of $log_{e}x$?",
+    question: "What is the derivative of $\\log_{e}x$?",
     correctAnswer: "$\\frac{1}{x}$",
     explanation: "",
   },
   {
     id: "derivative-47",
     type: "free-response",
-    question: "What is the derivative of $log_{4}x - 4\\ln x$?",
+    question: "What is the derivative of $\\log_{4}x - 4\\ln x$?",
     correctAnswer: "$\\frac{1}{x \\ln 4} - \\frac{4}{x}$",
     explanation: "",
   },
