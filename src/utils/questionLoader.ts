@@ -291,14 +291,14 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   apchem: [
       { id: 'basics', name: 'Intro to AP Chem' },
       { id: 'atomic', name: 'Atomic Structure and Properties' },
-      { id: 'molecular', name: 'Molecular and Ionic Compound Structure and Properties' },
-      { id: 'intermolecular', name: 'Intermolecular Forces and Properties' },
+      { id: 'molecular', name: 'Compound Structure and Properties' },
+      { id: 'intermolecular', name: 'Properties and Substances and Mixtures' },
       //{ id: 'reactions', name: 'Chemical Reactions' },
       //{ id: 'kinetics', name: 'Kinetics' },
-      //{ id: 'thermodynamics', name: 'Thermodynamics' },
+      //{ id: 'thermodynamics', name: 'Thermochemistry' },
       //{ id: 'equilibrium', name: 'Equilibrium' },
       //{ id: 'acidsbases', name: 'Acids and Bases' },
-      //{ id: 'applicationsthermodynamics', name: 'Applications of Thermodynamics' },
+      //{ id: 'applicationsthermodynamics', name: 'Thermodynamics and Electrochemistry' },
   ],
   //physics: [
   //      { id: 'kinematics', name: 'Kinematics' },
