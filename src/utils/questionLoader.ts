@@ -109,7 +109,7 @@ import { systemsQuestions } from '@/data/apcsp/systems-questions';
 import { computingQuestions } from '@/data/apcsp/computing-questions';
 
 // AP CSA
-//import { objectsQuestions } from '@/data/apcsa/objects-questions';
+import { objectsQuestions } from '@/data/apcsa/objects-questions';
 //import { selectionQuestions } from '@/data/apcsa/selection-questions';
 //import { classQuestions } from '@/data/apcsa/class-questions';
 //import { dataQuestions } from '@/data/apcsa/data-questions';
@@ -227,7 +227,7 @@ const questionMap: Record<string, Question[]> = {
   'apcsp-systems': systemsQuestions,
   'apcsp-computing': computingQuestions,
 
-  //'apcsa-objects': objectsQuestions,
+  'apcsa-objects': objectsQuestions,
   //'apcsa-selection': selectionQuestions,
   //'apcsa-class': classQuestions,
   //'apcsa-data': dataQuestions,
@@ -300,7 +300,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
       //{ id: 'acidsbases', name: 'Acids and Bases' },
       //{ id: 'applicationsthermodynamics', name: 'Thermodynamics and Electrochemistry' },
   ],
-  //physics: [
+  physics: [
   //      { id: 'kinematics', name: 'Kinematics' },
   //      { id: 'dynamics', name: 'Dynamics' },
   //      { id: 'energy', name: 'Energy' },
@@ -308,7 +308,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   //      { id: 'electrostatics', name: 'Electrostatics' },
   //      { id: 'circuits', name: 'Electric Circuits' },
   //      { id: 'waves', name: 'Waves' },
-  //],
+  ],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
     { id: 'cellstructure', name: 'Unit 2 - Cell Structure & Function' },
@@ -346,12 +346,12 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'systems', name: 'Computer Systems and Networks' },
     { id: 'computing', name: 'Impact of Computing' },
   ],
-  //apcsa: [
-    //{ id: 'objects', name: 'Using Objects and Methods' },
+  apcsa: [
+    { id: 'objects', name: 'Using Objects and Methods' },
     //{ id: 'selection', name: 'Selection and Iteration' },
     //{ id: 'class', name: 'Class Creation' },
     //{ id: 'data', name: 'Data Collection' },
-  //],
+  ],
   temporary: [
     //{ id: 'precalc3b', name: 'AP Precalc 3B' },
   ],
@@ -359,9 +359,9 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'chinese', name: 'Chinese Shang - Song' },
     { id: 'chinese2', name: 'Chinese Yuan - Modern' },
   ],
-  //ushistory: [
+  ushistory: [
     
-  //],
+  ],
   drivers: [
     { id: 'drivers1', name: 'Unit 1' }, 
     { id: 'drivers2', name: 'Unit 2' },
@@ -380,14 +380,14 @@ const subjectTitles: Record<string, string> = {
   calcab: 'AP Calc AB',
   calcbc: 'AP Calc BC',
   apchem: 'AP Chem',
-  //physics: 'Physics',
+  physics: 'Physics',
   biology: 'Biology',
   chemistry: 'Chemistry',
-  //ushistory: 'US History',
+  ushistory: 'US History',
   'world-history': 'World History',
   
   apcsp: 'AP CSP',
-  //apcsa: 'AP CSA',
+  apcsa: 'AP CSA',
   temporary: 'Temporary Practice',
   worldhistorykohl: 'World History (Kohl)',
   drivers: 'Drivers Ed',
