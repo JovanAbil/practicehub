@@ -57,7 +57,7 @@ export const objectsQuestions: Question[] = [
   {
     id: "objects-8",
     type: "free-response",
-    question: "Write out the structure code for a class, you can make up the name, the code inside can be left blank or labeled.",
+    question: "Write out the structure code for a class, you can make up the name, the code inside can be left blank or labeled. (The indents aren't accurate, assume correct indents for each new line.)",
     correctAnswer: "public class MyFirstClass\n{\n   public static void main(String[] args)\n   {\n      (main code)\n   }\n}",
     explanation: "",
   },
@@ -353,7 +353,7 @@ export const objectsQuestions: Question[] = [
   {
     id: "objects-52",
     type: "free-response",
-    question: "What does \\n do?",
+    question: "What does (backslash n) do?",
     correctAnswer: "It creates a line break in a string",
   },
   {
