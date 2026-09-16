@@ -205,4 +205,10 @@ export const differentiationQuestions: Question[] = [
     correctAnswer: "$\\frac{d^{2}y}{dx^{2}} = \\frac{\\sin y}{(\\cos y - 1)^{3}}$",
     explanation: "1. Take first derivative using implicit differentiation\n2. Take 2nd derivative using implicit differentiation\n3. Make sure work is clean\n4. When there is a $\\frac{dy}{dx}$, substitute the first derivative.",
   },
+  {
+    id: "differentiation-33",
+    type: "free-response",
+    question: "Use chain rule to show what the derivative of $g(x) = \\sin(f(x))$ is.",
+    correctAnswer: "$g'(x) = \\cos(f(x)) \\times f'(x)$",
+  },
 ];
