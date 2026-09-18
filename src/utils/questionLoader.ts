@@ -47,7 +47,7 @@ import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questi
 //AP Chem
 import { basicsQuestions } from '@/data/apchem/basics-questions';
 import { atomicQuestions } from '@/data/apchem/atomic-questions';
-import { molecularQuestions } from '@/data/apchem/molecular-questions';
+import { molecular1Questions } from '@/data/apchem/molecular-questions';
 import { intermolecularQuestions } from '@/data/apchem/intermolecular-questions';
 //import { reactionsQuestions } from '@/data/apchem/reactions-questions';
 //import { kineticsQuestions } from '@/data/apchem/kinetics-questions';
@@ -169,7 +169,7 @@ const questionMap: Record<string, Question[]> = {
   //apchem
   'apchem-basics': basicsQuestions,
   'apchem-atomic': atomicQuestions,
-  'apchem-molecular': molecularQuestions,
+  'apchem-molecular': molecular1Questions,
   'apchem-intermolecular': intermolecularQuestions,
   //'apchem-reactions': reactionsQuestions,
   //'apchem-kinetics': kineticsQuestions,
@@ -291,7 +291,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   apchem: [
       { id: 'basics', name: 'Intro to AP Chem' },
       { id: 'atomic', name: 'Atomic Structure and Properties' },
-      { id: 'molecular', name: 'Compound Structure and Properties' },
+      { id: 'molecular1', name: 'Compound Structure and Properties' },
       { id: 'intermolecular', name: 'Properties and Substances and Mixtures' },
       //{ id: 'reactions', name: 'Chemical Reactions' },
       //{ id: 'kinetics', name: 'Kinetics' },
