@@ -105,7 +105,7 @@ export const scienceApCourses: CourseEntry[] = [
       units: [
         { id: 'basics', name: 'Intro to AP Chem' },
         { id: 'atomic', name: 'Atomic Structure and Properties' },
-        { id: 'molecular', name: 'Compound Structure and Properties' },
+        { id: 'molecular1', name: 'Compound Structure and Properties' },
         { id: 'intermolecular', name: 'Properties and Substances and Mixtures' },
         { id: 'reactions', name: 'Chemical Reactions' },
         { id: 'kinetics', name: 'Kinetics' },
