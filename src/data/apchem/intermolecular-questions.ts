@@ -1120,4 +1120,23 @@ export const intermolecularQuestions: Question[] = [
     question: "What is a blank on a absorbance graph?",
     correctAnswer: "The origin, $(0, 0)$",
   },
+  {
+    id: "intermolecular-180",
+    type: "free-response",
+    question: "How does intermolecular attractions affect pressure when it isn't an ideal gas?",
+    correctAnswer: "It makes the pressure lower because the IMF's slow the molecules/compounds down before they hit the wall.",
+  },
+  {
+    id: "intermolecular-181",
+    type: "free-response",
+    question: "How does molecular volume affect pressure when it isn't an ideal gas?",
+    correctAnswer: "It makes the pressure higher because there is more molecules/compounds to hit the wall.",
+  },
+  {
+    id: "intermolecular-182",
+    type: "free-response",
+    question: "If it says a value is doubled/changed proportionally, how should you approach that type of problem?",
+    correctAnswer: "You should do math to figure out if the options or, if it is an FRQ the, answer, is proportional.",
+    explanation: "For example if volume of a gas is doubled, the temperature in KELVIN, should be doubled as well to make sure they are proportional.",
+  },
 ];
