@@ -446,4 +446,10 @@ export const basicsQuestions: Question[] = [
     question: "Can you write variables that represent constants in place of the number when doing calculations in AP Chem FRQs?",
     correctAnswer: "No",
   },
+  {
+    id: "basics-54",
+    type: "free-response",
+    question: "Do you need to include units for every step when calculating in AP Chem?",
+    correctAnswer: "Yes",
+  },
 ];
