@@ -4,7 +4,7 @@ import { Question } from '@/types/quiz';
 // Math Enabled: true
 // Questions: 70
 
-export const molecularQuestions: Question[] = [
+export const molecular1Questions: Question[] = [
   {
     id: "molecular-1",
     type: "free-response",
