@@ -17,6 +17,14 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'September 24th, 2026',
+    title: 'Small Features',
+    items: [
+      'Customizable Daily Practice; certain units of choice',
+      'Physics and USH Phase 5 CSW, AP Chem, AP Calc AB/BC receiving new questions over time, not a singular update',
+    ],
+  },
+  {
     date: 'August 10th, 2026',
     title: 'Small Features',
     items: [
