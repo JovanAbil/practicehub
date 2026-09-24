@@ -529,3 +529,539 @@ Delete the Review row from `DailyPlanCard.tsx`, revert the four Quiz
 call-sites to the one-line form, and drop the four new exports from
 `dailyPlan.ts`. `reviewPerDay` is optional, so old and new
 `localStorage` records remain compatible.
+
+---
+
+## 11. Add a **Units** picker next to the Daily button (only draw from chosen units)
+
+Goal: a small **Units** button that sits in the same row as Daily /
+Per day / Download / Upload / Reset. The row already uses
+`flex flex-wrap`, so the new button wraps onto the next line on small
+screens instead of overflowing. Clicking it opens a checklist of every
+unit (topic) in the course. The daily plan **and** the review set then
+only draw from checked units.
+
+Rules:
+
+- The selection is saved in a **cookie** per subject:
+  `daily-units-<subject>` (e.g. `daily-units-biology`,
+  `daily-units-custom-<unitId>`). No cookie = all units selected.
+- Unchecked units are **ignored, not deleted**. Their mastered/unused
+  progress stays in `localStorage`, so re-checking a unit later picks up
+  exactly where you left off.
+- You can add a unit **in the middle of a day**. Today's list is
+  rebalanced so the new unit gets its fair share right away; misses you
+  still owe from selected units are kept first.
+- **Download** exports only the selected units' ids. **Upload** only
+  merges the selected units' ids from the file and leaves everything
+  else in your saved plan alone.
+- Works on Course Challenge and Custom Unit Challenge with no page
+  changes, because both render the same `<DailyPlanCard />`.
+
+A "unit" here is the id prefix (`ecology-3` -> `ecology`), the same
+grouping `pickRoundRobin` already uses.
+
+### Files touched
+
+| # | File | Change |
+|---|------|--------|
+| 1 | `src/utils/dailyUnitsCookie.ts` | **New** — read/write the cookie |
+| 2 | `src/utils/dailyPlan.ts` | Export `topicOf`, add `allowed` filter to draw/export/import/review, add `applyTopicFilter` |
+| 3 | `src/components/DailyPlanCard.tsx` | Units popover button, pass the filter everywhere |
+| 4 | *(nothing else)* | `Quiz.tsx`, `Results.tsx`, the challenge pages need no change |
+
+---
+
+### 11.1 New file `src/utils/dailyUnitsCookie.ts`
+
+**CREATE** the file with:
+
+```ts
+// Stores which units (topic prefixes) the Daily Plan may draw from.
+// Saved as a cookie per subject. null = "all units" (no filter).
+const name = (subject: string) => `daily-units-${subject}`;
+const ONE_YEAR = 60 * 60 * 24 * 365;
+
+export const loadDailyUnits = (subject: string): string[] | null => {
+  const match = document.cookie
+    .split('; ')
+    .find(c => c.startsWith(`${encodeURIComponent(name(subject))}=`));
+  if (!match) return null;
+  try {
+    const parsed = JSON.parse(decodeURIComponent(match.split('=').slice(1).join('=')));
+    return Array.isArray(parsed) ? parsed : null;
+  } catch { return null; }
+};
+
+export const saveDailyUnits = (subject: string, units: string[] | null) => {
+  const n = encodeURIComponent(name(subject));
+  if (units === null) {
+    document.cookie = `${n}=; max-age=0; path=/; SameSite=Lax`;
+    return;
+  }
+  const v = encodeURIComponent(JSON.stringify(units));
+  document.cookie = `${n}=${v}; max-age=${ONE_YEAR}; path=/; SameSite=Lax`;
+};
+```
+
+> `path=/` works on GitHub Pages under `/practicehub/` too. Cookies cap
+> at ~4 KB; a list of topic names is far below that.
+
+---
+
+### 11.2 `src/utils/dailyPlan.ts`
+
+**a) Export the topic helper.** Find `groupByTopic` (around **line 31**)
+and put this **directly above** it:
+
+```ts
+/** "ecology-3" -> "ecology". Shared by the Units picker. */
+export const topicOf = (id: string) => id.split('-').slice(0, -1).join('-') || id;
+
+/** Filter type: null / undefined = every unit allowed. */
+export type AllowedTopics = Set<string> | null | undefined;
+const isAllowed = (id: string, allowed: AllowedTopics) =>
+  !allowed || allowed.has(topicOf(id));
+```
+
+Then inside `groupByTopic`, **REPLACE**:
+
+```ts
+    const topic = id.split('-').slice(0, -1).join('-') || id;
+```
+
+**WITH:**
+
+```ts
+    const topic = topicOf(id);
+```
+
+**b) Give `ensureTodayPlan` a filter.** Change its signature
+(around **line 57**) from:
+
+```ts
+export const ensureTodayPlan = (
+  subject: string,
+  allQuestions: Question[],
+  questionsPerDay?: number,
+): DailyPlanState => {
+```
+
+**TO:**
+
+```ts
+export const ensureTodayPlan = (
+  subject: string,
+  allQuestions: Question[],
+  questionsPerDay?: number,
+  allowed?: AllowedTopics,
+): DailyPlanState => {
+```
+
+Keep the reconcile block as-is — it must still use the **full**
+`allQuestions`, otherwise unchecked units would lose their progress.
+
+Now in the Section 9 carry-over block, make three edits:
+
+1. Step 1 filter line — **REPLACE**:
+   ```ts
+   state.todayQuestionIds = state.todayQuestionIds.filter(id => !mastered.has(id));
+   ```
+   **WITH:**
+   ```ts
+   state.todayQuestionIds = state.todayQuestionIds.filter(
+     id => !mastered.has(id) && isAllowed(id, allowed)
+   );
+   ```
+
+2. Step 2 "whole bank mastered" check — the cycle should only restart
+   when the **selected** units are all mastered. **REPLACE**:
+   ```ts
+   if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
+     state.unusedIds = [...state.usedIds];
+     state.usedIds = [];
+   ```
+   **WITH:**
+   ```ts
+   const unusedAllowed = state.unusedIds.filter(id => isAllowed(id, allowed));
+   const usedAllowed = state.usedIds.filter(id => isAllowed(id, allowed));
+   if (unusedAllowed.length === 0 && usedAllowed.length > 0) {
+     // Recycle only the selected units; unselected progress is untouched.
+     state.unusedIds.push(...usedAllowed);
+     state.usedIds = state.usedIds.filter(id => !isAllowed(id, allowed));
+   ```
+   (the `cycleCount += 1` and `todayQuestionIds = []` lines below stay.)
+
+3. Step 3 top-up pool — **REPLACE**:
+   ```ts
+   const pool = state.unusedIds.filter(id => !already.has(id));
+   ```
+   **WITH:**
+   ```ts
+   const pool = state.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
+   ```
+
+**c) Same filter for Per day.** In `setQuestionsPerDay` change the
+signature and pool line:
+
+```ts
+export const setQuestionsPerDay = (subject: string, n: number, allowed?: AllowedTopics) => {
+```
+
+```ts
+  const pool = s.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
+```
+
+**d) New function — rebalance when the selection changes.** Append at
+the **end of the file**:
+
+```ts
+/**
+ * Called when the user checks/unchecks units mid-day.
+ * - Drops today's ids from units that are now unchecked.
+ * - Trims each remaining unit to a fair share so newly checked units
+ *   get room immediately (misses are kept first because they are
+ *   already at the front of the list).
+ * - Tops up round-robin from the selected units.
+ */
+export const applyTopicFilter = (subject: string, allowed: AllowedTopics) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  const topics = new Set(
+    s.unusedIds.filter(id => isAllowed(id, allowed)).map(topicOf)
+  );
+  const share = Math.max(1, Math.ceil(s.questionsPerDay / Math.max(1, topics.size)));
+  const perTopic: Record<string, number> = {};
+  s.todayQuestionIds = s.todayQuestionIds.filter(id => {
+    if (!isAllowed(id, allowed)) return false;
+    const t = topicOf(id);
+    perTopic[t] = (perTopic[t] ?? 0) + 1;
+    return perTopic[t] <= share;
+  });
+  const already = new Set(s.todayQuestionIds);
+  const pool = s.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
+  const need = s.questionsPerDay - s.todayQuestionIds.length;
+  if (need > 0) s.todayQuestionIds.push(...pickRoundRobin(pool, need));
+  saveDailyPlan(subject, s);
+};
+```
+
+**e) Filtered export.** **REPLACE** `exportDailyPlan` with:
+
+```ts
+export const exportDailyPlan = (subject: string, allowed?: AllowedTopics): string => {
+  const s = loadDailyPlan(subject);
+  if (!s) return '{}';
+  const keep = (ids: string[]) => ids.filter(id => isAllowed(id, allowed));
+  return JSON.stringify({
+    ...s,
+    unusedIds: keep(s.unusedIds),
+    usedIds: keep(s.usedIds),
+    todayQuestionIds: keep(s.todayQuestionIds),
+  }, null, 2);
+};
+```
+
+**f) Filtered import (merge, don't overwrite).** **REPLACE**
+`importDailyPlan` with:
+
+```ts
+export const importDailyPlan = (
+  subject: string, json: string, allowed?: AllowedTopics,
+): boolean => {
+  try {
+    const parsed = JSON.parse(json) as DailyPlanState;
+    if (!parsed || !Array.isArray(parsed.unusedIds)) return false;
+    const current = loadDailyPlan(subject);
+    if (!current || !allowed) { saveDailyPlan(subject, parsed); return true; }
+
+    // Only touch selected units; leave everything else as it was.
+    const inSel = (id: string) => isAllowed(id, allowed);
+    const outSel = (id: string) => !isAllowed(id, allowed);
+    current.unusedIds = [
+      ...current.unusedIds.filter(outSel),
+      ...parsed.unusedIds.filter(inSel),
+    ];
+    current.usedIds = [
+      ...current.usedIds.filter(outSel),
+      ...(parsed.usedIds ?? []).filter(inSel),
+    ];
+    current.todayQuestionIds = (parsed.todayQuestionIds ?? []).filter(inSel);
+    current.questionsPerDay = parsed.questionsPerDay ?? current.questionsPerDay;
+    saveDailyPlan(subject, current);
+    return true;
+  } catch { return false; }
+};
+```
+
+Any selected-unit id that exists in the course but is missing from the
+file gets re-added to `unusedIds` automatically by the reconcile step
+the next time `ensureTodayPlan` runs.
+
+**g) Filtered review (from Section 10).** **REPLACE** `drawReviewSet`
+with:
+
+```ts
+export const drawReviewSet = (subject: string, allowed?: AllowedTopics): string[] => {
+  const s = loadDailyPlan(subject);
+  if (!s) return [];
+  const pool = s.usedIds.filter(id => isAllowed(id, allowed));
+  if (pool.length === 0) return [];
+  const n = Math.max(1, Math.min(200, s.reviewPerDay ?? s.questionsPerDay));
+  return pickRoundRobin(pool, n);
+};
+```
+
+`markDailyPlanCorrect` / `markDailyPlanWrong` stay unchanged — they work
+on a single id and never care about the filter.
+
+---
+
+### 11.3 `src/components/DailyPlanCard.tsx`
+
+**a) Imports (lines 1–11).** **REPLACE** the import block with:
+
+```tsx
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { CalendarDays, Download, Upload, RotateCcw, History, Layers } from 'lucide-react';
+import { Question } from '@/types/quiz';
+import {
+  ensureTodayPlan, loadDailyPlan, setQuestionsPerDay,
+  exportDailyPlan, importDailyPlan, clearDailyPlan, DailyPlanState,
+  drawReviewSet, setReviewPerDay, topicOf, applyTopicFilter,
+} from '@/utils/dailyPlan';
+import { loadDailyUnits, saveDailyUnits } from '@/utils/dailyUnitsCookie';
+import { toast } from 'sonner';
+```
+
+(`checkbox.tsx` and `popover.tsx` already exist in `src/components/ui/`.)
+
+**b) Optional nicer labels.** Extend `Props` (around **line 13**):
+
+```tsx
+interface Props {
+  subject: string;
+  allQuestions: Question[];
+  /** Optional: map topic prefix -> display name, e.g. { ecology: 'Ecology' } */
+  topicLabels?: Record<string, string>;
+}
+```
+
+and the signature:
+
+```tsx
+const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
+```
+
+Without `topicLabels` the prefix is shown (`ecology`, `cellgrowth`, …).
+
+**c) Selection state.** Right after
+`const [state, setState] = useState<DailyPlanState | null>(null);`
+(around **line 27**) **ADD**:
+
+```tsx
+  // Every unit present in this course, in first-seen order.
+  const allTopics = useMemo(() => {
+    const seen: string[] = [];
+    allQuestions.forEach(q => {
+      const t = topicOf(q.id);
+      if (!seen.includes(t)) seen.push(t);
+    });
+    return seen;
+  }, [allQuestions]);
+
+  // null = all units. Loaded from the cookie once per subject.
+  const [selected, setSelected] = useState<string[] | null>(() => loadDailyUnits(subject));
+  useEffect(() => { setSelected(loadDailyUnits(subject)); }, [subject]);
+
+  // Drop cookie entries for units that no longer exist.
+  const allowed = useMemo(() => {
+    if (!selected) return null;
+    const live = selected.filter(t => allTopics.includes(t));
+    return live.length === allTopics.length ? null : new Set(live);
+  }, [selected, allTopics]);
+```
+
+**d) Pass the filter to the mount effect.** **REPLACE** the existing
+`useEffect` (lines **29–32**) with:
+
+```tsx
+  useEffect(() => {
+    if (allQuestions.length === 0) return;
+    setState(ensureTodayPlan(subject, allQuestions, undefined, allowed));
+  }, [subject, allQuestions, allowed]);
+```
+
+(If you added the Section 9.4 focus listener, pass `undefined, allowed`
+there too and add `allowed` to its deps.)
+
+**e) Toggle handler.** After `changePerDay` **ADD**:
+
+```tsx
+  const updateUnits = (next: string[]) => {
+    if (next.length === 0) { toast.error('Pick at least one unit'); return; }
+    const value = next.length === allTopics.length ? null : next;
+    saveDailyUnits(subject, value);
+    setSelected(value);
+    applyTopicFilter(subject, value ? new Set(value) : null);
+    setState(loadDailyPlan(subject));
+  };
+
+  const current = selected ?? allTopics;
+  const toggleUnit = (t: string) =>
+    updateUnits(current.includes(t) ? current.filter(x => x !== t) : [...current, t]);
+```
+
+**f) Thread `allowed` into the existing calls.** Make these one-word
+edits:
+
+| Where | Before | After |
+|---|---|---|
+| `changePerDay` | `setQuestionsPerDay(subject, n)` | `setQuestionsPerDay(subject, n, allowed)` |
+| `doExport` | `exportDailyPlan(subject)` | `exportDailyPlan(subject, allowed)` |
+| `doImport` | `importDailyPlan(subject, await f.text())` | `importDailyPlan(subject, await f.text(), allowed)` |
+| `doImport` / `doReset` | `ensureTodayPlan(subject, allQuestions)` | `ensureTodayPlan(subject, allQuestions, undefined, allowed)` |
+| `startReview` | `drawReviewSet(subject)` | `drawReviewSet(subject, allowed)` |
+
+Reset still wipes the whole plan (all units) — that's intentional; it's
+the "start over" button.
+
+**g) Scope the counters to the selection.** **REPLACE** the
+`totalPool` / `progressPct` lines (around **line 77**) with:
+
+```tsx
+  const inSel = (id: string) => !allowed || allowed.has(topicOf(id));
+  const usedSel = state.usedIds.filter(inSel).length;
+  const totalPool = state.unusedIds.filter(inSel).length + usedSel;
+  const progressPct = totalPool ? Math.round((usedSel / totalPool) * 100) : 0;
+```
+
+and in the Review button from Section 10 swap `state.usedIds.length`
+for `usedSel` (label, both `disabled` checks, and the progress line), so
+the Review count only shows mastered questions from selected units.
+
+**h) Render the Units button.** In the JSX, **directly after** the
+closing `</div>` of the "Per day" block and **before** the Download
+button, **INSERT**:
+
+```tsx
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="outline" size="sm" className="h-9 shrink-0" title="Choose units for the daily plan">
+            <Layers className="mr-1 h-4 w-4" />
+            Units ({current.length}/{allTopics.length})
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent align="end" className="w-64 p-3">
+          <div className="mb-2 flex items-center justify-between">
+            <span className="text-sm font-medium">Daily units</span>
+            <div className="flex gap-1">
+              <Button variant="ghost" size="sm" className="h-7 px-2 text-xs"
+                onClick={() => updateUnits(allTopics)}>All</Button>
+            </div>
+          </div>
+          <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
+            {allTopics.map(t => (
+              <label key={t} className="flex cursor-pointer items-center gap-2 text-sm">
+                <Checkbox checked={current.includes(t)} onCheckedChange={() => toggleUnit(t)} />
+                <span className="truncate">{topicLabels?.[t] ?? t}</span>
+              </label>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Unchecked units are skipped but keep their progress.
+          </p>
+        </PopoverContent>
+      </Popover>
+```
+
+There's no "None" button on purpose — at least one unit must stay
+checked (the handler blocks empty selections).
+
+**Why it doesn't overflow:** the outer wrapper is already
+`flex flex-wrap items-center gap-2`, the Daily button has
+`flex-1 min-w-[200px]`, and the new button is `shrink-0`. On narrow
+screens the Units / Per day / icon group drops to its own line instead
+of pushing off-screen. The popover list scrolls after ~8 units
+(`max-h-64 overflow-y-auto`).
+
+---
+
+### 11.4 Optional — show real unit names
+
+Course Challenge: pass the names you already have on that page, e.g.
+
+```tsx
+<DailyPlanCard
+  subject={subject}
+  allQuestions={allQuestions}
+  topicLabels={Object.fromEntries(topics.map(t => [t.id, t.name]))}
+/>
+```
+
+Custom Unit Challenge (`CustomUnitChallenge.tsx`):
+
+```tsx
+<DailyPlanCard
+  subject={subjectKey}
+  allQuestions={dailyPlanPool}
+  topicLabels={Object.fromEntries(unit.topics.map(t => [t.id, t.name]))}
+/>
+```
+
+This only works if question ids start with the topic id
+(`{topic}-#`, the project rule). If a label is missing, the prefix is
+shown instead — nothing breaks.
+
+---
+
+### 11.5 Behavior recap
+
+| Action | Result |
+|---|---|
+| First visit, no cookie | All units checked; behaves exactly like before |
+| Uncheck "Ecology" | Ecology ids leave today's list; list tops back up from the other units; Ecology progress kept |
+| Check "Genetics" mid-day | Other units trimmed to a fair share, Genetics questions added right away |
+| Answer right / wrong | Unchanged (Sections 9–10) |
+| All selected units mastered | New cycle for **selected units only**; unchecked units untouched |
+| Download | JSON with only selected units' ids |
+| Upload | Replaces selected units' ids from the file; unselected units keep their saved state |
+| Review | Only mastered questions from selected units |
+| Reset | Clears the whole plan (all units); cookie selection kept |
+
+### 11.6 Storage created
+
+```
+Cookie:        daily-units-<subject>      e.g. ["ecology","genetics"]
+localStorage:  daily-plan-<subject>       (unchanged format)
+```
+
+### 11.7 Test checklist
+
+1. Open Course Challenge → button reads **Units (8/8)** (or your count).
+2. Shrink the window to phone width → Units + icons wrap under the
+   Daily button, nothing scrolls sideways.
+3. Uncheck all but one unit → Daily list only has that unit's ids;
+   reload the page → selection is still there (cookie).
+4. Start the daily, answer a few, go back, check a second unit → the new
+   unit appears in today's list immediately.
+5. Try to uncheck the last unit → toast "Pick at least one unit".
+6. Download → JSON only has ids from checked units.
+7. Check a different unit set, upload that file → the checked units
+   update; re-check everything and confirm the other units' mastered
+   counts didn't change.
+8. Custom unit page → same button, separate cookie
+   (`daily-units-custom-<unitId>`).
+
+### 11.8 Rollback
+
+Delete `dailyUnitsCookie.ts`, remove the Units popover and the
+`allowed` arguments from `DailyPlanCard.tsx`, and drop the `allowed`
+params / `applyTopicFilter` from `dailyPlan.ts`. All new params are
+optional, so old saved plans keep working. Clear the
+`daily-units-*` cookies if you want a clean slate.
