@@ -33,7 +33,7 @@ export const clearDailyPlan = (subject: string) => {
 const groupByTopic = (ids: string[]): Record<string, string[]> => {
   const g: Record<string, string[]> = {};
   ids.forEach(id => {
-    const topic = id.split('-').slice(0, -1).join('-') || id;
+    const topic = topicOf(id);
     (g[topic] ||= []).push(id);
   });
   return g;
@@ -59,6 +59,7 @@ export const ensureTodayPlan = (
   subject: string,
   allQuestions: Question[],
   questionsPerDay?: number,
+  allowed?: AllowedTopics,
 ): DailyPlanState => {
   const allIds = allQuestions.map(q => q.id);
   let state = loadDailyPlan(subject);
@@ -93,15 +94,20 @@ export const ensureTodayPlan = (
 
   // 1. Drop anything that has been mastered — runs on EVERY mount, not just
   //    on a new day. This is the actual bug fix.
-  state.todayQuestionIds = state.todayQuestionIds.filter(id => !mastered.has(id));
+  state.todayQuestionIds = state.todayQuestionIds.filter(
+    id => !mastered.has(id) && isAllowed(id, allowed)
+  );
 
   const isNewDay = state.todayDate !== today;
 
   if (isNewDay) {
     // 2. Whole bank mastered? Start a new cycle.
-    if (state.unusedIds.length === 0 && state.usedIds.length > 0) {
-      state.unusedIds = [...state.usedIds];
-      state.usedIds = [];
+    const unusedAllowed = state.unusedIds.filter(id => isAllowed(id, allowed));
+    const usedAllowed = state.usedIds.filter(id => isAllowed(id, allowed));
+    if (unusedAllowed.length === 0 && usedAllowed.length > 0) {
+      // Recycle only the selected units; unselected progress is untouched.
+      state.unusedIds.push(...usedAllowed);
+      state.usedIds = state.usedIds.filter(id => !isAllowed(id, allowed));
       state.cycleCount += 1;
       state.todayQuestionIds = [];
     }
@@ -111,7 +117,7 @@ export const ensureTodayPlan = (
   // 3. Top up with new questions (never re-adding what's already listed).
   if (isNewDay || state.todayQuestionIds.length < state.questionsPerDay) {
     const already = new Set(state.todayQuestionIds);
-    const pool = state.unusedIds.filter(id => !already.has(id));
+    const pool = state.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
     const need = state.questionsPerDay - state.todayQuestionIds.length;
     if (need > 0) state.todayQuestionIds.push(...pickRoundRobin(pool, need));
   }
@@ -130,12 +136,12 @@ export const markDailyPlanCorrect = (subject: string, questionId: string) => {
   saveDailyPlan(subject, s);
 };
 
-export const setQuestionsPerDay = (subject: string, n: number) => {
+export const setQuestionsPerDay = (subject: string, n: number, allowed?: AllowedTopics) => {
   const s = loadDailyPlan(subject);
   if (!s) return;
   s.questionsPerDay = Math.max(1, Math.min(200, Math.floor(n)));
   const already = new Set(s.todayQuestionIds);
-  const pool = s.unusedIds.filter(id => !already.has(id));
+  const pool = s.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
   if (s.todayQuestionIds.length < s.questionsPerDay) {
     const extra = pickRoundRobin(pool, s.questionsPerDay - s.todayQuestionIds.length);
     s.todayQuestionIds.push(...extra);
@@ -145,16 +151,41 @@ export const setQuestionsPerDay = (subject: string, n: number) => {
   saveDailyPlan(subject, s);
 };
 
-export const exportDailyPlan = (subject: string): string => {
+export const exportDailyPlan = (subject: string, allowed?: AllowedTopics): string => {
   const s = loadDailyPlan(subject);
-  return JSON.stringify(s ?? {}, null, 2);
+  if (!s) return '{}';
+  const keep = (ids: string[]) => ids.filter(id => isAllowed(id, allowed));
+  return JSON.stringify({
+    ...s,
+    unusedIds: keep(s.unusedIds),
+    usedIds: keep(s.usedIds),
+    todayQuestionIds: keep(s.todayQuestionIds),
+  }, null, 2);
 };
 
-export const importDailyPlan = (subject: string, json: string): boolean => {
+export const importDailyPlan = (
+  subject: string, json: string, allowed?: AllowedTopics,
+): boolean => {
   try {
     const parsed = JSON.parse(json) as DailyPlanState;
     if (!parsed || !Array.isArray(parsed.unusedIds)) return false;
-    saveDailyPlan(subject, parsed);
+    const current = loadDailyPlan(subject);
+    if (!current || !allowed) { saveDailyPlan(subject, parsed); return true; }
+
+    // Only touch selected units; leave everything else as it was.
+    const inSel = (id: string) => isAllowed(id, allowed);
+    const outSel = (id: string) => !isAllowed(id, allowed);
+    current.unusedIds = [
+      ...current.unusedIds.filter(outSel),
+      ...parsed.unusedIds.filter(inSel),
+    ];
+    current.usedIds = [
+      ...current.usedIds.filter(outSel),
+      ...(parsed.usedIds ?? []).filter(inSel),
+    ];
+    current.todayQuestionIds = (parsed.todayQuestionIds ?? []).filter(inSel);
+    current.questionsPerDay = parsed.questionsPerDay ?? current.questionsPerDay;
+    saveDailyPlan(subject, current);
     return true;
   } catch { return false; }
 };
@@ -164,11 +195,13 @@ export const getReviewCount = (subject: string): number =>
   loadDailyPlan(subject)?.usedIds.length ?? 0;
 
 /** Draw a review set from the mastered bucket (round-robin across topics). */
-export const drawReviewSet = (subject: string): string[] => {
+export const drawReviewSet = (subject: string, allowed?: AllowedTopics): string[] => {
   const s = loadDailyPlan(subject);
-  if (!s || s.usedIds.length === 0) return [];
+  if (!s) return [];
+  const pool = s.usedIds.filter(id => isAllowed(id, allowed));
+  if (pool.length === 0) return [];
   const n = Math.max(1, Math.min(200, s.reviewPerDay ?? s.questionsPerDay));
-  return pickRoundRobin(s.usedIds, n);
+  return pickRoundRobin(pool, n);
 };
 
 export const setReviewPerDay = (subject: string, n: number) => {
@@ -188,5 +221,34 @@ export const markDailyPlanWrong = (subject: string, questionId: string) => {
   if (!s.usedIds.includes(questionId)) return;
   s.usedIds = s.usedIds.filter(id => id !== questionId);
   if (!s.unusedIds.includes(questionId)) s.unusedIds.push(questionId);
+  saveDailyPlan(subject, s);
+};
+
+/**
+ * Called when the user checks/unchecks units mid-day.
+ * - Drops today's ids from units that are now unchecked.
+ * - Trims each remaining unit to a fair share so newly checked units
+ *   get room immediately (misses are kept first because they are
+ *   already at the front of the list).
+ * - Tops up round-robin from the selected units.
+ */
+export const applyTopicFilter = (subject: string, allowed: AllowedTopics) => {
+  const s = loadDailyPlan(subject);
+  if (!s) return;
+  const topics = new Set(
+    s.unusedIds.filter(id => isAllowed(id, allowed)).map(topicOf)
+  );
+  const share = Math.max(1, Math.ceil(s.questionsPerDay / Math.max(1, topics.size)));
+  const perTopic: Record<string, number> = {};
+  s.todayQuestionIds = s.todayQuestionIds.filter(id => {
+    if (!isAllowed(id, allowed)) return false;
+    const t = topicOf(id);
+    perTopic[t] = (perTopic[t] ?? 0) + 1;
+    return perTopic[t] <= share;
+  });
+  const already = new Set(s.todayQuestionIds);
+  const pool = s.unusedIds.filter(id => !already.has(id) && isAllowed(id, allowed));
+  const need = s.questionsPerDay - s.todayQuestionIds.length;
+  if (need > 0) s.todayQuestionIds.push(...pickRoundRobin(pool, need));
   saveDailyPlan(subject, s);
 };
