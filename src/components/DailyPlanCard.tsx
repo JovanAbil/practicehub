@@ -25,6 +25,7 @@ interface Props {
  * Compact "Daily" control row shown directly under the Cram Mode button.
  * - Left: Daily button (starts today's plan)
  * - Right: number input for questions-per-day (default 15, saved locally)
+ * - Units picker (only draw from checked units)
  * - Small icon buttons for Export / Import / Reset
  */
 const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
@@ -52,7 +53,7 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
     const live = selected.filter(t => allTopics.includes(t));
     return live.length === allTopics.length ? null : new Set(live);
   }, [selected, allTopics]);
-  
+
   useEffect(() => {
     if (allQuestions.length === 0) return;
     setState(ensureTodayPlan(subject, allQuestions, undefined, allowed));
@@ -60,12 +61,12 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
 
   useEffect(() => {
     const refresh = () => {
-      if (allQuestions.length) setState(ensureTodayPlan(subject, allQuestions));
+      if (allQuestions.length) setState(ensureTodayPlan(subject, allQuestions, undefined, allowed));
     };
     window.addEventListener('focus', refresh);
     return () => window.removeEventListener('focus', refresh);
-  }, [subject, allQuestions]);
-  
+  }, [subject, allQuestions, allowed]);
+
   if (!state) return null;
 
   const startToday = () => {
@@ -83,7 +84,7 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
   };
 
   const changePerDay = (n: number) => {
-    setQuestionsPerDay(subject, n);
+    setQuestionsPerDay(subject, n, allowed);
     setState(loadDailyPlan(subject));
   };
 
@@ -106,7 +107,7 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
   };
 
   const startReview = () => {
-    const ids = drawReviewSet(subject);
+    const ids = drawReviewSet(subject, allowed);
     if (ids.length === 0) { toast.error('No completed questions to review yet'); return; }
     const byId = new Map(allQuestions.map(q => [q.id, q]));
     const qs = ids.map(id => byId.get(id)).filter(Boolean) as Question[];
@@ -123,7 +124,7 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
   };
 
   const doExport = () => {
-    const blob = new Blob([exportDailyPlan(subject)], { type: 'application/json' });
+    const blob = new Blob([exportDailyPlan(subject, allowed)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url; a.download = `daily-plan-${subject}.json`; a.click();
@@ -132,15 +133,15 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
 
   const doImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0]; if (!f) return;
-    const ok = importDailyPlan(subject, await f.text());
-    if (ok) { setState(ensureTodayPlan(subject, allQuestions)); toast.success('Plan imported'); }
+    const ok = importDailyPlan(subject, await f.text(), allowed);
+    if (ok) { setState(ensureTodayPlan(subject, allQuestions, undefined, allowed)); toast.success('Plan imported'); }
     else toast.error('Invalid plan file');
     if (fileRef.current) fileRef.current.value = '';
   };
 
   const doReset = () => {
     clearDailyPlan(subject);
-    setState(ensureTodayPlan(subject, allQuestions));
+    setState(ensureTodayPlan(subject, allQuestions, undefined, allowed));
     toast.success('Daily plan reset');
   };
 
@@ -194,7 +195,7 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
           </p>
         </PopoverContent>
       </Popover>
-      
+
       <Button variant="ghost" size="icon" onClick={doExport} title="Export daily plan">
         <Download className="h-4 w-4" />
       </Button>
@@ -211,10 +212,10 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
           onClick={startReview}
           variant="outline"
           className="flex-1 min-w-[200px]"
-          disabled={state.usedIds.length === 0}
+          disabled={usedSel === 0}
         >
           <History className="mr-2 h-4 w-4" />
-          Review ({state.usedIds.length} completed)
+          Review ({usedSel} completed)
         </Button>
         <div className="flex items-center gap-1">
           <label className="text-xs text-muted-foreground whitespace-nowrap">Per review:</label>
@@ -223,13 +224,13 @@ const DailyPlanCard = ({ subject, allQuestions, topicLabels }: Props) => {
             value={state.reviewPerDay ?? state.questionsPerDay}
             onChange={e => changeReviewPerDay(Number(e.target.value) || 1)}
             className="w-20 h-9"
-            disabled={state.usedIds.length === 0}
+            disabled={usedSel === 0}
           />
         </div>
       </div>
 
       <div className="w-full text-xs text-muted-foreground">
-        Mastered {state.usedIds.length}/{totalPool} ({progressPct}%) · Cycles: {state.cycleCount} ·
+        Mastered {usedSel}/{totalPool} ({progressPct}%) · Cycles: {state.cycleCount} ·
         Correct answers cycle out; wrong ones stay until mastered. Missed review
         questions return to the daily plan.
       </div>
