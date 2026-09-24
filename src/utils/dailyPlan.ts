@@ -29,6 +29,14 @@ export const clearDailyPlan = (subject: string) => {
   localStorage.removeItem(key(subject));
 };
 
+/** "ecology-3" -> "ecology". Shared by the Units picker. */
+export const topicOf = (id: string) => id.split('-').slice(0, -1).join('-') || id;
+
+/** Filter type: null / undefined = every unit allowed. */
+export type AllowedTopics = Set<string> | null | undefined;
+const isAllowed = (id: string, allowed: AllowedTopics) =>
+  !allowed || allowed.has(topicOf(id));
+
 /** Group question ids by their topic prefix (id looks like "ecology-3"). */
 const groupByTopic = (ids: string[]): Record<string, string[]> => {
   const g: Record<string, string[]> = {};
