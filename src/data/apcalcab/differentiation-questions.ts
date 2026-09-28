@@ -153,7 +153,7 @@ export const differentiationQuestions: Question[] = [
     id: "differentiation-24",
     type: "parts",
     question: "Inverse Trig Derivatives.",
-    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(x) =$","correctAnswer":"$\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\cos^{-1}(x) =$","correctAnswer":"$-\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\sec^{-1}(x) =$","correctAnswer":"$\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"d","type":"free-response","question":"$\\frac{d}{dx}\\csc^{-1}(x) =$","correctAnswer":"$-\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"e","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(x) =$","correctAnswer":"$\\frac{1}{\\sqrt{x^{2}+1}}$"},{"label":"f","type":"free-response","question":"$\\frac{d}{dx}\\cot^{-1}(x) =$","correctAnswer":"$-\\frac{1}{\\sqrt{x^{2}+1}}$"}],
+    parts: [{"label":"a","type":"free-response","question":"$\\frac{d}{dx}\\sin^{-1}(x) =$","correctAnswer":"$\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"b","type":"free-response","question":"$\\frac{d}{dx}\\cos^{-1}(x) =$","correctAnswer":"$-\\frac{1}{\\sqrt{1-x^{2}}}$"},{"label":"c","type":"free-response","question":"$\\frac{d}{dx}\\sec^{-1}(x) =$","correctAnswer":"$\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"d","type":"free-response","question":"$\\frac{d}{dx}\\csc^{-1}(x) =$","correctAnswer":"$-\\frac{1}{|x|\\sqrt{x^{2}-1}}$"},{"label":"e","type":"free-response","question":"$\\frac{d}{dx}\\tan^{-1}(x) =$","correctAnswer":"$\\frac{1}{x^{2}+1}$"},{"label":"f","type":"free-response","question":"$\\frac{d}{dx}\\cot^{-1}(x) =$","correctAnswer":"$-\\frac{1}{x^{2}+1}$"}],
   },
   {
     id: "differentiation-25",
