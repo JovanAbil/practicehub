@@ -149,14 +149,19 @@ const PartsQuestionView = ({
       <CalculatorBadge active={question.calculator} />
 
       {question.table && (
+        <QuestionTable data={question.table} enableChemistry={subject === 'chemistry'} />
+      )}
+
+      {question.image && (
         <div className="mb-4 flex justify-center">
           <img 
-            src={resolveImagePath(question.image)}
+            src={resolveImagePath(question.image)} 
             alt="Question diagram" 
             className="max-w-2xl max-h-96 w-auto h-auto object-contain rounded-lg border-2 border-border"
           />
         </div>
       )}
+
       
       <PiecewiseAwareText tag="h3" className="text-xl font-semibold mb-4 leading-relaxed" text={question.question} enableChemistry={subject === 'chemistry'} />
 
