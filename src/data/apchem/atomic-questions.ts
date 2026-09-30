@@ -616,10 +616,4 @@ export const atomic1Questions: Question[] = [
     question: "What is the pattern of valence electrons in the groups on the periodic table?",
     correctAnswer: "Groups 1, 2, 13, 14, 15, 16, 17, 18 have 1, 2, 3, 4, 5, 6, 7, 8 valence electrons respectively.",
   },
-  {
-    id: "atomic-98",
-    type: "free-response",
-    question: "Why are ions similar per groups on the periodic table?",
-    correctAnswer: "The elements want to become stable, which means having a full octect, so they need to either lose or gain certain amount of electrons resulting in groups having certain ions.",
-  },
 ];
