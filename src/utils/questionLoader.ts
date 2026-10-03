@@ -57,7 +57,7 @@ import { intermolecularQuestions } from '@/data/apchem/intermolecular-questions'
 //import { applicationsthermodynamicsQuestions } from '@/data/apchem/applicationsthermodynamics-questions';
 
 // Physics
-//import { kinematicsQuestions } from '@/data/physics/kinematics-questions';
+import { kinematicsQuestions } from '@/data/physics/kinematics-questions';
 //import { dynamicsQuestions } from '@/data/physics/dynamics-questions';
 //import { energyQuestions } from '@/data/physics/energy-questions';
 //import { momentumQuestions } from '@/data/physics/momentum-questions';
@@ -179,7 +179,7 @@ const questionMap: Record<string, Question[]> = {
   //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions,
 
   //physics
-  //'physics-kinematics': kinematicsQuestions,
+  'physics-kinematics': kinematicsQuestions,
   //'physics-dynamics': dynamicsQuestions,
   //'physics-energy': energyQuestions,
   //'physics-momentum': momentumQuestions,
@@ -301,13 +301,13 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
       //{ id: 'applicationsthermodynamics', name: 'Thermodynamics and Electrochemistry' },
   ],
   physics: [
-  //      { id: 'kinematics', name: 'Kinematics' },
-  //      { id: 'dynamics', name: 'Dynamics' },
-  //      { id: 'energy', name: 'Energy' },
-  //      { id: 'momentum', name: 'Momentum' },
-  //      { id: 'electrostatics', name: 'Electrostatics' },
-  //      { id: 'circuits', name: 'Electric Circuits' },
-  //      { id: 'waves', name: 'Waves' },
+      { id: 'kinematics', name: 'Kinematics' },
+  //    { id: 'dynamics', name: 'Dynamics' },
+  //    { id: 'energy', name: 'Energy' },
+  //    { id: 'momentum', name: 'Momentum' },
+  //    { id: 'electrostatics', name: 'Electrostatics' },
+  //    { id: 'circuits', name: 'Electric Circuits' },
+  //    { id: 'waves', name: 'Waves' },
   ],
   biology: [
     { id: 'biochemistry', name: 'Unit 1 - Biochemistry' },
