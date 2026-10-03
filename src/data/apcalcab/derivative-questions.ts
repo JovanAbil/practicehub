@@ -515,4 +515,10 @@ export const derivativeQuestions: Question[] = [
     question: "If there is a coefficient on the denominator when doing power rule, do you bring the coefficient up with the equation?",
     correctAnswer: "No",
   },
+  {
+    id: "derivative-76",
+    type: "free-response",
+    question: "What is the derivative rule for logarithms such that $\\log_{a}f(x)$?",
+    correctAnswer: "$\\frac{f'(x)}{\\ln a \\times f(x)}$",
+  },
 ];
