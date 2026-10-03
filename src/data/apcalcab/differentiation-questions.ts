@@ -211,4 +211,34 @@ export const differentiationQuestions: Question[] = [
     question: "Use chain rule to show what the derivative of $g(x) = \\sin(f(x))$ is.",
     correctAnswer: "$g'(x) = \\cos(f(x)) \\times f'(x)$",
   },
+  {
+    id: "differentiation-34",
+    type: "free-response",
+    question: "How do you find a horizontal tangent line from an implicit function?\n",
+    correctAnswer: "Find the derivative and set the numerator to 0\n",
+  },
+  {
+    id: "differentiation-35",
+    type: "free-response",
+    question: "How do you find a vertical tangent line from an implicit function?\n",
+    correctAnswer: "Find the derivative and set the denominator to 0\n",
+  },
+  {
+    id: "differentiation-36",
+    type: "free-response",
+    question: "If there are two differentiable functions that are inverses of each other, and we assume that they are both linear, using $f(a) = b$ and $g’(b) = c$, what is $f’(b)$?\n",
+    correctAnswer: "It will be $\\frac{1}{c}$ \n",
+  },
+  {
+    id: "differentiation-37",
+    type: "free-response",
+    question: "An increasing function $f$ has $f(10) = 5$ and $f’(10) = 8$, what is $(f^{-1})’(5)$?\n",
+    correctAnswer: "$\\frac{1}{8}$\n",
+  },
+  {
+    id: "differentiation-38",
+    type: "free-response",
+    question: "When you are given $(f^{-1})’(a) = b$ and told to find a function that makes those values true, what are the steps to test functions?\n",
+    correctAnswer: "-Apply the derivative of inverse functions and set it equal to $b$\n-Replace the $f^{-1}(a) = x$ temporarily\n-Now you should take the derivative of the options and set it equal to $\\frac{1}{b}$\n-Solve using the functions\n-Whatever solution you get, test it by using it in the underived function to see if you get $a$.",
+  },
 ];
