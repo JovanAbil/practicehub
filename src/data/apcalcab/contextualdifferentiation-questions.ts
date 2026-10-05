@@ -265,7 +265,7 @@ export const contextualdifferentiationQuestions: Question[] = [
     id: "contextualdifferentiation-42",
     type: "free-response",
     question: "Find the rate of change of the distance between the origin and a moving point on a graph of $y = \\sin x$ if $dx/dt = 2$ centimeters per second.",
-    correctAnswer: "$dD/dt = \\frac{2(x+\\sin x \\cos x)}{\\sqrt{x^{2}+sin^{2}x}}$ cm/s",
+    correctAnswer: "$dD/dt = \\frac{2(x+\\sin x \\cos x)}{\\sqrt{x^{2}+\\sin^{2}x}}$ cm/s",
   },
   {
     id: "contextualdifferentiation-43",
