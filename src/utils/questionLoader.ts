@@ -86,7 +86,7 @@ import { stoichiometryQuestions } from '@/data/chemistry/stoichiometry-questions
 import { acidbasesQuestions } from '@/data/chemistry/acidbases-questions';
 
 // US History
-//import { Questions } from '@/data/ushistory/-questions';
+import { antebellumQuestions } from '@/data/ushistory/antebellum-questions';
 
 // World History
 import { religionsQuestions } from '@/data/worldhistory/religions-questions';
@@ -207,6 +207,9 @@ const questionMap: Record<string, Question[]> = {
   'chemistry-stoichiometry': stoichiometryQuestions,
   'chemistry-acidbases': acidbasesQuestions,
 
+  //ushistory
+  'ushistory-antebellum': antebellumQuestions,
+  
   //worldhistory
   'world-history-religions': religionsQuestions,
   'world-history-islam': islamQuestions,
@@ -360,7 +363,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     { id: 'chinese2', name: 'Chinese Yuan - Modern' },
   ],
   ushistory: [
-    
+    {id: 'antebellum', name: 'Antebellum'},
   ],
   drivers: [
     { id: 'drivers1', name: 'Unit 1' }, 
@@ -385,7 +388,6 @@ const subjectTitles: Record<string, string> = {
   chemistry: 'Chemistry',
   ushistory: 'US History',
   'world-history': 'World History',
-  
   apcsp: 'AP CSP',
   apcsa: 'AP CSA',
   temporary: 'Temporary Practice',
