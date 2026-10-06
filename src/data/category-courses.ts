@@ -216,7 +216,7 @@ export const socialSchoolCourses: Record<string, CourseEntry[]> = {
       name: 'US History',
       subject: 'ushistory',
       units: [
-        //{ id: '', name: '' },
+        { id: 'antebellum', name: 'Antebellum' },
       ],
       hasChallenge: true,
     },
