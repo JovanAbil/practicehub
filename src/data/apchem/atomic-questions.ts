@@ -957,4 +957,10 @@ export const atomic1Questions: Question[] = [
     question: "What are the rules of reaction equations of ionization energy?",
     correctAnswer: "It needs to be a single gaseous atom from the pre-ionization on the reactants and the products being the ionized ion + the electron",
   },
+  {
+    id: "atomic-154",
+    type: "free-response",
+    question: "If there is a table showing ionization energies and there are 2 or more unknown elements having no distinct change, what should you write when AP asks you to idenfity? [AP FRQ Format]",
+    correctAnswer: "Elements __ and __ (more if necessary) can't be identified because there is no distinctive large increase in ionization energy so the elements could have (list possible valence) so they could be (list possible options) and can't be specifically identified further.",
+  },
 ];
