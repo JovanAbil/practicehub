@@ -1301,4 +1301,10 @@ export const intermolecularQuestions: Question[] = [
     question: "What should you write to describe instantaneous dipoles instead of stating it has more electrons? ",
     correctAnswer: "Write \"Element/Species X has a more polarizable cloud of electrons”",
   },
+  {
+    id: "intermolecular-210",
+    type: "free-response",
+    question: "What happens always if you change the cuvette to a larger cm one in between?",
+    correctAnswer: "The measured absorbance will be higher because it will have twice as much liquid to go through.",
+  },
 ];
