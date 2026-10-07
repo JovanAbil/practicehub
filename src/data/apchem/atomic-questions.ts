@@ -951,4 +951,10 @@ export const atomic1Questions: Question[] = [
     question: "Answer the following about quantum number $m_{l}$.",
     parts: [{"label":"a","type":"free-response","question":"What are the values of $m_{l}$ when $l = 0$?","correctAnswer":"$0$"},{"label":"b","type":"free-response","question":"What are the values of $m_{l}$ when $l = 1$?","correctAnswer":"$-1, 0, +1$"},{"label":"c","type":"free-response","question":"What are the values of $m_{l}$ when $l = 2$?","correctAnswer":"$-2, -1, 0, +1, +2$"},{"label":"d","type":"free-response","question":"What are the values of $m_{l}$ when $l = 3$?","correctAnswer":"$-3, -2, -1, 0, +1, +2, +3$"}],
   },
+  {
+    id: "atomic-153",
+    type: "free-response",
+    question: "What are the rules of reaction equations of ionization energy?",
+    correctAnswer: "It needs to be a single gaseous atom from the pre-ionization on the reactants and the products being the ionized ion + the electron",
+  },
 ];
