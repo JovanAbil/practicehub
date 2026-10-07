@@ -1307,4 +1307,16 @@ export const intermolecularQuestions: Question[] = [
     question: "What happens always if you change the cuvette to a larger cm one in between?",
     correctAnswer: "The measured absorbance will be higher because it will have twice as much liquid to go through.",
   },
+  {
+    id: "intermolecular-211",
+    type: "free-response",
+    question: "If you are given a table of absorbance values and concentration values, how would you find the slope?",
+    correctAnswer: "The average rate from the distilled water to the furthest correct absorbance value.",
+  },
+  {
+    id: "intermolecular-212",
+    type: "free-response",
+    question: "Chromium is known to occur in +2, +3, +4, +5, and +6 oxidation states. Provide and explanation for this characteristic of chromium based on atomic structure.",
+    correctAnswer: "Chromium's valence shells from the electron configuration show 4s$^{2}$3d$^{4}$ which is 6 valence electrons. Since there are 6 outermost electrons, they are easy to eject out of the Cr atom leading to those oxidation states.",
+  },
 ];
