@@ -933,4 +933,22 @@ export const atomic1Questions: Question[] = [
     question: "When comparing removing an electron between two different elements that are next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
     correctAnswer: "Effective nuclear charge",
   },
+  {
+    id: "atomic-150",
+    type: "parts",
+    question: "Answer the following about quantum number $l$.",
+    parts: [{"label":"a","type":"free-response","question":"What does $l = 0$ mean?","correctAnswer":"The $s$ subshell."},{"label":"b","type":"free-response","question":"What does $l = 1$ mean?","correctAnswer":"The $p$ subshell."},{"label":"c","type":"free-response","question":"What does $l = 2$ mean?","correctAnswer":"The $d$ subshell."},{"label":"d","type":"free-response","question":"What does $l = 3$ mean?","correctAnswer":"The $f$ subshell."}],
+  },
+  {
+    id: "atomic-151",
+    type: "parts",
+    question: "Answer the following about quantum number $n$.",
+    parts: [{"label":"a","type":"free-response","question":"What does $n = 1$ mean?","correctAnswer":"Any subshell starting with the coefficient $1$. $(1s)$"},{"label":"b","type":"free-response","question":"What does $n = 2$ mean?","correctAnswer":"Any subshell starting with the coefficient $2$. $(2s, 2p)$"},{"label":"c","type":"free-response","question":"What does $n = 3$ mean?","correctAnswer":"Any subshell starting with the coefficient $3$. $(3s, 3p, 3d)$"},{"label":"d","type":"free-response","question":"What does $n = 4$ mean?","correctAnswer":"Any subshell starting with the coefficient $4$. $(4s, 4p, 4d, 4f)$"},{"label":"e","type":"free-response","question":"What does $n = 5$ mean?","correctAnswer":"Any subshell starting with the coefficient $5$. $(5s, 5p, 5d, 5f)$"},{"label":"f","type":"free-response","question":"What does $n = 6$ mean?","correctAnswer":"Any subshell starting with the coefficient $6$. $(6s, 6p, 6d, 6f)$"},{"label":"g","type":"free-response","question":"What does $n = 7$ mean?","correctAnswer":"Any subshell starting with the coefficient $7$. $(7s, 7p, 7d, 7f)$"}],
+  },
+  {
+    id: "atomic-152",
+    type: "parts",
+    question: "Answer the following about quantum number $m_{l}$.",
+    parts: [{"label":"a","type":"free-response","question":"What are the values of $m_{l}$ when $l = 0$?","correctAnswer":"$0$"},{"label":"b","type":"free-response","question":"What are the values of $m_{l}$ when $l = 1$?","correctAnswer":"$-1, 0, +1$"},{"label":"c","type":"free-response","question":"What are the values of $m_{l}$ when $l = 2$?","correctAnswer":"$-2, -1, 0, +1, +2$"},{"label":"d","type":"free-response","question":"What are the values of $m_{l}$ when $l = 3$?","correctAnswer":"$-3, -2, -1, 0, +1, +2, +3$"}],
+  },
 ];
