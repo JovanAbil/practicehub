@@ -29,19 +29,13 @@ export const SCHOOLS: SchoolConfig[] = [
     neededCourses: {
       math: [
         'Calculus 3',
-        'Calculus',
         'Statistics',
         'Math 3',
         'Math 2',
         'Math 1',
       ],
-      science: [
-        'Chemistry (Darone)',
-        'Physics',
-      ],
-      social: [
-        'US History',
-      ],
+      science: [],
+      social: [],
       english: [],
       other: [],
     },
