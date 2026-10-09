@@ -1316,7 +1316,8 @@ export const intermolecularQuestions: Question[] = [
   {
     id: "intermolecular-212",
     type: "free-response",
-    question: "Chromium is known to occur in +2, +3, +4, +5, and +6 oxidation states. Provide and explanation for this characteristic of chromium based on atomic structure.",
-    correctAnswer: "Chromium's valence shells from the electron configuration show 4s$^{2}$3d$^{4}$ which is 6 valence electrons. Since there are 6 outermost electrons, they are easy to eject out of the Cr atom leading to those oxidation states.",
+    question: "When a question is asking why a specific element is often found at a certain oxidation state, what should be the explanation? [AP Exam FRQ]",
+    correctAnswer: "(Element) often forms (oxidation states) oxidation states. For (oxidation state), it likes to lose its (subshell) valence electrons because it is the furthest away from the nucleus. For (other oxidation state), it loses both the (subshell 1) and (subshell 2) valence electrons because of the small energy difference between (subshell 1) and (subshell 2) subshells.
+",
   },
 ];
