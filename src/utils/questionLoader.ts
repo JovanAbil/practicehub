@@ -47,14 +47,12 @@ import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questi
 //AP Chem
 import { basicsQuestions } from '@/data/apchem/basics-questions';
 import { atomic1Questions } from '@/data/apchem/atomic-questions';
-import { molecular1Questions } from '@/data/apchem/molecular-questions';
-import { intermolecularQuestions } from '@/data/apchem/intermolecular-questions';
-//import { reactionsQuestions } from '@/data/apchem/reactions-questions';
+import { thermochemQuestions } from '@/data/apchem/thermochem-questions';
+//import { compoundsQuestions } from '@/data/apchem/intermolecular-questions';
 //import { kineticsQuestions } from '@/data/apchem/kinetics-questions';
-//import { thermodynamicsQuestions } from '@/data/apchem/thermodynamics-questions';
 //import { equilibriumQuestions } from '@/data/apchem/equilibrium-questions';
 //import { acidsbasesQuestions } from '@/data/apchem/acidsbases-questions';
-//import { applicationsthermodynamicsQuestions } from '@/data/apchem/applicationsthermodynamics-questions';
+//import { thermodynamicsQuestions } from '@/data/apchem/thermodynamics-questions';
 
 // Physics
 import { kinematicsQuestions } from '@/data/physics/kinematics-questions';
@@ -169,14 +167,12 @@ const questionMap: Record<string, Question[]> = {
   //apchem
   'apchem-basics': basicsQuestions,
   'apchem-atomic': atomic1Questions,
-  'apchem-molecular': molecular1Questions,
-  'apchem-intermolecular': intermolecularQuestions,
-  //'apchem-reactions': reactionsQuestions,
+  'apchem-thermochem': thermochemQuestions,
+  //'apchem-compounds': compoundsQuestions,
   //'apchem-kinetics': kineticsQuestions,
-  //'apchem-thermodynamics': thermodynamicsQuestions,
   //'apchem-equilibrium': equilibriumQuestions,
   //'apchem-acidsbases': acidsbasesQuestions,
-  //'apchem-applicationsthermodynamics': applicationsthermodynamicsQuestions,
+  //'apchem-thermodynamics': thermodynamicsQuestions,
 
   //physics
   'physics-kinematics': kinematicsQuestions,
@@ -294,14 +290,12 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   apchem: [
       { id: 'basics', name: 'Intro to AP Chem' },
       { id: 'atomic', name: 'Atomic Structure and Properties' },
-      { id: 'molecular', name: 'Compound Structure and Properties' },
-      { id: 'intermolecular', name: 'Properties and Substances and Mixtures' },
-      //{ id: 'reactions', name: 'Chemical Reactions' },
+      { id: 'thermochem', name: 'Thermochemistry' },
+      { id: 'compounds', name: 'Compounds, Bonding, and Mixtures' },
       //{ id: 'kinetics', name: 'Kinetics' },
-      //{ id: 'thermodynamics', name: 'Thermochemistry' },
       //{ id: 'equilibrium', name: 'Equilibrium' },
       //{ id: 'acidsbases', name: 'Acids and Bases' },
-      //{ id: 'applicationsthermodynamics', name: 'Thermodynamics and Electrochemistry' },
+      //{ id: 'thermodynamics', name: 'Thermodynamics and Electrochemistry' },
   ],
   physics: [
       { id: 'kinematics', name: 'Kinematics' },
