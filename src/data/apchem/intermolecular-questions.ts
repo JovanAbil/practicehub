@@ -2,7 +2,7 @@ import { Question } from '@/types/quiz';
 
 // Topic: intermolecular
 // Math Enabled: true
-// Questions: 209
+// Questions: 212
 
 export const intermolecularQuestions: Question[] = [
   {
@@ -1317,7 +1317,6 @@ export const intermolecularQuestions: Question[] = [
     id: "intermolecular-212",
     type: "free-response",
     question: "When a question is asking why a specific element is often found at a certain oxidation state, what should be the explanation? [AP Exam FRQ]",
-    correctAnswer: "(Element) often forms (oxidation states) oxidation states. For (oxidation state), it likes to lose its (subshell) valence electrons because it is the furthest away from the nucleus. For (other oxidation state), it loses both the (subshell 1) and (subshell 2) valence electrons because of the small energy difference between (subshell 1) and (subshell 2) subshells.
-",
+    correctAnswer: "(Element) often forms (oxidation states) oxidation states. For (oxidation state), it likes to lose its (subshell) valence electrons because it is the furthest away from the nucleus. For (other oxidation state), it loses both the (subshell 1) and (subshell 2) valence electrons because of the small energy difference between (subshell 1) and (subshell 2) subshells.",
   },
 ];
