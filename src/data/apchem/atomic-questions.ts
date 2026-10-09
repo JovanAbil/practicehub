@@ -2,7 +2,7 @@ import { Question } from '@/types/quiz';
 
 // Topic: atomic
 // Math Enabled: true
-// Questions: 149
+// Questions: 154
 
 export const atomic1Questions: Question[] = [
   {
@@ -876,7 +876,7 @@ export const atomic1Questions: Question[] = [
   {
     id: "atomic-140",
     type: "free-response",
-    question: "How does the PES graph represent d orbitals?",
+    question: "How does the PES graph represent $d$ orbitals?",
     correctAnswer: "They will be next to the orbitals that share the same principal energy level (number coefficient) because they are closer to the nucleus",
   },
   {
@@ -894,73 +894,73 @@ export const atomic1Questions: Question[] = [
   {
     id: "atomic-143",
     type: "free-response",
-    question: "When comparing atomic radius between two different elements next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
-    correctAnswer: "Effective nuclear charge",
+    question: "When comparing first ionization energy between two different elements that are next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
+    correctAnswer: "(element A) has (# of protons) (more/less) than (element B) which makes the effective nuclear charge of (element A) (nuclear charge) (more/less) than (element B’s) effective nuclear charge of (nuclear charge), so the electrons are less attracted to (element) and is further away giving (element) more radius.",
   },
   {
     id: "atomic-144",
-    type: "free-response",
-    question: "When comparing atomic radius between two ions of the same element, what is the most optimal reasoning? [AP FRQ Format]",
-    correctAnswer: "Effective nuclear charge",
-  },
-  {
-    id: "atomic-145",
-    type: "free-response",
-    question: "When comparing first ionization energy between two different elements, what is the most optimal reasoning? [AP FRQ Format]",
-    correctAnswer: "Effective nuclear charge",
-  },
-  {
-    id: "atomic-146",
-    type: "free-response",
-    question: "When comparing first ionization energy between two different elements that are next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
-    correctAnswer: "Effective nuclear charge\t",
-  },
-  {
-    id: "atomic-147",
     type: "free-response",
     question: "When comparing first ionization energy between two different elements that are above/below each other, what is the most optimal reasoning? [AP FRQ Format]",
     correctAnswer: "Orbitals/Higher principal energy levels",
   },
   {
-    id: "atomic-148",
+    id: "atomic-145",
     type: "free-response",
     question: "When comparing the decrease in first ionization energy that goes against normal trends, what is the most optimal reasoning? [AP FRQ Format]",
-    correctAnswer: "Electron Electron repulsion",
+    correctAnswer: "(Element A) has a lower first ionization energy than (Element B) because (element A) has a paired electron in the (specific subshell) subshell while (element B) has no paired electrons so (element A) experiences electron electron repulsion making it easier to remove electrons from (element A) than (element B).",
   },
   {
-    id: "atomic-149",
+    id: "atomic-146",
     type: "free-response",
-    question: "When comparing removing an electron between two different elements that are next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
+    question: "When comparing ionization energy between two different elements that are next to each other on the periodic table, what is the most optimal reasoning? [AP FRQ Format]",
     correctAnswer: "Effective nuclear charge",
   },
   {
-    id: "atomic-150",
+    id: "atomic-147",
     type: "parts",
     question: "Answer the following about quantum number $l$.",
     parts: [{"label":"a","type":"free-response","question":"What does $l = 0$ mean?","correctAnswer":"The $s$ subshell."},{"label":"b","type":"free-response","question":"What does $l = 1$ mean?","correctAnswer":"The $p$ subshell."},{"label":"c","type":"free-response","question":"What does $l = 2$ mean?","correctAnswer":"The $d$ subshell."},{"label":"d","type":"free-response","question":"What does $l = 3$ mean?","correctAnswer":"The $f$ subshell."}],
   },
   {
-    id: "atomic-151",
+    id: "atomic-148",
     type: "parts",
     question: "Answer the following about quantum number $n$.",
     parts: [{"label":"a","type":"free-response","question":"What does $n = 1$ mean?","correctAnswer":"Any subshell starting with the coefficient $1$. $(1s)$"},{"label":"b","type":"free-response","question":"What does $n = 2$ mean?","correctAnswer":"Any subshell starting with the coefficient $2$. $(2s, 2p)$"},{"label":"c","type":"free-response","question":"What does $n = 3$ mean?","correctAnswer":"Any subshell starting with the coefficient $3$. $(3s, 3p, 3d)$"},{"label":"d","type":"free-response","question":"What does $n = 4$ mean?","correctAnswer":"Any subshell starting with the coefficient $4$. $(4s, 4p, 4d, 4f)$"},{"label":"e","type":"free-response","question":"What does $n = 5$ mean?","correctAnswer":"Any subshell starting with the coefficient $5$. $(5s, 5p, 5d, 5f)$"},{"label":"f","type":"free-response","question":"What does $n = 6$ mean?","correctAnswer":"Any subshell starting with the coefficient $6$. $(6s, 6p, 6d, 6f)$"},{"label":"g","type":"free-response","question":"What does $n = 7$ mean?","correctAnswer":"Any subshell starting with the coefficient $7$. $(7s, 7p, 7d, 7f)$"}],
   },
   {
-    id: "atomic-152",
+    id: "atomic-149",
     type: "parts",
     question: "Answer the following about quantum number $m_{l}$.",
     parts: [{"label":"a","type":"free-response","question":"What are the values of $m_{l}$ when $l = 0$?","correctAnswer":"$0$"},{"label":"b","type":"free-response","question":"What are the values of $m_{l}$ when $l = 1$?","correctAnswer":"$-1, 0, +1$"},{"label":"c","type":"free-response","question":"What are the values of $m_{l}$ when $l = 2$?","correctAnswer":"$-2, -1, 0, +1, +2$"},{"label":"d","type":"free-response","question":"What are the values of $m_{l}$ when $l = 3$?","correctAnswer":"$-3, -2, -1, 0, +1, +2, +3$"}],
   },
   {
-    id: "atomic-153",
+    id: "atomic-150",
     type: "free-response",
     question: "What are the rules of reaction equations of ionization energy?",
     correctAnswer: "It needs to be a single gaseous atom from the pre-ionization on the reactants and the products being the ionized ion + the electron",
   },
   {
-    id: "atomic-154",
+    id: "atomic-151",
     type: "free-response",
     question: "If there is a table showing ionization energies and there are 2 or more unknown elements having no distinct change, what should you write when AP asks you to idenfity? [AP FRQ Format]",
     correctAnswer: "Elements __ and __ (more if necessary) can't be identified because there is no distinctive large increase in ionization energy so the elements could have (list possible valence) so they could be (list possible options) and can't be specifically identified further.",
+  },
+  {
+    id: "atomic-152",
+    type: "free-response",
+    question: "Why is a high absorbance value considered not a good reading? What do we need to do to ‘fix’ the absorbance?",
+    correctAnswer: "It isn’t considered a good reading because very little light reached the detector so we need to dilute the unknown solution so it can be measured properly in comparison.",
+  },
+  {
+    id: "atomic-153",
+    type: "free-response",
+    question: "What is the format when the question is asking: Describe the PES for the element immediately to the (right/left) of this one of the periodic table would be different from this PES. Explain the reasoning behind each difference. [AP Exam FRQ]",
+    correctAnswer: "The peaks would be shifted to the (left/right) because it would have (+-1 more/less) protons which increases the effective nuclear charge. The (orbital) peak would also be (#) as high because it would have (#) electrons in the (orbital) orbital instead of (the initial amount of electrons).",
+  },
+  {
+    id: "atomic-154",
+    type: "free-response",
+    question: "If there is a question asking which ion of the same element has a larger radius, what reasoning should you use? [AP Exam FRQ]",
+    correctAnswer: " The (larger radius ion) atom has a larger radius than (smaller radius ion) because (larger radius ion) has electrons in the (specific subshell) subshell while (smaller radius ion) has its electrons in the (specific subshell) subshell and since (subshell) is further out than (subshell), it has less attraction to the nucleus so (larger radius ion) has a larger radius.",
   },
 ];
