@@ -105,14 +105,12 @@ export const scienceApCourses: CourseEntry[] = [
       units: [
         { id: 'basics', name: 'Intro to AP Chem' },
         { id: 'atomic', name: 'Atomic Structure and Properties' },
-        { id: 'molecular', name: 'Compound Structure and Properties' },
-        { id: 'intermolecular', name: 'Properties and Substances and Mixtures' },
-        { id: 'reactions', name: 'Chemical Reactions' },
+        { id: 'thermochem', name: 'Thermochemistry' },
+        { id: 'compounds', name: 'Compounds, Bonding, and Mixtures' },
         { id: 'kinetics', name: 'Kinetics' },
-        { id: 'thermodynamics', name: 'Thermochemistry' },
         { id: 'equilibrium', name: 'Equilibrium' },
         { id: 'acidsbases', name: 'Acids and Bases' },
-        { id: 'applicationsthermodynamics', name: 'Thermodynamics and Electrochemistry' }
+        { id: 'thermodynamics', name: 'Thermodynamics and Electrochemistry' }
       ],
     },
 ];
