@@ -1319,4 +1319,10 @@ export const intermolecularQuestions: Question[] = [
     question: "When a question is asking why a specific element is often found at a certain oxidation state, what should be the explanation? [AP Exam FRQ]",
     correctAnswer: "(Element) often forms (oxidation states) oxidation states. For (oxidation state), it likes to lose its (subshell) valence electrons because it is the furthest away from the nucleus. For (other oxidation state), it loses both the (subshell 1) and (subshell 2) valence electrons because of the small energy difference between (subshell 1) and (subshell 2) subshells.",
   },
+  {
+    id: "intermolecular-213",
+    type: "free-response",
+    question: "How do you get the value for kJ/mol and you found the energy per photon?",
+    correctAnswer: "Multiply the energy per photon * 6.022*10^23 because 1 mol = that many photons.",
+  },
 ];
