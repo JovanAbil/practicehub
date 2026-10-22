@@ -15,7 +15,7 @@ export const analyticaldifferentiationQuestions: Question[] = [
     id: "analyticaldifferentiation-2",
     type: "parts",
     question: "Use the function $f(x) = -x^{2}+3x+10$ to answer the following.",
-    parts: [{"label":"a","type":"free-response","question":"On the interval $[2, 6]$, what is the average rate of change?","correctAnswer":"$-5$"},{"label":"b","type":"free-response","question":"On the interval $(2, 6)$, when does the instantaneous rate of change equal the average rate of change?","correctAnswer":"$x = 4$","explanation":"Apply MVT where $f'(c) = \\frac{f(b)-f(a)}[b-a]$"}],
+    parts: [{"label":"a","type":"free-response","question":"On the interval $[2, 6]$, what is the average rate of change?","correctAnswer":"$-5$"},{"label":"b","type":"free-response","question":"On the interval $(2, 6)$, when does the instantaneous rate of change equal the average rate of change?","correctAnswer":"$x = 4$","explanation":"Apply MVT where $f'(c) = \\frac{f(b)-f(a)}{[b-a]}$"}],
   },
   {
     id: "analyticaldifferentiation-3",
