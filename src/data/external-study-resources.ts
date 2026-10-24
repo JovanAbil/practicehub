@@ -32,9 +32,9 @@ export interface ExternalResource {
 export const externalStudyResources: ExternalResource[] = [
   // Example entries - replace or add your own:
   {
-    title: 'Khan Academy',
-    url: 'https://www.khanacademy.org',
-    description: 'Free courses on math, science, and more'
+    title: 'Flipped Math',
+    url: 'https://www.flippedmath.com/',
+    description: 'One of the best math websites for AP Calculus, AP and regular Precalc, Algebra 1+2, Geometry, and AP Stats'
   },
   {
     title: 'AP FRQs',
@@ -47,8 +47,8 @@ export const externalStudyResources: ExternalResource[] = [
     description: 'Vocab Practice'
   },
   {
-    title: 'Reading Comprehension',
-    url: 'https://readtheory.org/',
-    description: 'Reading Comprehension Practice'
+    title: 'Khan Academy',
+    url: 'https://www.khanacademy.org',
+    description: 'Free courses on math, science, and more'
   },
 ];
