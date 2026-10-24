@@ -241,4 +241,25 @@ export const differentiationQuestions: Question[] = [
     question: "When you are given $(f^{-1})’(a) = b$ and told to find a function that makes those values true, what are the steps to test functions?\n",
     correctAnswer: "-Apply the derivative of inverse functions and set it equal to $b$\n-Replace the $f^{-1}(a) = x$ temporarily\n-Now you should take the derivative of the options and set it equal to $\\frac{1}{b}$\n-Solve using the functions\n-Whatever solution you get, test it by using it in the underived function to see if you get $a$.",
   },
+  {
+    id: "differentiation-39",
+    type: "free-response",
+    question: "Derive $\\frac{20}{40x^2-1}$",
+    correctAnswer: "$-\\frac{20}{(40x^2-1)^2}$",
+  },
+  {
+    id: "differentiation-40",
+    type: "free-response",
+    question: "Derive $f(x)g(y) = 24 + x + y$ at point $(1, 3)$",
+    correctAnswer: "$5$",
+    image: "/images/apcalcbc/differentiation1.png",
+  },
+  {
+    id: "differentiation-41",
+    type: "free-response",
+    question: "A 12,000-liter tank of water is filled to capacity. At time $t = 0$, water begins to drain out of the tank at a rate modeled by $r(t)$, measured in liters per hour, where $r$ is given by the piecewise-defined function:\n\n$\\begin{cases}  \\frac{600t}{t+3} \\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\space\\text{for}\\space\\space 0 \\leq t \\leq 5 \\\\ 1000e^{-0.2t} \\space\\space\\space\\space\\space\\space\\text{for}\\space\\space t>5 \\end{cases}$\n\nFind $r'(3)$. Using correct units, explain the meaning of that value in the context of this problem.",
+    correctAnswer: "$r'(3) = 50$ L/hr$^{2}$\nAt $t = 3$, the rate at which water begins to drain out of the tank is increasing by 50 liters per hour per hour.",
+    explanation: "1. Use that reasoning format each time",
+    calculator: true,
+  },
 ];
