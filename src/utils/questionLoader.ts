@@ -56,7 +56,7 @@ import { thermochemQuestions } from '@/data/apchem/thermochem-questions';
 
 // Physics
 import { kinematicsQuestions } from '@/data/physics/kinematics-questions';
-//import { dynamicsQuestions } from '@/data/physics/dynamics-questions';
+import { dynamicsQuestions } from '@/data/physics/dynamics-questions';
 //import { energyQuestions } from '@/data/physics/energy-questions';
 //import { momentumQuestions } from '@/data/physics/momentum-questions';
 //import { electrostaticsQuestions } from '@/data/physics/electrostatics-questions';
@@ -85,6 +85,8 @@ import { acidbasesQuestions } from '@/data/chemistry/acidbases-questions';
 
 // US History
 import { antebellumQuestions } from '@/data/ushistory/antebellum-questions';
+import { civilwarQuestions } from '@/data/ushistory/civilwar-questions';
+
 
 // World History
 import { religionsQuestions } from '@/data/worldhistory/religions-questions';
@@ -111,6 +113,9 @@ import { objectsQuestions } from '@/data/apcsa/objects-questions';
 //import { selectionQuestions } from '@/data/apcsa/selection-questions';
 //import { classQuestions } from '@/data/apcsa/class-questions';
 //import { dataQuestions } from '@/data/apcsa/data-questions';
+
+//Machine Learning
+import { machinelearningQuestions } from '@/data/apcsa/machinelearning-questions';
 
 //World History Kohl
 import { chineseQuestions } from '@/data/worldhistorykohl/chinese-history-shang-song-questions';
@@ -176,7 +181,7 @@ const questionMap: Record<string, Question[]> = {
 
   //physics
   'physics-kinematics': kinematicsQuestions,
-  //'physics-dynamics': dynamicsQuestions,
+  'physics-dynamics': dynamicsQuestions,
   //'physics-energy': energyQuestions,
   //'physics-momentum': momentumQuestions,
   //'physics-electrostatics': electrostaticsQuestions,
@@ -205,6 +210,7 @@ const questionMap: Record<string, Question[]> = {
 
   //ushistory
   'ushistory-antebellum': antebellumQuestions,
+  'ushistory-civilwar': civilwarQuestions,
   
   //worldhistory
   'world-history-religions': religionsQuestions,
@@ -226,10 +232,14 @@ const questionMap: Record<string, Question[]> = {
   'apcsp-systems': systemsQuestions,
   'apcsp-computing': computingQuestions,
 
+  //apcsa
   'apcsa-objects': objectsQuestions,
   //'apcsa-selection': selectionQuestions,
   //'apcsa-class': classQuestions,
   //'apcsa-data': dataQuestions,
+
+  //machinelearning
+  'machinelearning-machinelearning': machinelearningQuestions,
 
   //whkohl
   'worldhistorykohl-chinese': chineseQuestions,
@@ -299,7 +309,7 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   ],
   physics: [
       { id: 'kinematics', name: 'Kinematics' },
-  //    { id: 'dynamics', name: 'Dynamics' },
+      { id: 'dynamics', name: 'Dynamics' },
   //    { id: 'energy', name: 'Energy' },
   //    { id: 'momentum', name: 'Momentum' },
   //    { id: 'electrostatics', name: 'Electrostatics' },
@@ -349,6 +359,9 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
     //{ id: 'class', name: 'Class Creation' },
     //{ id: 'data', name: 'Data Collection' },
   ],
+  machinelearning: [
+    { id: 'machinelearning', name: 'Machine Learning' },
+  ],
   temporary: [
     //{ id: 'precalc3b', name: 'AP Precalc 3B' },
   ],
@@ -358,6 +371,8 @@ const subjectUnits: Record<string, { id: string; name: string }[]> = {
   ],
   ushistory: [
     {id: 'antebellum', name: 'Antebellum'},
+    {id: 'civilwar', name: 'Civil War'},
+
   ],
   drivers: [
     { id: 'drivers1', name: 'Unit 1' }, 
@@ -387,6 +402,7 @@ const subjectTitles: Record<string, string> = {
   temporary: 'Temporary Practice',
   worldhistorykohl: 'World History (Kohl)',
   drivers: 'Drivers Ed',
+  machinelearning: 'Intro to Machine Learning'
 };
 
 /**
