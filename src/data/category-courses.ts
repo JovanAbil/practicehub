@@ -215,6 +215,7 @@ export const socialSchoolCourses: Record<string, CourseEntry[]> = {
       subject: 'ushistory',
       units: [
         { id: 'antebellum', name: 'Antebellum' },
+        { id: 'civilwar', name: 'Civil War' },
       ],
       hasChallenge: true,
     },
@@ -302,7 +303,16 @@ export const otherDriversEd: CourseEntry = {
 
 /** School-specific other courses */
 export const otherSchoolCourses: Record<string, CourseEntry[]> = {
-  csw: [],
+  csw: [
+    {
+      id: 'machinelearning',
+      name: 'Intro to Machine Learning',
+      subject: 'machinelearning',
+      units: [
+        { id: 'machinelearning', name: 'Machine Learning' },
+      ],
+    },
+  ],
 };
 
 /** Temporary practice (shown separately) */
