@@ -115,7 +115,7 @@ import { objectsQuestions } from '@/data/apcsa/objects-questions';
 //import { dataQuestions } from '@/data/apcsa/data-questions';
 
 //Machine Learning
-import { machinelearningQuestions } from '@/data/apcsa/machinelearning-questions';
+import { machinelearningQuestions } from '@/data/machinelearning/machinelearning-questions';
 
 //World History Kohl
 import { chineseQuestions } from '@/data/worldhistorykohl/chinese-history-shang-song-questions';
