@@ -17,6 +17,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: 'Oct 24th, 2026',
+    title: 'Small Features + Machine Learning Course',
+    items: [
+      'AP Chem Thermochem has been updated',
+      'Physics Kinematics complete, working on Dynamics', 
+      'AP Calc AB/BC receiving new questions over time, not a singular update',
+      'New Machine Learning Course in Other Category to represent the Intro to Machine Learning Course at CSW',
+      'Civil War questions from the quiz updated',
+      'Site states updated for Oct 22nd',
+      'CSA Objects unit is complete, expect Selection soon!',
+    ],
+  },
+  {
     date: 'September 24th, 2026',
     title: 'Small Features',
     items: [
