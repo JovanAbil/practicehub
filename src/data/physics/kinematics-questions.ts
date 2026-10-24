@@ -204,4 +204,47 @@ export const kinematicsQuestions: Question[] = [
     question: "A ship sets sail from some port, heading due north at 7.00 m/s relative to the water. The local ocean current is 1.50 m/s in a direction 40$^{\\circ}$ north of east. \n",
     parts: [{"label":"a","type":"free-response","question":"What is the velocity of the ship relative to the Earth? \n","correctAnswer":"$8.05$ m/s at $81.8^{\\circ}$ north of east\n"},{"label":"b","type":"free-response","question":"In what direction would the ship have to travel in order to have a velocity straight north relative to the Earth, assuming its speed relative to the water remains 7.00 m/s? \n","correctAnswer":"$9.45^{\\circ}$ west of north\n"},{"label":"c","type":"free-response","question":"What would its speed be relative to the Earth?\n","correctAnswer":"$7.87$ m/s\n"}],
   },
+  {
+    id: "kinematics-34",
+    type: "free-response",
+    question: "How does projectile motion work?",
+    correctAnswer: "Both the $x$ and the $y$ are independent of each other so they can be calculated independently",
+  },
+  {
+    id: "kinematics-35",
+    type: "free-response",
+    question: "When you throw something, when is the vertical velocity at its maximum?",
+    correctAnswer: "The initial throw.",
+  },
+  {
+    id: "kinematics-36",
+    type: "free-response",
+    question: "When you throw something, when is the vertical velocity 0?",
+    correctAnswer: "At the maximum height of the parabola.",
+  },
+  {
+    id: "kinematics-37",
+    type: "free-response",
+    question: "When you throw something, what is the value of the horizontal velocity?",
+    correctAnswer: "It is always some constant.",
+    explanation: "(This is true when ignoring the air resistance)",
+  },
+  {
+    id: "kinematics-38",
+    type: "free-response",
+    question: "What is the difference between throwing something straight up and throwing something forward at the same height?",
+    correctAnswer: "The x-velocity will be constant when thrown forward and be 0 when thrown upward and it will fall at the same rate and land at the same time assuming no air resistance.",
+  },
+  {
+    id: "kinematics-39",
+    type: "free-response",
+    question: "People in movies often jump from buildings into pools. If a person jumps horizontally by running straight off a rooftop from a height of 30.0m to a pool that is 5.0m from the building, with what initial speed must the person jump?",
+    correctAnswer: "2.0 m/s",
+  },
+  {
+    id: "kinematics-40",
+    type: "free-response",
+    question: "A golfer practices driving balls off a cliff and into the water below. The edge of the cliff is 15m above the surface of the water. If the golf ball is launched at 51 m/s at an angle of 15$^{\\circ}$ above the horizontal, how far does the ball travel horizontally before hitting the water?",
+    correctAnswer: "$1.7 * 10^{2}$ m",
+  },
 ];
