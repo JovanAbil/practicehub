@@ -115,8 +115,8 @@ export const limitsQuestions: Question[] = [
     type: "multiple-choice",
     question: "The function $f(x) = \\begin{cases} \\dfrac{x^{2}+2x+3}{x^{2}-1}, & x \\geq 0 \\\\ \\dfrac{x}{e^{x}}, & x < 0 \\end{cases}$ has which of the following asymptotes?",
     options: [{"label":"A","value":"A","text":"$y = 0$ only"},{"label":"B","value":"B","text":"$y = 1$ only"},{"label":"C","value":"C","text":"$y = 1$, $x = 1$ only"},{"label":"D","value":"D","text":"$y = 1$, $x = \\pm 1$ only"},{"label":"E","value":"E","text":"$y = 0$, $y = 1$, $x = \\pm 1$"}],
-    correctAnswer: "E",
-    explanation: "For $x \\geq 0$: as $x \\to +\\infty$, the rational part $\\to 1$ (equal degrees, leading ratio 1); denominator $x^2-1=0$ at $x=\\pm 1$ gives vertical asymptotes. For $x < 0$: $x/e^x \\to 0$ as $x \\to -\\infty$. So $y=0$, $y=1$, and $x=\\pm1$.",
+    correctAnswer: "C",
+    explanation: "",
   },
   {
     id: "limits-17",
