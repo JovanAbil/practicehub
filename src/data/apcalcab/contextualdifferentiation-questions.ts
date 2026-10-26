@@ -253,7 +253,7 @@ export const contextualdifferentiationQuestions: Question[] = [
     id: "contextualdifferentiation-40",
     type: "free-response",
     question: "A balloon rises into the air from a point on the ground 10 meters from an observer. Relate the rate of change of the angle of elevation of the balloon from the observer and the distance between the observer and the balloon. ",
-    correctAnswer: "$-\\sin(\\theta) \\frac{d\\theta}{dt} = \\frac{10}{x^{2}} \\frac{dx}{dt}$",
+    correctAnswer: "$\\sin(\\theta) \\frac{d\\theta}{dt} = \\frac{10}{x^{2}} \\frac{dx}{dt}$",
   },
   {
     id: "contextualdifferentiation-41",
