@@ -338,7 +338,7 @@ export const derivativeQuestions: Question[] = [
     id: "derivative-48",
     type: "parts",
     question: "Find the derivative of each function.",
-    parts: [{"label":"a","type":"free-response","question":"$f(x) = 2\\sin x + 5e^{x}$","correctAnswer":"$f'(x) = 2\\cos x + 5e^{x}$"},{"label":"b","type":"free-response","question":"$f(x) = 3^{x} - 4\\cos x$","correctAnswer":"$f'(x) = 3^{x} \\ln 3 + 4\\sin x$"},{"label":"c","type":"free-response","question":"$f(x) = log_{2}x - \\sin x$","correctAnswer":"$f'(x) = \\frac{1}{x\\ln 2} - \\cos x$"}],
+    parts: [{"label":"a","type":"free-response","question":"$f(x) = 2\\sin x + 5e^{x}$","correctAnswer":"$f'(x) = 2\\cos x + 5e^{x}$"},{"label":"b","type":"free-response","question":"$f(x) = 3^{x} - 4\\cos x$","correctAnswer":"$f'(x) = 3^{x} \\ln 3 + 4\\sin x$"},{"label":"c","type":"free-response","question":"$f(x) = \\log_{2}x - \\sin x$","correctAnswer":"$f'(x) = \\frac{1}{x\\ln 2} - \\cos x$"}],
   },
   {
     id: "derivative-49",
