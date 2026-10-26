@@ -621,7 +621,7 @@ export const limitsQuestions: Question[] = [
     id: "limits-87",
     type: "free-response",
     question: "If the function $f$ is continuous for all real numbers and if $f(x)=\\frac{x^{2}+6x+8}{x+4}$ when $x ≠ -4$, then $f(-4) =$",
-    correctAnswer: "$x = -2$",
+    correctAnswer: "$f(-4) = -2$",
     explanation: "",
   },
   {
