@@ -344,7 +344,7 @@ export const derivativeQuestions: Question[] = [
     id: "derivative-49",
     type: "parts",
     question: "Find the value of the derivative at the given point.",
-    parts: [{"label":"a","type":"free-response","question":"If $f(x) = 3\\ln x + e^{x}$, find $f'(5)$","correctAnswer":"$ f'(5) = \\frac{3}{4} + e^{5}$"},{"label":"b","type":"free-response","question":"If $f(x) = 3\\cos x + \\frac{\\sin x}{2}$, find $f'(\\pi)$","correctAnswer":"$f'(\\pi) = -\\frac{1}{2}$"}],
+    parts: [{"label":"a","type":"free-response","question":"If $f(x) = 3\\ln x + e^{x}$, find $f'(5)$","correctAnswer":"$ f'(5) = \\frac{3}{5} + e^{5}$"},{"label":"b","type":"free-response","question":"If $f(x) = 3\\cos x + \\frac{\\sin x}{2}$, find $f'(\\pi)$","correctAnswer":"$f'(\\pi) = -\\frac{1}{2}$"}],
   },
   {
     id: "derivative-50",
