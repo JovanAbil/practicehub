@@ -135,6 +135,7 @@ export const contextualdifferentiationQuestions: Question[] = [
     question: "A police car, apporaching a right-angled intersection from the north is chasing a speeding car that has turned the corner and is now moving straight east. Set up a relationship, then find an equation that shows the related rates of the vehicles with respect to time.",
     correctAnswer: "$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 2z\\frac{dz}{dt}$",
     explanation: "1. The situation describes the Pythagorean Theorem\n2. Every rate is changing\n3. Differentiate the pythagorean theorem using time\n4. Answer!",
+    calculator: true,
   },
   {
     id: "contextualdifferentiation-22",
