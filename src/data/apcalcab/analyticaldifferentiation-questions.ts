@@ -421,4 +421,16 @@ export const analyticaldifferentiationQuestions: Question[] = [
     question: "Use the following function $f(x) = \\frac{x}{x^{2}-9}$ to answer the following questions.",
     parts: [{"label":"a","type":"free-response","question":"What are the x-intercepts?","correctAnswer":"$x = 0$"},{"label":"b","type":"free-response","question":"What are the critical numbers?","correctAnswer":"$x = \\pm 3$","explanation":"None is an acceptable answer, but technically it is where $f'(x)$ can also be undefined."},{"label":"c","type":"free-response","question":"What is the domain?","correctAnswer":"$(-\\infty, 3) \\cup (-3, 3) \\cup (3, \\infty)$"},{"label":"d","type":"free-response","question":"What are the vertical asymptotes?","correctAnswer":"$x = \\pm 3$"},{"label":"e","type":"free-response","question":"What is the horizontal asymptote?","correctAnswer":"$y = 0$"},{"label":"f","type":"free-response","question":"What are the increasing intervals?","correctAnswer":"DNE"},{"label":"g","type":"free-response","question":"What are the decreasing intervals?","correctAnswer":"$(-\\infty, 3) \\cup (-3, 3) \\cup (3, \\infty)$"},{"label":"h","type":"free-response","question":"What are the intervals where the graph is concave up?","correctAnswer":"$(-3, 0) \\cup (3, \\infty)$"},{"label":"i","type":"free-response","question":"What are the intervals where the graph is concave down?","correctAnswer":"$(-\\infty, 3) \\cup (0, 3)$"},{"label":"j","type":"free-response","question":"What are the inflection point(s)?","correctAnswer":"$(0, 0)$"},{"label":"11","type":"free-response","question":"What are the relative extrema?","correctAnswer":"DNE"}],
   },
+  {
+    id: "analyticaldifferentiation-65",
+    type: "free-response",
+    question: "If the function is a straight line such that $y = c$ and $c$ represents a constant, what are the maximums/minimums?",
+    correctAnswer: "Every point represents a max and a min",
+  },
+  {
+    id: "analyticaldifferentiation-66",
+    type: "free-response",
+    question: "Are all critical points relative extrema (maxs or mins)?",
+    correctAnswer: "No",
+  },
 ];
