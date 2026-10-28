@@ -485,4 +485,46 @@ export const thermochemQuestions: Question[] = [
     question: "Given the reaction: 4 Fe($s$) + 3 O$_{2}$ ($g$) $\\to$ 2 Fe$_{2}$O$_{3}$($s$), the $\\Delta H^{\\circ} = -1650$ kJ/mol$_{rxn}$, calculate the mass of Fe($s$) in grams if the mixture (iron, catalyst, and sand) has a total mass of 15.0 g and a specific heat of 0.72 J/(g^{\\circ}C) and it changed by 17.7$^{$\\circ$}$C",
     correctAnswer: "0.026 grams",
   },
+  {
+    id: "thermochem-79",
+    type: "free-response",
+    question: "What should be in an answer format that asks: A student claims that this particular reaction is an endothermic reaction because energy is required to break the bonds in the reactants. Do you agree? Justify your answer. Assume the $\\Delta H$ of the reaction is $< 0$.",
+    correctAnswer: "Disagree. While energy is required to break the bonds, more energy is released as shown by the [number] kJ/mol Fe value. Negative enthalpy is exothermic so energy is released.",
+  },
+  {
+    id: "thermochem-80",
+    type: "parts",
+    question: "Your teacher asks you to consider how the calculated value would compare to the published value for [Compound], in the following scenarios. (Compare what would happen) [AP FRQ Format]",
+    parts: [{"label":"a","type":"free-response","question":"If the calorimeter was not actually perfectly insulated, and some energy transferred out of the calorimeter during the experiment? Explain.","correctAnswer":"If energy is lost to the surroundings, the water temperature will not rise as much. This would make the energy from [heat$_1$] smaller, and the $\\Delta T$ in [from heat$_{2}$] larger. This makes the calculated heat capacity lower. So our calculated value is lower than the published value."},{"label":"b","type":"free-response","question":"While being moved from the oven to the calorimeter, the temperature of the [compound] dropped to [a lower degree]. Explain.","correctAnswer":"If the [compound] cools before entering the calorimeter, the water temperature will not rise as much because it has less energy. This would make the energy from [heat$_1$] smaller, and the $\\Delta T$ in [from heat$_{2}$] larger. This makes the calculated heat capacity lower. So our calculated value is lower than the published value."},{"label":"c","type":"free-response","question":"The student improperly measured the mass of the water. [a lower gram] of water was used instead. Explain.","correctAnswer":"Since we used [grams] of H$_{2}$O in the energy calculation in [the heat$_{1}$] our energy calculated will be more than actually occurred. We will over calculate, so our value is more than the published heat capacity."}],
+  },
+  {
+    id: "thermochem-81",
+    type: "free-response",
+    question: "What does ‘a reaction that would have an enthalpy change equal to the $\\Delta H^{\\circ}_{f}$’ essentially mean?",
+    correctAnswer: "It means write an equation using the standard state to make 1 mole of a substance.",
+  },
+  {
+    id: "thermochem-82",
+    type: "free-response",
+    question: "If an FRQ asks to compare temperature changes, what should be the format? [AP FRQ Format]",
+    correctAnswer: "For [state what is equal in the comparison], the substance with lower [some value] will have a larger [mC$\\Delta$T value] due to the [inverse/proportional] relationship between [the two variables]",
+  },
+  {
+    id: "thermochem-83",
+    type: "free-response",
+    question: "When it asks to justify if a reaction is endothermic or exothermic, what should be the format? [AP FRQ Format]",
+    correctAnswer: "[Exothermic/Endothermic] because the temperature of the surroundings [rose/fell]",
+  },
+  {
+    id: "thermochem-84",
+    type: "free-response",
+    question: "A student doubles grams of the reaction and claims that the temperature will be greater because the amount of reactants is doubled. Do you agree with the student? Justify your answer.",
+    correctAnswer: "Disagree. While the energy released is doubled because double the amount of chemicals are reacting, the mass that must be heated also doubled. Using q = mC$\\Delta$T if mass and energy are doubled, 2q = 2mC$\\Delta$T, so C$\\Delta$T is constant and therefore the change in temperature hasn’t changed.",
+  },
+  {
+    id: "thermochem-85",
+    type: "free-response",
+    question: "When a gas performs work, what does that mean?",
+    correctAnswer: "The work is done by the system on the surroundings so it is negative",
+  },
 ];
