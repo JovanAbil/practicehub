@@ -482,7 +482,7 @@ export const thermochemQuestions: Question[] = [
   {
     id: "thermochem-78",
     type: "free-response",
-    question: "Given the reaction: 4 Fe($s$) + 3 O$_{2}$ ($g$) $\\to$ 2 Fe$_{2}$O$_{3}$($s$), the $\\Delta H^{\\circ} = -1650$ kJ/mol$_{rxn}$, calculate the mass of Fe($s$) in grams if the mixture (iron, catalyst, and sand) has a total mass of 15.0 g and a specific heat of 0.72 J/(g^{\\circ}C) and it changed by 17.7$^{$\\circ$}$C",
+    question: "Given the reaction: 4 Fe($s$) + 3 O$_{2}$ ($g$) $\\to$ 2 Fe$_{2}$O$_{3}$($s$), the $\\Delta H^{\\circ} = -1650$ kJ/mol$_{rxn}$, calculate the mass of Fe($s$) in grams if the mixture (iron, catalyst, and sand) has a total mass of 15.0 g and a specific heat of 0.72 J/(g$^{\\circ}$C) and it changed by 17.7$^{\\circ}$C",
     correctAnswer: "0.026 grams",
   },
   {
