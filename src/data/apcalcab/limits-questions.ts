@@ -2,7 +2,7 @@ import { Question } from '@/types/quiz';
 
 // Topic: limits
 // Math Enabled: true
-// Questions: 95
+// Questions: 119
 
 export const limitsQuestions: Question[] = [
   {
@@ -823,5 +823,11 @@ export const limitsQuestions: Question[] = [
     question: "If the function $f$ is continuous for all real numbers and if $f(x) = \\frac{x^{2}+6x+8}{x+2}$ when $x \\neq -2$, then $f(-2) = $",
     correctAnswer: "$f(-2) = 2$",
     explanation: "1. It says $f$ is continuous for all real numbers \n2. Find the limit and that is the value to make it all continuous",
+  },
+  {
+    id: "limits-119",
+    type: "free-response",
+    question: "$lim_{h \to 0} \frac{5e^{x}-5e^{x+h}}{3h}$",
+    correctAnswer: "$\frac{5}{3}e^{x}$",
   },
 ];
