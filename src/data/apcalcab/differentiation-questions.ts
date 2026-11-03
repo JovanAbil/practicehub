@@ -262,4 +262,18 @@ export const differentiationQuestions: Question[] = [
     explanation: "1. Use that reasoning format each time",
     calculator: true,
   },
+  {
+    id: "differentiation-42",
+    type: "free-response",
+    question: "What happens if you do implicit differentiation and you can’t isolate the numerator or denominator to find one value (there is y and x in the numerator and denominator)?",
+    correctAnswer: "Set one variable equal to another and then plug it into the undifferentiated function",
+    explanation: "",
+  },
+  {
+    id: "differentiation-43",
+    type: "free-response",
+    question: "Find the horizontal and vertical tangent lines of $y^{2}+xy+x^{2}=3$",
+    correctAnswer: "",
+    listAnswers: ["Horizontal: (x = $\\pm$2)","Vertical: (y = $\\pm$1)"],
+  },
 ];
