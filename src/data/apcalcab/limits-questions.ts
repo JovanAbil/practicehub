@@ -827,7 +827,7 @@ export const limitsQuestions: Question[] = [
   {
     id: "limits-119",
     type: "free-response",
-    question: "$lim_{h \to 0} \frac{5e^{x}-5e^{x+h}}{3h}$",
-    correctAnswer: "$\frac{5}{3}e^{x}$",
+    question: "$lim_{h \\to 0} \\frac{5e^{x}-5e^{x+h}}{3h}$",
+    correctAnswer: "$\\frac{5}{3}e^{x}$",
   },
 ];
