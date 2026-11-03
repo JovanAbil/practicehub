@@ -433,4 +433,23 @@ export const analyticaldifferentiationQuestions: Question[] = [
     question: "Are all critical points relative extrema (maxs or mins)?",
     correctAnswer: "No",
   },
+  {
+    id: "analyticaldifferentiation-67",
+    type: "free-response",
+    question: "Can you apply EVT on open intervals? Why?",
+    correctAnswer: "No because extreme value theorem requires the entire closed interval to be continuous",
+  },
+  {
+    id: "analyticaldifferentiation-68",
+    type: "free-response",
+    question: "If you are given the graph of the function’s derivative, how can you find where it has inflection points?",
+    correctAnswer: "Where it changes from increasing to decreasing",
+    explanation: "Saying extrema is right but doesn't capture and holes in the first derivative, so the formal definition is when it changes from increasing to decreasing",
+  },
+  {
+    id: "analyticaldifferentiation-69",
+    type: "free-response",
+    question: "Can a relative min or a max occur where the derivative of a function DNE?",
+    correctAnswer: "Yes, as long as the derivative switches sign before and after the point on the derivative where it DNE",
+  },
 ];
