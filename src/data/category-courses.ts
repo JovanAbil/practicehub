@@ -322,3 +322,43 @@ export const otherTemporary: CourseEntry = {
   subject: 'temporary',
   units: [],
 };
+
+
+// ============================================
+// SUBJECT → CATEGORY LOOKUP
+// ============================================
+
+export type CategoryId = 'math' | 'science' | 'social' | 'english' | 'other';
+
+const withSchools = (ap: CourseEntry[], school: Record<string, CourseEntry[]>): CourseEntry[] => [
+  ...ap,
+  ...Object.values(school).flat(),
+];
+
+/** Every course in each category, across all schools. */
+const categoryCourses: Record<CategoryId, CourseEntry[]> = {
+  math: withSchools(mathApCourses, mathSchoolCourses),
+  science: withSchools(scienceApCourses, scienceSchoolCourses),
+  social: withSchools(socialApCourses, socialSchoolCourses),
+  english: withSchools(englishApCourses, englishSchoolCourses),
+  other: [...withSchools(otherApCourses, otherSchoolCourses), otherDriversEd, otherTemporary],
+};
+
+/** Subjects that aren't in the lists above but still belong somewhere. */
+const extraSubjects: Record<string, CategoryId> = {
+  memory: 'other',
+};
+
+export const getCategoryForSubject = (subject?: string): CategoryId | 'custom' | null => {
+  if (!subject) return null;
+  if (subject.startsWith('custom-')) return 'custom';
+  for (const [category, courses] of Object.entries(categoryCourses)) {
+    if (courses.some((c) => c.subject === subject)) return category as CategoryId;
+  }
+  return extraSubjects[subject] ?? null;
+};
+
+export const getCategoryPath = (subject?: string): string => {
+  const category = getCategoryForSubject(subject);
+  return category ? `/category/${category}` : '/';
+};
