@@ -18,14 +18,8 @@ const RAW =
   'Rf (267),Db (268),Sg (269),Bh (270),Hs (277),Mt (278),Ds (281),Rg (282),Cn (285),' +
   'Nh (286),Fl (289),Mc (290),Lv (293),Ts (294),Og (294)';
 
-type Category = 'alkali' | 'alkaline' | 'transition' | 'post' | 'metalloid' | 'nonmetal' | 'halogen' | 'noble' | 'lanthanide' | 'actinide';
+interface Cell { z: number; symbol: string; mass: string; row: number; col: number }
 
-interface Cell { z: number; symbol: string; mass: string; row: number; col: number; category: Category }
-
-const METALLOIDS = new Set([5, 14, 32, 33, 51, 52]);
-const NONMETALS = new Set([1, 6, 7, 8, 15, 16, 34]);
-const HALOGENS = new Set([9, 17, 35, 53, 85, 117]);
-const NOBLE = new Set([2, 10, 18, 36, 54, 86, 118]);
 const PERIOD_STARTS = [1, 3, 11, 19, 37, 55, 87]; // first Z of periods 1..7
 
 /** row 1-7 = periods, row 9 = lanthanides, row 10 = actinides. col 1-18 = group. */
@@ -42,46 +36,6 @@ const place = (z: number): { row: number; col: number } => {
   return { row: p, col: i - 13 };
 };
 
-const categorize = (z: number, row: number, col: number): Category => {
-  if (row === 9) return 'lanthanide';
-  if (row === 10) return 'actinide';
-  if (NOBLE.has(z)) return 'noble';
-  if (HALOGENS.has(z)) return 'halogen';
-  if (METALLOIDS.has(z)) return 'metalloid';
-  if (NONMETALS.has(z)) return 'nonmetal';
-  if (col === 1) return 'alkali';
-  if (col === 2) return 'alkaline';
-  if (col >= 3 && col <= 12) return 'transition';
-  return 'post';
-};
-
-// Theme-token colors only (no hardcoded hex) so dark mode keeps working.
-const CATEGORY_STYLE: Record<Category, string> = {
-  alkali: 'bg-destructive/15 border-destructive/40',
-  alkaline: 'bg-warning/15 border-warning/40',
-  transition: 'bg-primary/10 border-primary/30',
-  post: 'bg-muted border-border',
-  metalloid: 'bg-accent border-accent-foreground/20',
-  nonmetal: 'bg-success/15 border-success/40',
-  halogen: 'bg-success/25 border-success/50',
-  noble: 'bg-secondary border-secondary-foreground/20',
-  lanthanide: 'bg-primary/5 border-primary/20',
-  actinide: 'bg-destructive/5 border-destructive/20',
-};
-
-const LEGEND: { key: Category; label: string }[] = [
-  { key: 'alkali', label: 'Alkali metals' },
-  { key: 'alkaline', label: 'Alkaline earth' },
-  { key: 'transition', label: 'Transition metals' },
-  { key: 'post', label: 'Post-transition' },
-  { key: 'metalloid', label: 'Metalloids' },
-  { key: 'nonmetal', label: 'Nonmetals' },
-  { key: 'halogen', label: 'Halogens' },
-  { key: 'noble', label: 'Noble gases' },
-  { key: 'lanthanide', label: 'Lanthanides' },
-  { key: 'actinide', label: 'Actinides' },
-];
-
 const PeriodicTable = () => {
   const cells = useMemo<Cell[]>(
     () =>
@@ -89,7 +43,7 @@ const PeriodicTable = () => {
         const [symbol, mass] = entry.trim().split(' ');
         const z = idx + 1;
         const { row, col } = place(z);
-        return { z, symbol, mass, row, col, category: categorize(z, row, col) };
+        return { z, symbol, mass, row, col };
       }),
     []
   );
@@ -140,30 +94,18 @@ const PeriodicTable = () => {
         {cells.map((c) => (
           <div
             key={c.z}
-            tabIndex={0}
             title={`${c.symbol} — ${c.mass} g/mol`}
-            className={`relative aspect-square flex flex-col items-center justify-center rounded border
-              text-foreground cursor-default select-none transition-transform duration-150
-              hover:scale-125 hover:z-10 hover:shadow-lg focus:scale-125 focus:z-10 focus:outline-none focus:ring-2 focus:ring-ring
-              ${CATEGORY_STYLE[c.category]}`}
+            className="aspect-square flex flex-col items-center justify-center rounded border border-border
+              text-foreground cursor-default select-none"
             style={{ gridColumn: c.col + 1, gridRow: c.row + 1 }}
           >
-            <span className="absolute top-0.5 left-1 text-[8px] text-muted-foreground">{c.z}</span>
             <span className="text-sm font-bold leading-none">{c.symbol}</span>
             <span className="text-[9px] leading-tight mt-0.5">{c.mass}</span>
           </div>
         ))}
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
-        {LEGEND.map((l) => (
-          <span key={l.key} className="flex items-center gap-1 text-[11px] text-muted-foreground">
-            <span className={`inline-block h-3 w-3 rounded-sm border ${CATEGORY_STYLE[l.key]}`} />
-            {l.label}
-          </span>
-        ))}
-      </div>
-      <p className="mt-1 text-[11px] text-muted-foreground">
+      <p className="mt-3 text-[11px] text-muted-foreground">
         Molar mass in g/mol. Values in ( ) are the most stable isotope.
       </p>
     </div>
