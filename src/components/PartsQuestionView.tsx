@@ -450,7 +450,6 @@ const PartsQuestionView = ({
           </Button>
         </div>
       )}
-    </div>
     {/* Reference sheets */}
       <ReferenceSheets subject={subject} className="mt-6" />
     </div>
