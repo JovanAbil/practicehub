@@ -28,6 +28,7 @@ import { toast } from 'sonner';
 import QuestionTable from '@/components/QuestionTable';
 import MathText from '@/components/MathText';
 import CalculatorBadge from '@/components/CalculatorBadge';
+import ReferenceSheets from '@/components/reference/ReferenceSheets';
 import { markDailyPlanCorrect, markDailyPlanWrong } from '@/utils/dailyPlan';
 import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 
@@ -1273,6 +1274,7 @@ const Quiz = () => {
                   </>
                 )}
               </div>
+              <ReferenceSheets subject={subject} className="mt-6" />
             </>
           )}
 
