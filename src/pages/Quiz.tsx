@@ -1275,7 +1275,6 @@ const Quiz = () => {
                   </>
                 )}
               </div>
-              <ReferenceSheets subject={subject} className="mt-6" />
             </>
           )}
 
