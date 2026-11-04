@@ -9,6 +9,7 @@ import { CheckCircle2, XCircle, SkipForward } from 'lucide-react';
 import { PartsQuestion, PartAttemptState } from '@/types/quiz';
 import MathText from '@/components/MathText';
 import CalculatorBadge from '@/components/CalculatorBadge';
+import ReferenceSheets from '@/components/reference/ReferenceSheets';
 import { PiecewiseAwareText } from '@/components/PiecewiseFunction';
 import MathQuickInput from '@/components/MathQuickInput';
 import { resolveImagePath } from '@/utils/resolveImagePath';
@@ -449,6 +450,9 @@ const PartsQuestionView = ({
           </Button>
         </div>
       )}
+    </div>
+    {/* Reference sheets */}
+      <ReferenceSheets subject={subject} className="mt-6" />
     </div>
   );
 };
