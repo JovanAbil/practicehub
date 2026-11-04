@@ -11,6 +11,7 @@ import usePresets from '@/hooks/usePresets';
 import { toast } from 'sonner';
 import { useMemo, useState } from 'react';
 import { Footer } from '@/components/Footer';
+import { getCategoryPath } from '@/data/category-courses';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
 
 // Use centralized question loader
@@ -48,25 +49,10 @@ const UnitDetail = () => {
 
   // Download functionality removed to protect content
 
-  const getCategoryPath = () => {
-    if (!subject) return '/';
-    if (subject === 'precalc') return '/category/math';
-    if (subject === 'practice') {
-      // Route back to English for English practice units
-      if (unitId === 'unit1' || unitId === 'log') return '/category/english';
-      return '/category/math';
-    }
-    if (subject.includes('biology') || subject.includes('chemistry')) return '/category/science';
-    if (subject === 'world-history') return '/category/social';
-    if (subject === 'memory') return '/category/other';
-    
-    return '/';
-  };
-
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <div className="container mx-auto px-4 py-8 max-w-5xl flex-1">
-        <Link to={getCategoryPath()} className="inline-block mb-6">
+        <Link to={getCategoryPath(subject)} className="inline-block mb-6">
           <Button variant="ghost">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Subject
           </Button>
