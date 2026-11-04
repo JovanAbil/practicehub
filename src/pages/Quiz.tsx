@@ -1172,6 +1172,7 @@ const Quiz = () => {
                         onChange={setCurrentAnswer}
                         useUnicode={true}
                       />
+                      <ReferenceSheets subject={subject} />
                     </>
                   )}
                 </div>
