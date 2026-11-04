@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import MathQuickInput from '@/components/MathQuickInput';
 import { resolveImagePath } from '@/utils/resolveImagePath';
+import { getCategoryPath } from '@/data/category-courses';
 
 import { ArrowLeft, CheckCircle2, XCircle, Flag, SkipForward } from 'lucide-react';
 import PartsQuestionView from '@/components/PartsQuestionView';
@@ -825,12 +826,7 @@ const Quiz = () => {
             onClick={() => {
               // For targeted practice (wrong questions), go back to category
               if (wrongQuestions.length > 0) {
-                if (['precalc'].includes(subject || '')) navigate('/category/math');
-                else if (['biology', 'chemistry'].includes(subject || '')) navigate('/category/science');
-                else if (['world-history'].includes(subject || '')) navigate('/category/social');
-                else if (['memory', 'practice'].includes(subject || '')) navigate('/category/other');
-                else if (isCustomTopic) navigate('/category/custom');
-                else navigate('/');
+                navigate(getCategoryPath(subject));
               }
               // For course challenge, go back to course challenge
               else if (selectedUnits.length > 0) {
