@@ -5,6 +5,9 @@ sheets** to the quiz page.
 
 - One **square toggle button per reference**, each on its **own line**
   (so two dropdowns can be open at once without fighting each other).
+- **Parts questions:** one shared row below **all** parts and the Move On
+  button; buttons wrap onto another line if necessary. Open sheets stack
+  at full width below that row, above the bottom ad.
 - Before submitting: the buttons sit **below Submit/Skip**.
 - After submitting: they sit **below Next Question / Mark Question** and
   **above the bottom ad placeholder**. (Both states share one button row
@@ -32,7 +35,7 @@ fetches), so nothing needs `resolveImagePath`.
 | 3 | `src/components/reference/FormulaTabs.tsx` | **New** — Chrome-style unit tabs |
 | 4 | `src/components/reference/ReferenceSheets.tsx` | **New** — the toggle buttons + dropdowns |
 | 5 | `src/pages/Quiz.tsx` | 1 import + 1 line of JSX |
-| 6 | `src/components/PartsQuestionView.tsx` | *(optional)* same 1 line for parts questions |
+| 6 | `src/components/PartsQuestionView.tsx` | 1 import + 1 shared wrapping row below all parts |
 
 ---
 
@@ -401,6 +404,7 @@ localStorage, so it never interferes with progress saving.
 // src/components/reference/ReferenceSheets.tsx
 import { useState } from 'react';
 import { BookOpen, Atom, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { getReferenceSheets } from '@/data/reference-sheets';
 import PeriodicTable from './PeriodicTable';
 import FormulaTabs from './FormulaTabs';
@@ -408,15 +412,65 @@ import FormulaTabs from './FormulaTabs';
 interface Props {
   subject?: string;
   className?: string;
+  layout?: 'stacked' | 'wrap';
 }
 
-const ReferenceSheets = ({ subject, className = '' }: Props) => {
+const ReferenceSheets = ({ subject, className = '', layout = 'stacked' }: Props) => {
   const sheets = getReferenceSheets(subject);
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   if (sheets.length === 0) return null;
 
   const toggle = (id: string) => setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  // Parts layout: all controls in one wrapping row, panels underneath.
+  if (layout === 'wrap') {
+    return (
+      <div className={`min-w-0 space-y-3 ${className}`}>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {sheets.map((sheet) => {
+            const isOpen = Boolean(open[sheet.id]);
+            const Icon = sheet.kind === 'periodic-table' ? Atom : BookOpen;
+            return (
+              <div key={sheet.id} className="flex min-w-0 max-w-full items-center gap-2">
+                <Button
+                  type="button"
+                  variant={isOpen ? 'default' : 'outline'}
+                  size="icon"
+                  onClick={() => toggle(sheet.id)}
+                  aria-expanded={isOpen}
+                  aria-controls={`ref-${sheet.id}`}
+                  aria-label={`${isOpen ? 'Hide' : 'Show'} ${sheet.title}`}
+                  title={`${isOpen ? 'Hide' : 'Show'} ${sheet.title}`}
+                  className="h-10 w-10 shrink-0"
+                >
+                  <Icon className="h-5 w-5" />
+                </Button>
+                <span className="min-w-0 break-words text-sm font-medium text-foreground">
+                  {sheet.title}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        {sheets.filter((sheet) => open[sheet.id]).map((sheet) => (
+          <div
+            key={sheet.id}
+            id={`ref-${sheet.id}`}
+            role="region"
+            aria-label={sheet.title}
+            className="w-full min-w-0 rounded-lg border border-border bg-card p-3"
+          >
+            {sheet.kind === 'periodic-table' ? (
+              <PeriodicTable />
+            ) : (
+              <FormulaTabs tabs={sheet.tabs} subject={subject} />
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className={`space-y-2 ${className}`}>
@@ -536,26 +590,94 @@ answering — always above the ad.
 
 ---
 
-## Step 6 (optional) — Parts questions
+## Step 6 — Parts questions: one wrapping row below all parts
 
 Parts questions render inside `PartsQuestionView.tsx`, which has its own
 Submit/Next buttons and does **not** pass through the block from Step 5.
-To show sheets there too, add the import at the top of
-`PartsQuestionView.tsx`:
+Do **not** add a reference row inside `question.parts.map(...)` or after
+each part's Submit button: that would repeat the sheets for every part.
+There is one shared row for the entire question, visible before and after
+grading, below the final part and below Move On when that button appears.
+
+### 6a. Update the shared reference component first
+
+If you already pasted the old Step 4, **replace the entire contents** of
+`src/components/reference/ReferenceSheets.tsx` with the updated Step 4 above.
+It adds the optional `layout` prop and the wrapping controls/panels layout.
+Simply putting `flex-wrap` on the old outer container will not work: its
+children are full-width rows. Ordinary questions keep the default stacked
+layout, so Step 5 does not change.
+
+### 6b. Add the import (~line 13)
+
+In `src/components/PartsQuestionView.tsx`, next to `MathQuickInput`, add:
 
 ```tsx
 import ReferenceSheets from '@/components/reference/ReferenceSheets';
 ```
 
-and put this directly **after the closing `</div>` of its bottom
-Submit/Next button row** (search the file for `Submit` to find it):
+### 6c. Replace the end of the component (~lines 389–402)
+
+Find this exact block near the bottom. The `})}` is the end of the **whole
+parts loop**, not the end of an individual part's controls:
 
 ```tsx
-<ReferenceSheets subject={subject} className="mt-6" />
+          </Card>
+        );
+      })}
+
+      {/* Move on button */}
+      {allPartsComplete && (
+        <div className="flex justify-center pt-2">
+          <Button onClick={onAllComplete} size="lg" className="w-full max-w-md">
+            Move On →
+          </Button>
+        </div>
+      )}
+    </div>
+```
+
+Replace it with:
+
+```tsx
+          </Card>
+        );
+      })}
+
+      {/* Move on button */}
+      {allPartsComplete && (
+        <div className="flex justify-center pt-2">
+          <Button onClick={onAllComplete} size="lg" className="w-full max-w-md">
+            Move On →
+          </Button>
+        </div>
+      )}
+
+      {/* One reference row for the entire parts question */}
+      <ReferenceSheets subject={subject} layout="wrap" className="mt-6" />
+    </div>
 ```
 
 (`PartsQuestionView` already receives a `subject` prop — it uses it for
-`enableChemistry`.)
+`enableChemistry`. `Quiz.tsx` already passes `subject={subject}` around
+line 925, so no new prop plumbing is needed.)
+
+If you previously added the old Step 6 line, **move/replace** that line;
+do not leave two instances. Keep this instance outside `allPartsComplete`
+so it is available while answering, not just after all parts are graded.
+The bottom ad remains in `Quiz.tsx`, after the parts/normal question branch;
+do not add another ad inside this component.
+
+```text
+Part A + its Submit/Skip/grading
+Part B + its Submit/Skip/grading
+…last part
+Move On (only when all parts are complete)
+[Periodic Table]  [Equations]   ← one row, wraps when needed
+Periodic Table panel (if open)
+Equations panel (if open)
+Bottom ad (owned by Quiz.tsx)
+```
 
 ---
 
@@ -568,6 +690,7 @@ Submit/Next button row** (search the file for `Submit` to find it):
 | Click a button | Its dropdown opens right below that button's line |
 | Click again | Dropdown closes |
 | Both open | Both stay open, stacked (one per line) |
+| Parts question | One wrapping button row below all parts (and Move On), panels stacked beneath it |
 | Equations sheet | Chrome-style tabs: **Acids & Bases**, **Wavelength / Light** |
 | Hover an element | Cell grows slightly, shows symbol + molar mass (no name) |
 | Course with no entry in `reference-sheets.ts` | Nothing shown |
@@ -589,6 +712,10 @@ None. Nothing is saved, so quiz progress saving is unaffected.
 - [ ] Press a button again → its dropdown closes.
 - [ ] Open a non-chemistry course → no reference buttons.
 - [ ] Narrow phone width → periodic table scrolls sideways, tabs scroll sideways.
+- [ ] Parts question → exactly one reference row below the final part, never inside a part card.
+- [ ] Before all parts are graded → reference buttons are already available.
+- [ ] Complete every part → Move On appears above the same reference row; bottom ad remains below.
+- [ ] Parts question on a narrow phone → buttons wrap without page overflow; opening both sheets keeps both full-width panels below the controls.
 - [ ] Dark mode → colors still readable.
 
 ## Rollback
