@@ -527,4 +527,16 @@ export const thermochemQuestions: Question[] = [
     question: "When a gas performs work, what does that mean?",
     correctAnswer: "The work is done by the system on the surroundings so it is negative",
   },
+    {
+    id: "thermochem-86",
+    type: "free-response",
+    question: "When it asks for impact of experiment on a measurement, what should be the answer? [AP FRQ Format]",
+    correctAnswer: "A specific measurement and not a related measurement.",
+  },
+  {
+    id: "thermochem-87",
+    type: "free-response",
+    question: "If there was compound A that had a larger molar mass than compound B but the same molar enthalpy of solution as compound A, would the measured $\\Delta$T be greater than, less than, or equal to that of the compound B? [AP FRQ Format]",
+    correctAnswer: "It would be less due to compound A being heavier than compound B. Since there are less moles of compound A than compound B at the same mass, there would be less temperature change at the same molar enthalpy of solution.",
+  },
 ];
