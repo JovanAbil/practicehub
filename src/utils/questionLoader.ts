@@ -48,7 +48,7 @@ import { sequencesseriesQuestions } from '@/data/apcalcbc/sequencesseries-questi
 import { basicsQuestions } from '@/data/apchem/basics-questions';
 import { atomic1Questions } from '@/data/apchem/atomic-questions';
 import { thermochemQuestions } from '@/data/apchem/thermochem-questions';
-import { compoundsQuestions } from '@/data/apchem/intermolecular-questions';
+import { compounds1Questions } from '@/data/apchem/compounds-questions';
 //import { kineticsQuestions } from '@/data/apchem/kinetics-questions';
 //import { equilibriumQuestions } from '@/data/apchem/equilibrium-questions';
 //import { acidsbasesQuestions } from '@/data/apchem/acidsbases-questions';
@@ -173,7 +173,7 @@ const questionMap: Record<string, Question[]> = {
   'apchem-basics': basicsQuestions,
   'apchem-atomic': atomic1Questions,
   'apchem-thermochem': thermochemQuestions,
-  'apchem-compounds': compoundsQuestions,
+  'apchem-compounds': compounds1Questions,
   //'apchem-kinetics': kineticsQuestions,
   //'apchem-equilibrium': equilibriumQuestions,
   //'apchem-acidsbases': acidsbasesQuestions,
