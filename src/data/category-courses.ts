@@ -310,6 +310,7 @@ export const otherSchoolCourses: Record<string, CourseEntry[]> = {
       subject: 'machinelearning',
       units: [
         { id: 'machinelearning', name: 'Machine Learning' },
+        { id: 'machinelearning2', name: 'Gradient Descent' },
       ],
     },
   ],
