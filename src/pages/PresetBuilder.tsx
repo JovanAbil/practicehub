@@ -31,7 +31,8 @@ import { Question } from '@/types/quiz';
 import { loadInProgressQuiz, hasInProgressQuiz } from '@/utils/inProgressQuizStorage';
 import { parseTsQuestionFile } from '@/utils/tsQuestionParser';
 import { FileUp, X, Globe } from 'lucide-react';
-import { getPublicPresetsForUnit, PublicPreset } from '@/data/public-presets';
+import { getPublicPresetsForUnit } from '@/data/public-presets';
+import PublicPresetLibrary from '@/components/PublicPresetLibrary';
 
 // Use centralized question loader
 import { getQuestionMap } from '@/utils/questionLoader';
@@ -404,57 +405,7 @@ const PresetBuilder = () => {
     () => getPublicPresetsForUnit(subject || '', unitId || ''),
     [subject, unitId]
   );
-  
-  const handleUsePublicPreset = (preset: PublicPreset) => {
-    const presetQuestions = questions.filter(q => preset.questionIds.includes(q.id));
-    if (presetQuestions.length === 0) {
-      toast.error("None of this preset's questions are available in this unit.");
-      return;
-    }
-    navigate(`/quiz/${subject}/${unitId}/preset?t=${Date.now()}&publicPresetId=${preset.id}`, {
-      state: { presetQuestions, presetName: preset.name, startNewAttempt: true },
-      replace: true,
-    });
-  };
-  
-  const handleSavePublicToMyPresets = (preset: PublicPreset) => {
-    const availableIds = new Set(questions.map(q => q.id));
-    const validIds = preset.questionIds.filter(id => availableIds.has(id));
-    if (validIds.length === 0) {
-      toast.error('No matching questions to save.');
-      return;
-    }
-    const created = createPreset(preset.name, subject || '', unitId || '', validIds);
-    const skipped = preset.questionIds.length - validIds.length;
-    toast.success(
-      skipped > 0
-        ? `Saved "${created.name}" (${validIds.length} of ${preset.questionIds.length} questions)`
-        : `Saved "${created.name}" to your presets`
-    );
-  };
-  
-  const handleDownloadPublicPreset = (preset: PublicPreset) => {
-    const exportData = {
-      version: 1,
-      preset: {
-        name: preset.name,
-        subject: preset.subject,
-        unitId: preset.unitId,
-        questionIds: preset.questionIds,
-      },
-    };
-    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${preset.name.replace(/[^a-zA-Z0-9]/g, '_')}_preset.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    toast.success('Preset downloaded!');
-  };
-  
+    
   // Get topic name for custom topics
   const getTopicName = () => {
     if (isCustomTopic && customUnitId) {
@@ -549,46 +500,26 @@ const PresetBuilder = () => {
         </Card>
 
         {/* Public Presets (bundled, read-only) */}
-        {publicUnitPresets.length > 0 && (
-          <Card className="p-4 mb-6 border-primary/40">
-            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-              <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4 text-primary" />
-                <h2 className="text-lg font-semibold">Public Presets</h2>
-              </div>
-              <span className="text-xs text-muted-foreground">Curated presets for this unit</span>
-            </div>
-            <div className="space-y-2">
-              {publicUnitPresets.map(preset => (
-                <div
-                  key={preset.id}
-                  className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-primary transition-colors flex-wrap gap-3"
-                >
-                  <div className="flex flex-col min-w-0">
-                    <span className="font-medium">{preset.name}</span>
-                    {preset.description && (
-                      <span className="text-muted-foreground text-sm">{preset.description}</span>
-                    )}
-                    <span className="text-muted-foreground text-xs">
-                      {preset.questionIds.length} questions{preset.author ? ` • by ${preset.author}` : ''}
-                    </span>
-                  </div>
-                  <div className="flex gap-2 flex-wrap justify-end">
-                    <Button size="sm" onClick={() => handleUsePublicPreset(preset)}>
-                      <Play className="mr-1 h-3 w-3" /> Use
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleSavePublicToMyPresets(preset)}>
-                      <Save className="mr-1 h-3 w-3" /> Save
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleDownloadPublicPreset(preset)}>
-                      <Download className="h-3 w-3" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        )}
+        <PublicPresetLibrary
+          presets={publicUnitPresets}
+          questions={questions}
+          unitLabels={{ [unitId || '']: getTopicName() || unitId || '' }}
+          onUse={(preset, presetQuestions) => {
+            navigate(`/quiz/${subject}/${unitId}/preset?t=${Date.now()}&publicPresetId=${encodeURIComponent(preset.id)}`, {
+              state: { presetQuestions, presetName: preset.name, startNewAttempt: true },
+              replace: true,
+            });
+          }}
+          onSelect={(preset, ids) => {
+            setSelectedIds(new Set(ids));
+            setSelectionOrder(ids);
+            setPresetName(preset.name);
+          }}
+          onSave={(preset, ids) => {
+            createPreset(preset.name, subject || '', unitId || '', ids);
+            toast.success('Saved to your presets');
+          }}
+        />
         
         {/* Selected count and actions */}
         <Card className="p-4 mb-6 flex items-center justify-between flex-wrap gap-4">
