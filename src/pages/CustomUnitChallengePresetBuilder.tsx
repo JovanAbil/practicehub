@@ -21,6 +21,8 @@ import usePresets, { Preset } from '@/hooks/usePresets';
 import MathText from '@/components/MathText';
 import { Question } from '@/types/quiz';
 import { parseTsQuestionFile } from '@/utils/tsQuestionParser';
+import { getPublicPresetsForSubject } from '@/data/public-presets';
+import PublicPresetLibrary from '@/components/PublicPresetLibrary';
 
 // Truncate question text for display - LaTeX aware
 const truncateQuestion = (text: string, maxLength: number = 100): string => {
@@ -101,6 +103,19 @@ const CustomUnitChallengePresetBuilder = () => {
   useEffect(() => {
     setSelectedQuestionIds(new Set());
   }, [unitId]);
+
+  const publicCustomPresets = useMemo(
+    () => getPublicPresetsForSubject(subjectKey),
+    [subjectKey]
+  );
+
+  const availableQuestions = useMemo(() => {
+    const pool = [
+      ...allQuestionsByTopic.flatMap(topic => topic.questions),
+      ...uploadedQuestions,
+    ];
+    return [...new Map(pool.map(q => [q.id, q])).values()];
+  }, [allQuestionsByTopic, uploadedQuestions]);
 
   if (!isLoaded) {
     return (
@@ -232,10 +247,7 @@ const CustomUnitChallengePresetBuilder = () => {
         }
 
         const importedIds = fileData.preset.questionIds as string[];
-        const allQuestions: Question[] = [];
-        allQuestionsByTopic.forEach(({ questions }) => {
-          allQuestions.push(...questions);
-        });
+        const allQuestions = availableQuestions;
         const availableIds = new Set(allQuestions.map(q => q.id));
         const missingIds = importedIds.filter(id => !availableIds.has(id));
         const validIds = importedIds.filter(id => availableIds.has(id));
@@ -277,10 +289,7 @@ const CustomUnitChallengePresetBuilder = () => {
   };
 
   const handleUsePreset = (preset: Preset) => {
-    const allQuestions: Question[] = [];
-    allQuestionsByTopic.forEach(({ questions }) => {
-      allQuestions.push(...questions);
-    });
+    const allQuestions = availableQuestions;
     
     const presetQuestions = allQuestions.filter(q => preset.questionIds.includes(q.id));
     
@@ -296,7 +305,7 @@ const CustomUnitChallengePresetBuilder = () => {
       toast.error('Please select at least one question');
       return;
     }
-    const allQs = [...allQuestionsByTopic.flatMap(t => t.questions), ...uploadedQuestions];
+    const allQs = availableQuestions;
     const selectedQs = allQs.filter(q => selectedQuestionIds.has(q.id));
 
     // Use replace + unique timestamp to force Quiz.tsx to re-mount and pick up new state
@@ -484,6 +493,29 @@ const CustomUnitChallengePresetBuilder = () => {
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
+
+        {/* Public Presets */}
+        <PublicPresetLibrary
+          presets={publicCustomPresets}
+          questions={availableQuestions}
+          unitLabels={Object.fromEntries(allQuestionsByTopic.map(t => [t.topicId, t.topicName]))}
+          onUse={(preset, presetQuestions) => {
+            navigate(`/quiz/${subjectKey}/course-challenge/cram?t=${Date.now()}&publicPresetId=${encodeURIComponent(preset.id)}`, {
+              state: { presetQuestions, presetName: preset.name, startNewAttempt: true },
+              replace: true,
+            });
+          }}
+          onSelect={(preset, ids) => {
+            setSelectedQuestionIds(new Set(ids));
+            setPresetName(preset.name);
+            setEditingPresetId(null);
+            setShowSaveForm(true);
+          }}
+          onSave={(preset, ids) => {
+            createPreset(preset.name, subjectKey, 'course-challenge', ids);
+            toast.success('Saved to your presets');
+          }}
+        />
 
         {/* Saved Presets */}
         <Card className="p-6 mb-6">
