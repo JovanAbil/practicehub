@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "preset": {
+    "name": "moleculargeometry",
+    "subject": "apchem",
+    "unitId": "compounds",
+    "questionIds": [
+      "compounds-89",
+      "compounds-90",
+      "compounds-76",
+      "compounds-75",
+      "compounds-74",
+      "compounds-73",
+      "compounds-77"
+    ]
+  }
+}
