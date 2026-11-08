@@ -475,7 +475,7 @@ export const compounds1Questions: Question[] = [
     id: "compounds-76",
     type: "free-response",
     question: "What is the acronym for always polar molecular geometry?",
-    correctAnswer: "BATTSS",
+    correctAnswer: "BATTSS, Bent, Angular, Trigonal Pyramidal, T-Shaped, Seesaw, Square Pyramidal",
   },
   {
     id: "compounds-77",
