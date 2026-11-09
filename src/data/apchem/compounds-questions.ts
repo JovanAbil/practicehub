@@ -469,7 +469,7 @@ export const compounds1Questions: Question[] = [
     id: "compounds-75",
     type: "free-response",
     question: "What molecular geometry is usually nonpolar IF the bonded atoms are the same element",
-    correctAnswer: "Linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral, square planar, and pentagonal bipyramidal",
+    correctAnswer: "Linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral, square planar",
   },
   {
     id: "compounds-76",
