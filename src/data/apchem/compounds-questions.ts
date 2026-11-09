@@ -528,7 +528,7 @@ export const compounds1Questions: Question[] = [
   {
     id: "compounds-85",
     type: "free-response",
-    question: "When it says “Which value of $n$ will produce a Lewis diagram with exactly _ lone pears on the X atom” and they give XY$_{n}$ where $n = a, b, \\text{or } c$, how do you justify? [AP FRQ Format]",
+    question: "When it says “Which value of $n$ will produce a Lewis diagram with exactly _ lone pairs on the X atom” and they give XY$_{n}$ where $n = a, b, \\text{or } c$, how do you justify? [AP FRQ Format]",
     correctAnswer: "Draw each structure out and then pick the correct one that fits the description.",
   },
   {
