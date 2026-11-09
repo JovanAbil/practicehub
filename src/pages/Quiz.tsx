@@ -1174,13 +1174,6 @@ const Quiz = () => {
                 </div>
               )}
 
-              {isSubmitted && 'explanation' in currentQuestion && currentQuestion.explanation && (
-                <div className="mt-6 p-4 bg-muted rounded-lg">
-                  <h4 className="font-semibold mb-2">Explanation:</h4>
-                  <MathText tag="p" className="whitespace-pre-line text-sm" enableChemistry={subject === 'chemistry'}>{currentQuestion.explanation}</MathText>
-                </div>
-              )}
-
               {isSubmitted && currentQuestion.type === 'free-response' && !(currentQuestion.listAnswers && currentQuestion.listAnswers.length > 0) && (
                 <div className="mt-6 p-4 bg-primary/5 border-2 border-primary rounded-lg">
                   <h4 className="font-semibold mb-2">Correct Answer:</h4>
@@ -1235,6 +1228,14 @@ const Quiz = () => {
                       </Button>
                     </div>
                   </div>
+                </div>
+              )}
+
+              {/* Explanation sits below the answer options / "Correct Answer" box */}
+              {isSubmitted && 'explanation' in currentQuestion && currentQuestion.explanation && (
+                <div className="mt-6 p-4 bg-muted rounded-lg">
+                  <h4 className="font-semibold mb-2">Explanation:</h4>
+                  <MathText tag="p" className="whitespace-pre-line text-sm" enableChemistry={subject === 'chemistry'}>{currentQuestion.explanation}</MathText>
                 </div>
               )}
 
