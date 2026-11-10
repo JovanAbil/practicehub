@@ -1,6 +1,6 @@
 import { Question } from '@/types/quiz';
 
-export const civilWarQuestions: Question[] = [
+export const civilwarQuestions: Question[] = [
   {
     id: 'civilwar-1',
     type: 'multiple-choice',
