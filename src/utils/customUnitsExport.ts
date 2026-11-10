@@ -799,7 +799,9 @@ export const parseTopicFile = (content: string): { questions: Question[], mathEn
                   else { if (cc === '"' || cc === "'") { caInStr = true; caStrChar = cc; } else if (cc === '[') caDepth++; else if (cc === ']') { caDepth--; if (caDepth === 0) { caEnd = ci; break; } } }
                 }
                 if (caEnd !== -1) {
-                  const correctAnswers = parseStringArrayLiteral(questionStr.substring(caStart, caEnd + 1));
+                  // FIX: assign to the outer variable (previously `const correctAnswers = ...`
+                  // shadowed it, so the parsed answers were discarded)
+                  correctAnswers = parseStringArrayLiteral(questionStr.substring(caStart, caEnd + 1));
                 }
               }
               const q: Question = {
