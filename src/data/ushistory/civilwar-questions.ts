@@ -372,40 +372,6 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-10',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Spotsylvania Court House',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'May 8–19, 1864, Spotsylvania Court House, Virginia',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: Ulysses S. Grant',
-          'Confederacy: Robert E. Lee',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'The second of Grant’s battles in his 1864 Virginia campaign (after the Wilderness)',
-          'From May 4 to June 18, 1864, Grant lost nearly 60,000 men to Lee’s 32,000',
-          'Grant kept pushing on to Cold Harbor and Petersburg',
-        ],
-      },
-    ],
-  },
-  {
     id: 'civilwar-11',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Cold Harbor',
