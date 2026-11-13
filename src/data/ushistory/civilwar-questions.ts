@@ -451,45 +451,6 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-12',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Siege of Port Hudson',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'July 8, 1863 (textbook map), Louisiana, about five days after Vicksburg fell',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union forces',
-          'Confederate defenders of Port Hudson',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'The last Confederate holdout on the Mississippi River',
-          'Its fall, with Vicksburg, cut the Confederacy in two',
-        ],
-      },
-    ],
-  },
-  {
     id: 'civilwar-13',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Chickamauga',
