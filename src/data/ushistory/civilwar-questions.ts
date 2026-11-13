@@ -2,87 +2,6 @@ import { Question } from '@/types/quiz';
 
 export const civilwarQuestions: Question[] = [
   {
-    id: 'civilwar-1',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Fort Sumter',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'April 12, 1861, Charleston Harbor, South Carolina',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Confederate artillery batteries (General P. G. T. Beauregard)',
-          'Union garrison at Fort Sumter (Major Robert Anderson)',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Confederacy',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'Fort Sumter was the last Union-occupied outpost in Confederate territory (in South Carolina)',
-          'The attack began the Civil War',
-          'Minimal casualties: zero direct combat deaths',
-          'After it, Virginia, Arkansas, Tennessee and North Carolina joined the Confederacy (11 states in total)',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-2',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: First Battle of Bull Run (Manassas)',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'July 21, 1861, Manassas/Bull Run, Virginia, not far from Washington, D.C.',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: General Irvin McDowell',
-          'Confederacy: Generals P. G. T. Beauregard and Joseph E. Johnston',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Confederacy',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'The first true (major) battle of the Civil War',
-          'About 4,700 casualties',
-          'The Confederacy also won the "rematch" one year later (Second Bull Run)',
-        ],
-      },
-    ],
-  },
-  {
     id: 'civilwar-3',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Hampton Roads (Monitor vs. Merrimack)',
@@ -192,88 +111,6 @@ export const civilwarQuestions: Question[] = [
           'A Confederate incursion into Union territory',
           'Led to the Emancipation Proclamation (initial proclamation September 22, 1862)',
           'One of only two major battles fought in Union territory',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-6',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Fredericksburg',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'December 13, 1862, Fredericksburg, Virginia',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: General Ambrose Burnside',
-          'Confederacy: General Robert E. Lee',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Confederacy',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'About 17,900 casualties',
-          'Another Confederate victory over the Union army in Virginia',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-7',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Chancellorsville',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'May 1–5, 1863, Chancellorsville (Spotsylvania County), Virginia',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: General Joseph Hooker',
-          'Confederacy: General Robert E. Lee (with Stonewall Jackson)',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Confederacy',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'Lee outmaneuvered Hooker and forced the Union army to retreat',
-          'About 29,600 casualties',
-          'Stonewall Jackson was mistaken for a Yankee and shot in the left arm by Confederate guards (May 2)',
-          'Jackson’s arm was amputated and he died of pneumonia on May 10',
-          'Lee said, "He has lost his left arm, but I have lost my right."',
-          'After it, Lee decided to invade the North',
         ],
       },
     ],
@@ -803,18 +640,6 @@ export const civilwarQuestions: Question[] = [
       'Confederate general under Lee',
       'Led the attack on Cemetery Ridge on the second day at Gettysburg (through the peach orchard and wheat field)',
       'Reluctantly ordered Pickett’s Charge on the third day at Lee’s insistence',
-    ],
-    explanation: '',
-  },
-  {
-    id: 'civilwar-25',
-    type: 'free-response',
-    question: 'Jeb Stuart (J. E. B. Stuart): list everything he did and where he showed up.',
-    correctAnswer: '',
-    listAnswers: [
-      'Confederate cavalry commander',
-      'Lee sent him circling around the right flank of Meade’s forces at Gettysburg',
-      'His campaign stalled when he clashed with Union forces under David Gregg three miles away',
     ],
     explanation: '',
   },
