@@ -85,85 +85,6 @@ export const civilwarQuestions: Question[] = [
   {
     id: 'civilwar-3',
     type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Fort Henry and Fort Donelson',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'February 11–16, 1862, Tennessee',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: Ulysses S. Grant',
-          'Confederacy: John B. Floyd',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'About 19,300 casualties, with heavy Confederate losses by capture',
-          'Once Grant began fighting in Tennessee, Lincoln recognized his abilities',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-4',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Shiloh',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'April 6–7, 1862, Tennessee',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: Ulysses S. Grant',
-          'Confederacy: Albert Sidney Johnston',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'Very bloody: about 23,700 casualties (about 24,000 in two days)',
-          'Newspapers demanded Grant’s dismissal afterward',
-          'Lincoln replied, "I can’t spare this man. He fights."',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-5',
-    type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Hampton Roads (Monitor vs. Merrimack)',
     parts: [
       {
@@ -195,7 +116,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-6',
+    id: 'civilwar-4',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Second Battle of Bull Run (Manassas)',
     parts: [
@@ -234,7 +155,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-7',
+    id: 'civilwar-5',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Antietam',
     parts: [
@@ -276,7 +197,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-8',
+    id: 'civilwar-6',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Fredericksburg',
     parts: [
@@ -315,7 +236,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-9',
+    id: 'civilwar-7',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Chancellorsville',
     parts: [
@@ -358,7 +279,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-10',
+    id: 'civilwar-8',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Vicksburg Campaign and Siege',
     parts: [
@@ -404,7 +325,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-11',
+    id: 'civilwar-9',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Gettysburg',
     parts: [
@@ -451,100 +372,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-13',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Chickamauga',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'September 19–20, 1863, near Chattanooga (northern Georgia on the textbook map)',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Confederacy (marked as a Confederate victory on the textbook map)',
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'A Confederate victory shown on the textbook map',
-          'Fought shortly before the Union victory at Chattanooga',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-14',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Chattanooga (Chattanooga–Lookout Mountain)',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'November 25, 1863, Chattanooga, Tennessee',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union (marked as a Union victory on the textbook map)',
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'A Union victory shown on the textbook map',
-          'Chattanooga was the starting point of Sherman’s March (per your review board)',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-15',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of the Wilderness',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'May 5–7, 1864, a wooded area known as the Wilderness, near Fredericksburg, Virginia',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: Ulysses S. Grant',
-          'Confederacy: Robert E. Lee',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'The first of Grant’s string of battles in Virginia starting in May 1864 (Wilderness Campaign)',
-          'Fighting was brutal, made worse by fires spreading through the thick trees',
-          'Grant kept going instead of retreating; he promised Lincoln, "Whatever happens, there will be no turning back"',
-          'Part of Grant’s strategy to immobilize Lee’s army in Virginia while Sherman raided Georgia',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-16',
+    id: 'civilwar-10',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Spotsylvania Court House',
     parts: [
@@ -578,7 +406,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-17',
+    id: 'civilwar-11',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Cold Harbor',
     parts: [
@@ -619,7 +447,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-18',
+    id: 'civilwar-12',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Siege of Petersburg',
     parts: [
@@ -660,7 +488,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-19',
+    id: 'civilwar-13',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Mobile Bay',
     parts: [
@@ -700,7 +528,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-20',
+    id: 'civilwar-14',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Capture of Atlanta',
     parts: [
@@ -743,47 +571,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-21',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Sheridan’s Shenandoah Valley Campaign',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'Fall 1864, the Shenandoah Valley in northern Virginia',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: General Philip Sheridan',
-          'Confederacy: Confederate forces in the Valley',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'Sheridan chased the Confederates out of the Shenandoah Valley',
-          'The victories buoyed the North',
-          'With the help of absentee ballots cast by Union soldiers, Lincoln won a second term',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-22',
+    id: 'civilwar-15',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Battle of Griswoldville',
     parts: [
@@ -824,7 +612,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-23',
+    id: 'civilwar-16',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Sherman’s March to the Sea',
     parts: [
@@ -869,46 +657,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-24',
-    type: 'parts',
-    question: 'BATTLE / CAMPAIGN: Battle of Nashville',
-    parts: [
-      {
-        label: 'a',
-        type: 'free-response',
-        question: 'When and where did it take place?',
-        correctAnswer: 'December 15–16, 1864, Nashville, Tennessee',
-      },
-      {
-        label: 'b',
-        type: 'free-response',
-        question: 'Who fought? List the commander(s) or forces on each side.',
-        correctAnswer: '',
-        listAnswers: [
-          'Union: forces under Maj. Gen. George H. Thomas, left behind by Sherman to contain Hood',
-          'Confederacy: Lt. Gen. John Bell Hood',
-        ],
-      },
-      {
-        label: 'c',
-        type: 'free-response',
-        question: 'Who won?',
-        correctAnswer: 'The Union (marked as a Union victory on the textbook map)',
-      },
-      {
-        label: 'd',
-        type: 'free-response',
-        question: 'List the key facts: what happened and why it mattered.',
-        correctAnswer: '',
-        listAnswers: [
-          'Sherman split his force: 62,000 men went on the March while Thomas used the rest to contain Hood',
-          'Hood’s army was the Confederate army Sherman had to contend with on the way to the sea',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'civilwar-25',
+    id: 'civilwar-17',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Sherman’s Carolinas Campaign',
     parts: [
@@ -951,7 +700,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-26',
+    id: 'civilwar-18',
     type: 'parts',
     question: 'BATTLE / CAMPAIGN: Surrender at Appomattox Court House',
     parts: [
@@ -994,7 +743,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-27',
+    id: 'civilwar-19',
     type: 'free-response',
     question: 'Abraham Lincoln: list everything he did during the war and after, and where/when he showed up.',
     correctAnswer: '',
@@ -1018,7 +767,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-28',
+    id: 'civilwar-20',
     type: 'free-response',
     question: 'Jefferson Davis: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1032,7 +781,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-29',
+    id: 'civilwar-21',
     type: 'free-response',
     question: 'Robert E. Lee: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1051,7 +800,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-30',
+    id: 'civilwar-22',
     type: 'free-response',
     question: 'Stonewall Jackson: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1066,7 +815,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-31',
+    id: 'civilwar-23',
     type: 'free-response',
     question: 'George Pickett: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1080,7 +829,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-32',
+    id: 'civilwar-24',
     type: 'free-response',
     question: 'James Longstreet: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1092,7 +841,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-33',
+    id: 'civilwar-25',
     type: 'free-response',
     question: 'Jeb Stuart (J. E. B. Stuart): list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1104,7 +853,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-35',
+    id: 'civilwar-26',
     type: 'free-response',
     question: 'George McClellan: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1118,7 +867,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-36',
+    id: 'civilwar-27',
     type: 'free-response',
     question: 'George Pendleton: who was he and what did he do?',
     correctAnswer: '',
@@ -1129,7 +878,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-37',
+    id: 'civilwar-28',
     type: 'free-response',
     question: 'Ulysses S. Grant: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1147,7 +896,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-38',
+    id: 'civilwar-29',
     type: 'free-response',
     question: 'William T. Sherman: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1166,7 +915,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-39',
+    id: 'civilwar-30',
     type: 'free-response',
     question: 'John Wilkes Booth: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1181,7 +930,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-40',
+    id: 'civilwar-31',
     type: 'free-response',
     question: 'Clara Barton: list everything she did.',
     correctAnswer: '',
@@ -1194,7 +943,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-41',
+    id: 'civilwar-32',
     type: 'free-response',
     question: 'Andrew Johnson: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1207,7 +956,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-42',
+    id: 'civilwar-33',
     type: 'free-response',
     question: 'Joshua Chamberlain: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1222,7 +971,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-43',
+    id: 'civilwar-34',
     type: 'free-response',
     question: 'George Meade: list everything he did and where he showed up.',
     correctAnswer: '',
@@ -1235,7 +984,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-59',
+    id: 'civilwar-35',
     type: 'free-response',
     question: 'Mathew Brady: who was he and what did he do?',
     correctAnswer: '',
@@ -1248,7 +997,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-66',
+    id: 'civilwar-36',
     type: 'free-response',
     question: 'Jefferson C. Davis (Union general): what happened at Ebenezer Creek?',
     correctAnswer: '',
@@ -1262,7 +1011,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-72',
+    id: 'civilwar-37',
     type: 'free-response',
     question: 'Alexander Stephens: who was he?',
     correctAnswer: '',
@@ -1272,7 +1021,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-75',
+    id: 'civilwar-38',
     type: 'free-response',
     question: 'Give the date (month and year, or exact date if you know it) of each: Fort Sumter, First Bull Run, Fort Henry/Fort Donelson, Shiloh, Hampton Roads, Second Bull Run, Antietam, Fredericksburg.',
     correctAnswer: '',
@@ -1289,7 +1038,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-76',
+    id: 'civilwar-39',
     type: 'free-response',
     question: 'Give the date of each: Emancipation Proclamation (took effect), Chancellorsville, Gettysburg, Vicksburg surrenders, Port Hudson falls, Chickamauga, Gettysburg Address, Chattanooga.',
     correctAnswer: '',
@@ -1306,7 +1055,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-77',
+    id: 'civilwar-40',
     type: 'free-response',
     question: 'Give the date of each: Grant appointed commander of all armies, Wilderness, Spotsylvania, Cold Harbor, Mobile Bay, Atlanta captured, Election of 1864 (month).',
     correctAnswer: '',
@@ -1322,7 +1071,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-78',
+    id: 'civilwar-41',
     type: 'free-response',
     question: 'Give the date of each: Sherman leaves Atlanta, Griswoldville, Ebenezer Creek, Nashville, Savannah captured.',
     correctAnswer: '',
@@ -1336,7 +1085,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-79',
+    id: 'civilwar-42',
     type: 'free-response',
     question: 'Give the date of each: Second Inaugural Address, Richmond evacuated, Lee surrenders, Lincoln shot, Lincoln dies, Booth cornered and killed, Thirteenth Amendment passes Congress.',
     correctAnswer: '',
@@ -1352,7 +1101,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-80',
+    id: 'civilwar-43',
     type: 'free-response',
     question: 'Put these events in chronological order, starting with VICKSBURG and ending with the assassination (earliest first): Atlanta captured, Mobile Bay, Lee surrenders at Appomattox, Vicksburg, Election of 1864, Cold Harbor, Lincoln assassinated, Sherman reaches Savannah, Gettysburg Address, Grant appointed commander, Petersburg falls.',
     correctAnswer: '',
@@ -1372,7 +1121,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-81',
+    id: 'civilwar-44',
     type: 'free-response',
     question: 'Write the FULL timeline from Vicksburg onward in order, including the election and the surrender (earliest first).',
     correctAnswer: '',
@@ -1405,7 +1154,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-82',
+    id: 'civilwar-45',
     type: 'free-response',
     question: 'List Grant’s 1864 Virginia battles in order, and the number of men he lost in an hour at the last of the big three.',
     correctAnswer: '',
@@ -1418,7 +1167,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-83',
+    id: 'civilwar-46',
     type: 'free-response',
     question: 'List the steps of the Vicksburg campaign in order.',
     correctAnswer: '',
@@ -1434,7 +1183,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-84',
+    id: 'civilwar-47',
     type: 'free-response',
     question: 'List the three days of Gettysburg in order and what happened each day.',
     correctAnswer: '',
@@ -1447,7 +1196,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-85',
+    id: 'civilwar-48',
     type: 'free-response',
     question: 'Put Sherman’s campaign in order from Atlanta to the end.',
     correctAnswer: '',
@@ -1465,7 +1214,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-86',
+    id: 'civilwar-49',
     type: 'free-response',
     question: 'Put the end of the war and its aftermath in order, from Petersburg.',
     correctAnswer: '',
@@ -1481,7 +1230,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-87',
+    id: 'civilwar-50',
     type: 'free-response',
     question: 'Put the early events in order: Lincoln elected, South Carolina secedes, Davis becomes Confederate president, Lincoln inaugurated, Fort Sumter, Virginia and others join, First Bull Run.',
     correctAnswer: '',
@@ -1497,7 +1246,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-88',
+    id: 'civilwar-51',
     type: 'free-response',
     question: 'Put the emancipation events in order.',
     correctAnswer: '',
@@ -1512,7 +1261,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-89',
+    id: 'civilwar-52',
     type: 'free-response',
     question: '1864 election: list the parties, candidates and platforms.',
     correctAnswer: '',
@@ -1524,7 +1273,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-90',
+    id: 'civilwar-53',
     type: 'free-response',
     question: '1864 election: list the results.',
     correctAnswer: '',
@@ -1539,7 +1288,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-91',
+    id: 'civilwar-54',
     type: 'free-response',
     question: '1864 election: what changed Lincoln’s chances between the summer and the fall?',
     correctAnswer: '',
@@ -1554,7 +1303,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-92',
+    id: 'civilwar-55',
     type: 'free-response',
     question: '1864 election: why did Lincoln run as the National Union Party and why Andrew Johnson?',
     correctAnswer: '',
@@ -1567,7 +1316,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-93',
+    id: 'civilwar-56',
     type: 'free-response',
     question: 'Who were the Copperheads and what did they want?',
     correctAnswer: '',
@@ -1579,7 +1328,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-94',
+    id: 'civilwar-57',
     type: 'free-response',
     question: 'List the major reasons the Confederacy lost after 1863.',
     correctAnswer: '',
@@ -1597,7 +1346,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-95',
+    id: 'civilwar-58',
     type: 'free-response',
     question: 'Explain how the ANACONDA PLAN helped defeat the Confederacy.',
     correctAnswer: '',
@@ -1611,7 +1360,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-96',
+    id: 'civilwar-59',
     type: 'free-response',
     question: 'Explain how VICKSBURG hurt the Confederacy.',
     correctAnswer: '',
@@ -1625,7 +1374,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-97',
+    id: 'civilwar-60',
     type: 'free-response',
     question: 'Explain how SHERMAN’S MARCH hurt the Confederacy.',
     correctAnswer: '',
@@ -1640,7 +1389,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-98',
+    id: 'civilwar-61',
     type: 'free-response',
     question: 'Explain how the SIEGE OF PETERSBURG hurt the Confederacy.',
     correctAnswer: '',
@@ -1652,7 +1401,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-99',
+    id: 'civilwar-62',
     type: 'free-response',
     question: 'Explain how HYPERINFLATION hurt the Confederacy.',
     correctAnswer: '',
@@ -1666,7 +1415,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-100',
+    id: 'civilwar-63',
     type: 'free-response',
     question: 'Explain how GRANT’S WAR OF ATTRITION hurt the Confederacy.',
     correctAnswer: '',
@@ -1679,7 +1428,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-101',
+    id: 'civilwar-64',
     type: 'free-response',
     question: 'Explain how GETTYSBURG hurt the Confederacy.',
     correctAnswer: '',
@@ -1692,7 +1441,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-102',
+    id: 'civilwar-65',
     type: 'parts',
     question: 'Who said it, and what was happening?',
     parts: [
@@ -1747,7 +1496,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-103',
+    id: 'civilwar-66',
     type: 'parts',
     question: 'More quotes: who said it, and what was happening?',
     parts: [
@@ -1802,7 +1551,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-104',
+    id: 'civilwar-67',
     type: 'free-response',
     question: 'Advantages of the NORTH in 1861.',
     correctAnswer: '',
@@ -1819,7 +1568,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-105',
+    id: 'civilwar-68',
     type: 'free-response',
     question: 'Disadvantages of the NORTH in 1861.',
     correctAnswer: '',
@@ -1833,7 +1582,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-106',
+    id: 'civilwar-69',
     type: 'free-response',
     question: 'Advantages of the SOUTH in 1861.',
     correctAnswer: '',
@@ -1848,7 +1597,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-107',
+    id: 'civilwar-70',
     type: 'free-response',
     question: 'Disadvantages of the SOUTH in 1861.',
     correctAnswer: '',
@@ -1864,7 +1613,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-108',
+    id: 'civilwar-71',
     type: 'free-response',
     question: 'Northern war strategies.',
     correctAnswer: '',
@@ -1878,7 +1627,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-109',
+    id: 'civilwar-72',
     type: 'free-response',
     question: 'Southern war strategies.',
     correctAnswer: '',
@@ -1894,7 +1643,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-110',
+    id: 'civilwar-73',
     type: 'parts',
     question: 'Anaconda Plan vs. war of attrition.',
     parts: [
@@ -1919,7 +1668,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-111',
+    id: 'civilwar-74',
     type: 'free-response',
     question: 'List the notable Civil War technology and how each changed the war.',
     correctAnswer: '',
@@ -1938,7 +1687,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-112',
+    id: 'civilwar-75',
     type: 'free-response',
     question: 'Expectations for the war versus the state of the war at the end of 1862.',
     correctAnswer: '',
@@ -1952,7 +1701,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-113',
+    id: 'civilwar-76',
     type: 'free-response',
     question: 'How did Lincoln’s rationale for the war change?',
     correctAnswer: '',
@@ -1966,7 +1715,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-114',
+    id: 'civilwar-77',
     type: 'free-response',
     question: 'What did the Emancipation Proclamation do and not do?',
     correctAnswer: '',
@@ -1980,7 +1729,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-115',
+    id: 'civilwar-78',
     type: 'free-response',
     question: 'What was the role of African American soldiers in the war?',
     correctAnswer: '',
@@ -1993,7 +1742,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-116',
+    id: 'civilwar-79',
     type: 'free-response',
     question: 'What did most Civil War battles look like and how were they fought?',
     correctAnswer: '',
@@ -2009,7 +1758,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-117',
+    id: 'civilwar-80',
     type: 'free-response',
     question: 'Describe Civil War medical treatment.',
     correctAnswer: '',
@@ -2028,7 +1777,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-118',
+    id: 'civilwar-81',
     type: 'free-response',
     question: 'Why was the Thirteenth Amendment needed, and what did it do?',
     correctAnswer: '',
@@ -2042,7 +1791,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-119',
+    id: 'civilwar-82',
     type: 'free-response',
     question: 'Describe life during the war: conscription, income tax, habeas corpus, greenbacks.',
     correctAnswer: '',
@@ -2058,7 +1807,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-120',
+    id: 'civilwar-83',
     type: 'free-response',
     question: 'Describe the New York City draft riots.',
     correctAnswer: '',
@@ -2072,7 +1821,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-121',
+    id: 'civilwar-84',
     type: 'free-response',
     question: 'Describe Andersonville prison.',
     correctAnswer: '',
@@ -2084,7 +1833,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-122',
+    id: 'civilwar-85',
     type: 'free-response',
     question: 'Describe inflation in the Confederacy.',
     correctAnswer: '',
@@ -2097,7 +1846,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-123',
+    id: 'civilwar-86',
     type: 'free-response',
     question: 'What is Sherman’s total war (scorched earth)?',
     correctAnswer: '',
@@ -2113,7 +1862,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-124',
+    id: 'civilwar-87',
     type: 'free-response',
     question: 'What are "Sherman’s hairpins" or "Jeff Davis neckties"?',
     correctAnswer: '',
@@ -2125,7 +1874,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-125',
+    id: 'civilwar-88',
     type: 'free-response',
     question: 'What were the results of the war?',
     correctAnswer: '',
@@ -2143,7 +1892,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-126',
+    id: 'civilwar-89',
     type: 'free-response',
     question: 'Economic effects of the war on the NORTH and the SOUTH.',
     correctAnswer: '',
@@ -2158,7 +1907,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-127',
+    id: 'civilwar-90',
     type: 'free-response',
     question: 'Political effects of the war.',
     correctAnswer: '',
@@ -2171,7 +1920,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-128',
+    id: 'civilwar-91',
     type: 'free-response',
     question: 'How were civilians affected by the war?',
     correctAnswer: '',
@@ -2188,7 +1937,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-129',
+    id: 'civilwar-92',
     type: 'free-response',
     question: 'Describe the assassination of Lincoln and the manhunt for Booth.',
     correctAnswer: '',
@@ -2204,7 +1953,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-130',
+    id: 'civilwar-93',
     type: 'free-response',
     question: 'Describe Lincoln’s Second Inaugural Address.',
     correctAnswer: '',
@@ -2218,7 +1967,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-131',
+    id: 'civilwar-94',
     type: 'free-response',
     question: 'Describe the surrender at Appomattox.',
     correctAnswer: '',
@@ -2234,7 +1983,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-132',
+    id: 'civilwar-95',
     type: 'free-response',
     question: 'Describe the Gettysburg Address.',
     correctAnswer: '',
@@ -2251,7 +2000,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-134',
+    id: 'civilwar-96',
     type: 'free-response',
     question: 'Geography: list the major battles by location.',
     correctAnswer: '',
@@ -2271,7 +2020,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-135',
+    id: 'civilwar-97',
     type: 'parts',
     question: 'Eastern vs. Western Theatre.',
     parts: [
@@ -2300,7 +2049,7 @@ export const civilwarQuestions: Question[] = [
     ],
   },
   {
-    id: 'civilwar-136',
+    id: 'civilwar-98',
     type: 'free-response',
     question: 'Define habeas corpus and explain why Lincoln suspended it.',
     correctAnswer: '',
@@ -2312,7 +2061,7 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-137',
+    id: 'civilwar-99',
     type: 'free-response',
     question: 'What was the Union navy’s role in the war?',
     correctAnswer: '',
@@ -2325,217 +2074,217 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-138',
+    id: 'civilwar-100',
     type: 'free-response',
     question: 'Despite the numerous battles of "attrition" waged by Union generals, when it came to replenishing an army, the Union had a significant advantage in this demographic category.',
     correctAnswer: 'Population',
     explanation: '',
   },
   {
-    id: 'civilwar-139',
+    id: 'civilwar-101',
     type: 'free-response',
     question: 'The first TRUE battle of the Civil War took place here not very far from Washington, D.C. The Confederacy won the battle and the "rematch" one year later.',
     correctAnswer: 'Bull Run / Manassas',
     explanation: '',
   },
   {
-    id: 'civilwar-140',
+    id: 'civilwar-102',
     type: 'free-response',
     question: 'The ability to quickly deploy troops over long distances was revolutionized by the emergence of these in the 1840s and 1850s. The Civil War marked the first time Americans used them in war.',
     correctAnswer: 'Railroads / trains',
     explanation: '',
   },
   {
-    id: 'civilwar-141',
+    id: 'civilwar-103',
     type: 'free-response',
     question: 'This die-hard supporter of the Confederate cause became one of the most infamous people in American history due to his deeds on April 14th, 1865.',
     correctAnswer: 'John Wilkes Booth',
     explanation: '',
   },
   {
-    id: 'civilwar-142',
+    id: 'civilwar-104',
     type: 'free-response',
     question: 'While the Emancipation Proclamation sought to end slavery, it wasn’t until the defeated Southern states were forced to adopt this that slavery truly ended.',
     correctAnswer: 'The Thirteenth Amendment',
     explanation: '',
   },
   {
-    id: 'civilwar-143',
+    id: 'civilwar-105',
     type: 'free-response',
     question: 'As the war broke out in 1861, Lincoln told the nation that the war was being fought to "preserve the Union" rather than to end slavery, for fear of losing these.',
     correctAnswer: 'The Border States',
     explanation: '',
   },
   {
-    id: 'civilwar-144',
+    id: 'civilwar-106',
     type: 'free-response',
     question: 'While the Civil War was waged in many areas, the largest number of battles took place in this state, as both sides "jockeyed" to take the other’s capital city.',
     correctAnswer: 'Virginia',
     explanation: '',
   },
   {
-    id: 'civilwar-145',
+    id: 'civilwar-107',
     type: 'free-response',
     question: 'For the first time in warfare, political and military leaders were able to communicate with one another about battlefield developments due to this new technology.',
     correctAnswer: 'The telegraph',
     explanation: '',
   },
   {
-    id: 'civilwar-146',
+    id: 'civilwar-108',
     type: 'free-response',
     question: 'Historians often cite the leadership and genius of this man as the reason the Confederacy was able to make the war last four years despite its numerous disadvantages.',
     correctAnswer: 'Robert E. Lee',
     explanation: '',
   },
   {
-    id: 'civilwar-147',
+    id: 'civilwar-109',
     type: 'free-response',
     question: 'It was during this speech that Lincoln indicated that Southerners would be treated mercifully when they returned to the Union as he promised "malice toward none and charity for all."',
     correctAnswer: 'The Second Inaugural Address',
     explanation: '',
   },
   {
-    id: 'civilwar-148',
+    id: 'civilwar-110',
     type: 'free-response',
     question: 'After several Union generals were dismissed by President Lincoln, Union prospects for victory began to change after this bold, and perhaps reckless, man became commander of all Union forces in 1864.',
     correctAnswer: 'Ulysses S. Grant',
     explanation: '',
   },
   {
-    id: 'civilwar-149',
+    id: 'civilwar-111',
     type: 'free-response',
     question: 'Historians suggest that the "tide of the war" turned in July of 1863 when Union forces were victorious in these TWO decisive battles.',
     correctAnswer: 'Gettysburg and Vicksburg',
     explanation: '',
   },
   {
-    id: 'civilwar-150',
+    id: 'civilwar-112',
     type: 'free-response',
     question: 'The Monitor and the Merrimack marked the first use of these in battle in the western hemisphere. They were later used with great success in the siege of Vicksburg.',
     correctAnswer: 'Ironclads',
     explanation: '',
   },
   {
-    id: 'civilwar-151',
+    id: 'civilwar-113',
     type: 'free-response',
     question: 'This man led a desperate and futile attack on a fortified Union position that cost the Confederacy about 7,000 men at the battle of Gettysburg.',
     correctAnswer: 'General George Pickett (Pickett’s Charge)',
     explanation: '',
   },
   {
-    id: 'civilwar-152',
+    id: 'civilwar-114',
     type: 'free-response',
     question: 'Due to the carnage that the Civil War had already caused, the main goal of the Democratic "platform" in the 1864 election was this.',
     correctAnswer: 'Peace',
     explanation: '',
   },
   {
-    id: 'civilwar-153',
+    id: 'civilwar-115',
     type: 'free-response',
     question: 'The Civil War was by far the most expensive event in American history to that point in time. To pay for it, the Union enacted this for the first time in 1863, which is still with us today.',
     correctAnswer: 'The income tax',
     explanation: '',
   },
   {
-    id: 'civilwar-154',
+    id: 'civilwar-116',
     type: 'free-response',
     question: 'After nearly a year of Union "sieging," this strategic city fell in 1865, which soon forced Confederate forces to evacuate Richmond, leading to the end of the war.',
     correctAnswer: 'Petersburg',
     explanation: '',
   },
   {
-    id: 'civilwar-155',
+    id: 'civilwar-117',
     type: 'free-response',
     question: 'Americans across the nation were shocked and horrified by the carnage of Civil War battles in part due to the recent development of this technology that was popularized by people like Mathew Brady.',
     correctAnswer: 'Photography',
     explanation: '',
   },
   {
-    id: 'civilwar-156',
+    id: 'civilwar-118',
     type: 'free-response',
     question: 'This former Union general sought revenge against Lincoln for his dismissal by challenging him for the presidency in 1864, and failed.',
     correctAnswer: 'George McClellan',
     explanation: '',
   },
   {
-    id: 'civilwar-157',
+    id: 'civilwar-119',
     type: 'free-response',
     question: 'Terms such as "Sherman’s Hairpins" and "Jeff Davis Neckties" reflect what became of this important part of Southern infrastructure during Sherman’s March.',
     correctAnswer: 'Railroad tracks',
     explanation: '',
   },
   {
-    id: 'civilwar-158',
+    id: 'civilwar-120',
     type: 'free-response',
     question: 'Following the Union enactment of the draft in 1863, fears of job loss to newly freed slaves caused angry rioters, many of them Irish immigrants, to kill over 100 people in a riot in this city.',
     correctAnswer: 'New York City',
     explanation: '',
   },
   {
-    id: 'civilwar-159',
+    id: 'civilwar-121',
     type: 'free-response',
     question: 'This early notable battle and slight Union victory became the bloodiest day in American history and led to the issuing of the Emancipation Proclamation.',
     correctAnswer: 'Antietam',
     explanation: '',
   },
   {
-    id: 'civilwar-160',
+    id: 'civilwar-122',
     type: 'free-response',
     question: 'The ability of soldiers to accurately hit enemy targets over a hundred yards away can in part be attributed to the power of the rifle musket but also to this projectile it fired.',
     correctAnswer: 'The Minié ball',
     explanation: '',
   },
   {
-    id: 'civilwar-161',
+    id: 'civilwar-123',
     type: 'free-response',
     question: 'In an attempt at reconciliation with Southerners, Lincoln chose this former Southern slave owner and member of the opposing political party as his running mate in 1864.',
     correctAnswer: 'Andrew Johnson',
     explanation: '',
   },
   {
-    id: 'civilwar-162',
+    id: 'civilwar-124',
     type: 'free-response',
     question: 'In an attempt to avoid conscription, wealthy Northerners used their money to hire one of "these."',
     correctAnswer: 'Substitutes',
     explanation: '',
   },
   {
-    id: 'civilwar-163',
+    id: 'civilwar-125',
     type: 'free-response',
     question: 'As part of its plan to cut the Confederacy in two, the Union plan for victory called for seizing control of this strategic waterway.',
     correctAnswer: 'The Mississippi River',
     explanation: '',
   },
   {
-    id: 'civilwar-164',
+    id: 'civilwar-126',
     type: 'free-response',
     question: 'The hopeful optimism that "government of the people, by the people, and for the people, shall not perish from the earth" has resonated for over 160 years following this renowned speech.',
     correctAnswer: 'The Gettysburg Address',
     explanation: '',
   },
   {
-    id: 'civilwar-165',
+    id: 'civilwar-127',
     type: 'free-response',
     question: 'This veteran of the Mexican War and senator from Mississippi became president in 1861, but not of the United States.',
     correctAnswer: 'Jefferson Davis',
     explanation: '',
   },
   {
-    id: 'civilwar-166',
+    id: 'civilwar-128',
     type: 'free-response',
     question: 'This "age old" generic military motto, as evidenced by battles like Vicksburg and Sherman’s March, reflected the Union’s overall strategy for defeating the Confederacy.',
     correctAnswer: '"Divide and conquer"',
     explanation: '',
   },
   {
-    id: 'civilwar-167',
+    id: 'civilwar-129',
     type: 'free-response',
     question: 'Lincoln was assassinated on April 14th, 1865 while attending a play at this now infamous location.',
     correctAnswer: 'Ford’s Theatre',
     explanation: '',
   },
   {
-    id: 'civilwar-168',
+    id: 'civilwar-130',
     type: 'free-response',
     question: 'The vast majority of Civil War battles were fought in Confederate territory, with the exception of these TWO notable battles that took place in Union territory.',
     correctAnswer: '',
@@ -2546,105 +2295,105 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-169',
+    id: 'civilwar-131',
     type: 'free-response',
     question: 'While its overall intended effects were somewhat limited initially, this at least allowed African American men to enlist in the Union army in large numbers after its enactment on January 1, 1863.',
     correctAnswer: 'The Emancipation Proclamation',
     explanation: '',
   },
   {
-    id: 'civilwar-170',
+    id: 'civilwar-132',
     type: 'free-response',
     question: 'Today we, too, suffer from this much-despised economic affliction that devastated the Confederacy largely due to the success of the Union blockade.',
     correctAnswer: 'Inflation',
     explanation: '',
   },
   {
-    id: 'civilwar-171',
+    id: 'civilwar-133',
     type: 'free-response',
     question: 'Throughout the course of 1864, Union General W. T. Sherman sought to make "old and young, rich and poor, feel the hard hand of war," a reflection of his belief in this style of combat that he helped to pioneer.',
     correctAnswer: 'Total war',
     explanation: '',
   },
   {
-    id: 'civilwar-172',
+    id: 'civilwar-134',
     type: 'free-response',
     question: 'During the Civil War, battlefield medicine was in its infancy, and as a result, many wounds resulted in this highly unpleasant procedure.',
     correctAnswer: 'Amputation',
     explanation: '',
   },
   {
-    id: 'civilwar-173',
+    id: 'civilwar-135',
     type: 'free-response',
     question: 'The war ended on April 9th, 1865, when Lee’s worn-out army found itself surrounded by Grant in this Virginia town, which is also famous for its courthouse.',
     correctAnswer: 'Appomattox',
     explanation: '',
   },
   {
-    id: 'civilwar-174',
+    id: 'civilwar-136',
     type: 'free-response',
     question: 'In an attempt to influence politics in the Border States and control the actions of his critics, Lincoln suspended this Constitutional right.',
     correctAnswer: 'Habeas corpus',
     explanation: '',
   },
   {
-    id: 'civilwar-175',
+    id: 'civilwar-137',
     type: 'free-response',
     question: 'Although it was briefly located in Montgomery, Alabama, the capital of the Confederacy was quickly moved to this city within close proximity of the Union capital.',
     correctAnswer: 'Richmond, Virginia',
     explanation: '',
   },
   {
-    id: 'civilwar-176',
+    id: 'civilwar-138',
     type: 'free-response',
     question: 'The Civil War marked a new era in naval warfare as both sides developed these new and difficult-to-sink ships.',
     correctAnswer: 'Ironclads',
     explanation: '',
   },
   {
-    id: 'civilwar-177',
+    id: 'civilwar-139',
     type: 'free-response',
     question: 'The battle of Gettysburg took place, in part, due to the increasingly desperate Confederate need for supplies, and more specifically, this most basic item you would expect every soldier to have.',
     correctAnswer: 'Shoes / boots',
     explanation: '',
   },
   {
-    id: 'civilwar-178',
+    id: 'civilwar-140',
     type: 'free-response',
     question: 'The war began on April 12th, 1861, when Confederate artillery batteries fired upon Fort Sumter, the last Union-occupied outpost in Confederate territory, located in this state.',
     correctAnswer: 'South Carolina',
     explanation: '',
   },
   {
-    id: 'civilwar-179',
+    id: 'civilwar-141',
     type: 'free-response',
     question: 'For the first time in American history, the enormous manpower needs of both the Union and Confederate armies required this to be used.',
     correctAnswer: 'Conscription (the draft)',
     explanation: '',
   },
   {
-    id: 'civilwar-180',
+    id: 'civilwar-142',
     type: 'free-response',
     question: 'In the aftermath of the battle of Chancellorsville, the Confederacy suffered a severe blow when it lost this "right-hand man" of Lee’s, one of the South’s greatest generals.',
     correctAnswer: 'Stonewall Jackson',
     explanation: '',
   },
   {
-    id: 'civilwar-181',
+    id: 'civilwar-143',
     type: 'free-response',
     question: 'The Union plan to cut off the South’s ability to trade with "the outside world" is the namesake for the Union’s overall plan for victory.',
     correctAnswer: 'The Anaconda Plan',
     explanation: '',
   },
   {
-    id: 'civilwar-182',
+    id: 'civilwar-144',
     type: 'free-response',
     question: 'What had been "lukewarm" support for Lincoln’s reelection campaign in 1864 changed when Northerners learned that Sherman had captured this prominent Southern city.',
     correctAnswer: 'Atlanta, Georgia',
     explanation: '',
   },
   {
-    id: 'civilwar-183',
+    id: 'civilwar-145',
     type: 'free-response',
     question: 'After starting in Chattanooga, Tennessee, Sherman’s March took his army through these THREE states.',
     correctAnswer: '',
@@ -2656,28 +2405,28 @@ export const civilwarQuestions: Question[] = [
     explanation: '',
   },
   {
-    id: 'civilwar-184',
+    id: 'civilwar-146',
     type: 'free-response',
     question: 'Northern Democrats who advocated for negotiating a peace treaty that would have "legitimized" the Confederacy were known by this "venomous" nickname.',
     correctAnswer: 'Copperheads',
     explanation: '',
   },
   {
-    id: 'civilwar-185',
+    id: 'civilwar-147',
     type: 'free-response',
     question: 'Deprived of adequate food, water and sanitation, thousands of Union soldiers died at this infamous Confederate prison.',
     correctAnswer: 'Andersonville',
     explanation: '',
   },
   {
-    id: 'civilwar-186',
+    id: 'civilwar-148',
     type: 'free-response',
     question: 'Civil War battle tactics still called for long lines of soldiers marching head-on into enemy fire despite the fact that this new, highly accurate weapon had recently been developed.',
     correctAnswer: 'The rifled musket',
     explanation: '',
   },
   {
-    id: 'civilwar-187',
+    id: 'civilwar-149',
     type: 'free-response',
     question: 'One legacy of the Civil War stems from Clara Barton’s efforts during the war to help those in need and her subsequent creation of this organization.',
     correctAnswer: 'The Red Cross',
