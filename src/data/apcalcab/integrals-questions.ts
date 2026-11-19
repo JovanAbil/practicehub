@@ -154,7 +154,7 @@ export const integralsABQuestions: Question[] = [
   {
     id: "integrals-21",
     type: "free-response",
-    question: "What is the formula using summation of the area under a curve of $f(x)$ on the interval $[a, b]$?",
+    question: "What is the formula using summation of the area under a curve of $f(x)$ for the right endpoints on the interval $[a, b]$?",
     correctAnswer: "$\\lim_{n \\to \\infty}\\sum_{k=1}^{n}(\\frac{b-a}{n}) \\times f(a + \\frac{b-a}{n}k)$ where $n$ represents the # of subintervals there are on the interval $[a, b]$ and $k$ represents the $k$th subinterval.",
     explanation: "",
   },
@@ -210,7 +210,7 @@ export const integralsABQuestions: Question[] = [
   {
     id: "integrals-29",
     type: "free-response",
-    question: "Let $F(x) = \\int_{0}^{x} f(t) \\, dt$. Use the graph of $f$ in the figure to find the values of the table on the interval $0 \\leq x \\leq 5. What is $F(x)$ when $x = 5$?",
+    question: "Let $F(x) = \\int_{0}^{x} f(t) \\, dt$. Use the graph of $f$ in the figure to find the values of the table on the interval $0 \\leq x \\leq 5$. What is $F(x)$ when $x = 5$?",
     correctAnswer: "It is $5$.",
     explanation: "Add up all the values if it is above the $x$-axis and subtract the area if the area was under the $x$-axis from $0$ to $5$.",
     image: "/images/apcalcbc/integrals4.png",
