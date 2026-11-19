@@ -687,4 +687,18 @@ export const integralsABQuestions: Question[] = [
     question: "Definite integrals require what?",
     correctAnswer: "Bounds.",
   },
+  {
+    id: "integrals-99",
+    type: "free-response",
+    question: "What is the formula using summation of the area under a curve of $f(x)$ for the left endpoints on the interval $[a, b]$?",
+    correctAnswer: "$\\lim_{n \\to \\infty}\\sum_{k=1}^{n}(\\frac{b-a}{n}) \\times f(a + \\frac{b-a}{n}(k-1))$ where $n$ represents the # of subintervals there are on the interval $[a, b]$ and $k$ represents the $k$th subinterval.",
+    explanation: "",
+  },
+  {
+    id: "integrals-100",
+    type: "free-response",
+    question: "What is the formula using summation of the area under a curve of $f(x)$ for the midpoints on the interval $[a, b]$?",
+    correctAnswer: "$\\lim_{n \\to \\infty}\\sum_{k=1}^{n}(\\frac{b-a}{n}) \\times f(a + \\frac{b-a}{n}(k-\\frac{1}{2}))$ where $n$ represents the # of subintervals there are on the interval $[a, b]$ and $k$ represents the $k$th subinterval.",
+    explanation: "",
+  },
 ];
