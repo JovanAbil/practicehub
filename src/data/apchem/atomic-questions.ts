@@ -1136,4 +1136,16 @@ export const atomic1Questions: Question[] = [
     question: "What electronegativity makes it polar?",
     correctAnswer: "Greater or equal to 0.5 ",
   },
+  {
+    id: "atomic-186",
+    type: "free-response",
+    question: "Is [Compound X] attracted to a magnetic field and why? [AP FRQ Format]",
+    correctAnswer: "[Compound X] would [or would not] be attracted to a magnetic field. [Compound X] has [X] [unpaired/paired] electrons which results in a net magnetic [moment or ‘of 0’] for the atom. This [0 or net magnetic] attraction would [or would not] interact with an external magnetic field because all the electrons in the species are [or aren’t] paired.",
+  },
+  {
+    id: "atomic-187",
+    type: "free-response",
+    question: "When it asks what atomic orbitals are involved in bonding between two atoms, how do you respond?",
+    correctAnswer: "State the specific orbital that the bigger atom connects to the other atom with. [answer like 3p, 4d]",
+  },
 ];
