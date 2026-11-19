@@ -923,4 +923,41 @@ export const compounds1Questions: Question[] = [
     question: "What does London Dispersion apply to?",
     correctAnswer: "Applies to covalently bonded molecules only, not ionic molecules.",
   },
+  {
+    id: "compounds-150",
+    type: "free-response",
+    question: "What makes one ionic solid more conductive in water than another?",
+    correctAnswer: "",
+    listAnswers: ["More solubility, (unknown amount added)","If same $M$ added, more ions dissolved wins","Strong versus weak electrolytes = degree of dissociation so it depends on electrolytes"],
+  },
+  {
+    id: "compounds-151",
+    type: "free-response",
+    question: "What does resonance hybrid mean?",
+    correctAnswer: "Its is a combination/average of all the resonance structures",
+  },
+  {
+    id: "compounds-152",
+    type: "free-response",
+    question: "What does a resonance hybrid of [X] or more electron dot structures mean?",
+    correctAnswer: "A hybrid created out of [X] (where X represents an integer) or more Lewis structures.",
+  },
+  {
+    id: "compounds-153",
+    type: "free-response",
+    question: "What is [For which of the following molecules are reso­nance structures necessary] actually asking for?",
+    correctAnswer: "What structures have resonance.",
+  },
+  {
+    id: "compounds-154",
+    type: "free-response",
+    question: "When an FRQ asks you to compare two molecules's intermolecular forces, what must you always state?",
+    correctAnswer: "Always state all the forces and then compare the difference",
+  },
+  {
+    id: "compounds-155",
+    type: "free-response",
+    question: "What does it mean to be nonpolar? [AP FRQ Format]",
+    correctAnswer: "Directly state that all bonds’ dipoles cancel out, if they do not it is polar.",
+  },
 ];
