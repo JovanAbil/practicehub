@@ -248,10 +248,9 @@ export const compounds1Questions: Question[] = [
   },
   {
     id: "compounds-40",
-    type: "multiple-choice",
-    question: "Is lattice energy endothermic or exothermic?",
-    options: [{"label":"A","value":"A","text":"Endothermic"},{"label":"B","value":"B","text":"Exothermic"}],
-    correctAnswer: "B",
+    type: "free-response",
+    question: "What does it mean to be nonpolar? [AP FRQ Format]",
+    correctAnswer: "Directly state that all bonds’ dipoles cancel out, if they do not it is polar.",
   },
   {
     id: "compounds-41",
@@ -953,11 +952,5 @@ export const compounds1Questions: Question[] = [
     type: "free-response",
     question: "When an FRQ asks you to compare two molecules's intermolecular forces, what must you always state?",
     correctAnswer: "Always state all the forces and then compare the difference",
-  },
-  {
-    id: "compounds-155",
-    type: "free-response",
-    question: "What does it mean to be nonpolar? [AP FRQ Format]",
-    correctAnswer: "Directly state that all bonds’ dipoles cancel out, if they do not it is polar.",
   },
 ];
